@@ -76,31 +76,21 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  <!-- teaser image -->
-  
-  <div class="nblog__teaser-image col-sm-3">
-    {% if content.field_teaser_image %}
+  <div class="press__latest_wrapper">
+    {% if content.field_press_date or content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
-          {{ content.field_teaser_image }}
-      </a>
-    {% endif %}
-  </div>
+        {% if content.field_press_date %}
+            <div class="press__teaser-date">
+              {{ content.field_press_date }}
+            </div>
+        {% endif %}
 
-  <div class="blog__teaser-content teaser-content col-sm-9"> <!-- from medium screen up, show on the right sidebar -->
-    <!-- teaser title -->
-    {% if content.field_teaser_title %}
-      <a href="{{ url }}" rel="bookmark">
-        <div class="blog__teaser-title">
-          {{ content.field_teaser_title }}
-        </div>
+        {% if content.field_teaser_title %}
+            <div class="press__teaser-title">
+              {{ content.field_teaser_title }}
+            </div>
+        {% endif %}
       </a>
-    {% endif %}
-
-    <!-- Teaser text -->
-    {% if content.field_teaser_text %}
-      <div class="blog__teaser-text">
-        {{ content.field_teaser_text }}
-      </div>
     {% endif %}
   </div>
 </article>
