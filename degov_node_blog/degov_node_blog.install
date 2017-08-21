@@ -14,8 +14,8 @@ function degov_node_blog_uninstall() {
 }
 
 /**
- * Enable the usage view mode.
+ * Use the author view mode.
  */
 function degov_node_blog_update_8001() {
-    \Drupal::service('degov_config.updater')->configPartialImport('degov_node_blog');
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_node_blog');
 }
