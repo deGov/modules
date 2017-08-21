@@ -3,7 +3,7 @@
   <div class="nrw-menu-header__icons">
     {% for menu_item in menu_items.menu_tree %}
       {% set element = element + 1 %}
-      
+
       {% if menu_item.url|length == 0 %}
         {% set url = '#' %}
       {% else %}
@@ -68,7 +68,7 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
               </div>
             </div>
-          {% if menu_item.submenu is not empty %}
+          {% if submenu_item.submenu is not empty %}
             <!-- Second level of main menu-->
             <ul class="nrw-menu__list">
               {% for submenu_item in menu_item.submenu %}
@@ -127,12 +127,13 @@
         {% for menu_item in menu_items.menu_tree %}
         <div class="nrw-menu-header-responsive__block-title is-close">
           <div class="nrw-menu-header-responsive__block-title is-close">
-            <i class="fa fa-list" aria-hidden="true"></i>
             <a class="link{% if menu_item.external %} link--external{% endif %}" href="{{ menu_item.url }}"
               title="{{ menu_item.description }}"{% if menu_item.external %} target="_blank"{% endif %}>
               <i class="fa fa-arrow-right" aria-hidden="true"></i>{{ menu_item.text }}
             </a>
-            <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
+            {% if menu_item.submenu is not empty %}
+              <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
+            {% endif %}
           </div>
           <div class="nrw-menu-header-responsive__content is-close">
             {% for submenu_item in menu_item.submenu %}
@@ -142,7 +143,9 @@
                     title="{{ submenu_item.description }}"{% if submenu_item.external %} target="_blank"{% endif %}>
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>{{ submenu_item.text }}
                   </a>
-                  <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
+                  {% if submenu_item.submenu is not empty %}
+                    <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
+                  {% endif %}
                 </div>
                 {% if submenu_item.submenu is not empty %}
                   <!-- Second level of main menu-->
