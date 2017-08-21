@@ -27,10 +27,3 @@ function degov_node_press_uninstall() {
 function degov_node_press_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8002');
 }
-
-/**
- * Update view block for displaying latest press content.
- */
-function degov_node_press_update_8002() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8002');
-}
