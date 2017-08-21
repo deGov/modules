@@ -19,3 +19,10 @@ function degov_media_person_uninstall() {
 function degov_media_person_update_8001() {
   \Drupal::service('degov_config.updater')->configPartialImport('degov_media_person');
 }
+
+/**
+ * Add author view mode.
+ */
+function degov_media_person_update_8002() {
+    \Drupal::service('degov_config.updater')->configPartialImport('degov_media_person');
+}
