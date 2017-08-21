@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.author
     - media_entity.bundle.person
     - node.type.blog
   enforced:
@@ -61,6 +62,9 @@ display:
         type: default
       row:
         type: 'entity:media'
+        options:
+          relationship: none
+          view_mode: author
       fields:
         name:
           id: name
@@ -145,7 +149,7 @@ display:
           exposed: false
           expose:
             label: ''
-      title: 'Blog author'
+      title: Autor
       header: {  }
       footer: {  }
       empty: {  }

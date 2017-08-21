@@ -12,3 +12,10 @@ function degov_node_blog_uninstall() {
     'entity_bundles' => ['blog'],
   ]);
 }
+
+/**
+ * Enable the usage view mode.
+ */
+function degov_node_blog_update_8001() {
+    \Drupal::service('degov_config.updater')->configPartialImport('degov_node_blog');
+}
