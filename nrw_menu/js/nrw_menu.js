@@ -17,7 +17,10 @@
         return;
       }
       // Hover in second level to open menu.
-      $('.nrw-menu-header__col').hover(function () {
+      $('.nrw-menu-header__col').hover(function (e) {
+        if ($(e.target).hasClass('link--nolink')) {
+          return;
+        }
         $(this).toggleClass('is-open');
         $(this).find('.nrw-menu-header__content').toggleClass('is-expanded');
       });
@@ -34,7 +37,8 @@
       });
       // Close the menu on click.
       $('.nrw-menu__content-close a', context).click(function (e) {
-        $(this).parent().parent().parent().removeClass('is-expanded');
+        $(this).closest('.nrw-menu-header__col').removeClass('is-open');
+        $(this).closest('.nrw-menu-header__content').removeClass('is-expanded');
       });
     }
   };
