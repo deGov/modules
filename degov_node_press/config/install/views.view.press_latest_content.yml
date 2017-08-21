@@ -4,13 +4,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.latest
     - node.type.press
+    - taxonomy.vocabulary.tags
   enforced:
     module:
       - degov_node_press
   module:
     - datetime
     - node
-    - taxonomy
     - user
 id: press_latest_content
 label: 'Neuste Pressemitteilung'
@@ -182,22 +182,13 @@ display:
           content: "<p> <a href=\"/de/pressetermine\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSETERMINE</a>\n<a href=\"/de/aktuelles-und-presse/pressekontakt\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSEKONTAKT</a></p>"
           plugin_id: text_custom
       empty: {  }
-      relationships:
-        field_tags:
-          id: field_tags
-          table: node__field_tags
-          field: field_tags
-          relationship: none
-          group_type: group
-          admin_label: 'field_tags: Taxonomy term'
-          required: false
-          plugin_id: standard
+      relationships: {  }
       arguments:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_tags
+        field_tags_target_id:
+          id: field_tags_target_id
+          table: node__field_tags
+          field: field_tags_target_id
+          relationship: none
           group_type: group
           admin_label: ''
           default_action: ignore
@@ -220,22 +211,19 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          glossary: false
-          limit: 0
-          case: none
-          path_case: none
-          transform_dash: false
-          break_phrase: true
-          add_table: false
-          require_value: false
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
+            type: 'entity:taxonomy_term'
+            fail: ignore
+          validate_options:
+            bundles:
+              tags: tags
+            operation: view
+            multiple: 0
+            access: false
+          break_phrase: false
+          not: false
+          plugin_id: numeric
         nid:
           id: nid
           table: node_field_data
