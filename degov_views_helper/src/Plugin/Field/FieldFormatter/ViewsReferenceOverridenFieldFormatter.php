@@ -48,6 +48,9 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
           if (!empty($token_service->scan($argument))) {
             $arguments[$index] = $token_service->replace($argument, ['node' => $node]);
           }
+          if ($argument == '') {
+            $arguments[$index] = 0;
+          }
         }
       }
 
