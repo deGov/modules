@@ -71,17 +71,17 @@ display:
         options:
           view_modes:
             'entity:media':
-              address: default
-              citation: default
-              contact: default
-              document: default
-              gallery: default
-              image: default
-              instagram: default
-              person: default
-              tweet: default
-              video: default
-              video_upload: default
+              address: preview
+              citation: preview
+              contact: preview
+              document: preview
+              gallery: preview
+              image: preview
+              instagram: preview
+              person: preview
+              tweet: preview
+              video: preview
+              video_upload: preview
       fields:
         changed:
           table: search_api_index_search_media
