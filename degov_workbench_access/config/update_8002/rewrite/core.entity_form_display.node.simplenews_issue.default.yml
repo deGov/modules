@@ -1,11 +1,6 @@
 dependencies:
   config:
     - field.field.node.simplenews_issue.field_section
-third_party_settings:
-  field_group:
-    group_common:
-      children:
-        - field_section
 content:
   field_section:
     type: options_select
