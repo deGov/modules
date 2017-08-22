@@ -7,3 +7,10 @@
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_image_update_8003() {
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_image');
+}

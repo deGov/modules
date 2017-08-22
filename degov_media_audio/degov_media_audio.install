@@ -12,3 +12,10 @@ function degov_media_audio_uninstall() {
     'entity_bundles' => ['audio'],
   ]);
 }
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_audio_update_8001() {
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_audio');
+}
