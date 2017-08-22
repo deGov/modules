@@ -4,13 +4,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.latest
     - node.type.press
-    - taxonomy.vocabulary.tags
   enforced:
     module:
       - degov_node_press
   module:
     - datetime
     - node
+    - taxonomy
     - user
 id: press_latest_content
 label: 'Neuste Pressemitteilung'
@@ -184,10 +184,10 @@ display:
       empty: {  }
       relationships: {  }
       arguments:
-        field_tags_target_id:
-          id: field_tags_target_id
-          table: node__field_tags
-          field: field_tags_target_id
+        tid:
+          id: tid
+          table: taxonomy_index
+          field: tid
           relationship: none
           group_type: group
           admin_label: ''
@@ -211,19 +211,16 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: true
+          specify_validation: false
           validate:
-            type: 'entity:taxonomy_term'
-            fail: ignore
-          validate_options:
-            bundles:
-              tags: tags
-            operation: view
-            multiple: 0
-            access: false
+            type: none
+            fail: 'not found'
+          validate_options: {  }
           break_phrase: false
-          not: false
-          plugin_id: numeric
+          add_table: false
+          require_value: false
+          reduce_duplicates: true
+          plugin_id: taxonomy_index_tid
         nid:
           id: nid
           table: node_field_data

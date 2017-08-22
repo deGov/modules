@@ -27,3 +27,10 @@ function degov_node_event_uninstall() {
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Update view block for displaying latest event content.
+ */
+function degov_node_event_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8002');
+}
