@@ -4,7 +4,6 @@ dependencies:
   config:
     - media_entity.bundle.document
     - media_entity.bundle.image
-    - media_entity.bundle.video_upload
     - views.view.media
   module:
     - dropzonejs_eb_widget
