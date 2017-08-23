@@ -34,7 +34,7 @@
     {% for menu_item in menu_items.menu_tree %}
       {% set element = element + 1 %}
       {% if menu_item.submenu is not empty %}
-          {% for submenu_item in menu_item.submenu %}
+        {% for submenu_item in menu_item.submenu %}
           {% if element == 1 %}
             {% set active = "is-active" %}
           {% else %}
@@ -52,63 +52,60 @@
                 <a href="{{ submenu_url }}" class="link " href="javascript:;">{{ submenu_item.text }}</a>
               </div>
             </div>
-          <div class="nrw-menu-header__content">
-            <div class="nrw-menu-header__content-title-area">
-              <a class="link{% if submenu_item.external %} link--external{% endif %}" href="{{ submenu_url }}"
-                title="{{ submenu_item.description }}"{% if submenu_item.external %} target="_blank"{% endif %}>
-                <div class="nrw-menu__content-title-icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
-                <div class="nrw-menu__content-title-text">
-                  <!-- Space for styling text-->
-                  {{ 'Menu'|trans }}
-                  <div class="sub-title">{{ submenu_item.text }}</div>
+            <div class="nrw-menu-header__content">
+              <div class="nrw-menu-header__content-title-area">
+                <a class="link{% if submenu_item.external %} link--external{% endif %}" href="{{ submenu_url }}"
+                  title="{{ submenu_item.description }}"{% if submenu_item.external %} target="_blank"{% endif %}>
+                  <div class="nrw-menu__content-title-icon"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                  <div class="nrw-menu__content-title-text">
+                    <!-- Space for styling text-->
+                    {{ 'Menu'|trans }}
+                    <div class="sub-title">{{ submenu_item.text }}</div>
+                  </div>
+                </a>
+                <div class="nrw-menu__content-close">
+                  <a class="link link--nolink" href="javascript:;">{{ 'Schliessen'|trans }}</a>
+                  <i class="fa fa-times" aria-hidden="true"></i>
                 </div>
-              </a>
-              <div class="nrw-menu__content-close">
-                <a class="link link--nolink" href="javascript:;">{{ 'Schliessen'|trans }}</a>
-                <i class="fa fa-times" aria-hidden="true"></i>
               </div>
-            </div>
-          {% if menu_item.submenu is not empty %}
-            <!-- Second level of main menu-->
-            <ul class="nrw-menu__list">
-              {% for submenu_item in menu_item.submenu %}
-                {% for third_level_item in submenu_item.submenu %}
-                  <li class="nrw-menu__item">
+              {% if submenu_item.submenu is not empty %}
+                <!-- Second level of main menu-->
+                <ul class="nrw-menu__list">
+                  {% for third_level_item in submenu_item.submenu %}
                     <a class="link{% if third_level_item.external %} link--external{% endif %}" href="{{ third_level_item.url }}"
-                      title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
-                      {{ third_level_item.text }}
+                       title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
+                        {{ third_level_item.text }}
                     </a>
                     {% if third_level_item.submenu is not empty %}
-                      <!-- Third level of main menu-->
-                      <ul class="nrw-menu__list">
-                        {% for fourth_level_item in third_level_item.submenu %}
-                          <li class="nrw-menu__item">
-                            <a class="link{% if fourth_level_item.external %} link--external{% endif %}"
-                              href="{{ fourth_level_item.url }}"
-                              title="{{ fourth_level_item.description }}"{% if fourth_level_item.external %} target="_blank"{% endif %}>
-                              {{ fourth_level_item.text }}
-                            </a>
-                          </li>
-                        {% endfor %}
-                      </ul>
+                      {% for fourth_level_item in third_level_item.submenu %}
+                        <li class="nrw-menu__item">
+                          <!-- Third level of main menu-->
+                          <ul class="nrw-menu__list">
+                            <li class="nrw-menu__item">
+                              <a class="link{% if fourth_level_item.external %} link--external{% endif %}"
+                                 href="{{ fourth_level_item.url }}"
+                                 title="{{ fourth_level_item.description }}"{% if fourth_level_item.external %} target="_blank"{% endif %}>
+                                  {{ fourth_level_item.text }}
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      {% endfor %}
                     {% endif %}
-                  </li>
-                {% endfor %}
-              {% endfor %}
-            </ul>
-          {% endif %}
-          {% if menu_item is not empty %}
-            <div class="nrw-menu__extra">
-              <!-- Extra content goes here, see screenshot below, content on the right side. Mock something here -->
-              {{ menu_item.menu_extra }}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% if menu_item is not empty %}
+                <div class="nrw-menu__extra">
+                  <!-- Extra content goes here, see screenshot below, content on the right side. Mock something here -->
+                  {{ menu_item.menu_extra }}
+                </div>
+              {% endif %}
             </div>
-          {% endif %}
-        </div>
-      </div>
-      {% endfor %}
+          </div>
+        {% endfor %}
       {% endif %}
     {% endfor %}
-
   </div>
   <div class="nrw-menu-header-responsive">
     <div class="nrw-menu-header-responsive__block nrw-menu-header-responsive__block--search">
