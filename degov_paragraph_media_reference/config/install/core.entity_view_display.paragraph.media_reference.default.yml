@@ -27,7 +27,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_display_default
     region: content
   field_override_caption:
     type: string
