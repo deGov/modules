@@ -69,31 +69,34 @@
                 </div>
               </div>
               {% if submenu_item.submenu is not empty %}
-                <!-- Second level of main menu-->
-                <ul class="nrw-menu__list">
-                  {% for third_level_item in submenu_item.submenu %}
-                    <a class="link{% if third_level_item.external %} link--external{% endif %}" href="{{ third_level_item.url }}"
-                       title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
-                        {{ third_level_item.text }}
-                    </a>
-                    {% if third_level_item.submenu is not empty %}
-                      {% for fourth_level_item in third_level_item.submenu %}
-                        <li class="nrw-menu__item">
-                          <!-- Third level of main menu-->
-                          <ul class="nrw-menu__list">
+
+                  <!-- Second level of main menu-->
+                  <ul class="nrw-menu__list" style="">
+                    {% for third_level_item in submenu_item.submenu %}
+                      <div class="submenu">
+                        <a class="link{% if third_level_item.external %} link--external{% endif %}" href="{{ third_level_item.url }}"
+                           title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
+                            {{ third_level_item.text }}
+                        </a>
+                        {% if third_level_item.submenu is not empty %}
+                          {% for fourth_level_item in third_level_item.submenu %}
                             <li class="nrw-menu__item">
-                              <a class="link{% if fourth_level_item.external %} link--external{% endif %}"
-                                 href="{{ fourth_level_item.url }}"
-                                 title="{{ fourth_level_item.description }}"{% if fourth_level_item.external %} target="_blank"{% endif %}>
-                                  {{ fourth_level_item.text }}
-                              </a>
+                              <!-- Third level of main menu-->
+                              <ul class="nrw-menu__list">
+                                <li class="nrw-menu__item">
+                                  <a class="link{% if fourth_level_item.external %} link--external{% endif %}"
+                                     href="{{ fourth_level_item.url }}"
+                                     title="{{ fourth_level_item.description }}"{% if fourth_level_item.external %} target="_blank"{% endif %}>
+                                      {{ fourth_level_item.text }}
+                                  </a>
+                                </li>
+                              </ul>
                             </li>
-                          </ul>
-                        </li>
-                      {% endfor %}
-                    {% endif %}
-                  {% endfor %}
-                </ul>
+                          {% endfor %}
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </ul>
               {% endif %}
               {% if menu_item is not empty %}
                 <div class="nrw-menu__extra">
