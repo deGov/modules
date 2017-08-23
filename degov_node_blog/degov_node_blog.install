@@ -17,5 +17,5 @@ function degov_node_blog_uninstall() {
  * Use the author view mode.
  */
 function degov_node_blog_update_8001() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_node_blog');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8001');
 }
