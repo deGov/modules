@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Defaults workbench access settings for new content types simplenews and press.
+ */
+function degov_workbench_access_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_workbench_access', '8002');
+}

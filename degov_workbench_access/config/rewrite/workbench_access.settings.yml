@@ -9,5 +9,7 @@ fields:
     event: field_section
     normal_page: field_section
     press: field_section
+    faq: field_section
+    simplenews_issue: field_section
 deny_on_empty: false
 langcode: de
