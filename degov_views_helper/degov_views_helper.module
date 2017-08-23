@@ -33,6 +33,7 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
         }
       }
     }
+    $element['title']['#access'] = FALSE;
     // Create the selector for the arguments fields for the ajax response.
     $arguments_wrapper_selector = implode('_', $element['target_id']['#field_parents']) . '_arguments';
     $arguments_weight = !empty($element['argument']['#weight']) ? $element['argument']['#weight'] : 10;
@@ -97,10 +98,14 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
       if (!empty($display['display_options']['arguments'])) {
         $num = 0;
         foreach ($display['display_options']['arguments'] as $argument_name => $argument_value) {
+          $title_extra = '';
+          if ($argument_value['not']) {
+            $title_extra = ' (' . t('Exclude this items') . ')';
+          }
           if ($argument_name == 'tid' && $argument_value['table'] == 'taxonomy_index') {
             $element['argument'][$num] = [
               '#type' => 'entity_autocomplete',
-              '#title' => t('Taxonomy term'),
+              '#title' => t('Taxonomy term') . $title_extra,
               '#default_value' => \Drupal\taxonomy\Entity\Term::load($argument_values[$num]),
               '#target_type' => 'taxonomy_term',
               '#selection_handler' => 'default:taxonomy_term',
@@ -112,7 +117,7 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
           if ($argument_name == 'nid' && $argument_value['table'] == 'node_field_data') {
             $element['argument'][$num] = [
               '#type' => 'entity_autocomplete',
-              '#title' => t('Node'),
+              '#title' => t('Node') . $title_extra,
               '#default_value' => \Drupal\node\Entity\Node::load($argument_values[$num]),
               '#target_type' => 'node',
               '#selection_handler' => 'default:node',
@@ -124,7 +129,7 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
           if ($argument_name == 'uid' && $argument_value['table'] == 'node_field_data') {
             $element['argument'][$num] = [
               '#type' => 'entity_autocomplete',
-              '#title' => t('User'),
+              '#title' => t('User') . $title_extra,
               '#default_value' => \Drupal\user\Entity\User::load($argument_values[$num]),
               '#target_type' => 'user',
               '#selection_handler' => 'default:user',
@@ -144,6 +149,8 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
               '#description' => empty($bundle_info) ? $field_info->getDescription() : $bundle_info->getDescription(),
               '#default_value' => !empty($argument_values[$num]) ? $argument_values[$num] : '',
             ];
+            $element['argument'][$num]['#title'] .= $title_extra;
+
             // If it is entity reference and some more settings.
             if (($field_info->getType() == 'entity_reference')) {
               $info_settings = $field_info->getSettings();
@@ -203,7 +210,6 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
  */
 function _views_argument_field_info($argument) {
   $info = FALSE;
-  $argument = array_shift($argument);
   if (!empty($argument['table'])) {
     $keys = explode('__', $argument['table']);
     if (!empty($keys)) {

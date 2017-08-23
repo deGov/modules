@@ -7,3 +7,10 @@
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Update view block for displaying latest content.
+ */
+function degov_common_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8004');
+}
