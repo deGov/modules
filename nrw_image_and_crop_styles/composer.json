@@ -6,5 +6,12 @@
   "homepage": "https://www.nrwgov.org",
   "require": {
     "drupal/image_widget_crop": "^2.0"
+  },
+  "extra": {
+    "patches": {
+      "drupal/image_widget_crop": {
+        "2871137 - Required croppings": "https://www.drupal.org/files/issues/required_croppings-2871137-17.patch"
+      }
+    }
   }
 }
