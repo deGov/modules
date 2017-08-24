@@ -13,22 +13,27 @@
  */
  #}
 {% set media_classes = [
-'image',
-'clearfix',
+  'image',
+  'media--preview',
+  'clearfix',
 ] %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
+  <div class="image__type-text">{{ 'Bild'|t }}</div>
   <div class="image__image"{{ content.image|quickedit_attr }}>{{ content.image|field_value }}</div>
   <div class="image__info">
-    <div class="image__caption"{{ content.field_image_caption|quickedit_attr }}>{{ content.field_image_caption|field_value }}</div>
-    {% if content.field_image_copyright|field_value %}
-      <div class="image__copyright">
-        <span class="image__copyright-label"{{ content.field_image_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-        {{ content.field_image_copyright|field_value }}
-      </div>
-    {% endif %}
+      {% if content.field_image_date|field_value %}
+        <span class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</span>
+      {% endif %}
+        <span class="image__caption"{{ content.field_image_caption|quickedit_attr }}>{{ content.field_image_caption|field_value }}</span>
+      {% if content.field_image_copyright|field_value %}
+        <span class="image__copyright">
+          <span class="image__copyright-label"{{ content.field_image_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+            {{ content.field_image_copyright|field_value }}
+        </span>
+      {% endif %}
   </div>
-  {% if content.field_tags|field_value %}
-    <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
-  {% endif %}
+    {% if content.field_tags|field_value %}
+        <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
+    {% endif %}
 </article>
