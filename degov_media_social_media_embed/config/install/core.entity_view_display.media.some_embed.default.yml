@@ -1,0 +1,35 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.media.some_embed.field_include_search
+    - field.field.media.some_embed.field_media_in_library
+    - field.field.media.some_embed.field_some_embed_code
+    - field.field.media.some_embed.field_some_embed_type
+    - field.field.media.some_embed.field_tags
+    - media_entity.bundle.some_embed
+  enforced:
+    module:
+      - degov_media_social_media_embed
+id: media.some_embed.default
+targetEntityType: media
+bundle: some_embed
+mode: default
+content:
+  field_some_embed_code:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  created: true
+  field_include_search: true
+  field_media_in_library: true
+  field_some_embed_type: true
+  field_tags: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

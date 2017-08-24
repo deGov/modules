@@ -1,0 +1,23 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_some_embed_type
+    - media_entity.bundle.some_embed
+  enforced:
+    module:
+      - degov_media_social_media_embed
+  module:
+    - options
+id: media.some_embed.field_some_embed_type
+field_name: field_some_embed_type
+entity_type: media
+bundle: some_embed
+label: Typ
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
