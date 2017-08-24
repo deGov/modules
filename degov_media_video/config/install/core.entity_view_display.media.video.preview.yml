@@ -2,12 +2,14 @@ langcode: de
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.preview
     - field.field.media.video.field_include_search
     - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_video_copyright
-    - field.field.media.video.field_media_video_embed_field
+    - image.style.large
     - media_entity.bundle.video
   module:
     - video_embed_field
@@ -16,6 +18,23 @@ targetEntityType: media
 bundle: video
 mode: preview
 content:
+  field_media_video_embed_field:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      link_image_to: content
+    third_party_settings: {  }
+    type: video_embed_field_thumbnail
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 6
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   field_video_caption:
     weight: 1
     label: hidden
@@ -24,13 +43,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_tags:
-    type: taxonomy_term_search
-    weight: 6
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_video_copyright:
     weight: 5
     label: hidden
@@ -38,17 +50,6 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_media_video_embed_field:
-    weight: 0
-    label: hidden
-    settings:
-      responsive: true
-      width: 854
-      height: 480
-      autoplay: true
-    third_party_settings: {  }
-    type: video_embed_field_video
     region: content
 hidden:
   created: true
