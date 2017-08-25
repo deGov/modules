@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.preview
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
@@ -12,13 +13,13 @@ dependencies:
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - image.style.large
     - media_entity.bundle.video_upload
   enforced:
     module:
       - degov_media_video_upload
   module:
-    - degov_common
-    - entity_reference_revisions
+    - media_entity
 id: media.video_upload.preview
 targetEntityType: media
 bundle: video_upload
@@ -29,7 +30,8 @@ content:
     weight: 3
     region: content
     label: hidden
-    settings: {  }
+    settings:
+      route_name: view.search_media.page
     third_party_settings: {  }
   field_video_upload_caption:
     type: string
@@ -47,14 +49,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_video_upload_subtitle:
-    type: entity_reference_revisions_entity_view
+  field_video_upload_preview:
+    type: media_thumbnail
     weight: 0
     region: content
     label: hidden
     settings:
-      view_mode: default
-      link: ''
+      image_style: large
+      image_link: content
     third_party_settings: {  }
 hidden:
   created: true
@@ -62,7 +64,7 @@ hidden:
   field_media_in_library: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
-  field_video_upload_preview: true
+  field_video_upload_subtitle: true
   field_video_upload_webm: true
   langcode: true
   name: true

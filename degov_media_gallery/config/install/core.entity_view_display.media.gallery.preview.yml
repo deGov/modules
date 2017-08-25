@@ -43,9 +43,9 @@ content:
     weight: 2
     label: hidden
     settings:
-      link: true
+      route_name: view.search_media.page
     third_party_settings: {  }
-    type: entity_reference_label
+    type: taxonomy_term_search
     region: content
 hidden:
   created: true

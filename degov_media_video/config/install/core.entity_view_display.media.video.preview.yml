@@ -28,12 +28,12 @@ content:
     type: video_embed_field_thumbnail
     region: content
   field_tags:
-    type: entity_reference_label
+    type: taxonomy_term_search
     weight: 6
     region: content
     label: hidden
     settings:
-      link: true
+      route_name: view.search_media.page
     third_party_settings: {  }
   field_video_caption:
     weight: 1
