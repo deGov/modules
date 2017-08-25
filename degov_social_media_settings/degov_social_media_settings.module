@@ -1,0 +1,81 @@
+<?php
+
+use Drupal\media_entity\MediaInterface;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Core\Entity\ContentEntityInterface;
+
+/**
+ * Implements hook_preprocess_paragraph__HOOK().
+ */
+function degov_social_media_settings_preprocess_paragraph__media_reference(&$variables) {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  /** @var \Drupal\media_entity\MediaInterface $media */
+  $media = $paragraph->field_media_reference_media->entity;
+
+  // Add a class to the paragraph template for external media.
+  if ($media instanceof MediaInterface && in_array($media->bundle(), ['some_embed', 'video'])) {
+    $variables['attributes']['class'][] = 'social-media-source-' . $media->field_social_media_source->value;
+  }
+}
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function degov_social_media_settings_preprocess_media(&$variables) {
+  /** @var \Drupal\media_entity\MediaInterface $media */
+  $media = $variables['media'];
+  $bundle = $media->bundle();
+
+  // Do not display external media by default.
+  if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video'])) {
+    switch ($bundle) {
+      case 'some_embed':
+        $field_name = 'field_some_embed_code';
+        break;
+      case 'video':
+        $field_name = 'field_media_video_embed_field';
+        break;
+    }
+
+    if (!empty($field_name)) {
+      $field_value = \Drupal::service('twig_field_value.twig.extension')
+        ->getFieldValue($variables['content']['field_media_video_embed_field']);
+      $markup = \Drupal::service('renderer')->render($field_value);
+
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code'][$media->id()] = $markup;
+      $variables['attributes']['class'][] = 'social-media-source-disabled';
+      $variables['attributes']['data-social-media-source'] = $media->field_social_media_source->value;
+      $variables['attributes']['data-entity-id'] = $media->id();
+      $variables['social_media_source_disabled'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function degov_social_media_settings_preprocess_page(&$variables) {
+  $variables['social_media_settings'] = TRUE;
+  $sources = \Drupal::config('degov_social_media_settings.sources')->get();
+
+  foreach ($sources as $key => $value) {
+    $sources[$key] = FALSE;
+  }
+
+  $variables['#attached']['drupalSettings']['degov_social_media_settings']['sources'] = $sources;
+  $variables['#attached']['library'][] = 'degov_social_media_settings/process';
+}
+
+/**
+ * Returns an array of allowed block names.
+ *
+ * @param FieldStorageConfig $definition
+ * @param ContentEntityInterface|NULL $entity
+ * @param $cacheable
+ *
+ * @return array
+ */
+function degov_social_media_settings_sources(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable) {
+  return \Drupal::config('degov_social_media_settings.sources')->get();
+}

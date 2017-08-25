@@ -1,0 +1,11 @@
+name: 'deGov - Social Media Settings'
+description: '.'
+package: deGov
+type: module
+core: 8.x
+dependencies:
+  - config_rewrite
+  - degov_eu_cookie_compliance
+
+libraries:
+  - degov_social_media_settings/process
