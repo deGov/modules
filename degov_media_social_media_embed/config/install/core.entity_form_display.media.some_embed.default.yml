@@ -5,7 +5,6 @@ dependencies:
     - field.field.media.some_embed.field_include_search
     - field.field.media.some_embed.field_media_in_library
     - field.field.media.some_embed.field_some_embed_code
-    - field.field.media.some_embed.field_some_embed_type
     - field.field.media.some_embed.field_tags
     - media_entity.bundle.some_embed
   enforced:
@@ -50,7 +49,6 @@ third_party_settings:
     group_code:
       children:
         - field_some_embed_code
-        - field_some_embed_type
       parent_name: group_vertical
       weight: 20
       format_type: tab
@@ -89,12 +87,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_some_embed_type:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   field_tags:
     weight: 3
