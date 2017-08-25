@@ -23,6 +23,7 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
   /* @var \Drupal\media_entity\Entity\Media $media */
   $media = $variables['media'];
 
+  $variables['audio_url'] = $media->url();
   $variables['audio_attributes'] = new Attribute([
     'id' => 'audio-' . $media->id(),
     'controls' => 'controls',

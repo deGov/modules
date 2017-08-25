@@ -23,6 +23,7 @@ function degov_media_video_upload_preprocess_media__video_upload(&$variables) {
   /* @var \Drupal\media_entity\Entity\Media $media */
   $media = $variables['media'];
 
+  $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
     'id' => 'video-upload-' . $media->id(),
     'preload' => 'metadata',
