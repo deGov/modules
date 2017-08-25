@@ -12,3 +12,17 @@ function degov_node_blog_uninstall() {
     'entity_bundles' => ['blog'],
   ]);
 }
+
+/**
+ * Update view block for displaying latest blog content.
+ */
+function degov_node_blog_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8001');
+}
+
+/**
+ * Use the author view mode.
+ */
+function degov_node_blog_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8002');
+}

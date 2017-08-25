@@ -20,3 +20,17 @@ function degov_node_press_uninstall() {
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Update view block for displaying latest press content.
+ */
+function degov_node_press_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8002');
+}
+
+/**
+ * Update latest view mode to have a different date style
+ */
+function degov_node_press_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8003');
+}

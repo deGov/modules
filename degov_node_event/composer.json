@@ -8,5 +8,12 @@
     "drupal/date_popup": "^1.0",
     "drupal/address": "^1.0",
     "drupal/calendar": "1.x-dev"
+  },
+  "extra": {
+    "patches": {
+      "drupal/calendar": {
+        "2845257 - Undefined index: id in calendar_views_data_alter": "https://www.drupal.org/files/issues/undefined_index-2845257-10.patch"
+      }
+    }
   }
 }

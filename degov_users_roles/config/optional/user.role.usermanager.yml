@@ -1,0 +1,25 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - lightning_core
+  enforced:
+    module:
+      - degov_users_roles
+third_party_settings:
+  lightning_core:
+    description: ''
+id: usermanager
+label: Benutzerverwaltung
+weight: 17
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'assign editor role'
+  - 'assign manager role'
+  - 'assign usermanager role'
+  - 'assign workbench access'
+  - 'bypass password policies'
+  - 'manage password reset'

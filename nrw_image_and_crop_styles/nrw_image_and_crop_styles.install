@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Update image field to have cropping required.
+ */
+function nrw_image_and_crop_styles_update_8001() {
+  // Somehow the image field of the media browser is now of type immutable image.
+  // So we first reset the image form display to an image_widget_crop type.
+  \Drupal::configFactory()->getEditable("core.entity_form_display.media.image.media_browser")
+    ->set("content.image.type", "image_widget_crop")
+    ->save();
+  // Make the image field required on the media image add form.
+  \Drupal::configFactory()->getEditable("core.entity_form_display.media.image.default")
+    ->set("content.image.settings.crop_required", 1)
+    ->save();
+  // Make the image field required on the media image media browser form.
+  \Drupal::configFactory()->getEditable("core.entity_form_display.media.image.media_browser")
+    ->set("content.image.settings.crop_required", 1)
+    ->save();
+}
+
+/**
+ * Override image display on media bundle person.
+ */
+function nrw_image_and_crop_styles_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8002');
+}

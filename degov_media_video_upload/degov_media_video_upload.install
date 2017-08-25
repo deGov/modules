@@ -6,11 +6,29 @@ use Drupal\degov_common\Common;
  * Implements hook_uninstall().
  */
 function degov_media_video_upload_uninstall() {
-  // Removes all module type defined content when uninstalling the module.
-  Common::removeContent([
-    'entity_type' => 'media',
-    'entity_bundles' => ['video_upload'],
-  ]);
+  // Remove the video upload bundle dependency on the entity media browser.
+  $dependencies = \Drupal::config('entity_browser.browser.media_browser')
+    ->get('dependencies.config');
+  foreach ($dependencies as $key => $dependency) {
+    if ($dependency == 'media_entity.bundle.video_upload') {
+      unset($dependencies[$key]);
+    }
+  }
+  $dependencies = array_values($dependencies);
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser')
+    ->set('dependencies.config', $dependencies)
+    ->save(TRUE);
+
+  // Remove the video upload tab from the entity media browser.
+  $key = "d6d67ff3-ab4f-482c-bf0f-aa21ef912d26";
+  $widgets = \Drupal::config("entity_browser.browser.media_browser")
+    ->get("widgets");
+  if (!empty($widgets[$key])) {
+    unset($widgets[$key]);
+    \Drupal::configFactory()->getEditable("entity_browser.browser.media_browser")
+      ->set("widgets", $widgets)
+      ->save(TRUE);
+  }
 }
 
 /**

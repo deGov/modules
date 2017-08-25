@@ -11,6 +11,30 @@ function degov_media_audio_uninstall() {
     'entity_type' => 'media',
     'entity_bundles' => ['audio'],
   ]);
+
+  // Remove the audio bundle dependency on the entity media browser.
+  $dependencies = \Drupal::config('entity_browser.browser.media_browser')
+    ->get('dependencies.config');
+  foreach ($dependencies as $key => $dependency) {
+    if ($dependency == 'media_entity.bundle.audio') {
+      unset($dependencies[$key]);
+    }
+  }
+  $dependencies = array_values($dependencies);
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser')
+    ->set('dependencies.config', $dependencies)
+    ->save(TRUE);
+
+  // Remove the audio tab from the entity media browser.
+  $key = "0858526f-05e0-4b00-b8db-e9283a437a1c";
+  $widgets = \Drupal::config("entity_browser.browser.media_browser")
+    ->get("widgets");
+  if (!empty($widgets[$key])) {
+    unset($widgets[$key]);
+    \Drupal::configFactory()->getEditable("entity_browser.browser.media_browser")
+      ->set("widgets", $widgets)
+      ->save(TRUE);
+  }
 }
 
 /**

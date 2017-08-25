@@ -24,6 +24,20 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    boost: 0.5
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          blog: default
+          event: default
+          normal_page: default
+          press: default
   type:
     label: Inhaltstyp
     datasource_id: 'entity:node'
@@ -91,56 +105,26 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  add_url: {  }
   aggregated_field: {  }
-  content_access:
-    weights:
-      preprocess_query: -30
-  entity_status: {  }
-  highlight:
-    highlight: always
-    highlight_partial: false
-    excerpt: true
-    excerpt_length: 256
-    exclude_fields: {  }
-    prefix: '<strong>'
-    suffix: '</strong>'
-    weights:
-      postprocess_query: 0
-  html_filter:
+  add_url: {  }
+  tokenizer:
     all_fields: true
     fields:
-      - node_grants
-      - type
+      - rendered_item
       - title
       - field_teaser_text
       - field_teaser_title
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
     weights:
-      preprocess_index: -15
-      preprocess_query: -15
-  ignorecase:
-    all_fields: true
-    fields:
-      - node_grants
-      - type
-      - title
-      - field_teaser_text
-      - field_teaser_title
-    weights:
-      preprocess_index: -20
-      preprocess_query: -20
+      preprocess_index: -6
+      preprocess_query: -6
   ignore_character:
     all_fields: true
     fields:
       - node_grants
+      - rendered_item
       - type
       - title
       - field_teaser_text
@@ -171,10 +155,10 @@ processor_settings:
     weights:
       preprocess_index: -10
       preprocess_query: -10
-  rendered_item: {  }
   stopwords:
     all_fields: true
     fields:
+      - rendered_item
       - title
       - field_teaser_text
       - field_teaser_title
@@ -217,22 +201,58 @@ processor_settings:
     weights:
       preprocess_index: -5
       preprocess_query: -2
-  tokenizer:
+  content_access:
+    weights:
+      preprocess_query: -30
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  ignorecase:
     all_fields: true
     fields:
+      - node_grants
+      - rendered_item
+      - type
       - title
       - field_teaser_text
       - field_teaser_title
-    spaces: ''
-    overlap_cjk: 1
-    minimum_word_size: '3'
     weights:
-      preprocess_index: -6
-      preprocess_query: -6
+      preprocess_index: -20
+      preprocess_query: -20
+  html_filter:
+    all_fields: true
+    fields:
+      - node_grants
+      - rendered_item
+      - type
+      - title
+      - field_teaser_text
+      - field_teaser_title
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -15
+      preprocess_query: -15
+  rendered_item: {  }
+  entity_status: {  }
   transliteration:
     all_fields: true
     fields:
       - node_grants
+      - rendered_item
       - type
       - title
       - field_teaser_text
