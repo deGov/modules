@@ -12,4 +12,22 @@
  * @ingroup themeable
  */
 #}
-{{ content }}
+{%
+set media_classes = [
+    'some-embed',
+    'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  {% if social_media_source_disabled %}
+  <div class="some-embed__code social-media-source-target"{{ content.field_some_embed_code|quickedit_attr }}>{{ 'Disabled'|trans }}</div>
+  {% else %}
+  <div class="some-embed__code"{{ content.field_some_embed_code|quickedit_attr }}>{{ content.field_some_embed_code|field_value }}</div>
+  {% endif %}
+  {% if content.usage %}
+  <div class="some-embed__usage">
+    <h2>{{ 'Usage'|trans }}</h2>
+    {{  content.usage }}
+  </div>
+  {% endif %}
+</article>
