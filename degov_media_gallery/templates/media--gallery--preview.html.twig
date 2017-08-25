@@ -22,14 +22,14 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-  <div class="gallery__type-text">{{ 'Galerie'|t }}</div>
+  <div class="media--preview__type-text">{{ 'Galerie'|t }}</div>
   <div class="gallery__images">
     <div class="slideshow__slides">
       {{ content.field_gallery_images|field_value|slice(1, 1) }}
     </div>
   </div>
   {% if content.field_gallery_title|field_value %}
-  <div class="gallery__info">
+  <div class="media--preview__info">
     <span class="gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</span>
   </div>
   {% endif %}

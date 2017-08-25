@@ -21,20 +21,23 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-  <div class="video-upload__type-text">{{ 'Video'|t }}</div>
-  <div class="video-upload__video"{{ content.field_video_upload_preview|quickedit_attr }}>{{ content.field_video_upload_preview|field_value }}</div>
+  <div class="media--preview__type-text">{{ 'Video'|t }}</div>
+    {% if content.field_video_upload_preview|field_value %}
+        <div class="video-upload__video"{{ content.field_video_upload_preview|quickedit_attr }}>{{ content.field_video_upload_preview|field_value }}</div>
+    {% else %}
+        <a href="{{ video_url }}"><div class="media--preview__dummy"></div></a>
+    {% endif %}
   {% if content.field_video_upload_caption|field_value or content.field_video_upload_copyright|field_value %}
-    <div class="video-upload__info">
+    <div class="media--preview__info">
       {% if content.field_video_upload_caption|field_value %}
-        <div class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</div>
+        <span class="media--preview__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
       {% endif %}
       {% if content.field_video_upload_copyright|field_value %}
-        <div class="video-upload__copyright">
-          <span class="video-upload__copyright-label"{{ content.field_video_upload_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+        <span class="media--preview__copyright">
+          <span class="media--preview__copyright-label"{{ content.field_video_upload_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
           {{ content.field_video_upload_copyright|field_value }}
-        </div>
+        </span>
       {% endif %}
-
     </div>
   {% endif %}
   {% if content.field_tags|field_value %}
