@@ -11,7 +11,7 @@
   },
   "extra": {
     "patches": {
-      "drupal/image_widget_crop": {
+      "drupal/calendar": {
         "2845257 - Undefined index: id in calendar_views_data_alter": "https://www.drupal.org/files/issues/undefined_index-2845257-10.patch"
       }
     }
