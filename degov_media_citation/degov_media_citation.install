@@ -25,5 +25,5 @@ function degov_media_citation_uninstall() {
  * Add preview view mode.
  */
 function degov_media_citation_update_8002() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_citation');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_citation', '8002');
 }

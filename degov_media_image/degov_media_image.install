@@ -41,5 +41,5 @@ function degov_media_image_uninstall() {
  * Add preview view mode.
  */
 function degov_media_image_update_8003() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_image');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8003');
 }

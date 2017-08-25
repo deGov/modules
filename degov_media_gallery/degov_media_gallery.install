@@ -30,5 +30,5 @@ function degov_media_gallery_uninstall() {
  * Add preview view mode.
  */
 function degov_media_gallery_update_8002() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_gallery');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8002');
 }

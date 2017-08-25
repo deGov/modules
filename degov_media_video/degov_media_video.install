@@ -12,5 +12,5 @@
  * Add preview view mode.
  */
 function degov_media_video_update_8002() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_video');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8002');
 }

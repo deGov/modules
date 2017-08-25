@@ -25,5 +25,5 @@ function degov_media_address_uninstall() {
  * Add preview view mode.
  */
 function degov_media_address_update_8002() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_address');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_address', '8002');
 }

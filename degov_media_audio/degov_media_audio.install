@@ -41,5 +41,5 @@ function degov_media_audio_uninstall() {
  * Add preview view mode.
  */
 function degov_media_audio_update_8001() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_audio');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8001');
 }

@@ -43,5 +43,5 @@ function degov_media_video_upload_uninstall() {
  * Add preview view mode.
  */
 function degov_media_video_upload_update_8004() {
-  \Drupal::service('degov_config.updater')->configPartialImport('degov_media_video_upload');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8004');
 }
