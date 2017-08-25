@@ -76,6 +76,7 @@ display:
           view_modes:
             'entity:media':
               address: preview
+              audio: preview
               citation: preview
               contact: preview
               document: preview
