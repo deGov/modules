@@ -1,12 +1,11 @@
 langcode: de
 status: true
 dependencies:
-  config:
-    - search_api.server.database
   enforced:
     module:
       - degov_node_faq
   module:
+    - degov_search_base
     - search_api
     - node
 id: search_faq

@@ -1,6 +1,35 @@
 <?php
 
 /**
+ * Implements hook_uninstall().
+ */
+function degov_media_image_uninstall() {
+  // Remove the image bundle dependency on the entity media browser.
+  $dependencies = \Drupal::config('entity_browser.browser.media_browser')
+    ->get('dependencies.config');
+  foreach ($dependencies as $key => $dependency) {
+    if ($dependency == 'media_entity.bundle.image') {
+      unset($dependencies[$key]);
+    }
+  }
+  $dependencies = array_values($dependencies);
+  \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser')
+    ->set('dependencies.config', $dependencies)
+    ->save(TRUE);
+
+  // Remove the image tab from the entity media browser.
+  $key = "cf5d9a31-e053-413a-8666-a2c3fedbc4a0";
+  $widgets = \Drupal::config("entity_browser.browser.media_browser")
+    ->get("widgets");
+  if (!empty($widgets[$key])) {
+    unset($widgets[$key]);
+    \Drupal::configFactory()->getEditable("entity_browser.browser.media_browser")
+      ->set("widgets", $widgets)
+      ->save(TRUE);
+  }
+}
+
+/**
  * Next module update version is 8003.
  * All update hooks from 1.1 to 1.2 were deleted.
  * There is no upgrade path from 1.1 to 1.3, you need first to update to 1.2 and

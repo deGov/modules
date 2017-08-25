@@ -18,3 +18,10 @@ function nrw_image_and_crop_styles_update_8001() {
     ->set("content.image.settings.crop_required", 1)
     ->save();
 }
+
+/**
+ * Override image display on media bundle person.
+ */
+function nrw_image_and_crop_styles_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8002');
+}

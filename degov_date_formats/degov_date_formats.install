@@ -1,0 +1,12 @@
+<?php
+
+/**
+ *
+ */
+
+/**
+ * added new date format
+ */
+function degov_date_formats_update_8001() {
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_date_formats');
+}
