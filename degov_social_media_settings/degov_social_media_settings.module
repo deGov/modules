@@ -25,6 +25,7 @@ function degov_social_media_settings_preprocess_paragraph__media_reference(&$var
 function degov_social_media_settings_preprocess_media(&$variables) {
   /** @var \Drupal\media_entity\MediaInterface $media */
   $media = $variables['media'];
+  $entity_id = $media->id();
   $bundle = $media->bundle();
 
   // Do not display external media by default.
@@ -40,14 +41,13 @@ function degov_social_media_settings_preprocess_media(&$variables) {
 
     if (!empty($field_name)) {
       $field_value = \Drupal::service('twig_field_value.twig.extension')
-        ->getFieldValue($variables['content']['field_media_video_embed_field']);
+        ->getFieldValue($variables['content'][$field_name]);
       $markup = \Drupal::service('renderer')->render($field_value);
-
-      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code'][$media->id()] = $markup;
-      $variables['attributes']['class'][] = 'social-media-source-disabled';
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code'][$entity_id] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
       $variables['attributes']['data-social-media-source'] = $media->field_social_media_source->value;
-      $variables['attributes']['data-entity-id'] = $media->id();
-      $variables['social_media_source_disabled'] = TRUE;
+      $variables['attributes']['data-social-media-entity'] = $entity_id;
+      $variables['social_media_disabled'] = TRUE;
     }
   }
 }

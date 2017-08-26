@@ -21,8 +21,8 @@ set media_classes = [
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <div class="video__type-text">{{ 'Video'|t }}</div>
-  {% if social_media_source_disabled %}
-  <div class="video__video social-media-source-target"{{ content.field_media_video_embed_field|quickedit_attr }}>{{ 'Disabled'|trans }}</div>
+  {% if social_media_disabled %}
+  <div class="video__video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}>{{ 'Disabled'|trans }}</div>
   {% else %}
   <div class="video__video"{{ content.field_media_video_embed_field|quickedit_attr }}>{{ content.field_media_video_embed_field|field_value }}</div>
   {% endif %}

@@ -1,6 +1,7 @@
 /**
- * @file load_code.js
+ * @file process.js
  *
+ * Defines the behaviors of the degov_social_media_settings module
  */
 (function ($, Drupal, drupalSettings) {
 
@@ -8,45 +9,121 @@
 
   Drupal.behaviors.degov_social_media_settings = {
     attach: function (context) {
-      $('.social-media-source-disabled', context).once('social-media-source').each(function () {
-        var wrapper = $(this);
+      // Initialize when cookies are accepted by eu_cookie_compliance module.
+      $('.agree-button', context).once('social-media-settings').click(function () {
+        initializeSettings();
+      });
 
-        Drupal.degov_social_media_settings.applySettings(wrapper);
+      // Open the modal.
+      $('.js-social-media-settings-open', context).once('social-media-settings').click(function (e) {
+        e.preventDefault();
+        openModal();
+      });
 
-        wrapper.on('degov_social_media_settings', function() {
-          Drupal.degov_social_media_settings.applySettings(wrapper);
-        });
+      // Save the settings.
+      $('.js-social-media-settings-save', context).once('social-media-settings').click(function () {
+        saveSettings();
+      });
+
+      // Apply the settings.
+      $('.js-social-media-wrapper', context).once('social-media-settings').each(function () {
+        applySettings($(this));
       });
     }
   };
 
-  Drupal.degov_social_media_settings = {
-    applySettings: function (wrapper) {
-      var source = wrapper.attr('data-social-media-source');
+  var modal = $('#social-media-settings');
+  var cookie = 'degov_social_media_settings';
+  var settings = drupalSettings.degov_social_media_settings;
+  var code = settings.code;
+  var sources = { };
 
-      // Show the code if source is enabled.
-      if (typeof settings !== 'undefined' && settings[source] === true) {
-        var entity_id = wrapper.attr('data-entity-id');
-        var target = $('.social-media-source-target', wrapper);
-        target.html(drupalSettings.degov_social_media_settings.code[entity_id]);
-        console.log('Revealed');
-      }
-      else  {
-        console.log('Nahhh');
-      }
-    },
+  // Shows the social media settings link if cookie are allowed and
+  // creates a cookie with default values.
+  function initializeSettings() {
+    if (Drupal.eu_cookie_compliance.hasAgreed()) {
+      $('.js-social-media-settings-open').removeClass('hidden');
 
-    getSettings: function() {
-      // Create the settings cookie if it does not exist yet.
-      if (typeof $.cookie('cookie-agreed') !== 'undefined' && typeof $.cookie('degov_social_media_settings') === 'undefined') {
-        var value = JSON.stringify(drupalSettings.degov_social_media_settings.sources);
-        $.cookie('degov_social_media_settings', value);
+      if (cookieExists()) {
+        sources = cookieGetSettings();
       }
-
-      // Parse the settings and get the source type.
-      var settings = JSON.parse($.cookie('degov_social_media_settings'));
+      else {
+        sources = settings.sources;
+        cookieSaveSettings();
+      }
     }
   }
+
+  // Applies the social media settings to a social media wrapper.
+  function applySettings(wrapper) {
+    var source = wrapper.attr('data-social-media-source');
+    var entity = wrapper.attr('data-social-media-entity');
+    var target = $('.js-social-media-code', wrapper);
+
+    // Show the code if source is enabled.
+    if (sources.hasOwnProperty(source) && sources[source] === true && code.hasOwnProperty(entity)) {
+      target.html(code[entity]);
+    }
+    else {
+      target.html('Disabled!');
+    }
+  }
+
+  // Opens the social media settings modal.
+  function openModal() {
+    // Update checkboxes with settings from cookie.
+    $('input[type="checkbox"]', modal).each(function () {
+      var source = $(this).val();
+
+      if (sources.hasOwnProperty(source)) {
+        $(this).prop('checked', sources[source]);
+      }
+    });
+
+    // Open the modal.
+    modal.modal();
+  }
+
+  // Saves the social media settings in the cookie and applies the new
+  // settings to all social media wrappers.
+  function saveSettings() {
+    // Update the sources variable.
+    $('input[type="checkbox"]', modal).each(function () {
+      var source = $(this).val();
+
+      if (sources.hasOwnProperty(source)) {
+        sources[source] = $(this).is(':checked');
+      }
+    });
+
+    // Save settings in cookie.
+    if (Drupal.eu_cookie_compliance.hasAgreed()) {
+      cookieSaveSettings();
+    }
+
+    // Apply new settings.
+    $('.js-social-media-wrapper').each(function () {
+      applySettings($(this));
+    });
+  }
+
+  // Checks if the cookie exists.
+  function cookieExists() {
+    return typeof $.cookie(cookie) !== 'undefined';
+  }
+
+  // Reads, parses and returns the settings from the cookie.
+  function cookieGetSettings() {
+    return JSON.parse($.cookie(cookie));
+  }
+
+  // Saves the settings in the cookie.
+  function cookieSaveSettings() {
+    $.cookie(cookie, JSON.stringify(sources));
+  }
+
+  // Initialize.
+  initializeSettings();
 
 })(jQuery, Drupal, drupalSettings);
 
