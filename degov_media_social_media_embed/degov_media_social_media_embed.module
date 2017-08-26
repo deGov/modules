@@ -2,6 +2,7 @@
 
 use Drupal\degov_common\Common;
 use Drupal\media_entity\MediaInterface;
+use Drupal\Component\Utility\Xss;
 
 /**
  * Implements hook_preprocess().
@@ -22,3 +23,17 @@ function degov_media_social_media_embed_preprocess(&$variables, $hook, &$info) {
   ]);
 }
 
+/**
+ * Implements hook_preprocess_media__HOOK().
+ */
+function degov_media_social_media_embed_preprocess_media__some_embed(&$variables) {
+  /* @var \Drupal\media_entity\Entity\Media $media */
+  $media = $variables['media'];
+
+  if ($media instanceof MediaInterface && $media->hasField('field_some_embed_code') && !$media->get('field_some_embed_code')->isEmpty()) {
+    $variables['code'] = [
+      '#markup' => $media->field_some_embed_code->value,
+      '#allowed_tags' => array_merge(Xss::getAdminTagList(), ['iframe']),
+    ];
+  }
+}

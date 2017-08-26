@@ -22,6 +22,6 @@ set media_classes = [
   {% if social_media_disabled %}
   <div class="some-embed__code js-social-media-code"{{ content.field_some_embed_code|quickedit_attr }}>{{ 'Disabled'|trans }}</div>
   {% else %}
-  <div class="some-embed__code"{{ content.field_some_embed_code|quickedit_attr }}>{{ content.field_some_embed_code|field_value }}</div>
+  <div class="some-embed__code"{{ content.field_some_embed_code|quickedit_attr }}>{{ code }}</div>
   {% endif %}
 </article>
