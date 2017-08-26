@@ -34,7 +34,7 @@ function degov_social_media_settings_preprocess_media(&$variables) {
     switch ($bundle) {
       case 'some_embed':
         $field_value = $media->field_some_embed_code->value;
-        $allowed_tags = array_merge(Xss::getAdminTagList(), ['iframe']);
+        $allowed_tags = array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote']);
         $markup = Xss::filter($field_value, $allowed_tags);
         break;
       case 'video':
