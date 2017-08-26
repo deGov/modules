@@ -56,8 +56,9 @@ function degov_social_media_settings_preprocess_media(&$variables) {
  * Implements hook_preprocess_page().
  */
 function degov_social_media_settings_preprocess_page(&$variables) {
+  $sources = \Drupal::config('degov_social_media_settings.default')->get('sources');
   $variables['social_media_settings'] = TRUE;
-  $sources = \Drupal::config('degov_social_media_settings.sources')->get();
+  $variables['social_media_sources'] = $sources;
 
   foreach ($sources as $key => $value) {
     $sources[$key] = FALSE;
@@ -77,5 +78,5 @@ function degov_social_media_settings_preprocess_page(&$variables) {
  * @return array
  */
 function degov_social_media_settings_sources(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable) {
-  return \Drupal::config('degov_social_media_settings.sources')->get();
+  return \Drupal::config('degov_social_media_settings.default')->get('sources');
 }
