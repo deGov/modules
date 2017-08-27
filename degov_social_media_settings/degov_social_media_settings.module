@@ -114,6 +114,7 @@ function degov_social_media_settings_preprocess_page(&$variables) {
   $variables['social_media_sources'] = degov_social_media_settings_sources();
   $variables['#attached']['library'][] = 'degov_social_media_settings/process';
   $variables['#attached']['drupalSettings']['degov_social_media_settings']['link'] = t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.');
+  $variables['#attached']['drupalSettings']['degov_social_media_settings']['cookie'] = t('This social media source is disabled. After accepting our cookie policy, you can enable it.');
 
   foreach ($variables['social_media_sources'] as $key => $value) {
     $variables['#attached']['drupalSettings']['degov_social_media_settings']['sources'][$key] = FALSE;

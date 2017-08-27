@@ -12,6 +12,10 @@
       // Initialize when cookies are accepted by eu_cookie_compliance module.
       $('.agree-button', context).once('social-media-settings').click(function () {
         initializeSettings();
+
+        $('.js-social-media-wrapper').each(function () {
+          applySettings($(this));
+        })
       });
 
       // Open the modal.
@@ -69,14 +73,19 @@
       target.html(code[entity]);
     }
     else {
-      var link = $('<div>' + settings.link + '</div>');
+      if (Drupal.eu_cookie_compliance.hasAgreed()) {
+        var link = $('<div>' + settings.link + '</div>');
 
-      $('.js-social-media-settings-open', link).click(function(e) {
-        e.preventDefault();
-        openModal();
-      });
+        $('.js-social-media-settings-open', link).click(function (e) {
+          e.preventDefault();
+          openModal();
+        });
 
-      target.html(link);
+        target.html(link);
+      }
+      else {
+        target.html(settings.cookie);
+      }
     }
   }
 
