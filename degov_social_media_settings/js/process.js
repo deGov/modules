@@ -29,6 +29,10 @@
       $('.js-social-media-wrapper', context).once('social-media-settings').each(function () {
         applySettings($(this));
       });
+
+      $('.js-social-media-source-all').once('social-media-settings').click(function () {
+        handleAll($(this));
+      });
     }
   };
 
@@ -72,7 +76,7 @@
   // Opens the social media settings modal.
   function openModal() {
     // Update checkboxes with settings from cookie.
-    $('input[type="checkbox"]', modal).each(function () {
+    $('.js-social-media-source', modal).each(function () {
       var source = $(this).val();
 
       if (sources.hasOwnProperty(source)) {
@@ -84,11 +88,16 @@
     modal.modal();
   }
 
+  // Handle click on 'all' checkbox.
+  function handleAll(all) {
+    $('.js-social-media-source').prop('checked', all.is(':checked'));
+  }
+
   // Saves the social media settings in the cookie and applies the new
   // settings to all social media wrappers.
   function saveSettings() {
     // Update the sources variable.
-    $('input[type="checkbox"]', modal).each(function () {
+    $('.js-social-media-source', modal).each(function () {
       var source = $(this).val();
 
       if (sources.hasOwnProperty(source)) {
