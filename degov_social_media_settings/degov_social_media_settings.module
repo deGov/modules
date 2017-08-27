@@ -2,6 +2,53 @@
 
 use Drupal\media_entity\MediaInterface;
 use Drupal\Component\Utility\Xss;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Utility\NestedArray;
+
+/**
+ * Implements hook_modules_installed().
+ */
+function degov_social_media_settings_modules_installed($modules) {
+  $bundles = [];
+
+  if (in_array('degov_media_social_media_embed', $modules)) {
+    $bundles[] = 'some_embed';
+  }
+
+  if (in_array('degov_media_video', $modules)) {
+    $bundles[] = 'video';
+  }
+
+  if (!empty($bundles)) {
+    /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+    $configFactory = \Drupal::service('config.factory');
+    $path = drupal_get_path('module', 'degov_social_media_settings');
+    $new = [];
+    $add = [];
+
+    foreach ($bundles as $bundle) {
+      $new[] = 'field.field.media.' . $bundle . '.field_social_media_source';
+      $add[] = 'core.entity_form_display.media.' . $bundle . '.default';
+      $add[] = 'core.entity_form_display.media.' . $bundle . '.media_browser';
+    }
+
+    foreach ($new as $file) {
+      $data = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'optional', $file . '.yml'])));
+      $configFactory->getEditable($file)->setData($data)->save();
+    }
+
+    foreach ($add as $file) {
+      $config = $configFactory->getEditable($file);
+      $active = $config->getRawData();
+
+      if (!empty($active)) {
+        $insert = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'rewrite', $file . '.yml'])));
+        $merged = NestedArray::mergeDeep($active, $insert);
+        $config->setData($merged)->save();
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_preprocess_paragraph__HOOK().
