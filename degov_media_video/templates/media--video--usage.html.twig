@@ -22,7 +22,7 @@ set media_classes = [
   {{ content.contextual_links }}
   <div class="video__type-text">{{ 'Video'|t }}</div>
   {% if social_media_disabled %}
-  <div class="video__video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}>{{ 'Disabled'|trans }}</div>
+  <div class="video__video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
   {% else %}
   <div class="video__video"{{ content.field_media_video_embed_field|quickedit_attr }}>{{ content.field_media_video_embed_field|field_value }}</div>
   {% endif %}
