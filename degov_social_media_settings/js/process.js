@@ -128,7 +128,7 @@
 
   // Saves the settings in the cookie.
   function cookieSaveSettings() {
-    $.cookie(cookie, JSON.stringify(sources));
+    $.cookie(cookie, JSON.stringify(sources), { path: '/' });
   }
 
   // Initialize.
