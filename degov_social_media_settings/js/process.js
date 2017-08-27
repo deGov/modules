@@ -69,7 +69,14 @@
       target.html(code[entity]);
     }
     else {
-      target.html('Disabled!');
+      var link = $('<div>' + settings.link + '</div>');
+
+      $('.js-social-media-settings-open', link).click(function(e) {
+        e.preventDefault();
+        openModal();
+      });
+
+      target.html(link);
     }
   }
 
