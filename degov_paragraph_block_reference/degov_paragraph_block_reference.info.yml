@@ -8,5 +8,6 @@ dependencies:
   - field
   - link
   - block
+  - block_field
   - paragraphs
   - workbench_moderation

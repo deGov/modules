@@ -1,0 +1,46 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_plugin
+    - paragraphs.paragraphs_type.block_reference
+  module:
+    - block_field
+  enforced:
+    module:
+      - degov_paragraph_block_reference
+id: paragraph.block_reference.field_block_plugin
+field_name: field_block_plugin
+entity_type: paragraph
+bundle: block_reference
+label: Block
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids:
+    shariff_block: shariff_block
+    sidebar_paragraphs: sidebar_paragraphs
+    calendar_legend_block: calendar_legend_block
+    degov_twitter_block: degov_twitter_block
+    user_login_block: user_login_block
+    'system_menu_block:footer': 'system_menu_block:footer'
+    'system_menu_block:main': 'system_menu_block:main'
+    'system_menu_block:tools': 'system_menu_block:tools'
+    'system_menu_block:account': 'system_menu_block:account'
+    shortcuts: shortcuts
+    'system_menu_block:admin': 'system_menu_block:admin'
+    open_readspeaker_block: open_readspeaker_block
+    simplenews_subscription_block: simplenews_subscription_block
+    sitemap_syndicate: sitemap_syndicate
+    system_breadcrumb_block: system_breadcrumb_block
+    system_main_block: system_main_block
+    system_messages_block: system_messages_block
+    node_syndicate_block: node_syndicate_block
+    system_powered_by_block: system_powered_by_block
+    system_branding_block: system_branding_block
+    'language_block:language_interface': 'language_block:language_interface'
+    webform_block: webform_block
+field_type: block_field
