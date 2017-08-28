@@ -37,7 +37,7 @@
         Drupal.behaviors.gallery.pswpItems.push($pswpItem);
       });
 
-      $('.slick-controls__gallery').once().append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri + '"><i class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
+      $('.slick-controls__gallery').once().append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[0].uri + '"><i class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
 
       $slider.find('article').click(function () {
         var $index = parseInt($slider.slick('slickCurrentSlide'));
@@ -55,6 +55,7 @@
         var i = (currentSlide ? currentSlide : 0) + 1;
         $('.slick__counter__current').text(i);
         $('.slick__counter__total').text(slick.slideCount);
+        $('.slick-controls__gallery .slick__download a').prop('href', drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
       });
       $('.slick__pause').on('click', function () {
         $('.slideshow__slides').once().slick('slickPause');
