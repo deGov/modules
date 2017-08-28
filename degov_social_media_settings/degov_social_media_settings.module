@@ -9,6 +9,8 @@ use Drupal\Component\Utility\NestedArray;
  * Implements hook_modules_installed().
  */
 function degov_social_media_settings_modules_installed($modules) {
+  // Add field_social_media_type to some_embed and video media bundles
+  // when they are installed after degov_social_media_settings module.
   $bundles = [];
 
   if (in_array('degov_media_social_media_embed', $modules)) {
@@ -32,11 +34,13 @@ function degov_social_media_settings_modules_installed($modules) {
       $add[] = 'core.entity_form_display.media.' . $bundle . '.media_browser';
     }
 
+    // Add field instance.
     foreach ($new as $file) {
       $data = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'optional', $file . '.yml'])));
       $configFactory->getEditable($file)->setData($data)->save();
     }
 
+    // Rewrite form display to add field.
     foreach ($add as $file) {
       $config = $configFactory->getEditable($file);
       $active = $config->getRawData();
