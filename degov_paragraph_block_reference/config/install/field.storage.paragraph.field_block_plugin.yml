@@ -2,16 +2,17 @@ langcode: de
 status: true
 dependencies:
   module:
-    - options
+    - block_field
     - paragraphs
-id: paragraph.field_block
-field_name: field_block
+  enforced:
+    module:
+      - degov_paragraph_block_reference
+id: paragraph.field_block_plugin
+field_name: field_block_plugin
 entity_type: paragraph
-type: list_string
-settings:
-  allowed_values: {  }
-  allowed_values_function: 'degov_block_reference_widget_list'
-module: options
+type: block_field
+settings: {  }
+module: block_field
 locked: false
 cardinality: 1
 translatable: true

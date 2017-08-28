@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.block_reference.field_block
+    - field.field.paragraph.block_reference.field_block_plugin
     - field.field.paragraph.block_reference.field_sub_title
     - field.field.paragraph.block_reference.field_title
     - field.field.paragraph.block_reference.field_title_link
@@ -11,20 +12,20 @@ dependencies:
     module:
       - degov_paragraph_block_reference
   module:
-    - degov_paragraph_block_reference
+    - block_field
     - link
 id: paragraph.block_reference.default
 targetEntityType: paragraph
 bundle: block_reference
 mode: default
 content:
-  field_block:
-    type: degov_block_render
+  field_block_plugin:
     weight: 3
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    type: block_field
+    region: content
   field_sub_title:
     weight: 1
     label: hidden

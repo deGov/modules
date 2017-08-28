@@ -7,12 +7,12 @@ use Drupal\Core\Field\FormatterBase;
 
 
 /**
- * Field formatter for Block Selecct Field.
+ * Field label formatter for Block Field.
  *
  * @FieldFormatter(
  *   id = "degov_block_render",
- *   label = @Translation("deGov Block Display"),
- *   field_types = {"list_string"}
+ *   label = @Translation("deGov Block label Display"),
+ *   field_types = {"block_field"}
  * )
  */
 class BlockRender extends FormatterBase {
@@ -31,12 +31,25 @@ class BlockRender extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    $block_manager = \Drupal::service('plugin.manager.block');
+    /** @var \Drupal\block_field\BlockFieldManagerInterface $block_field_manager */
+    $block_field_manager = \Drupal::service('block_field.manager');
+    $definitions = $block_field_manager->getBlockDefinitions();
     foreach ($items as $delta => $item) {
-      $block_name = $item->getValue()['value'];
-      $plugin_block = $block_manager->createInstance($block_name, []);
-      $builtBlock = $plugin_block->build();
-      $elements[$delta] = $builtBlock;
+      /** @var \Drupal\block_field\BlockFieldItemInterface $item */
+      $block_instance = $item->getBlock();
+      // Make sure the block exists and is accessible.
+      if (!$block_instance || !$block_instance->access(\Drupal::currentUser())) {
+        continue;
+      }
+      $title = $block_instance->getPluginId();
+      if (!empty($definitions[$title])) {
+        $category = (string) $definitions[$title]['category'];
+        $label = $definitions[$title]['admin_label'];
+        $title = $category . ': ' . $label;
+      }
+      $elements[$delta] = [
+        '#markup' => $title,
+      ];
     }
     return $elements;
   }
