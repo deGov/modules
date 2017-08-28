@@ -6,6 +6,7 @@
   "homepage": "https://www.nrwgov.org",
   "require": {
     "drupal/simplify_menu": "1.x-dev",
-    "drupal/link_attributes": "^1.1"
+    "drupal/link_attributes": "^1.1",
+    "drupal/menu_block": "^1.0"
   }
 }

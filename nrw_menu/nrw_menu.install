@@ -7,3 +7,11 @@
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Enable menu_block module and add menu block for levels 4 and deeper.
+ */
+function nrw_menu_update_8002() {
+  \Drupal::service('module_installer')->install(['menu_block'], TRUE);
+  \Drupal::service('degov_config.block_installer')->placeBlockConfig('nrw_menu');
+}
