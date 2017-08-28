@@ -14,14 +14,14 @@
 #}
 {%
 set media_classes = [
-    'some-embed',
-    'clearfix',
+  'some-embed',
+  'clearfix',
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {% if social_media_disabled %}
-  <div class="some-embed__code js-social-media-code"{{ content.field_some_embed_code|quickedit_attr }}></div>
+    <div class="some-embed__code js-social-media-code"{{ content.field_some_embed_code|quickedit_attr }}></div>
   {% else %}
-  <div class="some-embed__code"{{ content.field_some_embed_code|quickedit_attr }}>{{ code }}</div>
+    <div class="some-embed__code"{{ content.field_some_embed_code|quickedit_attr }}>{{ code }}</div>
   {% endif %}
 </article>
