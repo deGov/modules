@@ -30,7 +30,7 @@ function degov_common_update_8005() {
         $viewExecutable->initHandlers();
         $viewExecutable->display_handler->setOption('use_ajax', TRUE);
         $viewExecutable->save();
-        }
+      }
     }
   }
 }
