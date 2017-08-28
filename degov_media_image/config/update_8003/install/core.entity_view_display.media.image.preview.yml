@@ -16,6 +16,9 @@ dependencies:
     - field.field.media.image.image
     - image.style.large
     - media_entity.bundle.image
+  enforced:
+    module:
+      - degov_media_image
   module:
     - datetime
     - image

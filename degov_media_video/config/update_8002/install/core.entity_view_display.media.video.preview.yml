@@ -11,6 +11,9 @@ dependencies:
     - field.field.media.video.field_video_copyright
     - image.style.large
     - media_entity.bundle.video
+  enforced:
+    module:
+      - degov_media_video
   module:
     - video_embed_field
 id: media.video.preview
