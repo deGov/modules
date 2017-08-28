@@ -125,3 +125,14 @@ function degov_common_modules_installed($modules) {
 function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'lightning_media/browser.styling';
 }
+
+/**
+ * Alter menu add/edit form.
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function  degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if (!empty($form['link']['widget'][0]['options']['attributes']['class'])) {
+    $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Geben Sie hier eine <a href="http://fontawesome.io/cheatsheet" target="_blank">Font-Awesome</a> Klasse ein, z.B. "fa-archive", um das entsprechende Icon anzuzeigen (nur erste Menüebene).');
+  }
+}
