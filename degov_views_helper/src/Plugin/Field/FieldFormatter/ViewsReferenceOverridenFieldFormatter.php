@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_views_helper\Plugin\Field\FieldFormatter;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\node\NodeInterface;
 use Drupal\views\Entity\View;
@@ -100,6 +101,13 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
           $view->rowPlugin->options['view_mode'] = $extra_data['view_mode'];
           // Add view mode to the cache keys, so the renderable array could be safely cached.
           $view->element['#cache']['keys'][] = $extra_data['view_mode'];
+        }
+        $css_class = $view->display_handler->getOption('css_class');
+        $new_css_class = $css_class . ' ' . Html::cleanCssIdentifier($extra_data['view_mode']);
+        $view->display_handler->setOption('css_class', $new_css_class);
+
+        if ($view->style_plugin->usesRowPlugin()) {
+          $view->style_plugin->options['row_class'] .= ' ' . Html::cleanCssIdentifier($extra_data['view_mode']);
         }
       }
       if (!empty($view->result) || !empty($view->empty)) {
