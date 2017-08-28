@@ -1,0 +1,19 @@
+name: 'deGov - Media Social Media Embed'
+description: 'Stellt ein Media Bundle für das Einbetten von Social Media Inhalten (Feeds und dgl.) zur Verfügung.'
+package: deGov
+type: module
+core: 8.x
+dependencies:
+  - degov_common
+  - degov_content_types_shared_fields
+  - degov_taxonomy_term_tags
+  - entity_browser
+  - field
+  - field_group
+  - language
+  - media_entity
+  - path
+  - taxonomy
+  - text
+  - user
+  - workbench_moderation
