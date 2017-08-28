@@ -10,14 +10,13 @@ dependencies:
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
-    - image.style.large
     - media_entity.bundle.audio
   enforced:
     module:
       - degov_media_audio
   module:
     - degov_common
-    - media_entity
+    - entity_reference_revisions
 id: media.audio.default
 targetEntityType: media
 bundle: audio
@@ -28,8 +27,7 @@ content:
     weight: 3
     region: content
     label: hidden
-    settings:
-      route_name: view.search_media.page
+    settings: {  }
     third_party_settings: {  }
   field_audio_caption:
     type: string
@@ -48,7 +46,7 @@ content:
       link: false
     third_party_settings: {  }
   field_audio_preview:
-    weight: 0
+    weight: 4
     label: hidden
     settings:
       image_style: large
