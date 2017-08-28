@@ -25,3 +25,10 @@ function nrw_image_and_crop_styles_update_8001() {
 function nrw_image_and_crop_styles_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8002');
 }
+
+/**
+ * Override image display on media bundle audio.
+ */
+function nrw_image_and_crop_styles_update_8003() {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8003');
+}
