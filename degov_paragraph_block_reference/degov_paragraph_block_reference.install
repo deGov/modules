@@ -9,18 +9,31 @@
  */
 
 /**
- * Removes field_block.
+ * Installs block_field module.
  */
 function degov_paragraph_block_reference_update_8002() {
-  // Clear the plugin caches, so the new Field Formatter is detected.
-  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
-
   if (!\Drupal::moduleHandler()->moduleExists('block_field')) {
     \Drupal::service('module_installer')->install(['block_field']);
   }
+}
+
+/**
+ * Imports configuration for new field.
+ */
+function degov_paragraph_block_reference_update_8003() {
+  // Clear the plugin caches, so the new Field Formatter is detected.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 
   // Do partial import because the field name for block was changed.
   \Drupal::service('degov_config.updater')->configPartialImport('degov_paragraph_block_reference');
+  // Flush all caches so the new fields are found.
+  drupal_flush_all_caches();
+}
+
+/**
+ * Migrates from old field to new one.
+ */
+function degov_paragraph_block_reference_update_8004() {
   // Migrate old data to new field.
   $ids = \Drupal::entityQuery('paragraph')
     ->condition('type', 'block_reference')->execute();
@@ -34,7 +47,12 @@ function degov_paragraph_block_reference_update_8002() {
     $paragraph->set('field_block_plugin', [0 => ['plugin_id' => $old_value[0]['value'], 'settings' => []]]);
     $paragraph->save();
   }
+}
 
+/**
+ * Deletes old field.
+ */
+function degov_paragraph_block_reference_update_8005() {
   /* @var $entityFieldManager Drupal\Core\Entity\EntityFieldManager */
   $entityFieldManager = \Drupal::service('entity_field.manager');
   // Get the fields for block reference paragraph.
@@ -43,5 +61,4 @@ function degov_paragraph_block_reference_update_8002() {
   if (isset($fields['field_block'])) {
     $fields['field_block']->delete();
   }
-
 }
