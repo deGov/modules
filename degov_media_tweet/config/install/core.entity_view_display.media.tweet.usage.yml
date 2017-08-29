@@ -7,6 +7,9 @@ dependencies:
     - field.field.media.tweet.field_media_in_library
     - field.field.media.tweet.field_tags
     - media_entity.bundle.tweet
+  enforced:
+    module:
+      - degov_media_tweet
   module:
     - media_entity_twitter
 id: media.tweet.usage
