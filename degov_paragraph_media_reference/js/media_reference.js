@@ -13,7 +13,7 @@
   Drupal.behaviors.filterMediaSelection = {
     attach: function (context, settings) {
       // Go over every data-entity-id value and filter the field view modes.
-      $('.field--name-field-media-reference-media [data-entity-id]').each(function() {
+      $('.field--name-field-media-reference-media [data-entity-id]', context).each(function() {
         var media = $(this).attr('data-entity-id').split(":");
         ajaxFilterViewModes(media[0], media[1], '.field--name-field-media-reference-media [data-entity-id]');
       });
@@ -38,7 +38,7 @@
       success: function(response) {
         // Find the view mode field in the paragraph subform.
         var view_mode_field = $(selector).closest('.paragraphs-subform').find('.field--name-field-media-reference-view-mode select');
-        var view_mode_field_class = '.' + $(view_mode_field).attr('class');
+        var view_mode_field_class = '#' + $(view_mode_field).attr('id');
         // Hide all options by default.
         $(view_mode_field_class + " option").hide();
         // Enable all options allowed.

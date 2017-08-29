@@ -14,3 +14,23 @@
 function degov_common_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8004');
 }
+
+/**
+ * Update view displays with the entity browser plugin in order to force use_ajax.
+ * taken from https://www.drupal.org/node/2902831
+ */
+function degov_common_update_8005() {
+  $views = \Drupal\views\Views::getAllViews();
+  foreach ($views as $view) {
+    $displays = $view->get('display');
+    foreach ($displays as $display_key => $display) {
+      if ($display['display_plugin'] == 'entity_browser') {
+        $viewExecutable = $view->getExecutable();
+        $viewExecutable->setDisplay($display_key);
+        $viewExecutable->initHandlers();
+        $viewExecutable->display_handler->setOption('use_ajax', TRUE);
+        $viewExecutable->save();
+      }
+    }
+  }
+}
