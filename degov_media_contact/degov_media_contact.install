@@ -20,3 +20,10 @@ function degov_media_contact_uninstall() {
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Update label and add preview view mode.
+ */
+function degov_media_contact_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_contact', '8003');
+}

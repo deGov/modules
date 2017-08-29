@@ -12,7 +12,7 @@ function degov_media_video_upload_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_video_upload',
     'entity_type' => 'media',
     'entity_bundles' => ['video_upload'],
-    'entity_view_modes' => ['usage'],
+    'entity_view_modes' => ['usage', 'preview'],
   ]);
 }
 
@@ -23,6 +23,7 @@ function degov_media_video_upload_preprocess_media__video_upload(&$variables) {
   /* @var \Drupal\media_entity\Entity\Media $media */
   $media = $variables['media'];
 
+  $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
     'id' => 'video-upload-' . $media->id(),
     'preload' => 'metadata',

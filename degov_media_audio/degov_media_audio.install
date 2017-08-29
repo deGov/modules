@@ -36,3 +36,19 @@ function degov_media_audio_uninstall() {
       ->save(TRUE);
   }
 }
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_audio_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8001');
+}
+
+/**
+ * Add tag route name.
+ */
+function degov_media_audio_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8002');
+}
+
+

@@ -8,3 +8,40 @@
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
 
+/**
+ * Removes field_block.
+ */
+function degov_paragraph_block_reference_update_8002() {
+  // Clear the plugin caches, so the new Field Formatter is detected.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+
+  if (!\Drupal::moduleHandler()->moduleExists('block_field')) {
+    \Drupal::service('module_installer')->install(['block_field']);
+  }
+
+  // Do partial import because the field name for block was changed.
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_paragraph_block_reference');
+  // Migrate old data to new field.
+  $ids = \Drupal::entityQuery('paragraph')
+    ->condition('type', 'block_reference')->execute();
+  $paragraphs = \Drupal\paragraphs\Entity\Paragraph::loadMultiple($ids);
+
+  foreach ($paragraphs as $paragraph) {
+    if (!$paragraph->hasField('field_block') || $paragraph->get('field_block')->isEmpty()) {
+      continue;
+    }
+    $old_value = $paragraph->get('field_block')->getValue();
+    $paragraph->set('field_block_plugin', [0 => ['plugin_id' => $old_value[0]['value'], 'settings' => []]]);
+    $paragraph->save();
+  }
+
+  /* @var $entityFieldManager Drupal\Core\Entity\EntityFieldManager */
+  $entityFieldManager = \Drupal::service('entity_field.manager');
+  // Get the fields for block reference paragraph.
+  $fields = $entityFieldManager->getFieldDefinitions('paragraph', 'block_reference');
+  // Delete the field if it exists.
+  if (isset($fields['field_block'])) {
+    $fields['field_block']->delete();
+  }
+
+}

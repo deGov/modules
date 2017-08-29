@@ -11,6 +11,7 @@
    * Initializes the slideshow with Slick and PhotoSwipe.
    */
   Drupal.behaviors.gallery = {
+    pswpItems: [],
     attach: function (context, settings) {
       var $slider = $('.media-gallery__images .slideshow__slides');
       var $images = $slider.find('img');
@@ -21,38 +22,40 @@
         swipeToSlide: true
       });
       $('.media-gallery__preview .image').click(function () {
-        $slider.once().slick('slickGoTo', $(this).parent().data('index'));
+        $slider.slick('slickGoTo', $(this).parent().data('index'));
       });
-
       var $pswpElement = document.querySelectorAll('.pswp__media-gallery')[0];
-
-      var $pswpItems = [];
+      if (Drupal.behaviors.gallery.pswpItems.length > 0) {
+        return;
+      }
       $.each($images, function (k, img) {
         var $pswpItem = {
           src: drupalSettings.degov_media_gallery.imagesDownloadLinks[k].uri,
           w: drupalSettings.degov_media_gallery.imagesDownloadLinks[k].width,
           h: drupalSettings.degov_media_gallery.imagesDownloadLinks[k].height
         };
-        $pswpItems.push($pswpItem);
+        Drupal.behaviors.gallery.pswpItems.push($pswpItem);
       });
-      $('.slick-controls__gallery').append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.once().slick('slickCurrentSlide')].uri + '"><i class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
+
+      $('.slick-controls__gallery').once().append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[0].uri + '"><i class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
 
       $slider.find('article').click(function () {
-        var $index = parseInt($slider.once().slick('slickCurrentSlide'));
+        var $index = parseInt($slider.slick('slickCurrentSlide'));
         var $options = {
           index: $index
         };
         // Initializes and opens PhotoSwipe.
-        var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, $pswpItems, $options);
+        var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
         $pswp.init();
       });
       $('.media-gallery-js-open-lightroom').click(function () {
-        $images.get($slider.once().slick('slickCurrentSlide')).click();
+        $images.get($slider.slick('slickCurrentSlide')).click();
       });
       $slider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;
         $('.slick__counter__current').text(i);
         $('.slick__counter__total').text(slick.slideCount);
+        $('.slick-controls__gallery .slick__download a').prop('href', drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
       });
       $('.slick__pause').on('click', function () {
         $('.slideshow__slides').once().slick('slickPause');
