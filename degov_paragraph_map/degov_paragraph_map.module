@@ -20,14 +20,15 @@ function degov_paragraph_map_preprocess(&$variables, $hook, &$info) {
  * Implements hook_field_widget_form_alter().
  */
 function degov_paragraph_map_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  /** @var \Drupal\Core\Field\WidgetBase $widget */
   $widget = $context['widget'];
-  $allowed_view_modes = [
-    'osm_map' => t('OSM Map'),
-    'default_map' => t('Google Map')
-  ];
 
   // Limit the view mode selection field to the selected view modes.
   if ($widget->getPluginId() == 'entity_reference_paragraphs' && !empty($element['subform']['field_map_address_view_mode'])) {
+    $allowed_view_modes = [
+      'osm_map' => t('OSM Map'),
+      'default_map' => t('Google Map')
+    ];
     $element['subform']['field_map_address_view_mode']['widget']['#options'] = $allowed_view_modes;
   }
 }
