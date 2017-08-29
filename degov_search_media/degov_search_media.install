@@ -7,3 +7,10 @@ function degov_search_media_install() {
   // Flush plugin caches so our facets will be shown.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 }
+
+/**
+ * Use preview view mode.
+ */
+function degov_search_media_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_media', '8001');
+}
