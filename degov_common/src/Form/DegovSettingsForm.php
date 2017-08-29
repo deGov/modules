@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_views_helper\Form;
+namespace Drupal\degov_common\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
