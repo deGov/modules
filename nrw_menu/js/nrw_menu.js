@@ -68,6 +68,7 @@
   Drupal.behaviors.responsiveMenu = {
     attach: function (context, settings) {
       $('.header__menu-icon').click(function () {
+        $(this).toggleClass('is-open');
         $('.nrw-menu-header-responsive').toggleClass('is-open');
       });
       $('.nrw-menu-header-responsive .nrw-menu-header-responsive__block-title').click(function () {
