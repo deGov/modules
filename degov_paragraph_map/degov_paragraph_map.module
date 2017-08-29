@@ -27,7 +27,8 @@ function degov_paragraph_map_field_widget_form_alter(&$element, FormStateInterfa
   if ($widget->getPluginId() == 'entity_reference_paragraphs' && !empty($element['subform']['field_map_address_view_mode'])) {
     $allowed_view_modes = [
       'osm_map' => t('OSM Map'),
-      'default_map' => t('Google Map')
+      'default_map' => t('Google Map'),
+      'itnrw_map' => t('IT NRW Map'),
     ];
     $element['subform']['field_map_address_view_mode']['widget']['#options'] = $allowed_view_modes;
   }
