@@ -1,0 +1,41 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function degov_multilingual_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  // For each hook and existing theme suggestion, add another suggestion with
+  // the current language id as a suffix.
+  $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // The first suggestion is always the hook itself and does not have to be
+  // added here. Instead, add the hook itself with the language id as a suffix
+  // as the first suggestion.
+  $multilingual_suggestions = [$hook . '__' . $language_id];
+
+  // Now, for each suggestion, add the suggestion itself and right afterwards
+  // the suggestion with the with the language id as a suffix.
+  foreach ($suggestions as $suggestion) {
+    $multilingual_suggestions[] = $suggestion;
+    $multilingual_suggestions[] = $suggestion . '__' . $language_id;
+  }
+
+  $suggestions = $multilingual_suggestions;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function degov_multilingual_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'theme_suggestions_alter') {
+    // Try to make degov_multilingual run last so that all existing suggestions
+    // can be extended.
+    $group = $implementations['degov_multilingual'];
+    unset($implementations['degov_multilingual']);
+    $implementations['degov_multilingual'] = $group;
+  }
+}
+
