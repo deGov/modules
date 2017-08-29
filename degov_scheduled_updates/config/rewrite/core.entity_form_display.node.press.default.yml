@@ -1,0 +1,16 @@
+dependencies:
+  config:
+    - field.field.node.press.scheduled_updates
+  module:
+    - degov_scheduled_updates
+content:
+  scheduled_updates:
+    type: inline_entity_form_simple
+    weight: 11
+    settings:
+      override_labels: true
+      label_singular: 'Scheduled Updates'
+      label_plural: 'Scheduled Updatess'
+      form_mode: default
+    third_party_settings: {  }
+    region: content
