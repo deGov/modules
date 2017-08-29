@@ -19,3 +19,10 @@ function degov_node_normal_page_uninstall() {
 function degov_node_normal_page_update_8001() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_normal_page', '8001');
 }
+
+/**
+ * Update view block for displaying latest normal page content.
+ */
+function degov_node_normal_page_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_normal_page', '8002');
+}

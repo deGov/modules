@@ -1,19 +1,15 @@
+uuid: 2e40e86a-e50a-4e1c-a0ad-bf0e422f4524
 langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.latest
-    - node.type.event
-  enforced:
-    module:
-      - degov_node_event
+    - core.entity_view_mode.node.teaser
   module:
-    - datetime
     - node
     - taxonomy
     - user
-id: latest_events
-label: 'Neueste Veranstaltung'
+id: latest_content
+label: 'Neuste Inhalte'
 module: views
 description: ''
 tag: ''
@@ -66,8 +62,7 @@ display:
       row:
         type: 'entity:node'
         options:
-          relationship: none
-          view_mode: latest
+          view_mode: teaser
       fields:
         title:
           id: title
@@ -128,30 +123,23 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            event: event
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
       sorts:
-        field_event_date_value:
-          id: field_event_date_value
-          table: node__field_event_date
-          field: field_event_date_value
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
-          plugin_id: datetime
-      title: 'Neueste Veranstaltung'
+      title: 'Neuste Inhalte'
       header: {  }
       footer: {  }
       empty: {  }
@@ -240,9 +228,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  latest_event:
+  latest_content:
     display_plugin: block
-    id: latest_event
+    id: latest_content
     display_title: Block
     position: 1
     display_options:

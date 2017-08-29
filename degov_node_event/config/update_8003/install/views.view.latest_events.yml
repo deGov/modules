@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.latest
     - node.type.event
-  enforced:
+enforced:
     module:
       - degov_node_event
   module:

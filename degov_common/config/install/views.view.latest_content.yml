@@ -50,10 +50,14 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 5
+          items_per_page: 4
           offset: 0
       style:
         type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
       row:
         type: 'entity:node'
         options:
@@ -223,9 +227,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
+  latest_content:
     display_plugin: block
-    id: block_1
+    id: latest_content
     display_title: Block
     position: 1
     display_options:
