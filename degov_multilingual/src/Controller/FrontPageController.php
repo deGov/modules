@@ -37,8 +37,6 @@ class FrontPageController extends ControllerBase {
       $node = $this->entityTypeManager()->getStorage('node')->load($nid);
     }
 
-    $bins = Cache::getBins();
-
     // If we have a node, check access and either throw an access denied
     // exception if access is not allowed or build and return a render array
     // if access was allowed. If we don't have a node, return a not found
