@@ -34,3 +34,10 @@ function degov_common_update_8005() {
     }
   }
 }
+
+/**
+ * Update view block for displaying latest content.
+ */
+function degov_common_update_8006() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8006');
+}
