@@ -23,3 +23,11 @@ function degov_search_content_update_8003() {
   // Import full configuration
   \Drupal::service('degov_config.updater')->configPartialImport('degov_search_content');
 }
+
+/**
+ * Adds new facet field_section.
+ */
+function degov_search_content_update_8004() {
+  // Import full configuration
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_search_content');
+}

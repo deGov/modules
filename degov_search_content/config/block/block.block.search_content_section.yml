@@ -1,0 +1,30 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - facets.facet.search_content_section
+  enforced:
+    module:
+      - degov_search_content
+  module:
+    - facets
+    - system
+  theme:
+    - nrw_base_theme
+id: search_content_section
+theme: nrw_base_theme
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'facet_block:search_content_section'
+settings:
+  id: 'facet_block:search_content_section'
+  label: Bereich
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /suche
+    negate: false
+    context_mapping: {  }

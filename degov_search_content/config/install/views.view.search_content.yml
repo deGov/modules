@@ -37,7 +37,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Suchen
           reset_button: false
           reset_button_label: Zurücksetzen
           exposed_sorts_label: 'Sortieren nach'
@@ -188,9 +188,32 @@ display:
           plugin_id: search_api_fulltext
       sorts: {  }
       title: Suche
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '@total Treffer'
+          plugin_id: result
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Keine Treffer gefunden. Bitte überprüfen Sie Ihre Suchbegriffe oder versuchen weniger Begriffe.'
+            format: rich_text
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
