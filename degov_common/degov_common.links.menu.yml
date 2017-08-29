@@ -1,0 +1,5 @@
+degov.default:
+  title: 'deGov Settings'
+  route_name: 'degov.default_settings'
+  parent: 'system.admin_config'
+  description: 'Administer deGov.'
