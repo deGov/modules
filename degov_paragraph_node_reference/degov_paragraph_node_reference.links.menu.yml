@@ -1,0 +1,6 @@
+degov_paragraph_node_reference.settings:
+  title: 'Inhaltsreferenz'
+  route_name: 'degov_paragraph_node_reference.settings'
+  parent: 'degov.default'
+  description: 'Administer deGov node reference.'
+  weight: -8
