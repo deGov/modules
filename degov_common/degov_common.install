@@ -41,3 +41,10 @@ function degov_common_update_8005() {
 function degov_common_update_8006() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8006');
 }
+
+/**
+ * Update media view block.
+ */
+function degov_common_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8007');
+}
