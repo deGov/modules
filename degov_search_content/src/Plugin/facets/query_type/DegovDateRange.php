@@ -98,7 +98,7 @@ class DegovDateRange extends SearchApiDate {
         if ($isValidStartDate) {
           $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value[0] . '-01T00:00:00');
         }
-        if ($isValidEndDate) {
+        if ($isValidEndDate && isset($startDate)) {
           $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value[1] . '-' . $startDate->format('t') . 'T23:59:59');
         }
         break;
@@ -142,8 +142,8 @@ class DegovDateRange extends SearchApiDate {
     }
 
     return [
-      'start' => $startDate ? $startDate->format('U') : FALSE,
-      'stop' => $stopDate ? $stopDate->format('U') : FALSE,
+      'start' => isset($startDate) ? $startDate->format('U') : FALSE,
+      'stop' => isset($stopDate) ? $stopDate->format('U') : FALSE,
     ];
   }
 
