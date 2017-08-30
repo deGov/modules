@@ -24,6 +24,6 @@ function degov_paragraph_node_reference_uninstall() {
 /**
  * Update slideshow paragraph reference to include node reference.
  */
-function degov_node_reference_update_8003() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_reference', '8003');
+function degov_paragraph_node_reference_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_node_reference', '8003');
 }

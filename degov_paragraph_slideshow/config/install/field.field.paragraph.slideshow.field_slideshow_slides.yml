@@ -25,4 +25,8 @@ settings:
   handler_settings:
     target_bundles:
       slide: slide
+    target_bundles_drag_drop:
+      slide:
+        weight: 0
+        enabled: true
 field_type: entity_reference_revisions
