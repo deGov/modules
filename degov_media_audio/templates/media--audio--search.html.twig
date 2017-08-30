@@ -15,26 +15,26 @@
 {%
 set media_classes = [
   'audio',
-  'media--preview',
+  'media--search',
   'clearfix',
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-  <div class="media--preview__type-text">{{ 'Audio'|t }}</div>
+  <div class="media--search__type-text">{{ 'Audio'|t }}</div>
   {% if content.field_audio_preview|field_value %}
     <div class="audio__image">{{ content.field_audio_preview|field_value }}</div>
   {% else %}
-    <a href="{{ audio_url }}"><div class="media--preview__dummy"></div></a>
+    <a href="{{ audio_url }}"><div class="media--search__dummy"></div></a>
   {% endif %}
   {% if content.field_audio_caption|field_value or content.field_audio_copyright|field_value %}
-    <div class="media--preview__info">
+    <div class="media--search__info">
       {% if content.field_audio_caption|field_value %}
-        <span class="media--preview__caption"{{ content.field_audio_caption|quickedit_attr }}>{{ content.field_audio_caption|field_value }}</span>
+        <span class="media--search__caption"{{ content.field_audio_caption|quickedit_attr }}>{{ content.field_audio_caption|field_value }}</span>
       {% endif %}
       {% if content.field_audio_copyright|field_value %}
-        <span class="media--preview__copyright">
-          <span class="media--preview__copyright-label"{{ content.field_audio_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+        <span class="media--search__copyright">
+          <span class="media--search__copyright-label"{{ content.field_audio_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
           {{ content.field_audio_copyright|field_value }}
         </span>
       {% endif %}

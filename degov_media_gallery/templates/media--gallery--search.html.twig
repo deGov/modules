@@ -16,20 +16,20 @@
 set media_classes = [
   'media',
   'media-gallery',
-  'media--preview',
+  'media--search',
   'clearfix',
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-  <div class="media--preview__type-text">{{ 'Galerie'|t }}</div>
+  <div class="media--search__type-text">{{ 'Galerie'|t }}</div>
   <div class="gallery__images">
     <div class="slideshow__slides">
       {{ content.field_gallery_images|field_value|slice(1, 1) }}
     </div>
   </div>
   {% if content.field_gallery_title|field_value %}
-  <div class="media--preview__info">
+  <div class="media--search__info">
     <span class="gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</span>
   </div>
   {% endif %}
