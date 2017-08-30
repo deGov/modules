@@ -3,11 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.preview
-    - media_entity.bundle.audio
-    - media_entity.bundle.gallery
-    - media_entity.bundle.image
-    - media_entity.bundle.video
-    - media_entity.bundle.video_upload
   module:
     - media_entity
     - user
