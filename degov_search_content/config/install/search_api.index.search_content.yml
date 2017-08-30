@@ -163,11 +163,10 @@ processor_settings:
       preprocess_index: -20
       preprocess_query: -20
   ignore_character:
-    all_fields: true
+    all_fields: false
     fields:
       - node_grants
       - rendered_item
-      - type
       - title
       - field_teaser_text
       - field_teaser_title
@@ -258,11 +257,10 @@ processor_settings:
       preprocess_index: -6
       preprocess_query: -6
   transliteration:
-    all_fields: true
+    all_fields: false
     fields:
       - node_grants
       - rendered_item
-      - type
       - title
       - field_teaser_text
       - field_teaser_title
