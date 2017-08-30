@@ -1,0 +1,9 @@
+name: 'deGov - Scheduled Updates'
+description: "Dieses Modul enthält Scheduled Updates Optionen."
+package: deGov
+type: module
+core: 8.x
+dependencies:
+  - scheduled_updates
+  - workbench_moderation
+  - node
