@@ -56,5 +56,5 @@ function degov_media_gallery_update_8003() {
  */
 function degov_media_gallery_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8004');
-  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.image.field_gallery_text')->delete();
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.gallery.field_gallery_text')->delete();
 }
