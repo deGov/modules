@@ -21,7 +21,7 @@
       $('.nrw-menu-header__icon:first-child').addClass('is-active');
 
       // Hover in second level to open menu.
-      $('.nrw-menu-header__col').hover(function (e) {
+      $('.nrw-menu-header__col').hoverIntent(function (e) {
         if ($(e.target).hasClass('link--nolink')) {
           return;
         }

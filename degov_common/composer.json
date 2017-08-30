@@ -9,7 +9,8 @@
     "drupal/field_group": "3.x-dev",
     "drupal/paragraphs_edit": "2.x-dev",
     "kenwheeler/slick": "1.7.1",
-    "zenopopovici/DoubleTapToGo": "0.3"
+    "zenopopovici/DoubleTapToGo": "0.3",
+    "briancherne/jquery-hoverIntent": "1.8.1" 
   },
   "repositories": {
     "slick": {
@@ -21,6 +22,19 @@
         "source": {
           "type": "git",
           "url": "https://github.com/kenwheeler/slick",
+          "reference": "master"
+        }
+      }
+    },
+    "jquery-hoverIntent": {
+      "type": "package",
+      "package": {
+        "name": "briancherne/jquery-hoverIntent",
+        "version": "1.8.1",
+        "type": "drupal-library",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/briancherne/jquery-hoverIntent",
           "reference": "master"
         }
       }
