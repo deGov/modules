@@ -1,0 +1,4 @@
+settings:
+  handler_settings:
+    target_bundles:
+      node_reference: view_reference
