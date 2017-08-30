@@ -36,6 +36,5 @@ function degov_search_content_update_8004() {
  * Place field_section facet block on search page.
  */
 function degov_search_content_update_8005() {
-  // Import full configuration
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8005');
 }
