@@ -21,8 +21,11 @@
         if ($(e.target).hasClass('link--nolink')) {
           return;
         }
-        $(this).toggleClass('is-open');
-        $(this).find('.nrw-menu-header__content').toggleClass('is-expanded');
+        // First reset the menu, by closing it.
+        closeNrwMenu();
+        // Open the new focused menu tab.
+        $(this).addClass('is-open');
+        $(this).find('.nrw-menu-header__content').addClass('is-expanded');
       });
       // Click on first level to open menu.
       $('.nrw-menu-header__icon').click(function () {
@@ -40,8 +43,23 @@
         $(this).closest('.nrw-menu-header__col').removeClass('is-open');
         $(this).closest('.nrw-menu-header__content').removeClass('is-expanded');
       });
+      // Close the menu when clicking outside of the menu.
+      $('body').click(function(e) {
+        if ($(e.target).closest('.header__menu').length === 0) {
+          closeNrwMenu();
+        }
+      });
     }
   };
+
+  /**
+   * Closes the nrw menu.
+   *
+   * The menu closes by resetting all classes related to an active menu tab.
+   */
+  function closeNrwMenu() {
+    $('.nrw-menu-header__col').removeClass('is-open').find('.nrw-menu-header__content').removeClass('is-expanded');
+  }
 
   /**
    * Adds double tab menu functionality.
