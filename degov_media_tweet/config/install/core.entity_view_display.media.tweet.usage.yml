@@ -2,24 +2,27 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.media.document.field_document
-    - field.field.media.document.field_include_search
-    - field.field.media.document.field_media_in_library
-    - field.field.media.document.field_tags
-    - media_entity.bundle.document
+    - field.field.media.tweet.embed_code
+    - field.field.media.tweet.field_include_search
+    - field.field.media.tweet.field_media_in_library
+    - field.field.media.tweet.field_tags
+    - media_entity.bundle.tweet
+  enforced:
+    module:
+      - degov_media_tweet
   module:
-    - file
-id: media.document.usage
+    - media_entity_twitter
+id: media.tweet.usage
 targetEntityType: media
-bundle: document
+bundle: tweet
 mode: usage
 content:
-  field_document:
+  embed_code:
+    type: twitter_embed
     weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: file_default
     region: content
   field_tags:
     type: taxonomy_term_search

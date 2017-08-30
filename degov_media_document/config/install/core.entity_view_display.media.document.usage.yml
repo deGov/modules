@@ -2,26 +2,27 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.media.instagram.embed_code
-    - field.field.media.instagram.field_include_search
-    - field.field.media.instagram.field_media_in_library
-    - field.field.media.instagram.field_tags
-    - media_entity.bundle.instagram
+    - field.field.media.document.field_document
+    - field.field.media.document.field_include_search
+    - field.field.media.document.field_media_in_library
+    - field.field.media.document.field_tags
+    - media_entity.bundle.document
+  enforced:
+    module:
+      - degov_media_document
   module:
-    - media_entity_instagram
-id: media.instagram.usage
+    - file
+id: media.document.usage
 targetEntityType: media
-bundle: instagram
+bundle: document
 mode: usage
 content:
-  embed_code:
-    type: instagram_embed
+  field_document:
     weight: 0
-    label: visually_hidden
-    settings:
-      width: 480
-      hidecaption: false
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
+    type: file_default
     region: content
   field_tags:
     type: taxonomy_term_search

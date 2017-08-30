@@ -2,23 +2,28 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.media.tweet.embed_code
-    - field.field.media.tweet.field_include_search
-    - field.field.media.tweet.field_media_in_library
-    - field.field.media.tweet.field_tags
-    - media_entity.bundle.tweet
+    - field.field.media.instagram.embed_code
+    - field.field.media.instagram.field_include_search
+    - field.field.media.instagram.field_media_in_library
+    - field.field.media.instagram.field_tags
+    - media_entity.bundle.instagram
+  enforced:
+    module:
+      - degov_media_instagram
   module:
-    - media_entity_twitter
-id: media.tweet.usage
+    - media_entity_instagram
+id: media.instagram.usage
 targetEntityType: media
-bundle: tweet
+bundle: instagram
 mode: usage
 content:
   embed_code:
-    type: twitter_embed
+    type: instagram_embed
     weight: 0
-    label: hidden
-    settings: {  }
+    label: visually_hidden
+    settings:
+      width: 480
+      hidecaption: false
     third_party_settings: {  }
     region: content
   field_tags:
