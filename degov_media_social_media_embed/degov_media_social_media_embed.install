@@ -12,3 +12,10 @@ function degov_media_social_media_embed_uninstall() {
     'entity_bundles' => ['some_embed'],
   ]);
 }
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_social_media_embed_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_social_media_embed', '8001');
+}
