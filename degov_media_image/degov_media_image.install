@@ -64,3 +64,11 @@ function degov_media_image_update_8005() {
 function degov_media_image_update_8006() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8006');
 }
+
+/**
+ * Add field_description and delete field_image_description field.
+ */
+function degov_media_image_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8007');
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.image.field_image_description')->delete();
+}

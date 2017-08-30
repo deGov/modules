@@ -3,12 +3,12 @@ status: true
 dependencies:
   enforced:
     module:
-      - degov_media_image
+      - degov_content_types_shared_fields
   module:
     - media_entity
     - text
-id: media.field_image_description
-field_name: field_image_description
+id: media.field_description
+field_name: field_description
 entity_type: media
 type: text_long
 settings: {  }

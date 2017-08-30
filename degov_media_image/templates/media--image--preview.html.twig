@@ -36,8 +36,8 @@
     {% if content.field_image_date|field_value %}
         <div class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</div>
     {% endif %}
-    {% if content.field_image_description|field_value %}
-      {% set text = content.field_image_description|render|striptags %}
+    {% if content.field_description|field_value %}
+      {% set text = content.field_description|render|striptags %}
       <div class="image_description">{{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}</div>
     {% endif %}
     {% if content.field_tags|field_value %}
