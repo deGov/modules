@@ -36,8 +36,8 @@ set media_classes = [
     {% endif %}
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
-    {% if content.field_gallery_text|field_value %}
-      {% set text = content.field_gallery_text|render|striptags %}
+    {% if content.field_description|field_value %}
+      {% set text = content.field_description|render|striptags %}
       <div class="gallery__description">{{ text|length > 250 ? text|slice(0, 250) ~ '...' : text }}</div>
     {% endif %}
     {% if content.field_tags|field_value %}

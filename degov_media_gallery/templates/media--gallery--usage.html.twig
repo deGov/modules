@@ -111,7 +111,7 @@ set media_classes = [
     </div>
     <h2 class="media-gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</h2>
     <div class="media-gallery__sub_title"{{ content.field_gallery_sub_title|quickedit_attr }}><strong>{{ content.field_gallery_sub_title|field_value }}</strong></div>
-    <div class="media-gallery__text"{{ content.field_gallery_text|quickedit_attr }}>{{ content.field_gallery_text|field_value }}</div>
+    <div class="media-gallery__text"{{ content.field_description|quickedit_attr }}>{{ content.field_description|field_value }}</div>
   </div>
   <div class="media-gallery__preview clearfix">
     {% for key, preview in content.preview|field_value %}

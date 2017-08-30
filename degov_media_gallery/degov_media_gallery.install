@@ -19,6 +19,17 @@ function degov_media_gallery_uninstall() {
 }
 
 /**
+ * Implements hook_media_image_update_dependencies().
+ */
+function degov_media_gallery_update_dependencies() {
+  $dependencies['degov_media_gallery'][8004] = [
+    'degov_content_types_shared_fields' => 8004,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Next module update version is 8002.
  * All update hooks from 1.1 to 1.2 were deleted.
  * There is no upgrade path from 1.1 to 1.3, you need first to update to 1.2 and
@@ -38,4 +49,12 @@ function degov_media_gallery_update_8002() {
  */
 function degov_media_gallery_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8003');
+}
+
+/**
+ * Add field_description and delete field_gallery_text field.
+ */
+function degov_media_gallery_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8004');
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.image.field_gallery_text')->delete();
 }

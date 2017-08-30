@@ -2,18 +2,18 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_gallery_text
+    - field.storage.media.field_description
     - media_entity.bundle.gallery
   enforced:
     module:
       - degov_media_gallery
   module:
     - text
-id: media.gallery.field_gallery_text
-field_name: field_gallery_text
+id: media.gallery.field_description
+field_name: field_description
 entity_type: media
 bundle: gallery
-label: Text
+label: Beschreibung
 description: ''
 required: false
 translatable: false
