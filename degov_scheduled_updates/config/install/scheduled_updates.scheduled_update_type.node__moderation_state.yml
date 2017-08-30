@@ -1,0 +1,19 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_scheduled_updates
+id: node__moderation_state
+label: 'Inhalt - Moderationsstatus'
+update_entity_type: node
+update_types_supported:
+  - embedded
+field_map:
+  field_moderation_state_1: moderation_state
+update_runner:
+  id: latest_revision
+  after_run: DELETE
+  invalid_update_behavior: DELETE
+  create_revisions: BUNDLE_DEFAULT
+  update_user: USER_UPDATE_RUNNER

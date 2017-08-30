@@ -16,6 +16,10 @@
       if ($('.nrw-menu__header', context).length == 0) {
         return;
       }
+
+      // Add class to first icon menu item as initially that is active
+      $('.nrw-menu-header__icon:first-child').addClass('is-active');
+
       // Hover in second level to open menu.
       $('.nrw-menu-header__col').hover(function (e) {
         if ($(e.target).hasClass('link--nolink')) {
@@ -32,9 +36,12 @@
         var classes = $(this).prop("classList");
         var lastEl = classes[0];
 
+        $('.nrw-menu-header__icon').removeClass('is-active');
+        $(this).addClass('is-active');
+
         $('.nrw-menu-header__col').removeClass('is-active');
         if ($('.nrw-menu-header__col').hasClass(lastEl)) {
-          $('.nrw-menu-header__col.' + lastEl).addClass('is-active')
+          $('.nrw-menu-header__col.' + lastEl).addClass('is-active');
         }
 
       });

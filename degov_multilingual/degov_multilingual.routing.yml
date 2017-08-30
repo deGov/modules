@@ -1,0 +1,15 @@
+degov_multilingual.front_page:
+  path: '/degov_multilingual/front_page'
+  defaults:
+    _controller: '\Drupal\degov_multilingual\Controller\FrontPageController::render'
+  requirements:
+    _permission: 'access content'
+
+degov_multilingual.settings:
+  path: '/admin/config/degov/multilingual'
+  defaults:
+    _form: '\Drupal\degov_multilingual\Form\SettingsForm'
+    _title: 'deGov - Multilingual Settings'
+  requirements:
+    _permission: 'administer degov'
+
