@@ -45,8 +45,22 @@ function degov_media_image_update_8003() {
 }
 
 /**
- * Add search view mode.
+ * Add enforced dependency.
  */
 function degov_media_image_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8004');
+}
+
+/**
+ * Set alt field required.
+ */
+function degov_media_image_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8005');
+}
+
+/**
+ * Add search view mode.
+ */
+function degov_media_image_update_8006() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8006');
 }

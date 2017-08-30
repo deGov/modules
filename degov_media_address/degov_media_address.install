@@ -29,8 +29,15 @@ function degov_media_address_update_8002() {
 }
 
 /**
- * Add search view mode.
+ * Add itnrw_map view mode.
  */
 function degov_media_address_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_address', '8003');
+}
+
+/**
+ * Add search view mode.
+ */
+function degov_media_address_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_address', '8004');
 }

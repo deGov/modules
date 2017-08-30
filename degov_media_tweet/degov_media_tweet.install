@@ -16,8 +16,15 @@ function degov_media_tweet_update_8002() {
 }
 
 /**
- * Add search view mode.
+ * Add enforced dependency.
  */
 function degov_media_tweet_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_tweet', '8003');
+}
+
+/**
+ * Add search view mode.
+ */
+function degov_media_tweet_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_tweet', '8004');
 }

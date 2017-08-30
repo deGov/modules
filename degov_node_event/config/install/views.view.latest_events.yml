@@ -4,13 +4,16 @@ dependencies:
   config:
     - core.entity_view_mode.node.latest
     - node.type.event
+  enforced:
+    module:
+      - degov_node_event
   module:
     - datetime
     - node
     - taxonomy
     - user
 id: latest_events
-label: 'latest Events'
+label: 'Neueste Veranstaltung'
 module: views
 description: ''
 tag: ''
@@ -52,12 +55,12 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 9
+          items_per_page: 4
           offset: 0
       style:
         type: default
         options:
-          row_class: row
+          row_class: ''
           default_row_class: true
           uses_fields: false
       row:
@@ -148,19 +151,8 @@ display:
             label: ''
           granularity: second
           plugin_id: datetime
-      title: 'latest Events'
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<div class=\"paragraph__header paragraph__header-right\">\n      <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>\n      <h2>Wichtige\n                  <span class=\"sub-title\">Links</span>\n              </h2>\n    </div>"
-          plugin_id: text_custom
+      title: 'Neueste Veranstaltung'
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }

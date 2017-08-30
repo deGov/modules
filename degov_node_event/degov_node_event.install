@@ -34,3 +34,10 @@ function degov_node_event_uninstall() {
 function degov_node_event_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8002');
 }
+
+/**
+ * Update view block for displaying latest event content.
+ */
+function degov_node_event_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8003');
+}

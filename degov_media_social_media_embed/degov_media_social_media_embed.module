@@ -13,7 +13,7 @@ function degov_media_social_media_embed_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_social_media_embed',
     'entity_type' => 'media',
     'entity_bundles' => ['some_embed'],
-    'entity_view_modes' => ['usage', 'search'],
+    'entity_view_modes' => ['usage', 'preview', 'search'],
   ]);
 }
 
@@ -24,11 +24,23 @@ function degov_media_social_media_embed_preprocess_media__some_embed(&$variables
   /* @var \Drupal\media_entity\Entity\Media $media */
   $media = $variables['media'];
 
-  // Allow Tags from Xss::getAdminTagList() plus iframe and blockquote.
   if ($media instanceof MediaInterface && $media->hasField('field_some_embed_code') && !$media->get('field_some_embed_code')->isEmpty()) {
     $variables['code'] = [
       '#markup' => $media->field_some_embed_code->value,
-      '#allowed_tags' => array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote']),
+      '#allowed_tags' => degov_media_social_media_embed_allowed_tags(),
     ];
   }
+}
+
+/**
+ * Returns allowed tags for some_embed media bundle.
+ *
+ * Allowed are the tags from Xss::getAdminTagList() plus iframe, blockquote and
+ * script. Make sure that bundles of some_embed can only be added/edited by
+ * trusted users!
+ *
+ * @return array
+ */
+function degov_media_social_media_embed_allowed_tags() {
+  return array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote', 'script']);
 }

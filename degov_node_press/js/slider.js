@@ -10,7 +10,7 @@
   // Slick slider in press list
   Drupal.behaviors.slickPress = {
     attach: function (context, settings) {
-      $('.press-list .view-content').once().slick({
+      $('.press-slider .view-content').once().slick({
         dots: true,
         infinite: false,
         speed: 300,

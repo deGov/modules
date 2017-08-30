@@ -16,22 +16,32 @@
       if ($('.nrw-menu__header', context).length == 0) {
         return;
       }
+
+      // Add class to first icon menu item as initially that is active
+      $('.nrw-menu-header__icon:first-child').addClass('is-active');
+
       // Hover in second level to open menu.
-      $('.nrw-menu-header__col').hover(function (e) {
+      $('.nrw-menu-header__col').hoverIntent(function (e) {
         if ($(e.target).hasClass('link--nolink')) {
           return;
         }
-        $(this).toggleClass('is-open');
-        $(this).find('.nrw-menu-header__content').toggleClass('is-expanded');
+        // First reset the menu, by closing it.
+        closeNrwMenu();
+        // Open the new focused menu tab.
+        $(this).addClass('is-open');
+        $(this).find('.nrw-menu-header__content').addClass('is-expanded');
       });
       // Click on first level to open menu.
       $('.nrw-menu-header__icon').click(function () {
         var classes = $(this).prop("classList");
         var lastEl = classes[0];
 
+        $('.nrw-menu-header__icon').removeClass('is-active');
+        $(this).addClass('is-active');
+
         $('.nrw-menu-header__col').removeClass('is-active');
         if ($('.nrw-menu-header__col').hasClass(lastEl)) {
-          $('.nrw-menu-header__col.' + lastEl).addClass('is-active')
+          $('.nrw-menu-header__col.' + lastEl).addClass('is-active');
         }
 
       });
@@ -40,8 +50,23 @@
         $(this).closest('.nrw-menu-header__col').removeClass('is-open');
         $(this).closest('.nrw-menu-header__content').removeClass('is-expanded');
       });
+      // Close the menu when clicking outside of the menu.
+      $('body').click(function(e) {
+        if ($(e.target).closest('.header__menu').length === 0) {
+          closeNrwMenu();
+        }
+      });
     }
   };
+
+  /**
+   * Closes the nrw menu.
+   *
+   * The menu closes by resetting all classes related to an active menu tab.
+   */
+  function closeNrwMenu() {
+    $('.nrw-menu-header__col').removeClass('is-open').find('.nrw-menu-header__content').removeClass('is-expanded');
+  }
 
   /**
    * Adds double tab menu functionality.

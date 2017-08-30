@@ -12,3 +12,10 @@ function degov_paragraph_map_uninstall() {
     'entity_bundles' => ['map'],
   ]);
 }
+
+/**
+ * Exclude all view modes by default for the map paragraph in the config file.
+ */
+function degov_paragraph_map_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_map', '8001');
+}

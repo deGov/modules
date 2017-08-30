@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\degov_common\Common;
+use PHPCoord\LatLng;
+use PHPCoord\RefEll;
 
 /**
  * Implements hook_preprocess().
@@ -11,7 +13,7 @@ function degov_media_address_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_address',
     'entity_type' => 'media',
     'entity_bundles' => ['address'],
-    'entity_view_modes' => ['default_map', 'osm_map', 'usage', 'preview', 'search'],
+    'entity_view_modes' => ['default_map', 'osm_map', 'usage', 'preview', 'itnrw_map', 'search'],
   ]);
 }
 
@@ -19,21 +21,52 @@ function degov_media_address_preprocess(&$variables, $hook, &$info) {
  * Preprocess address media entity.
  */
 function degov_media_address_preprocess_media__address(&$variables) {
-  // Check if the view mode is osm_map.
-  if (!empty($variables['elements']['#view_mode']) && $variables['elements']['#view_mode'] == 'osm_map') {
+  // Check if the view mode is osm_map or itnrw_map.
+  if (!empty($variables['elements']['#view_mode'])
+    && ($variables['elements']['#view_mode'] == 'osm_map'
+      || $variables['elements']['#view_mode'] == 'itnrw_map')) {
     $address = $variables['media'];
     if ($address instanceof \Drupal\media_entity\MediaInterface) {
       $location = $address->get('field_address_location');
       if (!$location->isEmpty()) {
         // Assign the unique ID for every map paragraph we have.
-        $map_id = uniqid('leaflet-');
-        // Add latitude and longitude.
-        $variables['#attached']['drupalSettings']['maps'][$map_id]['lat'] = $location->lat;
-        $variables['#attached']['drupalSettings']['maps'][$map_id]['lon'] = $location->lon;
-        // Add pin image location.
-        $variables['#attached']['drupalSettings']['maps'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address') . '/images/map-icon.png';
-        $variables['#attached']['drupalSettings']['maps'][$map_id]['type'] = 'leaflet';
+        $map_id = uniqid('map-');
         $variables['content']['map_id'] = $map_id;
+        // Further settings for the different maps.
+        if ($variables['elements']['#view_mode'] == 'osm_map') {
+          // Add latitude and longitude.
+          $variables['#attached']['drupalSettings']['maps'][$map_id]['lat'] = $location->lat;
+          $variables['#attached']['drupalSettings']['maps'][$map_id]['lon'] = $location->lon;
+          // Add pin image location.
+          $variables['#attached']['drupalSettings']['maps'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address')
+            . '/images/map-icon.png';
+          $variables['#attached']['drupalSettings']['maps'][$map_id]['type'] = 'leaflet';
+        }
+        elseif ($variables['elements']['#view_mode'] == 'itnrw_map') {
+          // Convert coordinates from WGS to UTM.
+          $WGS = new LatLng($location->lat, $location->lon, 0, RefEll::wgs84());
+          $UTM = $WGS->toUTMRef();
+          $east = $UTM->getX();
+          $north = $UTM->getY();
+          // Add UTM coordinates.
+          $variables['maps'][$map_id]['east'] = $east;
+          $variables['maps'][$map_id]['north'] = $north;
+          // Add pin image location.
+          $variables['maps'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address')
+            . '/images/marker_20_30_8.png';
+          // Add information for tooltips
+          $addressField = $address->get('field_address_address');
+          if (!$addressField->isEmpty()) {
+            $variables['maps'][$map_id]['company'] = $addressField->organization;
+            $variables['maps'][$map_id]['address'] = $addressField->address_line1;
+            $variables['maps'][$map_id]['zip'] = $addressField->postal_code;
+            $variables['maps'][$map_id]['city'] = $addressField->locality;
+          }
+          // Check if the URL contains "nrw.de" otherwise it could not load the map.
+          if (!stristr($_SERVER['SERVER_NAME'], 'nrw.de')) {
+            $variables['maps'][$map_id]['url'] = $_SERVER['SERVER_NAME'];
+          }
+        }
       }
     }
   }

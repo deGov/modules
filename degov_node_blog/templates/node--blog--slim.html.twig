@@ -73,6 +73,7 @@
     not node.isPublished() ? 'is-unpublished',
     view_mode ? view_mode|clean_class,
     'clearfix',
+    'col-sm-6'
   ]
 %}
 
@@ -104,11 +105,11 @@
       </a>
     {% endif %}
 
-    {% if content.field_teaser_text %}
+    {#{% if content.field_teaser_text %}
       <div class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         {{ content.field_teaser_text|field_value }}
       </div>
-    {% endif %}
+    {% endif %}#}
   </div>
 
 </article>

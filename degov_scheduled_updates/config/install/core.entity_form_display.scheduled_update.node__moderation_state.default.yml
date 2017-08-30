@@ -1,0 +1,27 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.scheduled_update.node__moderation_state.field_moderation_state_1
+    - scheduled_updates.scheduled_update_type.node__moderation_state
+  enforced:
+    module:
+      - degov_scheduled_updates
+id: scheduled_update.node__moderation_state.default
+targetEntityType: scheduled_update
+bundle: node__moderation_state
+mode: default
+content:
+  field_moderation_state_1:
+    type: options_select
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  update_timestamp:
+    type: datetime_timestamp
+    weight: -9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

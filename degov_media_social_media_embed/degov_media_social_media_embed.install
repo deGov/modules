@@ -14,8 +14,15 @@ function degov_media_social_media_embed_uninstall() {
 }
 
 /**
- * Add search view mode.
+ * Add preview view mode.
  */
 function degov_media_social_media_embed_update_8001() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_social_media_embed', '8001');
+}
+
+/**
+ * Add search view mode.
+ */
+function degov_media_social_media_embed_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_social_media_embed', '8002');
 }

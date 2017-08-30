@@ -5,8 +5,10 @@ core: 8.x
 package: deGov
 dependencies:
   - block
-  - degov_node_normal_page
   - degov_search_base
+  - facets
   - node
+  - search_api
+  - search_api_sorts
   - system
   - views
