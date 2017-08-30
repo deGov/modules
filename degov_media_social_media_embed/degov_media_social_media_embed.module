@@ -13,7 +13,7 @@ function degov_media_social_media_embed_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_social_media_embed',
     'entity_type' => 'media',
     'entity_bundles' => ['some_embed'],
-    'entity_view_modes' => ['usage'],
+    'entity_view_modes' => ['usage', 'search'],
   ]);
 }
 

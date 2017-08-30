@@ -14,3 +14,10 @@
 function degov_media_instagram_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_instagram', '8002');
 }
+
+/**
+ * Add search view mode.
+ */
+function degov_media_instagram_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_instagram', '8003');
+}

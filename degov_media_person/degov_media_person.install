@@ -34,3 +34,10 @@ function degov_media_person_update_8002() {
 function degov_media_person_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_person', '8003');
 }
+
+/**
+ * Add search view mode.
+ */
+function degov_media_person_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_person', '8004');
+}

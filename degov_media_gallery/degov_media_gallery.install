@@ -32,3 +32,10 @@ function degov_media_gallery_uninstall() {
 function degov_media_gallery_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8002');
 }
+
+/**
+ * Add search view mode.
+ */
+function degov_media_gallery_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8003');
+}
