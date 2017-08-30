@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_uninstall().
+ */
+function degov_media_social_media_embed_uninstall() {
+  // Removes all module type defined content when uninstalling the module.
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['some_embed'],
+  ]);
+}
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_social_media_embed_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_social_media_embed', '8001');
+}

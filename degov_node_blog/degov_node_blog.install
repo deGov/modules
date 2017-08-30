@@ -26,3 +26,17 @@ function degov_node_blog_update_8001() {
 function degov_node_blog_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8002');
 }
+
+/**
+ * Update view block for displaying latest blog content.
+ */
+function degov_node_blog_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8003');
+}
+
+/**
+ * Change bundle label.
+ */
+function degov_node_blog_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8004');
+}

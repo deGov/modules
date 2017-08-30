@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
     - field.field.paragraph.block_reference.field_block
+    - field.field.paragraph.block_reference.field_block_plugin
     - field.field.paragraph.block_reference.field_sub_title
     - field.field.paragraph.block_reference.field_title
     - field.field.paragraph.block_reference.field_title_link
@@ -12,15 +13,15 @@ dependencies:
     module:
       - degov_paragraph_block_reference
   module:
+    - block_field
     - link
-    - options
 id: paragraph.block_reference.preview
 targetEntityType: paragraph
 bundle: block_reference
 mode: preview
 content:
-  field_block:
-    type: list_default
+  field_block_plugin:
+    type: degov_block_render
     weight: 3
     region: content
     label: inline
@@ -54,4 +55,4 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-hidden: {  }
+hidden: { }

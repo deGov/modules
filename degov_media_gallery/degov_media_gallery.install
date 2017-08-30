@@ -25,3 +25,10 @@ function degov_media_gallery_uninstall() {
  * then to 1.3.
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
+
+/**
+ * Add preview view mode.
+ */
+function degov_media_gallery_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8002');
+}

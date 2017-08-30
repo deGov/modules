@@ -8,6 +8,23 @@
     "drupal/address": "^1.0",
     "drupal/styled_google_map": "^1.2",
     "drupal/system_stream_wrapper": "^1.0-alpha2",
-    "drupal/geocoder": "^2.0-alpha5"
+    "drupal/geocoder": "^2.0-alpha5",
+    "php-coord/php-coord": "^2.1",
+    "leaflet/leaflet": "1.1.0"
+  },
+  "repositories": {
+    "leaflet": {
+      "type": "package",
+      "package": {
+        "name": "leaflet/leaflet",
+        "version": "1.1.0",
+        "type": "drupal-library",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/Leaflet/Leaflet",
+          "reference": "a3a7e04"
+        }
+      }
+    }
   }
 }

@@ -1,10 +1,3 @@
-degov.default_settings:
-  path: '/admin/config/degov'
-  defaults:
-    _form: '\Drupal\degov_views_helper\Form\DegovSettingsForm'
-    _title: 'deGov distribution settings'
-  requirements:
-    _permission: 'administer degov'
 degov_views_helper.settings:
   path: '/admin/config/degov/views'
   defaults:

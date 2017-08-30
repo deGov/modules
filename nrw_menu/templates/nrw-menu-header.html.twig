@@ -114,7 +114,7 @@
         <div class="nrw-menu-header-responsive__block nrw-menu-header-responsive__block--search">
             <div class="nrw-menu-header-responsive__item">
                 <form method="get" action="/suche" id="nrw-menu-header-responsive__search" class="nrw-menu-header-responsive__search">
-                    <input type="text" name="header-responsive__search-text" placeholder="{% trans %}Suchbegriff eingeben{% endtrans %}" title="{% trans %}Bitte geben Sie einen Suchbegriff ein{% endtrans %}" id="nrw-menu-header-responsive__search-text" class="nrw-menu-header-responsive__search-text">
+                    <input type="text" name="volltext" placeholder="{% trans %}Suchbegriff eingeben{% endtrans %}" title="{% trans %}Bitte geben Sie einen Suchbegriff ein{% endtrans %}" id="nrw-menu-header-responsive__search-text" class="nrw-menu-header-responsive__search-text">
                     <button type="submit" class="nrw-menu-header-responsive__search-submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         {% trans %}Search{% endtrans %}
@@ -123,48 +123,56 @@
             </div>
         </div>
         <div class="nrw-menu-header-responsive__block">
-            <div class="nrw-menu-header-responsive__block-title is-close">
-                {% for menu_item in menu_items.menu_tree %}
+            {% for menu_item in menu_items.menu_tree %}
+                <div class="nrw-menu-header-responsive__block-title is-close">
                     <div class="nrw-menu-header-responsive__block-title is-close">
-                        <div class="nrw-menu-header-responsive__block-title is-close">
-                            <i class="fa fa-list" aria-hidden="true"></i>
-                            <a class="link{% if menu_item.external %} link--external{% endif %}" href="{{ menu_item.url }}"
-                               title="{{ menu_item.description }}"{% if menu_item.external %} target="_blank"{% endif %}>
-                                <i class="fa fa-arrow-right" aria-hidden="true"></i>{{ menu_item.text }}
-                            </a>
+                        {% if  menu_item.class.options.attributes.class is not empty %}
+                            {% set icon = menu_item.class.options.attributes.class %}
+                        {% else %}
+                            {% set icon = 'fa-list' %}
+                        {% endif %}
+                        <i class="fa {{ icon }}" aria-hidden="true"></i>
+                        <a class="link{% if menu_item.external %} link--external{% endif %}" href="{{ menu_item.url }}"
+                           title="{{ menu_item.description }}"{% if menu_item.external %} target="_blank"{% endif %}>
+                           {{ menu_item.text }}
+                        </a>
+                        {% if menu_item.submenu is not empty %}
                             <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
-                        </div>
-                        <div class="nrw-menu-header-responsive__content is-close">
-                            {% for submenu_item in menu_item.submenu %}
-                                <div class="nrw-menu-header-responsive__menu">
-                                    <div class="nrw-menu-header-responsive__title">
-                                        <a class="link{% if submenu_item.external %} link--external{% endif %}" href="{{ submenu_item.url }}"
-                                           title="{{ submenu_item.description }}"{% if submenu_item.external %} target="_blank"{% endif %}>
-                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>{{ submenu_item.text }}
-                                        </a>
-                                        <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
-                                    </div>
+                        {% endif %}
+                    </div>
+                    <div class="nrw-menu-header-responsive__content is-close">
+                        {% for submenu_item in menu_item.submenu %}
+                            <div class="nrw-menu-header-responsive__menu">
+                                <!-- Second level of main menu-->
+                                <div class="nrw-menu-header-responsive__title nrw-menu-header-responsive__second-level">
+                                    <a class="link{% if submenu_item.external %} link--external{% endif %}" href="{{ submenu_item.url }}"
+                                       title="{{ submenu_item.description }}"{% if submenu_item.external %} target="_blank"{% endif %}>
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>{{ submenu_item.text }}
+                                    </a>
                                     {% if submenu_item.submenu is not empty %}
-                                        <!-- Second level of main menu-->
-                                        <ul class="nrw-menu-header-responsive__list">
-                                            {% for third_level_item in submenu_item.submenu %}
-                                                <li class="nrw-menu-header-responsive__item">
-                                                    <i class="fa fa-minus" aria-hidden="true"></i>
-                                                    <a class="link{% if submenu_item.external %} link--external{% endif %}"
-                                                       href="{{ third_level_item.url }}"
-                                                       title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
-                                                        {{ third_level_item.text }}
-                                                    </a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
+                                        <i class="fa fa-angle-down pull-right action" aria-hidden="true"></i>
                                     {% endif %}
                                 </div>
-                            {% endfor %}
-                        </div>
+                                {% if submenu_item.submenu is not empty %}
+                                    <!-- Third level of main menu-->
+                                    <ul class="nrw-menu-header-responsive__list nrw-menu-header-responsive__third-level">
+                                        {% for third_level_item in submenu_item.submenu %}
+                                            <li class="nrw-menu-header-responsive__item">
+                                                <a class="link{% if submenu_item.external %} link--external{% endif %}"
+                                                   href="{{ third_level_item.url }}"
+                                                   title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
+                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                    {{ third_level_item.text }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
     <div class="nrw-menu-header__search is-close">

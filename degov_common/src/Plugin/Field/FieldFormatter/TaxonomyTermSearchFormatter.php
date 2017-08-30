@@ -119,7 +119,7 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
     $form['route_name'] = [
       '#title' => $this->t('Search route name'),
       '#description' => $this->t('The route name of the search page the term should link to, e.g. %route_name', ['%route_name' => 'view.search_content.page_1']),
-      '#type' => 'machine_name',
+      '#type' => 'textfield',
       '#default_value' => $this->getSetting('route_name'),
       '#required' => FALSE,
     ];
