@@ -91,8 +91,10 @@ function degov_social_media_settings_preprocess_media(&$variables) {
         // Maybe make sure this runs after degov_media_social_media_embed_preprocess_media__some_embed
         // and use $variables['code'] from there instead of generating it here?
         $field_value = $media->field_some_embed_code->value;
-        $allowed_tags = array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote']);
-        $markup = Xss::filter($field_value, $allowed_tags);
+        if (function_exists('degov_media_social_media_embed_allowed_tags')) {
+          $allowed_tags = degov_media_social_media_embed_allowed_tags();
+          $markup = Xss::filter($field_value, $allowed_tags);
+        }
         break;
       case 'video':
         $field_value = \Drupal::service('twig_field_value.twig.extension')->getFieldValue($variables['content']['field_media_video_embed_field']);
