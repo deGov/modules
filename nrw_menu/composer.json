@@ -7,6 +7,22 @@
   "require": {
     "drupal/simplify_menu": "1.x-dev",
     "drupal/link_attributes": "^1.1",
-    "drupal/menu_block": "^1.0"
+    "drupal/menu_block": "^1.0",
+    "briancherne/jquery-hoverIntent": "1.8.1" 
+  },
+  "repositories": {
+    "jquery-hoverIntent": {
+      "type": "package",
+      "package": {
+        "name": "briancherne/jquery-hoverIntent",
+        "version": "1.8.1",
+        "type": "drupal-library",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/briancherne/jquery-hoverIntent",
+          "reference": "master"
+        }
+      }
+    }
   }
 }
