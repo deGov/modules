@@ -34,10 +34,11 @@
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     {% if content.field_image_date|field_value %}
-        <span class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</span>
+        <div class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</div>
     {% endif %}
     {% if content.field_image_description|field_value %}
-      <span class="image_description">{{ content.field_image_description|field_value }}</span>
+      {% set text = content.field_image_description|render|striptags %}
+      <div class="image_description">{{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}</div>
     {% endif %}
     {% if content.field_tags|field_value %}
         <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
