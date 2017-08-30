@@ -41,3 +41,10 @@ function degov_node_event_update_8002() {
 function degov_node_event_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8003');
 }
+
+/**
+ * Add config for slideshow view mode.
+ */
+function degov_node_event_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8004');
+}
