@@ -30,9 +30,17 @@ function degov_media_image_uninstall() {
 }
 
 /**
- * Implements hook_media_image_update_dependencies().
+ * Implements hook_update_dependencies().
  */
 function degov_media_image_update_dependencies() {
+  $dependencies['degov_media_image'][8003] = [
+    'degov_content_types_shared_fields' => 8002,
+  ];
+
+  $dependencies['degov_media_image'][8006] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
   $dependencies['degov_media_image'][8007] = [
     'degov_content_types_shared_fields' => 8004,
   ];

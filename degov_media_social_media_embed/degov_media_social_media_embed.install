@@ -14,6 +14,21 @@ function degov_media_social_media_embed_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_media_social_media_embed_update_dependencies() {
+  $dependencies['degov_media_social_media_embed'][8001] = [
+    'degov_content_types_shared_fields' => 8002,
+  ];
+
+  $dependencies['degov_media_social_media_embed'][8002] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Add preview view mode.
  */
 function degov_media_social_media_embed_update_8001() {
