@@ -73,6 +73,7 @@
     not node.isPublished() ? 'is-unpublished',
     view_mode ? view_mode|clean_class,
     'clearfix',
+    'col-sm-6'
   ]
 %}
 
@@ -102,12 +103,6 @@
           <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
         </div>
       </a>
-    {% endif %}
-
-    {% if content.field_teaser_text %}
-      <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
-      </div>
     {% endif %}
   </div>
 
