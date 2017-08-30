@@ -9,8 +9,7 @@
     "drupal/field_group": "3.x-dev",
     "drupal/paragraphs_edit": "2.x-dev",
     "kenwheeler/slick": "1.7.1",
-    "zenopopovici/DoubleTapToGo": "0.3",
-    "briancherne/jquery-hoverIntent": "1.8.1" 
+    "zenopopovici/DoubleTapToGo": "0.3"
   },
   "repositories": {
     "slick": {
