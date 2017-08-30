@@ -26,19 +26,6 @@
         }
       }
     },
-    "jquery-hoverIntent": {
-      "type": "package",
-      "package": {
-        "name": "briancherne/jquery-hoverIntent",
-        "version": "1.8.1",
-        "type": "drupal-library",
-        "source": {
-          "type": "git",
-          "url": "https://github.com/briancherne/jquery-hoverIntent",
-          "reference": "master"
-        }
-      }
-    },
     "doubletap": {
       "type": "package",
       "package": {

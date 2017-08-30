@@ -5,4 +5,6 @@ nrw_menu:
   dependencies:
     - core/jquery
     - degov_common/doubletap
-    - degov_common/jquery.hoverIntent
+jquery.hoverIntent:
+  js:
+    /libraries/jquery-hoverIntent/jquery.hoverIntent.js: {}

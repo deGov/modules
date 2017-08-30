@@ -10,6 +10,3 @@ slick:
 doubletap:
   js:
     /libraries/DoubleTapToGo/jquery.doubletaptogo.min.js: {}
-jquery.hoverIntent:
-  js:
-    /libraries/jquery-hoverIntent/jquery.hoverIntent.js: {}
