@@ -99,11 +99,12 @@
   </div>
 
   <div class="event__slideshow-content slideshow-content {{ class_content }}">
-    {% if content.field_event_date %}
+    <p class="slideshow-section">{% trans %}Event{% endtrans %}</p>
+    {#{% if content.field_event_date %}
       <div class="event__slideshow-date"{{ content.field_event_date|quickedit_attr }}>
         {{ content.field_event_date|field_value }}
       </div>
-    {% endif %}
+    {% endif %}#}
 
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
