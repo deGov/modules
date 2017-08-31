@@ -121,7 +121,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-
   langcode:
     type: language_select
     weight: 8
