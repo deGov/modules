@@ -9,7 +9,6 @@ dependencies:
     - field.field.media.audio.field_copyright
     - field.field.media.audio.field_description
     - field.field.media.audio.field_audio_caption
-    - field.field.media.audio.field_audio_copyright
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
@@ -21,19 +20,19 @@ dependencies:
   module:
     - degov_common
     - media_entity
-id: media.audio.search
+id: media.audio.preview
 targetEntityType: media
 bundle: audio
-mode: search
+mode: preview
 content:
   field_audio_preview:
+    type: responsive_image
     weight: 0
     label: hidden
     settings:
-      image_style: large
-      link: false
+      responsive_image_style: teaser_squared
+      image_link: 'content'
     third_party_settings: {  }
-    type: media_thumbnail
     region: content
   field_audio_caption:
     type: string
@@ -68,7 +67,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_audio_copyright: true
   field_include_search: true
   field_media_in_library: true
   field_audio_mp3: true

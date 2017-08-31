@@ -2,12 +2,13 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview
+    - core.entity_view_mode.media.usage
     - field.field.media.audio.field_include_search
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
+    - field.field.media.audio.field_copyright
+    - field.field.media.audio.field_description
     - field.field.media.audio.field_audio_caption
-    - field.field.media.audio.field_audio_copyright
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
@@ -17,20 +18,22 @@ dependencies:
     module:
       - degov_media_audio
   module:
+    - degov_common
     - media_entity
 id: media.audio.preview
 targetEntityType: media
 bundle: audio
 mode: preview
 content:
-  field_tags:
-    type: taxonomy_term_search
-    weight: 3
-    region: content
+  field_audio_preview:
+    weight: 0
     label: hidden
     settings:
-      route_name: view.search_media.page
+      image_style: large
+      link: false
     third_party_settings: {  }
+    type: media_thumbnail
+    region: content
   field_audio_caption:
     type: string
     weight: 1
@@ -39,7 +42,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_audio_copyright:
+  field_copyright:
     type: entity_reference_label
     weight: 2
     region: content
@@ -47,15 +50,21 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_audio_preview:
-    weight: 0
+  field_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tags:
+    type: taxonomy_term_search
+    weight: 4
+    region: content
     label: hidden
     settings:
-      image_style: large
-      image_link: content
+      route_name: view.search_media.page
     third_party_settings: {  }
-    type: media_thumbnail
-    region: content
 hidden:
   created: true
   field_include_search: true

@@ -21,19 +21,19 @@ dependencies:
   module:
     - degov_common
     - media_entity
-id: media.audio.search
+id: media.audio.preview
 targetEntityType: media
 bundle: audio
-mode: search
+mode: preview
 content:
   field_audio_preview:
+    type: entity_reference_entity_view
     weight: 0
     label: hidden
     settings:
-      image_style: large
+      view_mode: teaser_squared_1_1
       link: false
     third_party_settings: {  }
-    type: media_thumbnail
     region: content
   field_audio_caption:
     type: string
