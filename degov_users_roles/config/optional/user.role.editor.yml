@@ -52,6 +52,7 @@ permissions:
   - 'edit own press content'
   - 'edit own simplenews_issue content'
   - 'update media'
+  - 'update any media'
   - 'use draft_draft transition'
   - 'use draft_needs_review transition'
   - 'use published_published transition'
