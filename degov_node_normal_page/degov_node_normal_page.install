@@ -14,6 +14,18 @@ function degov_node_normal_page_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_node_normal_page_update_dependencies() {
+  // Create the slideshow view mode first before updating the normal page content type.
+  $dependencies['degov_node_normal_page'][8003] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Update view block for displaying latest normal page content.
  */
 function degov_node_normal_page_update_8001() {

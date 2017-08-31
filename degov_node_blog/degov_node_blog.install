@@ -14,6 +14,18 @@ function degov_node_blog_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_node_blog_update_dependencies() {
+  // Create the slideshow view mode first before updating the blog content type.
+  $dependencies['degov_node_blog'][8005] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Update view block for displaying latest blog content.
  */
 function degov_node_blog_update_8001() {
@@ -35,14 +47,14 @@ function degov_node_blog_update_8003() {
 }
 
 /**
- * Add config for slideshow view mode.
+ * Change bundle label for blog.
  */
 function degov_node_blog_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8004');
 }
 
 /** 
- * Change bundle label.
+ * Add config for slideshow view mode.
  */
 function degov_node_blog_update_8005() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8005');
