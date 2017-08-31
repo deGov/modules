@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.event.field_teaser_image
     - field.field.node.event.field_teaser_text
     - field.field.node.event.field_teaser_title
+    - field.field.node.event.field_section
     - node.type.event
   enforced:
     module:
@@ -80,6 +81,7 @@ content:
       timezone_override: ''
     third_party_settings: {  }
 hidden:
+  field_section: true
   field_social_media: true
   field_tags: true
   field_teaser_image: true

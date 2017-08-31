@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.event.field_teaser_image
     - field.field.node.event.field_teaser_text
     - field.field.node.event.field_teaser_title
+    - field.field.node.event.field_section
     - node.type.event
   enforced:
     module:
@@ -82,6 +83,7 @@ third_party_settings:
         - field_event_date_end
         - langcode
         - field_social_media
+        - field_section
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -232,6 +234,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_section:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 8

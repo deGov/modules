@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.faq.field_content_paragraphs
     - field.field.node.faq.field_faq_description
     - field.field.node.faq.field_faq_related
+    - field.field.node.faq.field_section
     - node.type.faq
   enforced:
     module:
@@ -62,6 +63,7 @@ third_party_settings:
     group_common:
       children:
         - langcode
+        - field_section
       parent_name: group_vertical
       weight: 4
       format_type: tab
@@ -113,6 +115,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_section:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+
   langcode:
     type: language_select
     weight: 8
