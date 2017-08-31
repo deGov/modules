@@ -14,3 +14,13 @@ function degov_media_video_preprocess(&$variables, $hook, &$info) {
     'entity_view_modes' => ['usage', 'preview', 'search'],
   ]);
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function degov_media_video_preprocess_media__video(&$variables) {
+  /* @var \Drupal\media_entity\Entity\Media $media */
+  $media = $variables['media'];
+
+  $variables['video_url'] = $media->url();
+}

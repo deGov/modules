@@ -26,7 +26,7 @@ set media_classes = [
     <div class="media--preview__type-text">{{ 'Galerie'|t }}</div>
     <div class="gallery__images teaser-image">
       <div class="slideshow__slides">
-        {{ content.field_gallery_images|field_value|slice(1, 1) }}
+        <a href="{{ gallery_url }}"> {{ content.field_gallery_images|field_value|slice(1, 1) }} </a>
       </div>
     </div>
     {% if content.field_gallery_title|field_value %}

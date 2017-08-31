@@ -16,7 +16,7 @@
   {{- content.field_audio_caption -}}
 {% endset %}
 {% set copyright %}
-  {{- content.field_audio_copyright -}}
+  {{- content.field_copyright -}}
 {% endset %}
 {%
 set media_classes = [
@@ -43,15 +43,15 @@ set media_classes = [
             {% endtrans %}
         </audio>
     </div>
-    {% if content.field_audio_caption|field_value or content.field_audio_copyright|field_value %}
+    {% if content.field_audio_caption|field_value or content.field_copyright|field_value %}
         <div class="audio__info">
             {% if content.field_audio_caption|field_value %}
                 <span class="audio__caption"{{ content.field_audio_caption|quickedit_attr }}>{{ content.field_audio_caption|field_value }}</span>
             {% endif %}
-            {% if content.field_audio_copyright|field_value %}
+            {% if content.field_copyright|field_value %}
                 <span class="audio__copyright">
-                    <span class="audio__copyright-label"{{ content.field_audio_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-                    {{ content.field_audio_copyright|field_value }}
+                    <span class="audio__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+                    {{ content.field_copyright|field_value }}
                 </span>
             {% endif %}
         </div>

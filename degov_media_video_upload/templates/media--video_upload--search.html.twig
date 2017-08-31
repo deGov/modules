@@ -27,15 +27,15 @@ set media_classes = [
     {% else %}
         <a href="{{ video_url }}"><div class="media--search__dummy"></div></a>
     {% endif %}
-  {% if content.field_video_upload_caption|field_value or content.field_video_upload_copyright|field_value %}
+  {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
     <div class="media--search__info">
       {% if content.field_video_upload_caption|field_value %}
         <span class="media--search__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
       {% endif %}
-      {% if content.field_video_upload_copyright|field_value %}
+      {% if content.field_copyright|field_value %}
         <span class="media--search__copyright">
-          <span class="media--search__copyright-label"{{ content.field_video_upload_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_video_upload_copyright|field_value }}
+          <span class="media--search__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+          {{ content.field_copyright|field_value }}
         </span>
       {% endif %}
     </div>

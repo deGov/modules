@@ -44,5 +44,8 @@ function degov_media_gallery_preprocess_media(&$variables) {
         'height' => $item->entity->image->get(0)->height
       ];
     }
+
+    $media_current = $variables['media'];
+    $variables['gallery_url'] = $media_current->url();
   }
 }

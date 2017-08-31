@@ -16,7 +16,7 @@
   {{- content.field_video_upload_caption -}}
 {% endset %}
 {% set copyright %}
-  {{- content.field_video_upload_copyright -}}
+  {{- content.field_copyright -}}
 {% endset %}
 {%
 set media_classes = [
@@ -46,15 +46,15 @@ set media_classes = [
       {% endfor %}
     </video>
   </div>
-  {% if content.field_video_upload_caption|field_value or content.field_video_upload_copyright|field_value %}
+  {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
     <div class="video-upload__info">
       {% if content.field_video_upload_caption|field_value %}
         <div class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</div>
       {% endif %}
-      {% if content.field_video_upload_copyright|field_value %}
+      {% if content.field_copyright|field_value %}
         <div class="video-upload__copyright">
-          <span class="video-upload__copyright-label"{{ content.field_video_upload_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_video_upload_copyright|field_value }}
+          <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+          {{ content.field_copyright|field_value }}
         </div>
       {% endif %}
     </div>
