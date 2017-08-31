@@ -3,15 +3,15 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_section
-    - node.type.event
+    - node.type.press
     - taxonomy.vocabulary.section
   enforced:
     module:
-      - degov_workbench_access
-id: node.event.field_section
+      - degov_node_press
+id: node.press.field_section
 field_name: field_section
 entity_type: node
-bundle: event
+bundle: press
 label: Bereich
 description: ''
 required: false

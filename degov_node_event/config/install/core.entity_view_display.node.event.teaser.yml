@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.event.field_teaser_image
     - field.field.node.event.field_teaser_text
     - field.field.node.event.field_teaser_title
+    - field.field.node.event.field_section
     - node.type.event
   enforced:
     module:
@@ -71,6 +72,7 @@ hidden:
   field_content_paragraphs: true
   field_event_location: true
   field_header_paragraphs: true
+  field_section: true
   field_sidebar_right_paragraphs: true
   field_social_media: true
   langcode: true

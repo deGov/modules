@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.blog.field_teaser_image
     - field.field.node.blog.field_teaser_text
     - field.field.node.blog.field_teaser_title
+    - field.field.node.blog.field_section
     - node.type.blog
   enforced:
     module:
@@ -72,6 +73,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_blog_author: true
+  field_section: true
   field_social_media: true
   field_tags: true
   field_teaser_image: true

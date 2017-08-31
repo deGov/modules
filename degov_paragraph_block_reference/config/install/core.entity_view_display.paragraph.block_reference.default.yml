@@ -2,7 +2,6 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.paragraph.block_reference.field_block
     - field.field.paragraph.block_reference.field_block_plugin
     - field.field.paragraph.block_reference.field_sub_title
     - field.field.paragraph.block_reference.field_title
