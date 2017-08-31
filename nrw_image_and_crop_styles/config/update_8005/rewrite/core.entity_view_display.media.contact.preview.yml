@@ -1,0 +1,6 @@
+content:
+  field_contact_image:
+    settings:
+      view_mode: slider_main_16_9
+      link: false
+    type: entity_reference_entity_view

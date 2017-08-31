@@ -56,3 +56,10 @@ function nrw_image_and_crop_styles_update_8003() {
 function nrw_image_and_crop_styles_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8004');
 }
+
+/**
+ * Override media field display on the contact media.
+ */
+function nrw_image_and_crop_styles_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('nrw_image_and_crop_styles', '8005');
+}
