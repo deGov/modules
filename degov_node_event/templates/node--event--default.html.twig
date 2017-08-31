@@ -79,6 +79,29 @@
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
+  {% if node.field_event_date.value or node.field_event_location.value %}
+    <div class="event__address">
+      {% if node.field_event_date.value %}
+        <div class="event__address__date">
+          <span class="field-label">{{ 'When'|trans }}</span>
+          <span class="content">{{ content.field_event_date|field_value }}</span>
+        </div>
+      {% endif %}
+      {% if node.field_event_location.value %}
+        <div class="event__address__location">
+          <span class="field-label">{{ 'Where'|trans }}</span>
+          <span class="content">{{ content.field_event_location|field_value }}</span>
+        </div>
+      {% endif %}
+      {% if node.field_event_date.value %}
+        <div class="event__address__time">
+          <span class="field-label">{{ 'Hour'|trans }}</span>
+          <span class="content">{{ content.field_event_date|field_value }}</span>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
   {% if node.field_header_paragraphs.value %}
     <div class="event__header-paragraphs">
       {{ content.field_header_paragraphs|field_value }}
