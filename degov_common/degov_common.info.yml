@@ -7,3 +7,4 @@ dependencies:
   - config_rewrite
   - dropzonejs_eb_widget
   - lightning_media
+  - degov_content_types_shared_fields
