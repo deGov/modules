@@ -6,7 +6,6 @@ dependencies:
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
-    - field.field.media.video_upload.field_video_upload_copyright
     - field.field.media.video_upload.field_video_upload_mp4
     - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
@@ -58,13 +57,13 @@ content:
     type: text_default
     region: content
   field_video_upload_preview:
-    type: responsive_image
+    type: entity_reference_entity_view
     weight: 5
     region: content
     label: hidden
     settings:
-      responsive_image_style: teaser_squared
-      image_link: content
+      view_mode: teaser_squared_1_1
+      link: false
     third_party_settings: {  }
 hidden:
   created: true

@@ -1,0 +1,80 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.search
+    - field.field.media.video_upload.field_include_search
+    - field.field.media.video_upload.field_media_in_library
+    - field.field.media.video_upload.field_tags
+    - field.field.media.video_upload.field_video_upload_copyright
+    - field.field.media.video_upload.field_video_upload_mp4
+    - field.field.media.video_upload.field_video_upload_ogg
+    - field.field.media.video_upload.field_video_upload_preview
+    - field.field.media.video_upload.field_video_upload_subtitle
+    - field.field.media.video_upload.field_video_upload_webm
+    - field.field.media.audio.field_copyright
+    - field.field.media.audio.field_description
+    - image.style.large
+    - media_entity.bundle.video_upload
+  enforced:
+    module:
+      - degov_media_video_upload
+  module:
+    - media_entity
+id: media.video_upload.preview
+targetEntityType: media
+bundle: video_upload
+mode: preview
+content:
+  field_tags:
+    type: taxonomy_term_search
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_media.page
+    third_party_settings: {  }
+  field_video_upload_caption:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_copyright:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_description:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_video_upload_preview:
+    type: entity_reference_entity_view
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      view_mode: teaser_squared_1_1
+      link: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_include_search: true
+  field_media_in_library: true
+  field_video_upload_mp4: true
+  field_video_upload_ogg: true
+  field_video_upload_subtitle: true
+  field_video_upload_webm: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

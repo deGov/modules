@@ -49,7 +49,7 @@
   // Shows the social media settings link if cookie are allowed and
   // creates a cookie with default values.
   function initializeSettings() {
-    if (Drupal.eu_cookie_compliance.hasAgreed()) {
+    if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
       $('.js-social-media-settings-open').removeClass('hidden');
 
       if (cookieExists()) {
@@ -74,7 +74,7 @@
     }
     else {
       if (Drupal.eu_cookie_compliance.hasAgreed()) {
-        var link = $('<div>' + settings.link + '</div>');
+        var link = $('<div class="js-social-media-code__message">' + settings.link + '</div>');
 
         $('.js-social-media-settings-open', link).click(function (e) {
           e.preventDefault();

@@ -1,8 +1,24 @@
-# FAQ/Akkordion
+#deGov - Paragraph FAQ/Akkordion
+##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
 
-## Description
+Distribution | Type | Core
+--- | --- | ---
+deGov | Modul |  Kompatibilität: 8.x
 
-With this flexible paragraph, FAQ lists can be created in any place in the content.
-In addition to a title and subtitle, as many question / answer elements can be added.
-This is done by using the paragraph `FAQ` within a paragraph `FAQ list`.
+#####Abhängigkeiten:
+  - degov_content_types_shared_fields
+  - entity_reference_revisions
+  - field
+  - link
+  - paragraphs
+  - text
+  - workbench_moderation
 
+##Installation
+Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
+
+Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
+
+Weitere Hilfe erhalten Sie hier:
+
+https://www.drupal.org/documentation/install/modules-themes/modules-8

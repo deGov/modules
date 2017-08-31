@@ -3,14 +3,15 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
-    - field.field.media.audio.field_include_search
-    - field.field.media.audio.field_media_in_library
-    - field.field.media.audio.field_tags
     - field.field.media.audio.field_audio_caption
-    - field.field.media.audio.field_audio_copyright
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
+    - field.field.media.audio.field_copyright
+    - field.field.media.audio.field_description
+    - field.field.media.audio.field_include_search
+    - field.field.media.audio.field_media_in_library
+    - field.field.media.audio.field_tags
     - media_entity.bundle.audio
   enforced:
     module:
@@ -19,7 +20,7 @@ dependencies:
     - entity_browser
     - field_group
     - file
-    - paragraphs
+    - text
     - workbench_moderation
 third_party_settings:
   field_group:
@@ -56,7 +57,8 @@ third_party_settings:
     group_description:
       children:
         - field_audio_caption
-        - field_audio_copyright
+        - field_copyright
+        - field_description
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -74,7 +76,6 @@ third_party_settings:
         - field_tags
         - field_include_search
         - field_media_in_library
-        - path
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -91,29 +92,6 @@ targetEntityType: media
 bundle: audio
 mode: default
 content:
-  field_include_search:
-    weight: 10
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_media_in_library:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 11
-    third_party_settings: {  }
-    region: content
-  field_tags:
-    type: entity_reference_autocomplete
-    weight: 9
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_audio_caption:
     weight: 8
     settings:
@@ -121,15 +99,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_audio_copyright:
-    weight: 9
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_audio_mp3:
     weight: 5
@@ -158,6 +127,46 @@ content:
         view_mode: thumbnail
       open: true
     region: content
+    third_party_settings: {  }
+  field_copyright:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_include_search:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_media_in_library:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

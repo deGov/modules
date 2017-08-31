@@ -47,10 +47,16 @@ content:
     third_party_settings: {  }
     type: taxonomy_term_search
     region: content
+  field_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
 hidden:
   created: true
   field_gallery_sub_title: true
-  field_description: true
   field_include_search: true
   field_media_in_library: true
   langcode: true

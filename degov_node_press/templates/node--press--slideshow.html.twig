@@ -73,38 +73,42 @@
     not node.isPublished() ? 'is-unpublished',
     view_mode ? view_mode|clean_class,
     'clearfix',
-    'col-sm-6'
   ]
 %}
+{% if content.field_teaser_image|field_value %}
+  {% set class_sidebar = 'col-xs-12 col-sm-12 col-md-9' %}
+  {% set class_content = 'col-xs-12 col-sm-12 col-md-3' %}
+{% else %}
+  {% set class_sidebar = 'invisible' %}
+  {% set class_content = 'col-xs-12 col-sm-12' %}
+{% endif %}
+
+
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  <div class="press__slideshow-image slideshow-image col-xs-12 col-sm-6 arrow">
-  {% if content.field_teaser_image %}
-    <a href="{{ url }}" rel="bookmark">
-      {{ content.field_teaser_image|field_value }}
-    </a>
-  {% endif %}
+  <div class="press__slideshow-image slideshow-image {{ class_sidebar }} arrow">
+    {% if content.field_teaser_image %}
+      <a href="{{ url }}" rel="bookmark">
+        {{ content.field_teaser_image|field_value }}
+      </a>
+    {% endif %}
   </div>
 
-  <div class="press-page__slideshow-content slideshow-content col-xs-12 col-sm-6">
-    {% if content.field_press_date %}
+  <div class="press__slideshow-content slideshow-content {{ class_content }}">
+    <p class="slideshow-section">{% trans %}Press{% endtrans %}</p>
+    {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
-        <div class="press__slideshow-date"{{ content.field_press_date|quickedit_attr }}>
-          {{ content.field_press_date|field_value }}
+        <div class="press__slideshow-title slideshow-title">
+          <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
         </div>
       </a>
     {% endif %}
 
-    {% if content.field_teaser_title %}
-      <div class="press__slideshow-title slideshow-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
-      </div>
-    {% endif %}
-
     {% if content.field_teaser_text %}
+      {% set text = content.field_teaser_text|render|striptags %}
       <div class="press__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
+        <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
       </div>
     {% endif %}
   </div>

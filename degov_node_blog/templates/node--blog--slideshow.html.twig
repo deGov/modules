@@ -75,9 +75,9 @@
     'clearfix',
   ]
 %}
-{% if content.field_teaser_image %}
-  {% set class_sidebar = 'col-xs-12 col-sm-6' %}
-  {% set class_content = 'col-xs-12 col-sm-6' %}
+{% if content.field_teaser_image|field_value %}
+  {% set class_sidebar = 'col-xs-12 col-sm-12 col-md-9' %}
+  {% set class_content = 'col-xs-12 col-sm-12 col-md-3' %}
 {% else %}
   {% set class_sidebar = 'invisible' %}
   {% set class_content = 'col-xs-12 col-sm-12' %}
@@ -96,6 +96,7 @@
   </div>
 
   <div class="blog__slideshow-content slideshow-content {{ class_content }}">
+    <p class="slideshow-section">{% trans %}Blog{% endtrans %}</p>
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="blog__slideshow-title slideshow-title">
@@ -105,8 +106,9 @@
     {% endif %}
 
     {% if content.field_teaser_text %}
+      {% set text = content.field_teaser_text|render|striptags %}
       <div class="blog__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
+       <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
       </div>
     {% endif %}
   </div>
