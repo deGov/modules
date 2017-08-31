@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Fix default value of field_moderation_state_1.
+ */
+function degov_scheduled_updates_update_8001() {
+  // Import full configuration
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_scheduled_updates', '8001');
+}
