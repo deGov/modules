@@ -5,6 +5,7 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.event.field_content_paragraphs
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_date_end
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
     - field.field.node.event.field_sidebar_right_paragraphs
@@ -78,6 +79,7 @@ third_party_settings:
       children:
         - field_tags
         - field_event_date
+        - field_event_date_end
         - langcode
         - field_social_media
       parent_name: group_vertical
@@ -143,6 +145,12 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_event_date:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_event_date_end:
     weight: 7
     settings: {  }
     third_party_settings: {  }
