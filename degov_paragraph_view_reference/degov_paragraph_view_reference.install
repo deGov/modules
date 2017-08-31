@@ -12,3 +12,10 @@ function degov_paragraph_view_reference_uninstall() {
     'entity_bundles' => ['view_reference'],
   ]);
 }
+
+/**
+ * Update slideshow paragraph reference to include view reference.
+ */
+function degov_paragraph_view_reference_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_view_reference', '8001');
+}

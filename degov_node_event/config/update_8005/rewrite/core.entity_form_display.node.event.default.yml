@@ -1,0 +1,15 @@
+dependencies:
+  config:
+    - field.field.node.event.field_event_date_end
+third_party_settings:
+  field_group:
+    group_common:
+      children:
+        - field_event_date_end
+content:
+  field_event_date_end:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content

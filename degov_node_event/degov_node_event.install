@@ -10,6 +10,18 @@ function degov_node_event_install() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_node_event_update_dependencies() {
+  // Create the slideshow view mode first before updating the event content type.
+  $dependencies['degov_node_event'][8004] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Implements hook_uninstall().
  */
 function degov_node_event_uninstall() {
@@ -40,4 +52,18 @@ function degov_node_event_update_8002() {
  */
 function degov_node_event_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8003');
+}
+
+/**
+ * Add config for slideshow view mode.
+ */
+function degov_node_event_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8004');
+}
+
+/**
+ * Display the date and location field in the default view mode and adds a new end date field.
+ */
+function degov_node_event_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8005');
 }

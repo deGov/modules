@@ -26,7 +26,7 @@ function degov_paragraph_webformular_form_alter(&$form, \Drupal\Core\Form\FormSt
   if (strpos($form_id, 'webform_submission_') !== FALSE) {
     $form['actions']['reset'] = [
       '#markup' => '<div class="reset-form">'.
-            '<span class="reset">' . t('Zurücksetzen'). '<i class="fa fa-times" aria-hidden="true"></i></span>'.
+            '<a role="button" tabindex="0"><span class="reset">' . t('Zurücksetzen'). '<i class="fa fa-times" aria-hidden="true"></i></span></a>'.
         '</div>',
       '#weight' => -100,
     ];

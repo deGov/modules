@@ -79,6 +79,39 @@
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
+  {% if node.field_event_date.value or node.field_event_location.value %}
+    <div class="event__address">
+      {% if node.field_event_date.value %}
+        {% set date_timestamp = node.field_event_date.value|date('U') %}
+        <div class="event__address__date">
+          <span class="field-label">{{ 'Startdatum'|trans }}</span>
+          <span class="content">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
+        </div>
+        <div class="event__address__time">
+          <span class="field-label">{{ 'Hour'|trans }}</span>
+          <span class="content">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
+        </div>
+      {% endif %}
+      {% if node.field_event_date_end.value %}
+          {% set date_timestamp = node.field_event_date_end.value|date('U') %}
+        <div class="event__address__date_end">
+          <span class="field-label">{{ 'Enddatum'|trans }}</span>
+          <span class="content">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
+        </div>
+        <div class="event__address__time_end">
+          <span class="field-label">{{ 'Hour'|trans }}</span>
+          <span class="content">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
+        </div>
+      {% endif %}
+      {% if node.field_event_location.value %}
+        <div class="event__address__location">
+          <span class="field-label">{{ 'Where'|trans }}</span>
+          <span class="content">{{ content.field_event_location|field_value }}</span>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
   {% if node.field_header_paragraphs.value %}
     <div class="event__header-paragraphs">
       {{ content.field_header_paragraphs|field_value }}

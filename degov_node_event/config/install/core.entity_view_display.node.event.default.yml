@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.event.field_content_paragraphs
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_date_end
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
     - field.field.node.event.field_sidebar_right_paragraphs
@@ -17,6 +18,8 @@ dependencies:
     module:
       - degov_node_event
   module:
+    - address
+    - datetime
     - entity_reference_revisions
     - user
 id: node.event.default
@@ -51,9 +54,32 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
+  field_event_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_event_location:
+    type: address_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_event_date_end:
+    type: datetime_default
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
 hidden:
-  field_event_date: true
-  field_event_location: true
   field_social_media: true
   field_tags: true
   field_teaser_image: true

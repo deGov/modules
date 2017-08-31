@@ -67,11 +67,11 @@
       }
 
       $('.slick__pause').on('click', function () {
-        $('.slideshow__slides').once().slick('slickPause');
+        $(this).parent().parent().find('.slideshow__slides').slick('slickPause');
         $(this).hide().siblings('.slick__play').show();
       });
       $('.slick__play').on('click', function () {
-        $('.slideshow__slides').once().slick('slickPlay');
+        $(this).parent().parent().find('.slideshow__slides').slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show();
       });
       // End
