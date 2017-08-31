@@ -47,6 +47,7 @@ function degov_media_audio_update_dependencies() {
 
   $dependencies['degov_media_audio'][8003] = [
     'degov_content_types_shared_fields' => 8003,
+    'degov_content_types_shared_fields' => 8004,
   ];
 
   return $dependencies;
@@ -67,8 +68,9 @@ function degov_media_audio_update_8002() {
 }
 
 /**
- * Add search view mode.
+ * Add search view mode and shared fields.
  */
 function degov_media_audio_update_8003() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8003');
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.audio.field_audio_copyright')->delete();
 }

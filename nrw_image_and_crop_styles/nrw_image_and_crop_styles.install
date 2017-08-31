@@ -8,6 +8,8 @@ function nrw_image_and_crop_styles_update_dependencies() {
   // updating the image styles.
   $dependencies['nrw_image_and_crop_styles'][8004] = [
     'degov_content_types_shared_fields' => 8003,
+    'degov_content_types_shared_fields' => 8004,
+    'degov_media_image' => 8007,
     'degov_node_press' => 8005,
     'degov_node_normal_page' => 8003,
     'degov_node_blog' => 8005,

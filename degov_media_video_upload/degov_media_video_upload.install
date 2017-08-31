@@ -41,6 +41,7 @@ function degov_media_video_upload_update_dependencies() {
 
   $dependencies['degov_media_video_upload'][8005] = [
     'degov_content_types_shared_fields' => 8003,
+    'degov_content_types_shared_fields' => 8004,
   ];
 
   return $dependencies;
@@ -62,8 +63,9 @@ function degov_media_video_upload_update_8004() {
 }
 
 /**
- * Add search view mode.
+ * Add search view mode and shared fields.
  */
 function degov_media_video_upload_update_8005() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8005');
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.video_upload.field_video_upload_copyright')->delete();
 }

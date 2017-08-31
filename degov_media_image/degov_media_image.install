@@ -90,4 +90,5 @@ function degov_media_image_update_8006() {
 function degov_media_image_update_8007() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8007');
   \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.image.field_image_description')->delete();
+  \Drupal::service('entity_type.manager')->getStorage('field_config')->load('media.image.field_image_copyright')->delete();
 }
