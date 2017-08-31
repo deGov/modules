@@ -83,30 +83,36 @@
     <div class="event__address">
       {% if node.field_event_date.value %}
         {% set date_timestamp = node.field_event_date.value|date('U') %}
-        <div class="event__address__date">
-          <span class="field-label">{{ 'Startdatum'|trans }}</span>
-          <span class="content">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
+        <div class="event__address__date row">
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Startdatum'|trans }}:</span>
+          <span class="content col-xs-8 col-sm-10">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
         </div>
-        <div class="event__address__time">
-          <span class="field-label">{{ 'Hour'|trans }}</span>
-          <span class="content">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
+        <div class="event__address__time row">
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Uhr'|trans }}:</span>
+          <span class="content col-xs-8 col-sm-10">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
         </div>
       {% endif %}
       {% if node.field_event_date_end.value %}
           {% set date_timestamp = node.field_event_date_end.value|date('U') %}
-        <div class="event__address__date_end">
-          <span class="field-label">{{ 'Enddatum'|trans }}</span>
-          <span class="content">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
+        <div class="event__address__date_end row">
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Enddatum'|trans }}:</span>
+          <span class="content col-xs-8 col-sm-10">{{ date_timestamp|format_date('custom', 'j. F Y') }}</span>
         </div>
-        <div class="event__address__time_end">
-          <span class="field-label">{{ 'Hour'|trans }}</span>
-          <span class="content">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
+        <div class="event__address__time_end row">
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Uhr'|trans }}:</span>
+          <span class="content col-xs-8 col-sm-10">{{ date_timestamp|format_date('custom', 'H:i') }}</span>
         </div>
       {% endif %}
       {% if node.field_event_location.value %}
-        <div class="event__address__location">
-          <span class="field-label">{{ 'Where'|trans }}</span>
-          <span class="content">{{ content.field_event_location|field_value }}</span>
+        <div class="event__address__location row">
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Wo'|trans }}:</span>
+          <span class="content col-xs-8 col-sm-10">
+            <span>{{ content.field_event_location.0.address_line1 }}, </span>
+            <span>{{ content.field_event_location.0.address_line2 }}, </span>
+            <span>{{ content.field_event_location.0.postal_code }} </span>
+            <span>{{ content.field_event_location.0.locality }}, </span>
+            <span>{{ content.field_event_location.0.country }} </span>
+          </span>
         </div>
       {% endif %}
     </div>
