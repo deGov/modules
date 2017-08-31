@@ -97,9 +97,11 @@
     {% endif %}
 
     {% if content.field_teaser_title %}
-      <div class="press__teaser-title teaser-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
-      </div>
+      <a href="{{ url }}" rel="bookmark">
+        <div class="press__teaser-title teaser-title">
+          <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
+        </div>
+      </a>
     {% endif %}
 
     {% if content.field_teaser_text %}
