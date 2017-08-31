@@ -77,20 +77,20 @@
   ]
 %}
 
-{% if content.field_teaser_image %}
-  {% set class_sidebar = 'col-xs-12 col-sm-6'  %}
-  {% set class_content = 'col-xs-12 col-sm-6' %}
-  
+{% if content.field_teaser_image|field_value %}
+  {% set class_sidebar = 'col-xs-12 col-sm-9' %}
+  {% set class_content = 'col-xs-12 col-sm-3' %}
 {% else %}
-  {%  set class_sidebar = 'invisible' %}
-  {%  set class_content = 'col-xs-12 col-sm-12' %}
+  {% set class_sidebar = 'invisible' %}
+  {% set class_content = 'col-xs-12 col-sm-12' %}
 {% endif %}
+
 
 
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  <div class="event__slideshow-image slideshow-image col-xs-12 col-sm-6 arrow">
+  <div class="event__slideshow-image slideshow-image {{ class_sidebar }} arrow">
     {% if content.field_teaser_image %}
       <a href="{{ url }}" rel="bookmark">
         {{ content.field_teaser_image|field_value }}
@@ -98,7 +98,7 @@
     {% endif %}
   </div>
 
-  <div class="event__slideshow-content slideshow-content col-xs-12 col-sm-6">
+  <div class="event__slideshow-content slideshow-content {{ class_content }}">
     {% if content.field_event_date %}
       <div class="event__slideshow-date"{{ content.field_event_date|quickedit_attr }}>
         {{ content.field_event_date|field_value }}
@@ -114,8 +114,9 @@
     {% endif %}
 
     {% if content.field_teaser_text %}
+      {% set text = content.field_teaser_text|render|striptags %}
       <div class="event__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
+        <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
       </div>
     {% endif %}
   </div>
