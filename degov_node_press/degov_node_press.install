@@ -14,6 +14,18 @@ function degov_node_press_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_node_press_update_dependencies() {
+  // Create the slideshow view mode first before updating the press content type.
+  $dependencies['degov_node_press'][8005] = [
+    'degov_content_types_shared_fields' => 8003,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Next module update version is 8002.
  * All update hooks from 1.1 to 1.2 were deleted.
  * There is no upgrade path from 1.1 to 1.3, you need first to update to 1.2 and
@@ -40,4 +52,11 @@ function degov_node_press_update_8003() {
  */
 function degov_node_press_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8004');
+}
+
+/**
+ * Add configuration for slideshow view mode.
+ */
+function degov_node_press_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8005');
 }

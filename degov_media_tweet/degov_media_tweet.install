@@ -14,3 +14,10 @@
 function degov_media_tweet_update_8002() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_tweet', '8002');
 }
+
+/**
+ * Add enforced dependency.
+ */
+function degov_media_tweet_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_tweet', '8003');
+}

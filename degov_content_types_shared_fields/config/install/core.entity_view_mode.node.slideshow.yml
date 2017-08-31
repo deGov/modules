@@ -1,0 +1,16 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_content_types_shared_fields
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'This view mode is for content types that are shown in the node reference paragraph inside slideshow paragraph.'
+id: node.slideshow
+label: Slideshow
+targetEntityType: node
+cache: true

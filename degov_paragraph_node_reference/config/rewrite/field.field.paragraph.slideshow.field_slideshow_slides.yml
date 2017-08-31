@@ -1,0 +1,11 @@
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.node_reference
+settings:
+  handler_settings:
+    target_bundles:
+      node_reference: node_reference
+    target_bundles_drag_drop:
+      node_reference:
+        weight: 0
+        enabled: true
