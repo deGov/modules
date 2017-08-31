@@ -35,8 +35,15 @@ function degov_node_blog_update_8003() {
 }
 
 /**
- * Change bundle label.
+ * Add config for slideshow view mode.
  */
 function degov_node_blog_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8004');
+}
+
+/** 
+ * Change bundle label.
+ */
+function degov_node_blog_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_blog', '8005');
 }
