@@ -1,0 +1,7 @@
+degov_vsm_search.search:
+  path: '/suche/vsm'
+  defaults:
+    _controller: '\Drupal\degov_vsm_search\Controller\VSMSearch::showSearch'
+    _title: 'Verwaltungssuchmaschine NRW'
+  requirements:
+    _access: 'TRUE'
