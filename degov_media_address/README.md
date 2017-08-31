@@ -1,17 +1,30 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Adresse
+##Ein Media-Bundle für Adressen.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - address
+  - degov_common
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_tags
   - field
-  - link
-  - paragraphs
-  - text
+  - field_group
+  - geocoder
+  - geocoder_address
+  - geocoder_field
+  - geocoder_geofield
+  - geofield
+  - language
+  - lightning_core
+  - media_entity
+  - path
+  - spamspan
+  - styled_google_map
+  - system_stream_wrapper
+  - taxonomy
   - workbench_moderation
 
 ##Installation

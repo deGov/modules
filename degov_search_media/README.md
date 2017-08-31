@@ -1,18 +1,17 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Mediensuche
+##Allgemeine Konfiguration für die Mediensuche.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
-  - degov_content_types_shared_fields
-  - entity_reference_revisions
-  - field
-  - link
-  - paragraphs
-  - text
-  - workbench_moderation
+  - block
+  - degov_search_base
+  - media_entity
+  - system
+  - user
+  - views
 
 ##Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.

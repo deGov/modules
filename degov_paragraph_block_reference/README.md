@@ -1,5 +1,5 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Paragraph Block Referenz
+##Dieser Paragraph stellt Block Referenz bereit.
 
 Distribution | Type | Core
 --- | --- | ---
@@ -7,11 +7,11 @@ deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
   - degov_content_types_shared_fields
-  - entity_reference_revisions
   - field
   - link
+  - block
+  - block_field
   - paragraphs
-  - text
   - workbench_moderation
 
 ##Installation

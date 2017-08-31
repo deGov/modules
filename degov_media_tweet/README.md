@@ -1,17 +1,23 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Tweet
+##Dieses Modul erweitert das Media Bundle Tweet.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - config_rewrite
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_tags
+  - entity_browser
   - field
-  - link
-  - paragraphs
+  - image
+  - media_entity
+  - media_entity_twitter
+  - path
+  - taxonomy
   - text
+  - user
   - workbench_moderation
 
 ##Installation

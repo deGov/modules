@@ -1,18 +1,18 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Workbench Access
+##Enthält Konfiguration für das Workbench Access Modul.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
-  - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_common
+  - config_rewrite
+  - degov_taxonomy_term_section
   - field
-  - link
-  - paragraphs
-  - text
-  - workbench_moderation
+  - node
+  - taxonomy
+  - workbench_access
 
 ##Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.

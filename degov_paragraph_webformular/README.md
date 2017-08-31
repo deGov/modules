@@ -1,5 +1,5 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Paragraph Formular
+##Mit diesem Paragraphen können an beliebigen Stellen webforms eingeblendet werden.
 
 Distribution | Type | Core
 --- | --- | ---
@@ -7,11 +7,12 @@ deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
   - degov_content_types_shared_fields
-  - entity_reference_revisions
   - field
   - link
+  - node
   - paragraphs
-  - text
+  - webform
+  - webform_ui
   - workbench_moderation
 
 ##Installation

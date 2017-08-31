@@ -1,17 +1,23 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Contact
+##Dient der Erstellung einer Kontaktperson/-stelle.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - degov_common
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_tags
+  - entity_browser
   - field
-  - link
-  - paragraphs
-  - text
+  - field_group
+  - image
+  - language
+  - media_entity
+  - path
+  - taxonomy
+  - user
   - workbench_moderation
 
 ##Installation

@@ -1,17 +1,22 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Video
+##Erweiterung des existierenden Video Bundles um Copyright und Caption.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - config_rewrite
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_copyright
+  - degov_taxonomy_term_tags
   - field
-  - link
-  - paragraphs
-  - text
+  - image
+  - language
+  - media_entity
+  - taxonomy
+  - video_embed_field
+  - video_embed_media
   - workbench_moderation
 
 ##Installation

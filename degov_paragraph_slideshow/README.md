@@ -1,5 +1,5 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Paragraph Slideshow
+##Slideshowparagraph, der hauptsächlich im Headerbereich zum Einstatz kommt.
 
 Distribution | Type | Core
 --- | --- | ---
@@ -7,9 +7,14 @@ deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
   - degov_content_types_shared_fields
+  - degov_common
+  - entity_browser
   - entity_reference_revisions
   - field
+  - inline_entity_form
   - link
+  - media_entity
+  - options
   - paragraphs
   - text
   - workbench_moderation

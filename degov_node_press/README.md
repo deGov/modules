@@ -1,17 +1,29 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Pressemitteilung
+##Erstellen von Pressemitteilungen.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - block
+  - datetime
   - degov_content_types_shared_fields
+  - degov_taxonomy_term_tags
+  - entity_browser
   - entity_reference_revisions
   - field
-  - link
+  - field_group
+  - language
+  - lightning_core
+  - menu_ui
+  - node
   - paragraphs
+  - path
+  - taxonomy
   - text
+  - user
+  - views
   - workbench_moderation
 
 ##Installation
