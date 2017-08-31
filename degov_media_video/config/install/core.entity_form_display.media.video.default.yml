@@ -2,28 +2,19 @@ langcode: de
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
-    - field.field.media.video_upload.field_copyright
-    - field.field.media.video_upload.field_description
-    - field.field.media.video_upload.field_include_search
-    - field.field.media.video_upload.field_media_in_library
-    - field.field.media.video_upload.field_tags
-    - field.field.media.video_upload.field_video_upload_caption
-    - field.field.media.video_upload.field_video_upload_mp4
-    - field.field.media.video_upload.field_video_upload_ogg
-    - field.field.media.video_upload.field_video_upload_preview
-    - field.field.media.video_upload.field_video_upload_subtitle
-    - field.field.media.video_upload.field_video_upload_webm
-    - media_entity.bundle.video_upload
-  enforced:
-    module:
-      - degov_media_video_upload
+    - field.field.media.video.field_copyright
+    - field.field.media.video.field_description
+    - field.field.media.video.field_include_search
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_social_media_source
+    - field.field.media.video.field_tags
+    - field.field.media.video.field_video_caption
+    - media_entity.bundle.video
   module:
-    - entity_browser
     - field_group
-    - file
-    - paragraphs
     - text
+    - video_embed_field
     - workbench_moderation
 third_party_settings:
   field_group:
@@ -43,12 +34,10 @@ third_party_settings:
       region: content
     group_media:
       children:
-        - field_video_upload_preview
-        - field_video_upload_mp4
-        - field_video_upload_ogg
-        - field_video_upload_webm
+        - field_media_video_embed_field
+        - field_social_media_source
       parent_name: group_vertical
-      weight: 14
+      weight: 9
       format_type: tab
       format_settings:
         id: ''
@@ -60,12 +49,11 @@ third_party_settings:
       region: content
     group_description:
       children:
-        - field_video_upload_subtitle
-        - field_video_upload_caption
+        - field_video_caption
         - field_copyright
         - field_description
       parent_name: group_vertical
-      weight: 15
+      weight: 10
       format_type: tab
       format_settings:
         id: ''
@@ -82,7 +70,7 @@ third_party_settings:
         - field_include_search
         - field_media_in_library
       parent_name: group_vertical
-      weight: 16
+      weight: 11
       format_type: tab
       format_settings:
         id: ''
@@ -92,14 +80,14 @@ third_party_settings:
         required_fields: true
       label: Common
       region: content
-id: media.video_upload.default
+id: media.video.default
 targetEntityType: media
-bundle: video_upload
+bundle: video
 mode: default
 content:
   field_copyright:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -108,14 +96,14 @@ content:
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 10
+    weight: 7
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_include_search:
-    weight: 10
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
@@ -123,92 +111,62 @@ content:
     region: content
   field_media_in_library:
     type: boolean_checkbox
+    weight: 6
     settings:
       display_label: true
-    weight: 11
     third_party_settings: {  }
+    region: content
+  field_media_video_embed_field:
+    type: video_embed_field_textfield
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_social_media_source:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_tags:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_video_upload_caption:
-    weight: 8
+  field_video_caption:
+    weight: 5
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_video_upload_mp4:
-    weight: 5
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_video_upload_ogg:
-    weight: 5
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_video_upload_preview:
-    type: entity_browser_entity_reference
-    weight: 4
-    settings:
-      entity_browser: media_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: thumbnail
-      open: true
-    region: content
-    third_party_settings: {  }
-  field_video_upload_subtitle:
-    type: entity_reference_paragraphs
-    weight: 7
-    settings:
-      title: Absatz
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    region: content
-  field_video_upload_webm:
-    weight: 6
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
   langcode:
     type: language_select
-    weight: 8
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
-    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   path:
     type: path
-    weight: 12
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  preview:
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
