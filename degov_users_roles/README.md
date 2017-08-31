@@ -1,18 +1,13 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - User Permissions / Roles
+##Das Modul setzt Benutzerrollen für die Bearbeitung und Verwaltung von Inhalten und anderen Benutzern.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
-  - degov_content_types_shared_fields
-  - entity_reference_revisions
-  - field
-  - link
-  - paragraphs
-  - text
-  - workbench_moderation
+  - role_delegation
+  - workbench_access
 
 ##Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.

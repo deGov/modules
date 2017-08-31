@@ -1,28 +1,35 @@
-# Normal Page
+#deGov - Inhaltsseite
+##Provides Inhaltsseite content type and related configuration. Dieser Seitentyp ist für allgemeine Seiten gedacht.
 
-## Description
+Distribution | Type | Core
+--- | --- | ---
+deGov | Modul |  Kompatibilität: 8.x
 
-The normal page content type divides the node region into 3 separate regions.
-Each region is able to add multiple paragraph items of different types.
+#####Abhängigkeiten:
+  - degov_content_types_shared_fields
+  - degov_taxonomy_term_tags
+  - entity_browser
+  - entity_reference_revisions
+  - field
+  - field_group
+  - language
+  - media_entity
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - pathauto
+  - taxonomy
+  - text
+  - user
+  - views
+  - workbench_moderation
 
-The template implementation looks like following:
+##Installation
+Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
 
------------------------------
-|                           |
-|       header region       |
------------------------------
-|       9/12      |   3/12  |
-|                 |         |
-|                 |         |
-|     content     |  right  |
-|     region      |  region |
-|                 |         |
-|                 |         |
------------------------------
+Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
 
-The `content region` will be expanded to be full width in case no content has been added to the `right region`.
-Regions will be shown by their full width for every screen size lower than a medium screen.
+Weitere Hilfe erhalten Sie hier:
 
-A normal page also contains `title`, `subtitle` and `image` teaser fields.
-These fields are shown for the teaser of a normal page.
-With the `image` field having a fixed 3/12 ratio from medium screens and up.
+https://www.drupal.org/documentation/install/modules-themes/modules-8

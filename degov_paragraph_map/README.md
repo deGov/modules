@@ -1,5 +1,5 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Paragraph Map
+##Mit diesem Paragraphen lassen sich Adressen in einer Kartenansicht darstellen.
 
 Distribution | Type | Core
 --- | --- | ---
@@ -7,11 +7,14 @@ deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_media_address
+  - entity_browser
+  - entity_reference_display
   - field
   - link
+  - media_entity
+  - options
   - paragraphs
-  - text
   - workbench_moderation
 
 ##Installation

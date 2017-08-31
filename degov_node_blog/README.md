@@ -1,17 +1,29 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Inhalt Blog
+##Dieses Modul stellt einen Inhaltstyp für Blogeinträge bereit.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - datetime
   - degov_content_types_shared_fields
+  - degov_media_person
+  - degov_taxonomy_term_tags
+  - entity_browser
   - entity_reference_revisions
   - field
-  - link
+  - field_group
+  - language
+  - media_entity
+  - menu_ui
+  - node
   - paragraphs
+  - path
+  - taxonomy
   - text
+  - user
+  - views
   - workbench_moderation
 
 ##Installation

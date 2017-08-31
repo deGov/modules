@@ -1,17 +1,23 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Social Media Embed
+##Stellt ein Media Bundle für das Einbetten von Social Media Inhalten (Feeds und dgl.) zur Verfügung.
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - degov_common
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_tags
+  - entity_browser
   - field
-  - link
-  - paragraphs
+  - field_group
+  - language
+  - media_entity
+  - path
+  - taxonomy
   - text
+  - user
   - workbench_moderation
 
 ##Installation

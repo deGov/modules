@@ -1,5 +1,5 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Paragraph Text
+##Ein allgemeiner Paragraph für formatierte Texte beliebiger Länge.
 
 Distribution | Type | Core
 --- | --- | ---
@@ -7,7 +7,6 @@ deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
   - degov_content_types_shared_fields
-  - entity_reference_revisions
   - field
   - link
   - paragraphs

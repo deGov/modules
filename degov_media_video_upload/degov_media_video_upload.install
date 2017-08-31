@@ -55,12 +55,6 @@ function degov_media_video_upload_update_dependencies() {
  * The fresh install should have all the changes from 1.1 to 1.3.
  */
 
-/**
- * Add preview view mode.
- */
-function degov_media_video_upload_update_8004() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8004');
-}
 
 /**
  * Add search view mode and shared fields.

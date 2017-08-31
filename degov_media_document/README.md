@@ -1,18 +1,21 @@
-#deGov - Paragraph FAQ/Akkordion
-##Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.
+#deGov - Media Dokument
+##Ein Media Bundle für Dokumente
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
 #####Abhängigkeiten:
+  - config_rewrite
   - degov_content_types_shared_fields
-  - entity_reference_revisions
+  - degov_taxonomy_term_tags
   - field
-  - link
-  - paragraphs
-  - text
+  - file
+  - media_entity
+  - media_entity_document
+  - taxonomy
   - workbench_moderation
+  - dropzonejs_eb_widget
 
 ##Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.

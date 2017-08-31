@@ -1,18 +1,31 @@
-# Content Types Shared Fields
+#deGov - Content Types Shared Fields
+##Dieses Modul enthält alle gemeinsamen Felder für alle Entitäten.
 
-## Description
+Distribution | Type | Core
+--- | --- | ---
+deGov | Modul |  Kompatibilität: 8.x
 
-This module contains all shared field storages for all content types.
+#####Abhängigkeiten:
+  - degov_common
+  - entity_reference_revisions
+  - field
+  - field_group
+  - lightning_core
+  - link
+  - media_entity
+  - node
+  - paragraphs
+  - paragraphs_edit
+  - shariff
+  - taxonomy
+  - text
+  - twig_field_value
 
-## Why?
+##Installation
+Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
 
-Uninstalling a feature/module that uses reusable fields will throw warnings on those shared fields.
+Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
 
-## Implementation
+Weitere Hilfe erhalten Sie hier:
 
-A field configuration will exist out of a `field.field` and `field.storage` YAML file. In case you will use this field
-as a reusable field in other entities, move the `field.storage` YAML file into this modules `config/install` directory.
-
-## Important note!
-
-Always make sure you have the `enforced module` lines included in the YAML configuration file of the field.
+https://www.drupal.org/documentation/install/modules-themes/modules-8
