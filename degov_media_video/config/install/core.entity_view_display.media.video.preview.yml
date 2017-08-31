@@ -2,13 +2,14 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview
+    - core.entity_view_mode.media.search
     - field.field.media.video.field_include_search
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
-    - field.field.media.video.field_video_copyright
+    - field.field.media.audio.field_copyright
+    - field.field.media.audio.field_description
     - image.style.large
     - media_entity.bundle.video
   enforced:
@@ -30,14 +31,6 @@ content:
     third_party_settings: {  }
     type: video_embed_field_thumbnail
     region: content
-  field_tags:
-    type: taxonomy_term_search
-    weight: 6
-    region: content
-    label: hidden
-    settings:
-      route_name: view.search_media.page
-    third_party_settings: {  }
   field_video_caption:
     weight: 1
     label: hidden
@@ -46,19 +39,42 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_video_copyright:
-    weight: 5
+  field_copyright:
+    weight: 2
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tags:
+    type: taxonomy_term_search
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_media.page
+    third_party_settings: {  }
+  thumbnail:
+    type: responsive_image
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: teaser_squared
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

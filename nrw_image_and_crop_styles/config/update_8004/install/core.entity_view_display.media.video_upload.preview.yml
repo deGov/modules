@@ -6,7 +6,6 @@ dependencies:
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
-    - field.field.media.video_upload.field_video_upload_caption
     - field.field.media.video_upload.field_video_upload_copyright
     - field.field.media.video_upload.field_video_upload_mp4
     - field.field.media.video_upload.field_video_upload_ogg
@@ -22,14 +21,14 @@ dependencies:
       - degov_media_video_upload
   module:
     - media_entity
-id: media.video_upload.search
+id: media.video_upload.preview
 targetEntityType: media
 bundle: video_upload
-mode: search
+mode: preview
 content:
   field_tags:
     type: taxonomy_term_search
-    weight: 3
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -37,14 +36,14 @@ content:
     third_party_settings: {  }
   field_video_upload_caption:
     type: string
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_copyright:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       link: false
@@ -52,27 +51,19 @@ content:
     type: entity_reference_label
     region: content
   field_description:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_video_upload_copyright:
-    type: entity_reference_label
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_video_upload_preview:
-    type: media_thumbnail
-    weight: 0
+    type: responsive_image
+    weight: 5
     region: content
     label: hidden
     settings:
-      image_style: large
+      responsive_image_style: teaser_squared
       image_link: content
     third_party_settings: {  }
 hidden:
@@ -83,7 +74,6 @@ hidden:
   field_video_upload_ogg: true
   field_video_upload_subtitle: true
   field_video_upload_webm: true
-  field_video_upload_copyright: true
   langcode: true
   name: true
   thumbnail: true

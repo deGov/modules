@@ -22,10 +22,10 @@ dependencies:
       - degov_media_video_upload
   module:
     - media_entity
-id: media.video_upload.search
+id: media.video_upload.preview
 targetEntityType: media
 bundle: video_upload
-mode: search
+mode: preview
 content:
   field_tags:
     type: taxonomy_term_search
@@ -58,14 +58,6 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_video_upload_copyright:
-    type: entity_reference_label
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_video_upload_preview:
     type: media_thumbnail
     weight: 0

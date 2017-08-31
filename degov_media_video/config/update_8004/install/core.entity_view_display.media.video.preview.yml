@@ -2,54 +2,52 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.usage
-    - field.field.media.audio.field_include_search
-    - field.field.media.audio.field_media_in_library
-    - field.field.media.audio.field_tags
+    - core.entity_view_mode.media.search
+    - field.field.media.video.field_include_search
+    - field.field.media.video.field_media_in_library
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_tags
+    - field.field.media.video.field_video_caption
+    - field.field.media.video.field_video_copyright
     - field.field.media.audio.field_copyright
     - field.field.media.audio.field_description
-    - field.field.media.audio.field_audio_caption
-    - field.field.media.audio.field_audio_mp3
-    - field.field.media.audio.field_audio_ogg
-    - field.field.media.audio.field_audio_preview
     - image.style.large
-    - media_entity.bundle.audio
+    - media_entity.bundle.video
   enforced:
     module:
-      - degov_media_audio
+      - degov_media_video
   module:
-    - degov_common
-    - media_entity
-id: media.audio.search
+    - video_embed_field
+id: media.video.preview
 targetEntityType: media
-bundle: audio
-mode: search
+bundle: video
+mode: preview
 content:
-  field_audio_preview:
+  field_media_video_embed_field:
     weight: 0
     label: hidden
     settings:
       image_style: large
-      link: false
+      link_image_to: content
     third_party_settings: {  }
-    type: media_thumbnail
+    type: video_embed_field_thumbnail
     region: content
-  field_audio_caption:
-    type: string
+  field_video_caption:
     weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_copyright:
-    type: entity_reference_label
-    weight: 2
+    type: string
     region: content
+  field_copyright:
+    weight: 2
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_description:
     weight: 3
     label: hidden
@@ -69,9 +67,8 @@ hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
-  field_audio_mp3: true
-  field_audio_ogg: true
+  field_video_copyright: true
+  thumbnail: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true
