@@ -1,0 +1,51 @@
+<aside class="col-sm-3" role="complementary">
+  <div class="region region-sidebar-first">
+    <section class="views-exposed-form block block-views block-views-exposed-filter-blocksearch-content-page-1 clearfix" id="block-hervorgehobenesformularsearch-contentpage-1">
+      <form action="/suche/vsm" id="views-exposed-form-search-content-page-1" accept-charset="UTF-8">
+        <div class="form--inline form-inline clearfix">
+          <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-volltext js-form-item-volltext form-group">
+            <label for="edit-volltext" class="control-label">{{ lang.volltextsuche }}</label>
+            <input data-drupal-selector="edit-volltext" class="form-text form-control" type="text" id="edit-volltext" name="volltext" value="{{ query }}" size="30" maxlength="128">
+          </div>
+          <div data-drupal-selector="edit-actions" class="form-actions form-group js-form-wrapper form-wrapper" id="edit-actions">
+            <a href="/suche?volltext={{ query }}"><button type="button" class="vsm_search_button">{{ lang.back }}</button></a>
+            <button data-twig-suggestion="search_results_submit" class="search-box__button button js-form-submit form-submit" type="submit" id="edit-submit-search-content" value="{{ lang.search }}" name="">{{ lang.search }}<i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</aside>
+<section class="col-sm-9">
+  <div class="region region-content">
+    {{ lang.result_count }}
+    <div class="views-element-container form-group"><div class="view view-search-content">
+        <div class="view-content">
+          {% if results|length == 0 %}
+            {{ lang.empty_search }}
+          {% endif %}
+          {% for result in results %}
+            <div class="views-row">
+              <a target="_blank" href="{{ result.U }}">{{ result.T|raw }}</a>
+              <br>
+              <p>
+              {% if result.S == '' %}
+                ... ...
+              {% else %}
+                {{ result.S|raw }}
+              {% endif %}
+              </p>
+              <small>
+                <a target="_blank" href="{{ result.U }}">{{ result.UE }}</a><br>
+                {{ result.FS['@attributes'].VALUE|date('d.m.Y') }}
+              </small>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vsm_search_pager">
+  {{ pager }}
+  </div>
+</section>
