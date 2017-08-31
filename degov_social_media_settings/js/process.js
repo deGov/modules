@@ -74,7 +74,7 @@
     }
     else {
       if (Drupal.eu_cookie_compliance.hasAgreed()) {
-        var link = $('<div>' + settings.link + '</div>');
+        var link = $('<div class="js-social-media-code__message">' + settings.link + '</div>');
 
         $('.js-social-media-settings-open', link).click(function (e) {
           e.preventDefault();
