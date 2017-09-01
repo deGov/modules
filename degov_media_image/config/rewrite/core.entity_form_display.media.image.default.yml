@@ -2,10 +2,10 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.media.image.field_image_caption
-    - field.field.media.image.field_image_copyright
-    - field.field.media.image.field_image_date
+    - field.field.media.image.field_copyright
     - field.field.media.image.field_description
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_date
     - field.field.media.image.field_image_height
     - field.field.media.image.field_image_mime
     - field.field.media.image.field_image_width
@@ -17,7 +17,6 @@ dependencies:
   module:
     - datetime
     - field_group
-    - path
     - text
     - workbench_moderation
 third_party_settings:
@@ -40,8 +39,8 @@ third_party_settings:
     group_description:
       children:
         - field_image_caption
+        - field_copyright
         - field_description
-        - field_image_copyright
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -60,7 +59,6 @@ third_party_settings:
         - langcode
         - field_include_search
         - field_media_in_library
-        - path
       parent_name: group_vertical
       weight: 19
       format_type: tab
@@ -107,6 +105,23 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_copyright:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
   field_image_caption:
     weight: 11
     settings:
@@ -115,28 +130,11 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_image_copyright:
-    weight: 13
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_image_date:
     weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_description:
-    weight: 12
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
     region: content
   field_image_height:
     weight: 5
@@ -185,6 +183,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  image:
+    type: image_image
+    weight: 1
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    region: content
   langcode:
     type: language_select
     weight: 5

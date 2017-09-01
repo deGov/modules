@@ -2,16 +2,18 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.video.field_copyright
+    - field.field.media.video.field_description
     - field.field.media.video.field_include_search
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_social_media_source
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
-    - field.field.media.video.field_video_copyright
     - media_entity.bundle.video
   module:
     - field_group
-    - path
+    - text
     - video_embed_field
     - workbench_moderation
 third_party_settings:
@@ -33,6 +35,7 @@ third_party_settings:
     group_media:
       children:
         - field_media_video_embed_field
+        - field_social_media_source
       parent_name: group_vertical
       weight: 9
       format_type: tab
@@ -47,7 +50,8 @@ third_party_settings:
     group_description:
       children:
         - field_video_caption
-        - field_video_copyright
+        - field_copyright
+        - field_description
       parent_name: group_vertical
       weight: 10
       format_type: tab
@@ -65,7 +69,6 @@ third_party_settings:
         - field_tags
         - field_include_search
         - field_media_in_library
-        - path
       parent_name: group_vertical
       weight: 11
       format_type: tab
@@ -82,6 +85,23 @@ targetEntityType: media
 bundle: video
 mode: default
 content:
+  field_copyright:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_include_search:
     weight: 5
     settings:
@@ -102,6 +122,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_social_media_source:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_tags:
     type: entity_reference_autocomplete
     weight: 4
@@ -118,15 +144,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_video_copyright:
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select
@@ -148,7 +165,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  preview:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
-  preview: true
   uid: true

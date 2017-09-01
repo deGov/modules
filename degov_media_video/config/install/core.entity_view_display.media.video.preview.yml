@@ -63,13 +63,13 @@ content:
       route_name: view.search_media.page
     third_party_settings: {  }
   thumbnail:
-    type: responsive_image
+    type: image
     weight: 5
     region: content
     label: hidden
     settings:
-      responsive_image_style: teaser_squared
-      image_link: ''
+      image_style: large
+      image_link: content
     third_party_settings: {  }
 hidden:
   created: true
