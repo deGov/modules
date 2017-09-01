@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.block_reference.field_block
     - field.field.paragraph.block_reference.field_block_plugin
     - field.field.paragraph.block_reference.field_sub_title
     - field.field.paragraph.block_reference.field_title
