@@ -28,3 +28,10 @@ function degov_content_types_shared_fields_update_8003() {
 function degov_content_types_shared_fields_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_content_types_shared_fields', '8004');
 }
+
+/**
+ * Update latest media view.
+ */
+function degov_content_types_shared_fields_update_8005() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_content_types_shared_fields', '8005');
+}
