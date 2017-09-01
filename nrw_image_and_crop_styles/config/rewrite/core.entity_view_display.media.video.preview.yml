@@ -1,0 +1,10 @@
+content:
+  thumbnail:
+    type: responsive_image
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: teaser_squared
+      image_link: content
+    third_party_settings: {  }
