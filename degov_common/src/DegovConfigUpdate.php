@@ -16,13 +16,17 @@ use Drupal\Core\Config\StorageInterface;
 class DegovConfigUpdate extends DegovConfigManagerBase {
 
   /**
-   * @param $module
-   * @param string $config_type
+   * Updates the configuration of a given module and type.
    *
-   * @return array|null|void
+   * @param string$module
+   *   The module name.
+   * @param string $config_type
+   *   The configuration type, this could be install, optional or block.
+   * @param string $contrib_type
+   *   Type of contrib type being processed, namely a module or theme.
    */
-  public function configPartialImport($module, $config_type = 'install') {
-    $source_dir = drupal_get_path('module', $module) . '/config/' . $config_type;
+  public function configPartialImport($module, $config_type = 'install', $contrib_type = 'module') {
+    $source_dir = drupal_get_path($contrib_type, $module) . '/config/' . $config_type;
     $this->checkConfigurationChanges($source_dir);
   }
 
