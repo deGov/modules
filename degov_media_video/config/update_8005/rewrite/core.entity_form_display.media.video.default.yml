@@ -7,10 +7,8 @@ dependencies:
     - field.field.media.video.field_include_search
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
-    - field.field.media.video.field_social_media_source
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
-    - field.field.media.video.field_video_copyright
     - media_entity.bundle.video
   module:
     - field_group
@@ -36,7 +34,6 @@ third_party_settings:
     group_media:
       children:
         - field_media_video_embed_field
-        - field_social_media_source
       parent_name: group_vertical
       weight: 9
       format_type: tab
@@ -122,12 +119,6 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_social_media_source:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   field_tags:
     type: entity_reference_autocomplete
