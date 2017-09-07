@@ -2,7 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.usage
+    - core.entity_view_mode.media.preview
     - field.field.media.audio.field_include_search
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
