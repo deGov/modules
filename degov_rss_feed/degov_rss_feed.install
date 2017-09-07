@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Updates the RSS feed pages.
+ */
+function degov_rss_feed_update_8001() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $service */
+  $service = \Drupal::service('degov_config.module_updater');
+  $service->applyUpdates('degov_rss_feed', '8001');
+}
