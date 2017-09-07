@@ -65,7 +65,7 @@ class Common {
     if ($add_suggestion) {
       $template_path = $info['theme path'];
       // Only override templates that are defined by contrib modules.
-      if (strpos($template_path,'themes/') !== 0) {
+      if (strpos($template_path, 'themes/') !== 0) {
         $info['theme path'] = $module_path = drupal_get_path('module', $module_name);
         $info['path'] = $module_path . '/templates';
         // Add a template for every defined view mode else add it for the default view mode.
