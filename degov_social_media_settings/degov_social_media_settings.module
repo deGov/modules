@@ -6,6 +6,18 @@ use Symfony\Component\Yaml\Yaml;
 use Drupal\Component\Utility\NestedArray;
 
 /**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_social_media_settings_locale_translation_projects_alter(&$projects) {
+  $projects['degov_social_media_settings'] = [
+    'info' => [
+      'interface translation project' => 'degov_social_media_settings',
+      'interface translation server pattern' => drupal_get_path('module', 'degov_social_media_settings').'/translations/%language.po',
+    ],
+  ];
+}
+
+/**
  * Implements hook_modules_installed().
  */
 function degov_social_media_settings_modules_installed($modules) {
