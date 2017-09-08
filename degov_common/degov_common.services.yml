@@ -12,3 +12,6 @@ services:
   degov_config.module_updater:
     class: Drupal\degov_common\DegovModuleUpdater
     arguments: ['@config.factory', '@module_handler', '@logger.channel.config_rewrite', '@?language.config_factory_override']
+  degov_locale.updater:
+    class: Drupal\degov_common\DegovLocaleUpdate
+    arguments: ['@module_handler']

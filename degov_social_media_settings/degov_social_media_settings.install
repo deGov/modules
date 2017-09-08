@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Updates new translations.
+ */
+function degov_social_media_settings_update_8001() {
+  \Drupal::service('degov_locale.updater')->localeUpdate();
+}
