@@ -10,6 +10,7 @@ dependencies:
   - datetime
   - degov_common
   - degov_content_types_shared_fields
+  - degov_taxonomy_term_section
   - degov_taxonomy_term_tags
   - entity_browser
   - entity_reference_revisions

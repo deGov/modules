@@ -3,15 +3,15 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_section
-    - node.type.faq
+    - node.type.event
     - taxonomy.vocabulary.section
   enforced:
     module:
-      - degov_workbench_access
-id: node.faq.field_section
+      - degov_node_event
+id: node.event.field_section
 field_name: field_section
 entity_type: node
-bundle: faq
+bundle: event
 label: Bereich
 description: ''
 required: false

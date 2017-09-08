@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.blog.field_teaser_image
     - field.field.node.blog.field_teaser_text
     - field.field.node.blog.field_teaser_title
+    - field.field.node.blog.field_section
     - node.type.blog
   enforced:
     module:
@@ -123,6 +124,7 @@ third_party_settings:
         - field_blog_date
         - langcode
         - field_social_media
+        - field_section
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -255,6 +257,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_section:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 5
