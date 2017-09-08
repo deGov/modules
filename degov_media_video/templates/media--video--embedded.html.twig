@@ -20,23 +20,23 @@ set media_classes = [
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
-    <div class="video__video teaser-image"{{ content.field_media_video_embed_field|quickedit_attr }}>
-      {{ content.field_media_video_embed_field|field_value }}
-    </div>
-    {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
-    <div class="media--embedded__info">
-      {% if content.field_video_caption|field_value %}
-        <div class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</div>
-      {% endif %}
-      {% if content.field_copyright|field_value %}
-        <span class="media--embedded__copyright">
-          <span class="media--embedded__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_copyright|field_value }}
-        </span>
-      {% endif %}
-    </div>
+  <div class="video__video teaser-image"{{ content.field_media_video_embed_field|quickedit_attr }}>
+    {{ content.field_media_video_embed_field|field_value }}
+  </div>
+  {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
+  <div class="media--embedded__info">
+    {% if content.field_video_caption|field_value %}
+      <div class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</div>
     {% endif %}
-    {% if content.field_description|field_value %}
-      <div class="media--embedded__description"{{ content.field_description|quickedit_attr }}>{{ content.field_description|field_value }}</div>
+    {% if content.field_copyright|field_value %}
+      <span class="media--embedded__copyright">
+        <span class="media--embedded__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+        {{ content.field_copyright|field_value }}
+      </span>
     {% endif %}
+  </div>
+  {% endif %}
+  {% if content.field_description|field_value %}
+    <div class="media--embedded__description"{{ content.field_description|quickedit_attr }}>{{ content.field_description|field_value }}</div>
+  {% endif %}
 </article>

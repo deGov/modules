@@ -20,16 +20,16 @@ set media_classes = [
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
-      {% if content.field_contact_title|field_value %}
-        <div class="media-contact__title">{{ content.field_contact_title|field_value }}</div>
-      {% endif %}
-      {% if content.field_contact_tel|field_value %}
-        <div class="media-contact__tel">{% trans %}Tel.:{% endtrans %} {{ content.field_contact_tel|field_value }}</div>
-      {% endif  %}
-      {% if content.field_contact_fax|field_value %}
-        <div class="media-contact__fax">{% trans %}Fax:{% endtrans %} {{ content.field_contact_fax|field_value }}</div>
-      {% endif  %}
-      {% if content.field_contact_email|field_value %}
-        <div class="media-contact__email">{% trans %}E-Mail:{% endtrans %} <a href="mailto:{{ content.field_contact_email|field_value }}">{{ content.field_contact_email|field_value }}</a></div>
-      {% endif  %}
+  {% if content.field_contact_title|field_value %}
+    <div class="media-contact__title">{{ content.field_contact_title|field_value }}</div>
+  {% endif %}
+  {% if content.field_contact_tel|field_value %}
+    <div class="media-contact__tel">{% trans %}Tel.:{% endtrans %} {{ content.field_contact_tel|field_value }}</div>
+  {% endif  %}
+  {% if content.field_contact_fax|field_value %}
+    <div class="media-contact__fax">{% trans %}Fax:{% endtrans %} {{ content.field_contact_fax|field_value }}</div>
+  {% endif  %}
+  {% if content.field_contact_email|field_value %}
+    <div class="media-contact__email">{% trans %}E-Mail:{% endtrans %} <a href="mailto:{{ content.field_contact_email|field_value }}">{{ content.field_contact_email|field_value }}</a></div>
+  {% endif  %}
 </article>
