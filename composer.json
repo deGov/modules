@@ -1,9 +1,0 @@
-{
-    "name": "degov/modules",
-    "type": "drupal-module",
-    "version": "0.1",
-    "dist": {
-        "url": "git@github.com:deGov/modules.git",
-        "type": "vcs"
-    }
-}
