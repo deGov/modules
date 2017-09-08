@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.faq.field_content_paragraphs
     - field.field.node.faq.field_faq_description
     - field.field.node.faq.field_faq_related
+    - field.field.node.faq.field_section
     - node.type.faq
   enforced:
     module:
@@ -43,5 +44,6 @@ content:
     type: entity_reference_label
     region: content
 hidden:
+  field_section: true
   langcode: true
   links: true

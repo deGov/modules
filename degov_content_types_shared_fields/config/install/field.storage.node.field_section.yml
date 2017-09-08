@@ -6,7 +6,7 @@ dependencies:
     - taxonomy
   enforced:
     module:
-      - degov_workbench_access
+      - degov_content_types_shared_fields
 id: node.field_section
 field_name: field_section
 entity_type: node

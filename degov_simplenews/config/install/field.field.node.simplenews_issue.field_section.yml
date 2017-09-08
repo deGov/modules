@@ -3,15 +3,15 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_section
-    - node.type.press
+    - node.type.simplenews_issue
     - taxonomy.vocabulary.section
   enforced:
     module:
-      - degov_workbench_access
-id: node.press.field_section
+      - degov_simplenews
+id: node.simplenews_issue.field_section
 field_name: field_section
 entity_type: node
-bundle: press
+bundle: simplenews_issue
 label: Bereich
 description: ''
 required: false

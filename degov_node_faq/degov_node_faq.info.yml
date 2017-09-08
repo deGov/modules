@@ -8,6 +8,7 @@ dependencies:
   - degov_paragraph_faq
   - degov_search_base
   - entity_reference_revisions
+  - degov_taxonomy_term_section
   - field
   - language
   - menu_ui
