@@ -12,7 +12,7 @@ function degov_media_audio_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_audio',
     'entity_type' => 'media',
     'entity_bundles' => ['audio'],
-    'entity_view_modes' => ['usage', 'preview', 'search'],
+    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded'],
   ]);
 }
 

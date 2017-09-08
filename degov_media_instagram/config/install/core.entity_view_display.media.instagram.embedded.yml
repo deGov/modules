@@ -3,27 +3,27 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.embedded
-    - field.field.media.document.field_document
-    - field.field.media.document.field_include_search
-    - field.field.media.document.field_media_in_library
-    - field.field.media.document.field_tags
-    - media_entity.bundle.document
+    - field.field.media.instagram.embed_code
+    - field.field.media.instagram.field_include_search
+    - field.field.media.instagram.field_media_in_library
+    - field.field.media.instagram.field_tags
+    - media_entity.bundle.instagram
   enforced:
     module:
-      - degov_media_document
+      - degov_media_instagram
   module:
-    - file
-id: media.document.embedded
+    - media_entity_instagram
+id: media.instagram.embedded
 targetEntityType: media
-bundle: document
+bundle: instagram
 mode: embedded
 content:
-  field_document:
+  embed_code:
+    type: basic_string
     weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: file_default
     region: content
   name:
     type: string
