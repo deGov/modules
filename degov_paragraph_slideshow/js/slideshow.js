@@ -14,7 +14,8 @@
     attach: function (context, settings) {
       $('.slideshow.default .slideshow__slides').once().slick({
         dots: true,
-        autoplay: true
+        autoplay: true,
+        speed: 500
       });
 
       // Slick slider for prev/next thumbnails images
