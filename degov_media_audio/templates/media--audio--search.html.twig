@@ -20,27 +20,20 @@ set media_classes = [
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
-  {{ content.contextual_links }}
   <div class="media--search__type-text">{{ 'Audio'|t }}</div>
   {% if content.field_audio_preview|field_value %}
-    <div class="audio__image">{{ content.field_audio_preview|field_value }}</div>
+    <a href="{{ audio_url }}"><div class="audio__image">{{ content.field_audio_preview|field_value }}</div></a>
   {% else %}
     <a href="{{ audio_url }}"><div class="media--search__dummy"></div></a>
   {% endif %}
   {% if content.field_audio_caption|field_value or content.field_copyright|field_value %}
     <div class="media--search__info">
       {% if content.field_audio_caption|field_value %}
-        <span class="media--search__caption"{{ content.field_audio_caption|quickedit_attr }}>{{ content.field_audio_caption|field_value }}</span>
-      {% endif %}
-      {% if content.field_copyright|field_value %}
-        <span class="media--search__copyright">
-          <span class="media--search__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_copyright|field_value }}
-        </span>
+        <span class="media--search__caption">{{ content.field_audio_caption|field_value }}</span>
       {% endif %}
     </div>
   {% endif %}
   {% if content.field_tags|field_value %}
-    <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
+    <div class="media--search__tags tags">{{ content.field_tags|field_value }}</div>
   {% endif %}
 </article>
