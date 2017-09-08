@@ -21,16 +21,14 @@
       $('.nrw-menu-header__icon:first-child').addClass('is-active');
 
       // Hover in second level to open menu.
-      $('.nrw-menu-header__col').hoverIntent(function (e) {
-        if ($(e.target).hasClass('link--nolink')) {
-          return;
-        }
-        // First reset the menu, by closing it.
-        closeNrwMenu();
-        // Open the new focused menu tab.
-        $(this).addClass('is-open');
-        $(this).find('.nrw-menu-header__content').addClass('is-expanded');
+      var $menu_col = $('.nrw-menu-header__col');
+      $menu_col.find('a').on('focusin', function(e) {
+        openNrwMenu(e, $(this).closest('.nrw-menu-header__col'));
       });
+      $menu_col.hoverIntent(function (e) {
+        openNrwMenu(e, $(this));
+      });
+
       // Click on first level to open menu.
       $('.nrw-menu-header__icon').click(function () {
         var classes = $(this).prop("classList");
@@ -58,6 +56,23 @@
       });
     }
   };
+
+  /**
+   * Opens the nrw menu
+   *
+   * @param e Event handler
+   * @param $elm Sub menu element
+   */
+  function openNrwMenu(e, $elm) {
+    if ($(e.target).hasClass('link--nolink')) {
+      return;
+    }
+    // First reset the menu, by closing it.
+    closeNrwMenu();
+    // Open the new focused menu tab.
+    $elm.addClass('is-open');
+    $elm.find('.nrw-menu-header__content').addClass('is-expanded');
+  }
 
   /**
    * Closes the nrw menu.
