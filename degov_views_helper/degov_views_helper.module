@@ -49,6 +49,9 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
       'wrapper' => $arguments_wrapper_selector,
       'method' => 'replace',
     ];
+    $element['target_id']['#attributes']['class'][] = 'viewreference_target_id';
+    $element['display_id']['#attributes']['class'][] = 'viewreference_display_id';
+    $element['#attached']['library'][] = 'degov_views_helper/viewsreference';
     // Fix state for argument.
     // Get correct field name including parents.
     $view_selector = _views_selector_get_state_name('target_id', $element, $field_definition);
@@ -179,25 +182,35 @@ function degov_views_helper_field_widget_form_alter(&$element, \Drupal\Core\Form
         }
       }
     }
-    $element['argument']['#prefix'] = '<details id="' . $arguments_wrapper_selector . '" class="form-wrapper">';
-    $element['argument']['#prefix'] .= '<summary role="button" aria-controls="' . $arguments_wrapper_selector . '" aria-expanded="false" aria-pressed="false">' . t('View arguments') . '</summary>';
+
+    $element['argument']['#prefix'] = '<details id="' . $arguments_wrapper_selector . '_arg" class="form-wrapper">';
+    $element['argument']['#prefix'] .= '<summary role="button" aria-controls="' . $arguments_wrapper_selector . '_arg" aria-expanded="false" aria-pressed="false">' . t('View arguments') . '</summary>';
     $element['argument']['#weight'] = $arguments_weight;
     $element['argument']['#states'] = $argument_states;
     $element['argument']['#suffix'] = '</details>';
     $view_modes = \Drupal::service('entity_display.repository')
       ->getViewModeOptions($entity_type);
+    if (!in_array($extra_data['view_mode'], array_keys($view_modes))) {
+      $extra_data['view_mode'] = 'default';
+    }
     $element['view_mode'] = [
       '#type' => 'select',
       '#title' => t('Views row view mode'),
-      '#default_value' => !empty($extra_data['view_mode']) ? $extra_data['view_mode'] : '',
+      '#default_value' => !empty($extra_data['view_mode']) ? $extra_data['view_mode'] : 'default',
       '#options' => $view_modes,
       '#weight' => 11,
-      '#states' => [
-        'visible' => [
-          ':input[name="' . $view_selector . '"]' => ['!value' => '_none'],
-        ],
-      ],
+      '#attributes' => ['class' => ['viewsreference_view_mode']],
     ];
+    $element['view_settings'] = [
+      '#prefix' => '<div id="' . $arguments_wrapper_selector . '" class="form-wrapper">',
+      '#suffix' => '</div>',
+      '#type' => 'fieldset',
+      '#weight' => 100,
+    ];
+    $element['view_settings']['argument'] = $element['argument'];
+    $element['view_settings']['view_mode'] = $element['view_mode'];
+    unset($element['argument']);
+    unset($element['view_mode']);
   }
 }
 
@@ -259,7 +272,7 @@ function degov_views_argument_getter(array &$form, FormStateInterface $form_stat
   $trigger = $form_state->getTriggeringElement();
   $parents = $trigger['#array_parents'];
   $triggered_element = array_pop($parents);
-  $parents[] = 'argument';
+  $parents[] = 'view_settings';
   return NestedArray::getValue($form, $parents);
 }
 

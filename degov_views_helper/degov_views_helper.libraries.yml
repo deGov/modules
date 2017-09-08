@@ -1,0 +1,7 @@
+viewsreference:
+  version: 1.0
+  js:
+    js/viewsreference.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
