@@ -1,0 +1,6 @@
+content:
+  field_video_upload_preview:
+    type: media_thumbnail
+    settings:
+      image_style: teaser_landscape_2_1_480
+      image_link: 'content'
