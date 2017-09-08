@@ -29,19 +29,23 @@ set media_classes = [
         <a href="{{ gallery_url }}"> {{ content.field_gallery_images|field_value|slice(1, 1) }} </a>
       </div>
     </div>
-    {% if content.field_gallery_title|field_value %}
-    <div class="media--preview__info">
-      <span class="gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</span>
-    </div>
-    {% endif %}
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
-    {% if content.field_description|field_value %}
-      {% set text = content.field_description|render|striptags %}
-      <div class="gallery__description">{{ text|length > 250 ? text|slice(0, 250) ~ '...' : text }}</div>
-    {% endif %}
-    {% if content.field_tags|field_value %}
-      <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
-    {% endif %}
+    <a href="{{ gallery_url }}">
+      {% if content.field_image_date|field_value %}
+        <div class="gallery__date"{{ content.field_gallery_date|quickedit_attr }}>{{ content.field_gallery_date|field_value }}</div>
+      {% else %}
+        <div class="gallery__date">{{ created|date("d.m.Y") }}</div>
+      {% endif %}
+      {% set title = content.field_gallery_title|render|striptags %}
+      <h2 class=""{{ content.field_gallery_title|quickedit_attr }}>{% spaceless %}{{ title|length > 50 ? title|slice(0, 50) ~ '...' : title }}{% endspaceless %}</h2>
+      {% if content.field_description|field_value %}
+        {% set text = content.field_description|render|striptags %}
+        <div class="gallery__description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>
+      {% endif %}
+      {% if content.field_tags|field_value %}
+        <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
+      {% endif %}
+    </a>
   </div>
 </article>

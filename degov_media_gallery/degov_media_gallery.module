@@ -49,3 +49,10 @@ function degov_media_gallery_preprocess_media(&$variables) {
     $variables['gallery_url'] = $media_current->url();
   }
 }
+
+/**
+ * Implements hook_preprocess_type().
+ */
+function degov_media_gallery_preprocess_media__gallery(&$variables) {
+  $variables['created'] = $variables['media']->created->value;
+}

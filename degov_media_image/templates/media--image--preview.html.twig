@@ -23,7 +23,6 @@
     <div class="media--preview__type-text">{{ 'Bild'|t }}</div>
     <div class="image__image teaser-image"{{ content.image|quickedit_attr }}>{{ content.image|field_value }}</div>
     <div class="media--preview__info">
-      <span class="media--preview__caption"{{ content.field_image_caption|quickedit_attr }}>{{ content.field_image_caption|field_value }}</span>
       {% if content.field_copyright|field_value %}
         <span class="media--preview__copyright">
           <span class="media--preview__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
@@ -33,15 +32,19 @@
     </div>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
-    {% if content.field_image_date|field_value %}
+    <a href="{{ image_url }}">
+      {% if content.field_image_date|field_value %}
         <div class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</div>
-    {% endif %}
-    {% if content.field_description|field_value %}
-      {% set text = content.field_description|render|striptags %}
-      <div class="image_description">{{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}</div>
-    {% endif %}
-    {% if content.field_tags|field_value %}
+      {% endif %}
+      {% set title = content.field_image_caption|render|striptags %}
+      <h2 class=""{{ content.field_image_caption|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
+      {% if content.field_description|field_value %}
+        {% set text = content.field_description|render|striptags %}
+        <div class="image_description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>
+      {% endif %}
+      {% if content.field_tags|field_value %}
         <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
-    {% endif %}
+      {% endif %}
+    </a>
   </div>
 </article>
