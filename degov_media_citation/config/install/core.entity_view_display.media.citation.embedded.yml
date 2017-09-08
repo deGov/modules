@@ -1,0 +1,61 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.citation.field_citation_date
+    - field.field.media.citation.field_citation_image
+    - field.field.media.citation.field_citation_text
+    - field.field.media.citation.field_citation_title
+    - field.field.media.citation.field_include_search
+    - field.field.media.citation.field_media_in_library
+    - field.field.media.citation.field_tags
+    - image.style.thumbnail
+    - media_entity.bundle.citation
+  enforced:
+    module:
+      - degov_media_citation
+  module:
+    - datetime
+    - degov_common
+    - image
+    - media_entity
+id: media.citation.embedded
+targetEntityType: media
+bundle: citation
+mode: embedded
+content:
+  field_citation_image:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: thumbnail
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_citation_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_citation_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  created: true
+  field_citation_date: true
+  field_include_search: true
+  field_media_in_library: true
+  field_tags: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

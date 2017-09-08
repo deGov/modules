@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set media_classes = [
+  'citation',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+      <div class="citation__text"{{ content.field_citation_text|quickedit_attr }}>{{ content.field_citation_text|field_value }}</div>
+      <div class="citation__title"{{ content.field_citation_title|quickedit_attr }}>{{ content.field_citation_title|field_value }}</div>
+    {% if media.field_citation_image.value %}
+      <div class="citation__image">{{ content.field_citation_image }}</div>
+    {% endif %}
+</article>
