@@ -24,6 +24,13 @@ set media_classes = [
   <div class="video__video">{{ content.field_media_video_embed_field|field_value }}</div>
   {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
   <div class="media--search__info">
+    <div class="media--search__date video__date">
+      {% if content.field_video_date|field_value %}
+        {{ content.field_video_date|field_value }}
+      {% else %}
+        {{ created|date("d.m.Y") }}
+      {% endif %}
+    </div>
     {% if content.field_video_caption|field_value %}
       <div class="video__caption">{{ content.field_video_caption|field_value }}</div>
     {% endif %}

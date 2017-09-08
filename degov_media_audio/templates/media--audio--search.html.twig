@@ -22,12 +22,19 @@ set media_classes = [
 <article{{ attributes.addClass(media_classes) }}>
   <div class="media--search__type-text">{{ 'Audio'|t }}</div>
   {% if content.field_audio_preview|field_value %}
-    <a href="{{ audio_url }}"><div class="audio__image">{{ content.field_audio_preview|field_value }}</div></a>
+    <div class="audio__image">{{ content.field_audio_preview|field_value }}</div>
   {% else %}
     <a href="{{ audio_url }}"><div class="media--search__dummy"></div></a>
   {% endif %}
   {% if content.field_audio_caption|field_value or content.field_copyright|field_value %}
     <div class="media--search__info">
+      <div class="media--search__date audio__date">
+        {% if content.field_audio_date|field_value %}
+          {{ content.field_audio_date|field_value }}
+        {% else %}
+          {{ created|date("d.m.Y") }}
+        {% endif %}
+      </div>
       {% if content.field_audio_caption|field_value %}
         <span class="media--search__caption">{{ content.field_audio_caption|field_value }}</span>
       {% endif %}

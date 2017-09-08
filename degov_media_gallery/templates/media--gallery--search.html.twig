@@ -29,6 +29,13 @@ set media_classes = [
   </div>
   {% if content.field_gallery_title|field_value %}
   <div class="media--search__info">
+    <div class="media--search__date gallery__date">
+      {% if content.field_gallery_date|field_value %}
+        {{ content.field_gallery_date|field_value }}
+      {% else %}
+        {{ created|date("d.m.Y") }}
+      {% endif %}
+    </div>
     <span class="gallery__title">{{ content.field_gallery_title|field_value }}</span>
   </div>
   {% endif %}
