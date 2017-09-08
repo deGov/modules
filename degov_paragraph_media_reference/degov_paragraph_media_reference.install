@@ -1,0 +1,23 @@
+<?php
+
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_uninstall().
+ */
+function degov_paragraph_media_reference_uninstall() {
+  // Removes all module type defined content when uninstalling the module.
+  Common::removeContent([
+    'entity_type' => 'paragraph',
+    'entity_bundles' => ['media_reference'],
+  ]);
+}
+
+/**
+ * Update the view mode for entity reference to embedded.
+ */
+function degov_paragraph_media_reference_update_8005() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $module_updater */
+  $module_updater = \Drupal::service('degov_config.module_updater');
+  $module_updater->applyUpdates('degov_paragraph_media_reference', '8005');
+}

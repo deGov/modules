@@ -1,0 +1,27 @@
+<?php
+
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_preprocess().
+ */
+function degov_media_video_preprocess(&$variables, $hook, &$info) {
+  // Add template suggestions and libraries implemented in this module.
+  Common::addThemeSuggestions($variables, $hook, $info, [
+    'module_name' => 'degov_media_video',
+    'entity_type' => 'media',
+    'entity_bundles' => ['video'],
+    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded'],
+  ]);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function degov_media_video_preprocess_media__video(&$variables) {
+  /* @var \Drupal\media_entity\Entity\Media $media */
+  $media = $variables['media'];
+
+  $variables['video_url'] = $media->url();
+  $variables['created'] = $variables['media']->created->value;
+}

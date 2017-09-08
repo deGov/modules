@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set media_classes = [
+  'media',
+  'media-gallery',
+  'media--embedded',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  <div class="gallery__images teaser-image">
+    <div class="slideshow__slides">
+      <a href="{{ gallery_url }}"> {{ content.field_gallery_images|field_value|slice(1, 1) }} </a>
+    </div>
+  </div>
+  {% if content.field_gallery_title|field_value %}
+  <div class="media--embedded__info">
+    <span class="gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</span>
+  </div>
+  {% endif %}
+  {% if content.field_description|field_value %}
+    {% set text = content.field_description|render|striptags %}
+    <div class="gallery__description">{{ text|length > 250 ? text|slice(0, 250) ~ '...' : text }}</div>
+  {% endif %}
+</article>

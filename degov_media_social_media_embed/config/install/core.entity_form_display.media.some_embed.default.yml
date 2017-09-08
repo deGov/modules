@@ -1,0 +1,116 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.media.some_embed.field_include_search
+    - field.field.media.some_embed.field_media_in_library
+    - field.field.media.some_embed.field_some_embed_code
+    - field.field.media.some_embed.field_tags
+    - media_entity.bundle.some_embed
+  enforced:
+    module:
+      - degov_media_social_media_embed
+  module:
+    - field_group
+    - workbench_moderation
+third_party_settings:
+  field_group:
+    group_vertical:
+      children:
+        - group_code
+        - group_common
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: Vertikal
+      region: content
+    group_common:
+      children:
+        - langcode
+        - field_tags
+        - field_include_search
+        - field_media_in_library
+      parent_name: group_vertical
+      weight: 21
+      format_type: tab
+      format_settings:
+        label: Common
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Common
+      region: content
+    group_code:
+      children:
+        - field_some_embed_code
+      parent_name: group_vertical
+      weight: 20
+      format_type: tab
+      format_settings:
+        label: Code
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Code
+      region: content
+id: media.some_embed.default
+targetEntityType: media
+bundle: some_embed
+mode: default
+content:
+  field_include_search:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_media_in_library:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    third_party_settings: {  }
+    region: content
+  field_some_embed_code:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_tags:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

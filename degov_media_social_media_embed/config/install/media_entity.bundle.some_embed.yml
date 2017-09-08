@@ -1,0 +1,14 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_media_social_media_embed
+id: some_embed
+label: 'Social Media Embed'
+description: 'Stellt ein Media Bundle für das Einbetten von Social Media Inhalten (Feeds und dgl.) zur Verfügung.'
+type: generic
+queue_thumbnail_downloads: false
+new_revision: false
+type_configuration: {  }
+field_map: {  }

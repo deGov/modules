@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set media_classes = [
+  'video-upload',
+  'media--embedded',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  {% if content.field_video_upload_preview|field_value %}
+    <div class="video-upload__video">{{ content.field_video_upload_preview|field_value }}</div>
+  {% else %}
+    <a href="{{ video_url }}"><div class="media--embedded__dummy"></div></a>
+  {% endif %}
+  {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
+    <div class="media--embedded__info">
+      {% if content.field_video_upload_caption|field_value %}
+        <span class="media--embedded__caption">{{ content.field_video_upload_caption|field_value }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

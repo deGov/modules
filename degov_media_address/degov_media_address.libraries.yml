@@ -1,0 +1,12 @@
+address:
+  version: 1.1.0
+  css:
+    theme:
+      /libraries/leaflet/dist/leaflet.css: {}
+      css/map.css: {}
+  js:
+    /libraries/leaflet/dist/leaflet.js: {}
+    js/map.js: {}
+    js/geocoding_map/init.js: {}
+  dependencies:
+    - core/jquery

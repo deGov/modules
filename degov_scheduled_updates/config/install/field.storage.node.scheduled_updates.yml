@@ -1,0 +1,22 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+    - scheduled_updates
+  enforced:
+    module:
+      - degov_scheduled_updates
+id: node.scheduled_updates
+field_name: scheduled_updates
+entity_type: node
+type: entity_reference
+settings:
+  target_type: scheduled_update
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,11 @@
+nrw_menu:
+  version: 1.0
+  js:
+    js/nrw_menu.js: {}
+  dependencies:
+    - core/jquery
+    - degov_common/doubletap
+    - nrw_menu/jquery.hoverIntent
+jquery.hoverIntent:
+  js:
+    /libraries/jquery-hoverIntent/jquery.hoverIntent.js: {}

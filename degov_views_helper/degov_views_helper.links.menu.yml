@@ -1,0 +1,6 @@
+degov_views_helper.settings:
+  title: 'Views Helper Settings'
+  route_name: 'degov_views_helper.settings'
+  parent: 'degov.default'
+  description: 'Administer deGov views reference.'
+  weight: -9

@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set media_classes = [
+  'video',
+  'media--search',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  <div class="media--search__type-text">{{ 'Video'|t }}</div>
+  <div class="video__video">{{ content.field_media_video_embed_field|field_value }}</div>
+  {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
+  <div class="media--search__info">
+    <div class="media--search__date video__date">
+      {% if content.field_video_date|field_value %}
+        {{ content.field_video_date|field_value }}
+      {% else %}
+        {{ created|date("d.m.Y") }}
+      {% endif %}
+    </div>
+    {% if content.field_video_caption|field_value %}
+      <div class="video__caption">{{ content.field_video_caption|field_value }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% if content.field_tags|field_value %}
+    <div class="media--search__tags tags">{{ content.field_tags|field_value }}</div>
+  {% endif %}
+</article>

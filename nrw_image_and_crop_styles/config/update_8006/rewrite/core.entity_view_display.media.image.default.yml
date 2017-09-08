@@ -1,0 +1,6 @@
+content:
+  image:
+    type: responsive_image
+    settings:
+      responsive_image_style: slider_main
+      image_link: ''

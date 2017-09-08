@@ -1,0 +1,26 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_map_address_view_mode
+    - paragraphs.paragraphs_type.map
+  enforced:
+    module:
+      - degov_paragraph_map
+  module:
+    - entity_reference_display
+id: paragraph.map.field_map_address_view_mode
+field_name: field_map_address_view_mode
+entity_type: paragraph
+bundle: map
+label: Anzeigemodus
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: osm_map
+default_value_callback: ''
+settings:
+  exclude: { }
+field_type: entity_reference_display

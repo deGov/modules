@@ -1,0 +1,6 @@
+content:
+  field_audio_preview:
+    settings:
+      image_style: teaser_landscape_2_1_480
+      image_link: content
+    type: media_thumbnail

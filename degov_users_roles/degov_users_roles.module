@@ -1,0 +1,62 @@
+<?php
+
+use Drupal\node\Entity\NodeType;
+use Drupal\node\NodeTypeInterface;
+use Drupal\user\Entity\Role;
+
+/**
+ * @param NodeTypeInterface $node_type
+ */
+function degov_delete_lightning_roles(NodeTypeInterface $node_type) {
+  // Don't do anything during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('lightning_roles')) {
+    // Get the configuration of the content roles.
+    $config = \Drupal::config('lightning_roles.settings')->get('content_roles');
+    if (empty($config)) {
+      return;
+    }
+    // Loop through the config to find the machine names of roles.
+    foreach ($config as $key => $info) {
+      if (empty($info['enabled'])) {
+        continue;
+      }
+
+      $role_id = $node_type->id() . '_' . $key;
+      $role = Role::load($role_id);
+      if ($role) {
+        // Delete the role.
+        $role->delete();
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function degov_users_roles_modules_installed($modules) {
+  if (in_array('degov_users_roles', $modules)) {
+    // Delete content roles for all existing node types.
+    $node_types = NodeType::loadMultiple();
+    array_walk($node_types, 'degov_delete_lightning_roles');
+
+    // Remove media roles created by lightning_media module.
+    $media_roles = ['media_creator', 'media_manager'];
+    foreach ($media_roles as $role_id) {
+      $role = \Drupal\user\Entity\Role::load($role_id);
+      if ($role) {
+        $role->delete();
+      }
+    }
+
+    /** @var \Drupal\Core\Extension\ModuleInstaller $module_installer */
+    $module_installer = \Drupal::service('module_installer');
+    // Uninstall the module, because we don't need it anymore.
+    $module_installer->uninstall(['lightning_roles']);
+  }
+}

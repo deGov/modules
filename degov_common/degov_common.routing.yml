@@ -1,0 +1,13 @@
+degov.default_settings:
+  path: '/admin/config/degov'
+  defaults:
+    _form: '\Drupal\degov_common\Form\DegovSettingsForm'
+    _title: 'deGov distribution settings'
+  requirements:
+    _permission: 'administer degov'
+degov_common.ajax_load_entity:
+  path: '/ajax-load-entity/{entity_type}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\degov_common\Controller\CommonController::ajaxEntityLoad'
+  requirements:
+    _permission: 'access content'

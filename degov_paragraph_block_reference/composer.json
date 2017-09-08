@@ -1,0 +1,10 @@
+{
+  "name": "degov_paragraph_block_reference",
+  "type": "drupal-module",
+  "description": "Adds ability to reference blocks in paragraphs.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.nrwgov.org",
+  "require": {
+    "drupal/block_field": "^1.0.0"
+  }
+}

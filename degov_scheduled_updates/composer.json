@@ -1,0 +1,17 @@
+{
+  "name": "degov_scheduled_updates",
+  "type": "drupal-module",
+  "description": "Adds ability to schedule content for update.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.nrwgov.org",
+  "require": {
+    "drupal/scheduled_updates": "^1.0.0"
+  },
+  "extra": {
+    "patches": {
+      "drupal/scheduled_updates": {
+        "2858397 - Leave blank to use the time of form submission.": "https://www.drupal.org/files/issues/2636282-remove-set-required-bool.patch"
+      }
+    }
+  }
+}

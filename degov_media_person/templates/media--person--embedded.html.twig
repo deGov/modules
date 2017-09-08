@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set classes = [
+  'media',
+  'media-person',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="media-person__info">{{ content.field_person_info|field_value }}</div>
+</article>

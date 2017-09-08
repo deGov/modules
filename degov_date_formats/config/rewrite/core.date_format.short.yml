@@ -1,0 +1,10 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_date_formats
+id: short
+label: Kurz
+locked: false
+pattern: d.m.Y

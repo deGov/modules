@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_social_media_settings_update_dependencies() {
+  $dependencies = [];
+  if (\Drupal::moduleHandler()->moduleExists('degov_media_video')) {
+    $dependencies['degov_social_media_settings'][8002] = [
+      'degov_media_video' => 8005,
+    ];
+  }
+  return $dependencies;
+}
+
+/**
+ * Updates new translations.
+ */
+function degov_social_media_settings_update_8001() {
+  \Drupal::service('degov_locale.updater')->localeUpdate();
+}
+
+/**
+ * Re-Import rewrite config for core.entity_form_display.media.video.default.
+ */
+function degov_social_media_settings_update_8002() {
+  if (\Drupal::moduleHandler()->moduleExists('degov_media_video')) {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_social_media_settings', '8002');
+  }
+}

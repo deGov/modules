@@ -1,0 +1,23 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_social_media_source
+    - media_entity.bundle.some_embed
+  enforced:
+    module:
+      - degov_social_media_settings
+  module:
+    - options
+id: media.some_embed.field_social_media_source
+field_name: field_social_media_source
+entity_type: media
+bundle: some_embed
+label: Quelle
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

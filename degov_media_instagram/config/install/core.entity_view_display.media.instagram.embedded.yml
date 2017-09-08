@@ -1,0 +1,43 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.instagram.embed_code
+    - field.field.media.instagram.field_include_search
+    - field.field.media.instagram.field_media_in_library
+    - field.field.media.instagram.field_tags
+    - media_entity.bundle.instagram
+  enforced:
+    module:
+      - degov_media_instagram
+  module:
+    - media_entity_instagram
+id: media.instagram.embedded
+targetEntityType: media
+bundle: instagram
+mode: embedded
+content:
+  embed_code:
+    type: basic_string
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_include_search: true
+  field_media_in_library: true
+  field_tags: true
+  langcode: true
+  thumbnail: true
+  uid: true
