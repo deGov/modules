@@ -8,7 +8,6 @@ dependencies:
     - field.field.media.video.field_include_search
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_media_video_embed_field
-    - field.field.media.video.field_social_media_source
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
     - image.style.thumbnail
@@ -46,7 +45,6 @@ hidden:
   field_description: true
   field_include_search: true
   field_media_in_library: true
-  field_social_media_source: true
   field_tags: true
   langcode: true
   name: true
