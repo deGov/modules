@@ -60,3 +60,10 @@ function degov_media_video_update_8005() {
     ->set('hidden', $contents);
   $EmbeddedDisplay->save();
 }
+
+/**
+ * Disable autoplay for media video module.
+ */
+function degov_media_video_update_8006() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8006');
+}
