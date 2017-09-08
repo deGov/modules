@@ -38,4 +38,3 @@ function degov_multilingual_module_implements_alter(&$implementations, $hook) {
     $implementations['degov_multilingual'] = $group;
   }
 }
-
