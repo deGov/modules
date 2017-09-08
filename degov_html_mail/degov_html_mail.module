@@ -22,5 +22,6 @@ function degov_html_mail_preprocess(&$variables, $hook, &$info) {
       // If yes include the content of the file into email message.
       $variables['css'] = @file_get_contents($mailstyle);
     }
+    $variables['base_url'] = $GLOBALS['base_url'] . '/';
   }
 }
