@@ -13,3 +13,26 @@ degov_multilingual.settings:
   requirements:
     _permission: 'administer degov'
 
+degov_multilingual.front_page.version_history:
+  path: '/degov_multilingual/front_page/revisions'
+  defaults:
+    _title: 'Revisions'
+    _controller: '\Drupal\degov_multilingual\Controller\FrontPageController::revisionOverview'
+  requirements:
+    _custom_access:  '\Drupal\degov_multilingual\Controller\FrontPageController::access'
+
+degov_multilingual.front_page.edit_form:
+  path: '/degov_multilingual/front_page/edit'
+  defaults:
+    _title: 'Edit'
+    _controller: '\Drupal\degov_multilingual\Controller\FrontPageController::edit'
+  requirements:
+    _custom_access:  '\Drupal\degov_multilingual\Controller\FrontPageController::access'
+
+degov_multilingual.front_page.delete_form:
+  path: '/degov_multilingual/front_page/delete'
+  defaults:
+    _title: 'Delete'
+    _controller: '\Drupal\degov_multilingual\Controller\FrontPageController::delete'
+  requirements:
+    _custom_access:  '\Drupal\degov_multilingual\Controller\FrontPageController::access'
