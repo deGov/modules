@@ -1,6 +1,0 @@
-content:
-  image:
-    type: responsive_image
-    settings:
-      responsive_image_style: teaser_landscape
-      image_link: 'content'
