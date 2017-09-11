@@ -26,7 +26,7 @@ set media_classes = [
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <div class="citation__left {{ classes }}">
-    <div class="citation__text"{{ content.field_citation_text|quickedit_attr }}>{{ content.field_citation_text|field_value }}</div>
+    <blockquote class="citation__text"{{ content.field_citation_text|quickedit_attr }}>{{ content.field_citation_text|field_value }}</blockquote>
     <div class="citation__title"{{ content.field_citation_title|quickedit_attr }}>{{ content.field_citation_title|field_value }}</div>
     <div class="citation__date"{{ content.field_citation_date|quickedit_attr }}>{{ content.field_citation_date|field_value }}</div>
   </div>
