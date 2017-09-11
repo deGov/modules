@@ -65,7 +65,7 @@ class VSMSearch extends ControllerBase {
    *
    * @return int The start position for the next search position.
    */
-  protected function getStartPosition(): int {
+  protected function getStartPosition() {
     $start = 0;
     $page = \Drupal::request()->query->get('page');
     if($page > 0) {
@@ -81,7 +81,7 @@ class VSMSearch extends ControllerBase {
    *
    * @return array Returns the fixed results array.
    */
-  protected function simpleXMLFix(array $results): array {
+  protected function simpleXMLFix(array $results) {
     if (isset($results['RES']['R']) === TRUE && isset($results['RES']['R'][0]) === FALSE) {
       $tmp = $results['RES']['R'];
       $results['RES']['R'] = [];
