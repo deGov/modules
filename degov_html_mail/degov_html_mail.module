@@ -25,3 +25,21 @@ function degov_html_mail_preprocess(&$variables, $hook, &$info) {
     $variables['base_url'] = $GLOBALS['base_url'] . '/';
   }
 }
+
+/**
+ * Changes the relative links in the email to absolute.
+ *
+ * Implements hook_mail_alter().
+ */
+function degov_html_mail_mail_alter(&$message) {
+  // Attempt to convert relative URLs to absolute. Only apply this to parts
+  // of the body which are markup objects.
+  // Get Host of the site to have the links to start with it.
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+  foreach ($message['body'] as &$body_part) {
+    if ($body_part instanceof \Drupal\Component\Render\MarkupInterface) {
+      $convertedString = \Drupal\Component\Utility\Html::transformRootRelativeUrlsToAbsolute((string) $body_part, $host);
+      $body_part = \Drupal\Core\Render\Markup::create($convertedString);
+    }
+  }
+}
