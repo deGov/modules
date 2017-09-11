@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.teaser_squared_1_1
     - field.field.media.image.field_image_caption
-    - field.field.media.image.field_image_copyright
+    - field.field.media.image.field_copyright
     - field.field.media.image.field_image_date
     - field.field.media.image.field_description
     - field.field.media.image.field_image_height
@@ -37,7 +37,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_image_copyright:
+  field_copyright:
     weight: 12
     label: above
     settings:
