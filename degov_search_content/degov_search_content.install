@@ -30,7 +30,7 @@ function degov_search_content_update_8006() {
 }
 
 /**
- * Enable and show block title of the sort by block.
+ * Improve sort by block. Search result page view.
  */
 function degov_search_content_update_8007() {
   \Drupal::service('degov_config.updater')->configPartialImport('degov_search_content', '8007');
