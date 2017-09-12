@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - field.field.media.image.field_image_caption
-    - field.field.media.image.field_image_copyright
+    - field.field.media.image.field_copyright
     - field.field.media.image.field_image_date
     - field.field.media.image.field_description
     - field.field.media.image.field_image_height
@@ -72,7 +72,7 @@ third_party_settings:
       children:
         - field_image_date
         - field_image_caption
-        - field_image_copyright
+        - field_copyright
         - field_description
       parent_name: group_vertical
       weight: 8
@@ -115,7 +115,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_image_copyright:
+  field_copyright:
     type: entity_reference_autocomplete
     weight: 12
     region: content
