@@ -45,7 +45,7 @@ function degov_paragraph_header_preprocess_paragraph__image_header(&$variables) 
         '#blocksettings' => [],
         '#attached' => [
           'library' => [
-            'shariff/shariff',
+            'degov_content_types_shared_fields/shariff-2click'
           ],
         ],
       ];
