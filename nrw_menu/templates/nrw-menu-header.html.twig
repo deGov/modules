@@ -23,10 +23,10 @@
                 </div>
             </a>
         {% endfor %}
-        <a href="#" class="nrw-menu-header__icon menu-search">
+        <a aria-expanded="false" aria-controls="nrw-menu-header__search-text" href="javascript:;" class="nrw-menu-header__icon menu-search">
             <div>
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <span>{% trans %}Suche{% endtrans %}</span>
+                <span aria-label="{% trans %}Suche öffnen{% endtrans %}">{% trans %}Suche{% endtrans %}</span>
             </div>
         </a>
     </div>
