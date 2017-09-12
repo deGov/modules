@@ -13,7 +13,7 @@
   Drupal.behaviors.nrw_menu = {
     attach: function (context, settings) {
       // Do nothing if there is no menu__header on the page.
-      if ($('.nrw-menu__header', context).length == 0) {
+      if ($('.nrw-menu__header', context).length === 0) {
         return;
       }
 
