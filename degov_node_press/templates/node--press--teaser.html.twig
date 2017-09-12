@@ -77,11 +77,11 @@
 %}
 
 {% if content.field_teaser_image|field_value %}
-    {% set class_sidebar = 'col-xs-5 col-sm-4 col-md-3' %}
-    {% set class_content = 'col-xs-7 col-sm-8 col-md-9' %}
+  {% set class_sidebar = 'col-xs-5 col-sm-4 col-md-3' %}
+  {% set class_content = 'col-xs-7 col-sm-8 col-md-9' %}
 {% else %}
-    {% set class_sidebar = 'invisible' %}
-    {% set class_content = 'col-xs-12 col-sm-12 col-md-12' %}
+  {% set class_sidebar = 'invisible' %}
+  {% set class_content = 'col-xs-12 col-sm-12 col-md-12' %}
 {% endif %}
 
 
@@ -90,7 +90,7 @@
 
   <div class="press__teaser-image teaser-image {{ class_sidebar }} arrow">
   {% if content.field_teaser_image %}
-     <a href="{{ url }}" rel="bookmark">
+    <a href="{{ url }}" rel="bookmark">
       {{ content.field_teaser_image|field_value }}
     </a>
   {% endif %}
