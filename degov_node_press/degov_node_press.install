@@ -33,3 +33,10 @@ function degov_node_press_update_8006() {
   $moduleUpdaterService = \Drupal::service('degov_config.module_updater');
   $moduleUpdaterService->applyUpdates('degov_node_press', '8006');
 }
+
+/**
+ * Add calendar view for press content type.
+ */
+function degov_node_press_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8007');
+}

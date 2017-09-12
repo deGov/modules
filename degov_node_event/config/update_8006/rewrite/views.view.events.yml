@@ -1,0 +1,32 @@
+dependencies:
+  config:
+    - field.storage.node.field_event_date
+  module:
+    - datetime
+display:
+  default:
+    display_options:
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: '@total Ergebnistreffer'
+          plugin_id: result
+      arguments:
+        field_event_date_value_year_month:
+          default_action: default
+          default_argument_type: calendar_default
+          default_argument_options: {  }
+  calendar_widget:
+    display_options:
+      defaults:
+        footer: false
+      footer: {  }
+    cache_metadata:
+      tags:
+        - 'config:field.storage.node.field_event_date'

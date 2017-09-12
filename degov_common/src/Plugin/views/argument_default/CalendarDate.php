@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_node_event\Plugin\views\argument_default;
+namespace Drupal\degov_common\Plugin\views\argument_default;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Path\AliasManagerInterface;
