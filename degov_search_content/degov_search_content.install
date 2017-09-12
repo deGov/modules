@@ -34,5 +34,5 @@ function degov_search_content_update_8006() {
       $block->save();
     }
   }
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8001');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8006');
 }

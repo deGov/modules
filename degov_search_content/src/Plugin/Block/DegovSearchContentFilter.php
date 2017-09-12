@@ -20,7 +20,7 @@ class DegovSearchContentFilter extends BlockBase {
    * {@inheritdoc}
    */
   protected function blockAccess(AccountInterface $account) {
-    return AccessResult::allowedIfHasPermission($account, 'execute php code');
+    return AccessResult::allowed();
   }
 
   /**
