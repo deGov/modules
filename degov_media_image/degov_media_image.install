@@ -97,6 +97,10 @@ function degov_media_image_update_8008() {
 }
 
 /**
+ * @TODO make this function available for all modules. Place in degov_common in config update service.
+ */
+
+/**
  * Helper function to update the removal/adding of single configuration fields.
  *
  * @param string $configFile
