@@ -32,6 +32,7 @@ class DegovSearchContentFilter extends BlockBase {
       '#title' => t('Filter search results'),
       '#title_display' => 'invisible',
       '#open' => TRUE,
+      '#attributes' => ['class' => ['block-degov-search-content-filter']],
     );
 
     $ids = [
