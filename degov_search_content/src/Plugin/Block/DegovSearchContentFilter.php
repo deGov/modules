@@ -30,7 +30,6 @@ class DegovSearchContentFilter extends BlockBase {
     $form['filter'] = array(
       '#type' => 'details',
       '#title' => t('Filter search results'),
-      '#title_display' => 'invisible',
       '#open' => TRUE,
       '#attributes' => ['class' => ['block-degov-search-content-filter']],
     );
