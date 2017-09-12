@@ -131,13 +131,17 @@ function updateActiveConfig($configFile, $setting, $field_name, $operation, $is_
     // Add new configuration.
     if ($operation == 'add') {
       if (!in_array($configElement, $clean_array)) {
-        $clean_array += [$configDependency];
+        if (!is_array($configDependency)) {
+          $clean_array[] = $configDependency;
+        } else {
+          $clean_array[$key] = $configDependency;
+        }
       }
     }
     // Remove configuration.
     if ($operation == 'remove') {
       if ($configElement != $field_name) {
-        if (!is_array($configDependency)) {
+        if (!is_array($configDependency) && !in_array($configElement, $clean_array)) {
           $clean_array[] = $configDependency;
         } else {
           $clean_array[$key] = $configDependency;
