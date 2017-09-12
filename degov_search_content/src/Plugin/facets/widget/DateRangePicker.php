@@ -93,6 +93,7 @@ class DateRangePicker extends WidgetPluginBase {
         'data-drupal-date-format' => 'Y-m-d',
         'class' => ['date-from'],
         'placeholder' => 'YYYY-mm-dd',
+        'aria-label' => $this->t('From date')
       ],
     ];
     $form['date_filter_wrapper']['date_to'] = [
@@ -110,6 +111,7 @@ class DateRangePicker extends WidgetPluginBase {
         'data-drupal-date-format' => 'Y-m-d',
         'class' => ['date-to'],
         'placeholder' => 'YYYY-mm-dd',
+        'aria-label' => $this->t('To date')
       ],
     ];
     // Attach the jquery datepicker library.
