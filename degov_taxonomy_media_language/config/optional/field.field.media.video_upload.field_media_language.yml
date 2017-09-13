@@ -8,7 +8,7 @@ dependencies:
   enforced:
     module:
       - degov_taxonomy_media_language
-id: media.video.field_media_language
+id: media.video_update.field_media_language
 field_name: field_media_language
 entity_type: media
 bundle: video_upload
