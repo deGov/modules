@@ -1,15 +1,15 @@
 dependencies:
   config:
-    - field.field.media.video.field_media_language
+    - field.field.media.video.field_media_accessibility
   module:
-    - degov_taxonomy_media_language
+    - degov_taxonomy_media_accessibility
 third_party_settings:
   field_group:
     group_assets:
       children:
-        - field_media_language
+        - field_media_accessibility
 content:
-  field_media_language:
+  field_media_accessibility:
     weight: 3
     settings: {  }
     third_party_settings: {  }
