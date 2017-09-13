@@ -43,9 +43,6 @@ function degov_common_preprocess_node(&$variables) {
   }
 }
 
-
-
-
 /**
  * Implements hook_ENTITY_TYPE_view_alter() for media entities.
  *
