@@ -78,7 +78,6 @@
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  <div class="press__header header">
 
     {% if node.field_header_paragraphs.value %}
       <div class="press__header-paragraphs">
@@ -86,11 +85,13 @@
       </div>
     {% endif %}
 
+  <div class="press__header header">
+
     <div class="date"{{ content.field_press_date|quickedit_attr }}>{{ content.field_press_date|field_value }}</div>
 
     {# Tags #}
-    {% if content.field_tags %}
-      <div class="tags">
+    {% if content.field_tags|field_value %}
+        <div class="tags">
         {{ content.field_tags }}
       </div>
     {% endif %}
