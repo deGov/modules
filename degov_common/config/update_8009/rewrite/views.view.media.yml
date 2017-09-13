@@ -1,3 +1,4 @@
+config_rewrite: replace
 langcode: de
 status: true
 dependencies:
