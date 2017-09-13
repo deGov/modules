@@ -8,7 +8,7 @@ dependencies:
   enforced:
     module:
       - degov_taxonomy_media_accessibility
-id: media.video_upload.field_media_accessibility
+id: media.video.field_media_accessibility
 field_name: field_media_accessibility
 entity_type: media
 bundle: video_upload
