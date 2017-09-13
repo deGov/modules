@@ -2,6 +2,7 @@
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\degov_common\DegovOverride;
+use Drupal\degov_common\Form\DegovMediaForm;
 use Drupal\degov_common\Plugin\views\filter\DegovBundle;
 use Drupal\media_entity\MediaInterface;
 use Drupal\node\NodeInterface;
@@ -19,7 +20,7 @@ function degov_common_views_plugins_filter_alter(array &$plugins) {
  * @param $hook
  */
 function degov_common_module_implements_alter(&$implementations, $hook) {
-  if ($hook == 'views_plugins_filter_alter') {
+  if (in_array($hook, ['views_plugins_filter_alter', 'entity_type_alter'])) {
     // Move my_module_form_alter() to the end of the list.
     // \Drupal::moduleHandler()->getImplementations()
     // iterates through $implementations with a foreach loop which PHP iterates
@@ -131,8 +132,25 @@ function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(arra
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function  degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   if (!empty($form['link']['widget'][0]['options']['attributes']['class'])) {
     $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Geben Sie hier eine <a href="http://fontawesome.io/cheatsheet" target="_blank">Font-Awesome</a> Klasse ein, z.B. "fa-archive", um das entsprechende Icon anzuzeigen (nur erste Menüebene).');
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * It is needed to change the class for media edit form to force thumbnail
+ * regeneration, because when you change the source image/video/etc (media item)
+ * the thumbnail is still referencing the old file entity.
+ *
+ */
+function degov_common_entity_type_alter(array &$entity_types) {
+  // Try to set the class for Media edit form from degov_common module to force thumbnail regeneration.
+  $entity_type = $entity_types['media'];
+  $replacement_class = DegovMediaForm::class;
+  if (get_parent_class($replacement_class) == $entity_type->getFormClass('edit')) {
+    $entity_type->setFormClass('edit', $replacement_class);
   }
 }
