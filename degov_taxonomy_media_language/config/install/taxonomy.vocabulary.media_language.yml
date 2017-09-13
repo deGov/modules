@@ -1,0 +1,11 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_taxonomy_media_language
+name: Medien Sprachen
+vid: media_language
+description: 'Enthält die verschiedenen Medien Sprachen'
+hierarchy: 0
+weight: 0
