@@ -22,14 +22,14 @@
   <div class="media--preview__image-block col-xs-12 col-sm-6 no-padding">
     <div class="media--preview__type-text">{{ 'Bild'|t }}</div>
     <div class="image__image teaser-image"{{ content.image|quickedit_attr }}>{{ content.image|field_value }}</div>
-    <div class="media--preview__info">
+{#    <div class="media--preview__info">
       {% if content.field_copyright|field_value %}
         <span class="media--preview__copyright">
           <span class="media--preview__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
             {{ content.field_copyright|field_value }}
         </span>
       {% endif %}
-    </div>
+    </div>#}
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     <a href="{{ image_url }}">
