@@ -134,10 +134,12 @@
     {% endif %}
 
     {# Social media sharing #}
-    {% if content.shariff_field %}
-      <div class="sharing">
-        {{ content.shariff_field }}
-      </div>
+    {% if node.field_social_media and node.field_social_media.value == '1' %}
+      {% if content.shariff_field %}
+        <div class="sharing">
+          {{ content.shariff_field }}
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 
