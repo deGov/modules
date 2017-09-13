@@ -32,7 +32,7 @@ function degov_common_install() {
  */
 
 /**
- * Add filter Copyright, Author to the media overview view.
+ * Add filter copyright and author and implement media usage view mode to the media overview view.
  */
 function degov_common_update_8009() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8009');
