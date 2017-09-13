@@ -102,6 +102,17 @@ function degov_media_video_update_dependencies() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_media_video_update_dependencies() {
+  $dependencies = [];
+  $dependencies['degov_media_video'][8007] = [
+    'degov_content_types_shared_fields' => 8006,
+  ];
+  return $dependencies;
+}
+
+/**
  * Add asset fields.
  */
 function degov_media_video_update_8008() {
