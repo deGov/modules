@@ -60,9 +60,9 @@ third_party_settings:
     group_common:
       children:
         - field_tags
+        - langcode
         - field_social_media
         - field_section
-        - langcode
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -151,12 +151,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
-  field_section:
-    type: options_select
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_sidebar_right_paragraphs:
     weight: 4
     settings:
@@ -170,7 +164,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_social_media:
-    weight: 6
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
@@ -215,9 +209,15 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_section:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 8
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

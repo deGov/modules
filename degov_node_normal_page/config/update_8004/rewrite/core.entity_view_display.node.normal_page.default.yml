@@ -64,7 +64,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_metatags: true
   field_social_media: true
   field_teaser_image: true
   field_teaser_text: true

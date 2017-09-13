@@ -94,12 +94,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_section: true
   field_social_media: true
   field_teaser_image: true
   field_teaser_text: true
   field_teaser_title: true
   langcode: true
   links: true
-  scheduled_updates: true
   workbench_moderation_control: true
