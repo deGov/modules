@@ -2,42 +2,29 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.field.node.blog.field_blog_author
-    - field.field.node.blog.field_blog_date
-    - field.field.node.blog.field_content_paragraphs
-    - field.field.node.blog.field_header_paragraphs
-    - field.field.node.blog.field_section
-    - field.field.node.blog.field_sidebar_right_paragraphs
-    - field.field.node.blog.field_social_media
-    - field.field.node.blog.field_tags
-    - field.field.node.blog.field_teaser_image
-    - field.field.node.blog.field_teaser_text
-    - field.field.node.blog.field_teaser_title
-    - node.type.blog
+    - field.field.node.normal_page.field_content_paragraphs
+    - field.field.node.normal_page.field_header_paragraphs
+    - field.field.node.normal_page.field_section
+    - field.field.node.normal_page.field_sidebar_right_paragraphs
+    - field.field.node.normal_page.field_social_media
+    - field.field.node.normal_page.field_tags
+    - field.field.node.normal_page.field_teaser_image
+    - field.field.node.normal_page.field_teaser_text
+    - field.field.node.normal_page.field_teaser_title
+    - node.type.normal_page
   enforced:
     module:
-      - degov_node_blog
+      - degov_node_normal_page
   module:
-    - datetime
-    - degov_common
     - entity_reference_revisions
     - user
-id: node.blog.default
+id: node.normal_page.default
 targetEntityType: node
-bundle: blog
+bundle: normal_page
 mode: default
 content:
-  field_blog_date:
-    weight: 1
-    label: hidden
-    settings:
-      timezone_override: ''
-      format_type: short
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_content_paragraphs:
-    weight: 4
+    weight: 3
     label: hidden
     settings:
       view_mode: default
@@ -55,31 +42,28 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_sidebar_right_paragraphs:
-    type: entity_reference_revisions_entity_view
-    weight: 5
-    region: content
+    weight: 4
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
   field_tags:
     type: taxonomy_term_search
-    weight: 2
+    weight: 1
     region: content
     label: hidden
     settings:
       route_name: view.search_content.page_1
     third_party_settings: {  }
   shariff_field:
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_blog_author: true
-  field_metatags: true
-  field_section: true
   field_social_media: true
   field_teaser_image: true
   field_teaser_text: true
