@@ -1,0 +1,41 @@
+dependencies:
+  config:
+    - field.field.media.video.field_media_duration
+    - field.field.media.video.field_media_transcription
+third_party_settings:
+  field_group:
+    group_vertical:
+      children:
+        - group_assets
+    group_assets:
+      children:
+        - field_media_duration
+        - field_media_transcription
+      parent_name: group_vertical
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
+      region: content
+content:
+  field_media_duration:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_media_transcription:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content

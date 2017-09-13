@@ -30,10 +30,17 @@ function degov_media_video_upload_uninstall() {
 }
 
 /**
- *
+ * Show images for all view modes except default.
  */
 function degov_media_video_upload_update_8007() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
   $moduleUpdaterService = \Drupal::service('degov_config.module_updater');
   $moduleUpdaterService->applyUpdates('degov_media_video_upload', '8007');
+}
+
+/**
+ * Add asset fields.
+ */
+function degov_media_video_upload_update_8008() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8008');
 }

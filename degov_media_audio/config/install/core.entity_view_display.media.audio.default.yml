@@ -10,6 +10,8 @@ dependencies:
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
+    - field.field.media.audio.field_media_duration
+    - field.field.media.audio.field_media_transcription
     - image.style.large
     - media_entity.bundle.audio
   enforced:
@@ -55,6 +57,21 @@ content:
       link: false
     third_party_settings: {  }
     type: media_thumbnail
+    region: content
+  field_media_duration:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media_transcription:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
 hidden:
   created: true

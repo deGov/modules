@@ -59,29 +59,40 @@ function degov_media_video_update_8005() {
  */
 function degov_media_video_update_8007() {
   // Remove image.style.large dependency of video preview view mode.
-  $dependencies = \Drupal::config('core.entity_view_display.media.video.preview')->get('dependencies.config');
+  $dependencies = \Drupal::config('core.entity_view_display.media.video.preview')
+    ->get('dependencies.config');
   foreach ($dependencies as $key => $dependency) {
-    if (in_array($dependency, array('image.style.large'))) {
+    if (in_array($dependency, ['image.style.large'])) {
       unset($dependencies[$key]);
     }
   }
   $dependencies = array_values($dependencies);
-  \Drupal::configFactory()->getEditable('core.entity_view_display.media.video.preview')
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.media.video.preview')
     ->set('dependencies.config', $dependencies)
     ->save(TRUE);
   // Remove image.style.large dependency of video search view mode.
-  $dependencies = \Drupal::config('core.entity_view_display.media.video.search')->get('dependencies.config');
+  $dependencies = \Drupal::config('core.entity_view_display.media.video.search')
+    ->get('dependencies.config');
   foreach ($dependencies as $key => $dependency) {
-    if (in_array($dependency, array('image.style.large'))) {
+    if (in_array($dependency, ['image.style.large'])) {
       unset($dependencies[$key]);
     }
   }
   $dependencies = array_values($dependencies);
-  \Drupal::configFactory()->getEditable('core.entity_view_display.media.video.search')
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.media.video.search')
     ->set('dependencies.config', $dependencies)
     ->save(TRUE);
 
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
   $moduleUpdaterService = \Drupal::service('degov_config.module_updater');
   $moduleUpdaterService->applyUpdates('degov_media_video', '8007');
+}
+
+/**
+ * Add asset fields.
+ */
+function degov_media_video_update_8008() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8008');
 }
