@@ -21,9 +21,16 @@ function degov_node_event_uninstall() {
 }
 
 /**
- * Re-arranges fields in edit form
- * changes to default display
+ * Update calendar view for event content type.
  */
 function degov_node_event_update_8006() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8006');
+}
+
+/**
+ * Re-arranges fields in edit form
+ * changes to default display
+ */
+function degov_node_event_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8007');
 }
