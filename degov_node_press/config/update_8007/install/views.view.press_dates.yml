@@ -1,21 +1,24 @@
+uuid: e5b0a21a-1ae0-4597-bf65-64d7c6e78594
 langcode: de
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.storage.node.field_event_date
-    - node.type.event
+    - field.storage.node.field_press_date
+    - node.type.press
   enforced:
     module:
-      - degov_node_event
+      - degov_node_press
   module:
     - calendar
     - datetime
-    - degov_node_event
+    - degov_node_press
     - node
     - user
-id: events
-label: Veranstaltungen
+_core:
+  default_config_hash: KKaEj5BmvoPHbJvdd9ARDb_w-gsenrWXpzAZwb12ouk
+id: press_dates
+label: Pressetermine
 module: views
 description: 'Auflistungen der Veranstaltungen'
 tag: ''
@@ -142,8 +145,40 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            event: event
+            press: press
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            argument: null
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -187,13 +222,13 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
-        field_event_date_value:
-          id: field_event_date_value
-          table: node__field_event_date
-          field: field_event_date_value
+        field_press_date_value:
+          id: field_press_date_value
+          table: node__field_press_date
+          field: field_press_date_value
           relationship: none
           group_type: group
-          admin_label: 'Veranstaltungsdatum von'
+          admin_label: ''
           operator: '>='
           value:
             min: ''
@@ -203,11 +238,11 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_event_date_value_op
+            operator_id: field_press_date_value_op
             label: Von
             description: ''
             use_operator: false
-            operator: field_event_date_value_op
+            operator: field_press_date_value_op
             identifier: from
             required: false
             remember: false
@@ -216,6 +251,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -229,13 +267,13 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_event_date_value_1:
-          id: field_event_date_value_1
-          table: node__field_event_date
-          field: field_event_date_value
+        field_press_date_value_1:
+          id: field_press_date_value_1
+          table: node__field_press_date
+          field: field_press_date_value
           relationship: none
           group_type: group
-          admin_label: 'Veranstaltungsdatum Bis'
+          admin_label: ''
           operator: '<='
           value:
             min: ''
@@ -245,11 +283,11 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_event_date_value_1_op
+            operator_id: field_press_date_value_1_op
             label: Bis
             description: ''
             use_operator: false
-            operator: field_event_date_value_1_op
+            operator: field_press_date_value_1_op
             identifier: to
             required: false
             remember: false
@@ -258,6 +296,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -272,20 +313,20 @@ display:
             group_items: {  }
           plugin_id: datetime
       sorts:
-        field_event_date_value:
-          id: field_event_date_value
-          table: node__field_event_date
-          field: field_event_date_value
+        field_press_date_value:
+          id: field_press_date_value
+          table: node__field_press_date
+          field: field_press_date_value
           relationship: none
           group_type: group
-          admin_label: Veranstaltungsdatum
+          admin_label: ''
           order: ASC
           exposed: false
           expose:
             label: ''
-          granularity: second
+          granularity: minute
           plugin_id: datetime
-      title: Veranstaltungen
+      title: Pressetermine
       header: {  }
       footer:
         result:
@@ -309,15 +350,15 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Keine Veranstaltungen mit diesem Kriterium gefunden.'
+            value: 'Keine Pressetermine mit diesem Kriterium gefunden.'
             format: rich_text
           plugin_id: text
       relationships: {  }
       arguments:
-        field_event_date_value_year_month:
-          id: field_event_date_value_year_month
-          table: node__field_event_date
-          field: field_event_date_value_year_month
+        field_press_date_value_year_month:
+          id: field_press_date_value_year_month
+          table: node__field_press_date
+          field: field_press_date_value_year_month
           relationship: none
           group_type: group
           admin_label: ''
@@ -347,6 +388,10 @@ display:
           validate_options: {  }
           plugin_id: datetime_year_month
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -357,9 +402,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  calendar_widget:
+  press_calendar_widget:
     display_plugin: block
-    id: calendar_widget
+    id: press_calendar_widget
     display_title: 'Calendar widget'
     position: 2
     display_options:
@@ -455,10 +500,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_event_date:
-          id: field_event_date
-          table: node__field_event_date
-          field: field_event_date
+        field_press_date:
+          id: field_press_date
+          table: node__field_press_date
+          field: field_press_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -520,10 +565,10 @@ display:
           field_api_classes: false
           plugin_id: field
       arguments:
-        field_event_date_value_year_month:
-          id: field_event_date_value_year_month
-          table: node__field_event_date
-          field: field_event_date_value_year_month
+        field_press_date_value_year_month:
+          id: field_press_date_value_year_month
+          table: node__field_press_date
+          field: field_press_date_value_year_month
           relationship: none
           group_type: group
           admin_label: ''
@@ -570,12 +615,43 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            event: event
+            press: press
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            argument: null
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          group: 1
       filter_groups:
         operator: AND
         groups:
@@ -584,13 +660,13 @@ display:
         type: calendar
         options:
           exclude_display: 1
-      link_display: events_page_list
+      link_display: press_page_list
       link_url: ''
       header:
-        degov_calendar_widget_header:
-          id: degov_calendar_widget_header
+        degov_calendar_press_widget_header:
+          id: degov_calendar_press_widget_header
           table: views
-          field: degov_calendar_widget_header
+          field: degov_calendar_press_widget_header
           relationship: none
           group_type: group
           admin_label: ''
@@ -598,7 +674,7 @@ display:
           tokenize: 1
           content: ''
           pager_embed: 1
-          plugin_id: degov_calendar_widget_header
+          plugin_id: degov_calendar_press_widget_header
       use_ajax: true
       display_description: ''
       allow:
@@ -613,15 +689,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_event_date'
-  events_page_list:
+        - 'config:field.storage.node.field_press_date'
+  press_page_list:
     display_plugin: page
-    id: events_page_list
-    display_title: 'Veranstaltungsseite (Liste)'
+    id: press_page_list
+    display_title: 'Pressetermine (Liste)'
     position: 1
     display_options:
       display_extenders: {  }
-      path: veranstaltungen
+      path: pressetermine
       display_description: ''
       header:
         view:
@@ -632,7 +708,7 @@ display:
           group_type: group
           admin_label: ''
           empty: true
-          view_to_insert: 'events:calendar_widget'
+          view_to_insert: 'press_dates:press_calendar_widget'
           inherit_arguments: false
           plugin_id: view
       defaults:
