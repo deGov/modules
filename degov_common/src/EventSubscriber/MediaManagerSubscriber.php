@@ -2,11 +2,11 @@
 
 namespace Drupal\degov_common\EventSubscriber;
 
+use Drupal\Core\Cache\CacheableRedirectResponse;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\media_entity\MediaInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
@@ -44,7 +44,9 @@ class MediaManagerSubscriber implements EventSubscriberInterface {
       // Redirect the user to the front page with status 403 if the media is not
       // for search and user has no permissions to access.
       $url = Url::fromRoute('<front>');
-      $response = new RedirectResponse($url->toString(), 301);
+      $response = new CacheableRedirectResponse($url->toString(), 301);
+      $response->addCacheableDependency($media);
+      $response->addCacheableDependency($this->currentUser);
       $event->setResponse($response);
     }
   }
