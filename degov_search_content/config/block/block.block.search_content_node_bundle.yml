@@ -1,5 +1,5 @@
 langcode: de
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.search_content_node_bundle
