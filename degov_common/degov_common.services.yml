@@ -15,3 +15,8 @@ services:
   degov_locale.updater:
     class: Drupal\degov_common\DegovLocaleUpdate
     arguments: ['@module_handler']
+  degov_common_media_access:
+    class: '\Drupal\degov_common\EventSubscriber\MediaManagerSubscriber'
+    arguments: ['@current_user']
+    tags:
+      - { name: 'event_subscriber' }

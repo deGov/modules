@@ -3,6 +3,7 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\degov_common\DegovOverride;
 use Drupal\degov_common\Form\DegovMediaForm;
+use Drupal\degov_common\MediaFormAlter;
 use Drupal\degov_common\Plugin\views\filter\DegovBundle;
 use Drupal\media_entity\MediaInterface;
 use Drupal\node\NodeInterface;
@@ -15,12 +16,28 @@ function degov_common_views_plugins_filter_alter(array &$plugins) {
 }
 
 /**
- * Set degov_common module to run the last on views_plugins_filter_alter.
+ * Implements hook_views_data_alter().
+ * Adds custom views fields.
+ */
+function degov_common_views_data_alter(array &$data) {
+  // Add the usage field to media.
+  $data['media']['usage'] = array(
+    'title' => t('Media Usage'),
+    'field' => array(
+      'title' => t('Usage'),
+      'help' => t('Shows the list of media usage.'),
+      'id' => 'degov_media_usage',
+    ),
+  );
+}
+
+/**
+ * Set degov_common module to run the last on some hooks.
  * @param $implementations
  * @param $hook
  */
 function degov_common_module_implements_alter(&$implementations, $hook) {
-  if (in_array($hook, ['views_plugins_filter_alter', 'entity_type_alter'])) {
+  if (in_array($hook, ['views_plugins_filter_alter', 'entity_type_alter', 'form_alter'])) {
     // Move my_module_form_alter() to the end of the list.
     // \Drupal::moduleHandler()->getImplementations()
     // iterates through $implementations with a foreach loop which PHP iterates
@@ -79,6 +96,35 @@ function degov_common_preprocess_media(&$variables) {
     $variables['content']['contextual_links'] = $variables['title_suffix']['contextual_links'];
     $variables['content']['contextual_links']['#weight'] = -100;
   }
+
+  $view_mode = $variables['elements']['#view_mode'];
+  $media = $variables['media'];
+
+  if ($view_mode === 'usage' && $media instanceof MediaInterface) {
+    /* @var \Drupal\entity_reference_integrity\EntityReferenceDependencyManager $dependency_manager */
+    $dependency_manager = \Drupal::service('entity_reference_integrity.dependency_manager');
+
+    if ($dependency_manager->hasDependents($media)) {
+      $referencing_entities = $dependency_manager->getDependentEntities($media);
+
+      foreach ($referencing_entities as $entity_type_id => $entities) {
+        $build[$entity_type_id]['list'] = [
+          '#title' => reset($entities)->getEntityType()->getLabel(),
+          '#theme' => 'item_list',
+          '#items' => [],
+        ];
+
+        /* @var \Drupal\Core\Entity\EntityInterface $entity */
+        foreach ($entities as $entity) {
+          $build[$entity_type_id]['list']['#items'][] = $entity->hasLinkTemplate('canonical') ? $entity->toLink() : $entity->label();
+        }
+      }
+
+      if (!empty($build)) {
+        $variables['content']['usage'] = $build;
+      }
+    }
+  }
 }
 
 /**
@@ -124,5 +170,21 @@ function degov_common_entity_type_alter(array &$entity_types) {
   $replacement_class = DegovMediaForm::class;
   if (get_parent_class($replacement_class) == $entity_type->getFormClass('edit')) {
     $entity_type->setFormClass('edit', $replacement_class);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object->getFormId() === 'media_multiple_delete_confirm') {
+    \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(MediaFormAlter::class)
+      ->formAlter($form, $form_state, $form_id);
   }
 }

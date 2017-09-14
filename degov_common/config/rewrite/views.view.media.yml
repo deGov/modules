@@ -3,12 +3,12 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.usage
     - image.style.medium
     - image.style.thumbnail
     - media_entity.bundle.image
     - taxonomy.vocabulary.copyright
   module:
+    - degov_common
     - entity_browser
     - file
     - image
@@ -2491,14 +2491,14 @@ display:
           destination: true
           entity_type: media
           plugin_id: entity_operations
-        rendered_entity:
-          id: rendered_entity
+        usage:
+          id: usage
           table: media
-          field: rendered_entity
+          field: usage
           relationship: none
           group_type: group
           admin_label: ''
-          label: Medienverwendung
+          label: Usage
           exclude: false
           alter:
             alter_text: false
@@ -2539,9 +2539,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          view_mode: usage
           entity_type: media
-          plugin_id: rendered_entity
+          plugin_id: degov_media_usage
     cache_metadata:
       max-age: 0
       contexts:
@@ -2551,69 +2550,4 @@ display:
         - url.query_args
         - user
         - user.permissions
-      tags:
-        - 'config:core.entity_view_display.media.address.default'
-        - 'config:core.entity_view_display.media.address.default_map'
-        - 'config:core.entity_view_display.media.address.itnrw_map'
-        - 'config:core.entity_view_display.media.address.osm_map'
-        - 'config:core.entity_view_display.media.address.search'
-        - 'config:core.entity_view_display.media.address.usage'
-        - 'config:core.entity_view_display.media.audio.preview'
-        - 'config:core.entity_view_display.media.audio.search'
-        - 'config:core.entity_view_display.media.citation.search'
-        - 'config:core.entity_view_display.media.contact.search'
-        - 'config:core.entity_view_display.media.document.embedded'
-        - 'config:core.entity_view_display.media.document.search'
-        - 'config:core.entity_view_display.media.document.thumbnail'
-        - 'config:core.entity_view_display.media.gallery.preview'
-        - 'config:core.entity_view_display.media.gallery.search'
-        - 'config:core.entity_view_display.media.image.embedded'
-        - 'config:core.entity_view_display.media.image.preview'
-        - 'config:core.entity_view_display.media.image.search'
-        - 'config:core.entity_view_display.media.image.teaser_landscape_small_8_3'
-        - 'config:core.entity_view_display.media.image.teaser_opinion_4_1'
-        - 'config:core.entity_view_display.media.image.thumbnail'
-        - 'config:core.entity_view_display.media.instagram.default'
-        - 'config:core.entity_view_display.media.instagram.embedded'
-        - 'config:core.entity_view_display.media.instagram.search'
-        - 'config:core.entity_view_display.media.instagram.thumbnail'
-        - 'config:core.entity_view_display.media.instagram.usage'
-        - 'config:core.entity_view_display.media.person.author'
-        - 'config:core.entity_view_display.media.person.search'
-        - 'config:core.entity_view_display.media.some_embed.preview'
-        - 'config:core.entity_view_display.media.some_embed.search'
-        - 'config:core.entity_view_display.media.tweet.embedded'
-        - 'config:core.entity_view_display.media.tweet.search'
-        - 'config:core.entity_view_display.media.tweet.thumbnail'
-        - 'config:core.entity_view_display.media.video.embedded'
-        - 'config:core.entity_view_display.media.video.preview'
-        - 'config:core.entity_view_display.media.video.search'
-        - 'config:core.entity_view_display.media.video.thumbnail'
-        - 'config:core.entity_view_display.media.video_upload.embedded'
-        - 'config:core.entity_view_display.media.video_upload.preview'
-        - 'config:core.entity_view_display.media.video_upload.search'
-        - 'config:core.entity_view_display.media.audio.default'
-        - 'config:core.entity_view_display.media.audio.usage'
-        - 'config:core.entity_view_display.media.citation.default'
-        - 'config:core.entity_view_display.media.citation.usage'
-        - 'config:core.entity_view_display.media.contact.default'
-        - 'config:core.entity_view_display.media.contact.usage'
-        - 'config:core.entity_view_display.media.document.default'
-        - 'config:core.entity_view_display.media.document.usage'
-        - 'config:core.entity_view_display.media.gallery.default'
-        - 'config:core.entity_view_display.media.gallery.usage'
-        - 'config:core.entity_view_display.media.image.default'
-        - 'config:core.entity_view_display.media.image.slider_main_16_9'
-        - 'config:core.entity_view_display.media.image.teaser_landscape_2_1'
-        - 'config:core.entity_view_display.media.image.teaser_squared_1_1'
-        - 'config:core.entity_view_display.media.image.usage'
-        - 'config:core.entity_view_display.media.person.default'
-        - 'config:core.entity_view_display.media.person.usage'
-        - 'config:core.entity_view_display.media.some_embed.default'
-        - 'config:core.entity_view_display.media.some_embed.usage'
-        - 'config:core.entity_view_display.media.tweet.default'
-        - 'config:core.entity_view_display.media.tweet.usage'
-        - 'config:core.entity_view_display.media.video.default'
-        - 'config:core.entity_view_display.media.video.usage'
-        - 'config:core.entity_view_display.media.video_upload.default'
-        - 'config:core.entity_view_display.media.video_upload.usage'
+      tags: {  }
