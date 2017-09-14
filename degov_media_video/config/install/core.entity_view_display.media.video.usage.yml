@@ -8,12 +8,13 @@ dependencies:
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_video_copyright
     - field.field.media.video.field_media_video_embed_field
+    - image.style.thumbnail
     - media_entity.bundle.video
+  module:
+    - video_embed_field
   enforced:
     module:
       - degov_media_video
-  module:
-    - video_embed_field
 id: media.video.usage
 targetEntityType: media
 bundle: video
@@ -53,11 +54,19 @@ content:
     third_party_settings: {  }
     type: video_embed_field_video
     region: content
+  thumbnail:
+    type: image
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
 hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true
