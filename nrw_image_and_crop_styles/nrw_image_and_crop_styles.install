@@ -4,12 +4,10 @@
  * Implements hook_update_dependencies().
  */
 function nrw_image_and_crop_styles_update_dependencies() {
-  $dependencies = [];
-  if (\Drupal::moduleHandler()->moduleExists('degov_media_video')) {
-    $dependencies['nrw_image_and_crop_styles'][8008] = [
-      'degov_media_video' => 8007,
-    ];
-  }
+  $dependencies['nrw_image_and_crop_styles'][8008] = [
+    'degov_media_video' => 8007,
+    'degov_media_video_upload' => 8007,
+  ];
   return $dependencies;
 }
 
@@ -24,7 +22,7 @@ function nrw_image_and_crop_styles_update_8007() {
 }
 
 /**
- * Update the responsive image styles for media video view modes.
+ * Update the responsive image styles for media video and video upload view modes.
  */
 function nrw_image_and_crop_styles_update_8008() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
