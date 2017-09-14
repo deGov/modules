@@ -1,17 +1,17 @@
-#deGov - Taxonomie Medien Sprachen
-##Enthält die verschiedenen Medien Sprachen
+# deGov - Taxonomie Medien Sprachen
+## Enthält die verschiedenen Medien Sprachen
 
 Distribution | Type | Core
 --- | --- | ---
 deGov | Modul |  Kompatibilität: 8.x
 
-#####Abhängigkeiten:
+##### Abhängigkeiten:
   - language
   - path
   - taxonomy
   - text
 
-##Installation
+## Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
 
 Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
