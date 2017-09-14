@@ -20,8 +20,8 @@ set media_classes = [
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
-  <div class="video__video teaser-image"{{ content.field_media_video_embed_field|quickedit_attr }}>
-    {{ content.field_media_video_embed_field|field_value }}
+  <div class="video__video teaser-image">
+    {{ content.thumbnail }}
   </div>
   {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
   <div class="media--embedded__info">
