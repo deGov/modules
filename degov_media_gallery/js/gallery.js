@@ -57,11 +57,11 @@
         $('.slick__counter__total').text(slick.slideCount);
         $('.slick-controls__gallery .slick__download a').prop('href', drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
       });
-      $('.slick__pause').on('click', function () {
+      $('.slick__pause', $slider).on('click', function () {
         $('.slideshow__slides').slick('slickPause');
         $(this).hide().siblings('.slick__play').show();
       });
-      $('.slick__play').on('click', function () {
+      $('.slick__play', $slider).on('click', function () {
         $('.slideshow__slides').slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show();
       });
