@@ -111,7 +111,7 @@
     {% if content.field_teaser_text %}
       <div class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         {% autoescape false %}
-          {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : content.field_teaser_text|field_value }}
+          {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
         {% endautoescape %}
       </div>
     {% endif %}
