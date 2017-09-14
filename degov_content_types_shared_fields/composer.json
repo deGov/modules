@@ -7,6 +7,13 @@
   "require": {
     "drupal/shariff": "^1.0"
   },
+  "extra": {
+    "patches": {
+      "drupal/shariff": {
+        "2881126 - two twitter popups: missing js & dependency issue": "https://www.drupal.org/files/issues/two_twitter_popups-2881126-6.patch"
+      }
+    }
+  },
   "repositories": [
     {
       "type": "package",

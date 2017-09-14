@@ -20,6 +20,7 @@ dependencies:
     module:
       - degov_media_video_upload
   module:
+    - image
     - media_entity
 id: media.video_upload.embedded
 targetEntityType: media
@@ -33,6 +34,15 @@ content:
     label: hidden
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+  field_video_upload_preview:
+    type: media_thumbnail
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
   thumbnail:
     type: image
@@ -52,7 +62,6 @@ hidden:
   field_tags: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
-  field_video_upload_preview: true
   field_video_upload_subtitle: true
   field_video_upload_webm: true
   langcode: true

@@ -28,23 +28,7 @@ set media_classes = [
   {{ content.contextual_links }}
   <div class="video-upload__type-text">{{ 'Video'|t }}</div>
   <div class="video-upload__video">
-    <video{{ video_attributes }}>
-      {% if video_mp4 %}
-      <source src="{{ video_mp4 }}" type="video/mp4">
-      {% endif %}
-      {% if video_ogg %}
-      <source src="{{ video_ogg }}" type="video/ogg">
-      {% endif %}
-      {% if video_webm %}
-      <source src="{{ video_webm }}" type="video/webm">
-      {% endif %}
-      {% trans %}
-      I'm sorry; your browser doesn't support HTML5 video in WebM with VP8/VP9 or MP4 with H.264.
-      {% endtrans %}
-      {% for key, subtitle in content.field_video_upload_subtitle if key|first != '#' %}
-      {{ subtitle }}
-      {% endfor %}
-    </video>
+    {{ content.field_video_upload_preview|field_value }}
   </div>
   {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
     <div class="video-upload__info">

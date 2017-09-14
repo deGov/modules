@@ -16,9 +16,31 @@ function degov_search_content_install() {
  * The fresh install should have all the changes from 1.1 to 1.6.
  */
 
+
+/**
+ * Disable search content facets blocks.
+ */
+function degov_search_content_update_8006() {
+  $ids = [
+    'search_content_node_bundle',
+    'search_content_tags',
+    'search_content_section',
+    'search_content_node_changed'
+  ];
+  foreach ($ids as $id) {
+    $block = \Drupal\block\Entity\Block::load($id);
+    $block->disable();
+    if ($block) {
+      $block->disable();
+      $block->save();
+    }
+  }
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8006');
+}
+
 /**
  * Improve sort by block. Search result page view.
  */
-function degov_search_content_update_8006() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8006');
+function degov_search_content_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8007');
 }

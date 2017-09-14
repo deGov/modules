@@ -20,13 +20,13 @@ class ViewsReferenceOverride extends ViewsReferenceItem {
     if (isset($values['page_limit'])) {
       $additional_settings['page_limit'] = $values['page_limit'];
     }
-    if (isset($values['view_settings']['view_mode'])) {
+    if (isset($values['view_settings']) && ($values['view_settings']['view_mode'])) {
       $additional_settings['view_mode'] = $values['view_settings']['view_mode'];
     }
     if (!empty($additional_settings)) {
       $values['data'] = serialize($additional_settings);
     }
-    if (is_array($values['view_settings']['argument'])) {
+    if (!empty($values['view_settings']['argument']) && is_array($values['view_settings']['argument'])) {
       $values['argument'] = implode('/', $values['view_settings']['argument']);
     }
     parent::setValue($values, FALSE);

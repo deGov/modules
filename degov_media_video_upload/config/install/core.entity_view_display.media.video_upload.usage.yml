@@ -2,16 +2,19 @@ langcode: de
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.usage
+    - field.field.media.video_upload.field_copyright
+    - field.field.media.video_upload.field_description
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
     - field.field.media.video_upload.field_video_upload_caption
-    - field.field.media.video_upload.field_video_upload_copyright
     - field.field.media.video_upload.field_video_upload_mp4
     - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - image.style.thumbnail
     - media_entity.bundle.video_upload
   enforced:
     module:
@@ -19,6 +22,7 @@ dependencies:
   module:
     - degov_common
     - entity_reference_revisions
+    - media_entity
 id: media.video_upload.usage
 targetEntityType: media
 bundle: video_upload
@@ -26,10 +30,11 @@ mode: usage
 content:
   field_tags:
     type: taxonomy_term_search
-    weight: 3
+    weight: 2
     region: content
     label: hidden
-    settings: {  }
+    settings:
+      route_name: ''
     third_party_settings: {  }
   field_video_upload_caption:
     type: string
@@ -39,13 +44,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_video_upload_copyright:
-    type: entity_reference_label
-    weight: 2
+  field_video_upload_preview:
+    type: media_thumbnail
+    weight: 3
     region: content
     label: hidden
     settings:
-      link: false
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
   field_video_upload_subtitle:
     type: entity_reference_revisions_entity_view
@@ -58,11 +64,12 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_copyright: true
+  field_description: true
   field_include_search: true
   field_media_in_library: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
-  field_video_upload_preview: true
   field_video_upload_webm: true
   langcode: true
   name: true

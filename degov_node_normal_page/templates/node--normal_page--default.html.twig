@@ -84,6 +84,25 @@
     </div>
   {% endif %}
 
+  <div class="normal-page__header header">
+
+  {# Tags #}
+    {% if content.field_tags|field_value %}
+      <div class="tags">
+        {{ content.field_tags }}
+      </div>
+    {% endif %}
+
+    {# Social media sharing #}
+    {% if node.field_social_media and node.field_social_media.value == '1' %}
+      {% if content.shariff_field %}
+        <div class="sharing">
+          {{ content.shariff_field }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
   {% if node.field_content_paragraphs.value %}
     <div class="normal-page__content-paragraphs">
       {{ content.field_content_paragraphs|field_value }}
