@@ -30,10 +30,28 @@ function degov_media_video_upload_uninstall() {
 }
 
 /**
- *
+ * Show images for all view modes except default.
  */
 function degov_media_video_upload_update_8007() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
   $moduleUpdaterService = \Drupal::service('degov_config.module_updater');
   $moduleUpdaterService->applyUpdates('degov_media_video_upload', '8007');
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_media_video_upload_update_dependencies() {
+  $dependencies = [];
+  $dependencies['degov_media_video_upload'][8008] = [
+    'degov_content_types_shared_fields' => 8006,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Add asset fields.
+ */
+function degov_media_video_upload_update_8008() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8008');
 }
