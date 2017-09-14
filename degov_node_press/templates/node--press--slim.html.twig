@@ -99,7 +99,9 @@
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="press__teaser-title teaser-title">
-          <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
+          <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 69 ? node.field_teaser_title.value|slice(0, 69) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       </a>
     {% endif %}

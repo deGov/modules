@@ -80,7 +80,7 @@
 {% if content.field_teaser_image %}
   {% set class_sidebar = 'col-xs-12 col-sm-6'  %}
   {% set class_content = 'col-xs-12 col-sm-6' %}
-  
+
 {% else %}
   {%  set class_sidebar = 'invisible' %}
   {%  set class_content = 'col-xs-12 col-sm-12' %}
@@ -108,14 +108,18 @@
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="event__teaser-title teaser-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
+          <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 35 ? node.field_teaser_title.value|slice(0, 35) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       </a>
     {% endif %}
 
     {% if content.field_teaser_text %}
       <div class="event__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
+        {% autoescape false %}
+          {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : content.field_teaser_text|field_value }}
+        {% endautoescape %}
       </div>
     {% endif %}
   </div>
