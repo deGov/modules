@@ -23,10 +23,11 @@ function degov_search_media_manager_form_alter(&$form, FormStateInterface $form_
  * @param $variables
  */
 function degov_search_media_manager_preprocess_media(&$variables) {
-  $view_mode = $variables['elements']['#view_mode'];
-  $media = $variables['media'];
-
-  if ($view_mode === 'usage' && $media instanceof MediaInterface) {
+  if (isset($variables['elements']['#view_mode'])
+    && isset($variables['media'])
+    && $variables['elements']['#view_mode'] === 'usage'
+    && $variables['media'] instanceof MediaInterface) {
+    $media = $variables['media'];
     /* @var \Drupal\entity_reference_integrity\EntityReferenceDependencyManager $dependency_manager */
     $dependency_manager = \Drupal::service('entity_reference_integrity.dependency_manager');
 
