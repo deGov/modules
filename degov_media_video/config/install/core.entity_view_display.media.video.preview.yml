@@ -10,7 +10,7 @@ dependencies:
     - field.field.media.video.field_video_caption
     - field.field.media.audio.field_copyright
     - field.field.media.audio.field_description
-    - image.style.large
+    - image.style.thumbnail
     - media_entity.bundle.video
   enforced:
     module:
@@ -22,23 +22,6 @@ targetEntityType: media
 bundle: video
 mode: preview
 content:
-  field_media_video_embed_field:
-    weight: 0
-    label: hidden
-    settings:
-      image_style: large
-      link_image_to: content
-    third_party_settings: {  }
-    type: video_embed_field_thumbnail
-    region: content
-  field_video_caption:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_copyright:
     weight: 2
     label: hidden
@@ -54,6 +37,15 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_media_video_embed_field:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      link_image_to: content
+    third_party_settings: {  }
+    type: video_embed_field_thumbnail
+    region: content
   field_tags:
     type: taxonomy_term_search
     weight: 4
@@ -62,13 +54,21 @@ content:
     settings:
       route_name: view.search_media.page
     third_party_settings: {  }
+  field_video_caption:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   thumbnail:
     type: image
     weight: 5
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: thumbnail
       image_link: content
     third_party_settings: {  }
 hidden:
