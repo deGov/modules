@@ -1,0 +1,10 @@
+name: 'deGov - Taxonomie Medien Sprachen'
+package: deGov
+description: 'Enthält die verschiedenen Medien Sprachen'
+type: module
+core: 8.x
+dependencies:
+  - language
+  - path
+  - taxonomy
+  - text

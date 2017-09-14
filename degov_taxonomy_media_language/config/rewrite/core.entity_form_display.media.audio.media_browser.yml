@@ -1,0 +1,17 @@
+dependencies:
+  config:
+    - field.field.media.audio.field_media_language
+  module:
+    - degov_taxonomy_media_language
+third_party_settings:
+  field_group:
+    group_assets:
+      children:
+        - field_media_language
+content:
+  field_media_language:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content

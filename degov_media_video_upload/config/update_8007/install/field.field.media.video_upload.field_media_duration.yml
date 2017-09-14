@@ -1,0 +1,21 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_duration
+    - media_entity.bundle.video_upload
+  enforced:
+    module:
+      - degov_media_video_upload
+id: media.video_upload.field_media_duration
+field_name: field_media_duration
+entity_type: media
+bundle: video_upload
+label: Länge
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
