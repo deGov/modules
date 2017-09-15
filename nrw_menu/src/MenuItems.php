@@ -45,8 +45,20 @@ class MenuItems extends SimplifiedMenuItems {
         'description' => empty($item->link->getDescription()) ? $item->link->getTitle() : $item->link->getDescription(),
         'external' => $item->link->getUrlObject()->isExternal(),
         'menu_extra' => $extra, 
-        'class' => $classes
+        'class' => $classes,
+        'active_trail' => FALSE,
+        'active' => FALSE
       ];
+
+      $current_path = \Drupal::request()->getRequestUri();
+      if ($current_path == $simplifiedLink['url']) {
+        $simplifiedLink['active'] = TRUE;
+      }
+
+      $plugin_id = $item->link->getPluginId();
+      if (isset($this->activeMenuTree[$plugin_id]) && $this->activeMenuTree[$plugin_id] == TRUE) {
+        $simplifiedLink['active_trail'] = TRUE;
+      }
 
       if ($item->hasChildren) {
         $simplifiedLink[$submenuKey] = $this->simplifyLinks($item->subtree);
