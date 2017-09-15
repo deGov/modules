@@ -1,0 +1,4 @@
+video:
+  version: 1.0
+  js:
+    js/video.js: {}

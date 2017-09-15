@@ -32,6 +32,72 @@ function degov_common_views_data_alter(array &$data) {
 }
 
 /**
+ * Implements hook_theme().
+ */
+function degov_common_theme() {
+  return array(
+    'degov_file_download_link' => array(
+      'variables' => array('file' => NULL, 'download_link' => NULL, 'icon' => '', 'file_size' => NULL, 'attributes' => NULL),
+    ),
+  );
+}
+
+/**
+ * Returns a Url for a file download.
+ *
+ * @param \Drupal\file\FileInterface $file
+ * @param array $options
+ *   (optional) Options for the URL object.
+ *
+ * @return \Drupal\Core\Url An Url object for the download url.
+ * An Url object for the download url.
+ */
+function degov_common_file_download_link($file, $options = []) {
+  $url = new \Drupal\Core\Url('degov_common.file_download', array('file' => $file->id()), $options);
+  return $url;
+}
+
+/**
+ * Get file type.
+ *
+ * @param $variables
+ */
+function degov_common_preprocess_degov_file_download_link(&$variables) {
+  /** @var \Drupal\file\FileInterface $file */
+  $file = $variables['file'];
+  $mime_type = $file->getMimeType();
+  $mime_type = explode('/', $mime_type);
+  if (!empty($mime_type[1])) {
+    $variables['file_type'] = $mime_type[1];
+  } else {
+    $variables['file_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
+  }
+}
+
+/**
+ * @param \Drupal\file\FileInterface $file
+ *
+ * @return array
+ */
+function degov_common_file_download_render_array($file) {
+  if ($file instanceof \Drupal\file\FileInterface) {
+    // Prepare the attributes for the main container of the template.
+    $attributes = new \Drupal\Core\Template\Attribute();
+    // Prepare the text and the URL of the link.
+    $mime_type = $file->getMimeType();
+    $download_url = degov_common_file_download_link($file, ['attributes' => ['type' => $mime_type . '; length=' . $file->getSize()]]);
+    return [
+      '#theme' => 'degov_file_download_link',
+      '#file' => $file,
+      '#download_link' => \Drupal\Core\Link::fromTextAndUrl(t('Download'), $download_url),
+      '#icon' => file_icon_class($mime_type),
+      '#attributes' => $attributes,
+      '#file_size' => format_size($file->getSize()),
+    ];
+  }
+}
+
+/**
  * Set degov_common module to run the last on some hooks.
  * @param $implementations
  * @param $hook

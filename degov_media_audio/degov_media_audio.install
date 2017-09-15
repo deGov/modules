@@ -54,3 +54,21 @@ function degov_media_audio_update_dependencies() {
 function degov_media_audio_update_8004() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8004');
 }
+
+/**
+ * Fix audio default view mode.
+ */
+function degov_media_audio_update_8005() {
+  // Remove copyright and description fields form hidden.
+  $hidden = \Drupal::config('core.entity_view_display.audio.video.default')
+    ->get('hidden');
+  unset($hidden['field_copyright']);
+  unset($hidden['field_description']);
+
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.media.audio.default')
+    ->set('hidden', $hidden)
+    ->save(TRUE);
+
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8005');
+}
