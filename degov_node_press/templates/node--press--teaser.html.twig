@@ -90,12 +90,8 @@
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  <div class="press__teaser-image teaser-image {{ class_sidebar }} arrow">
-  {% if content.field_teaser_image %}
-    <a href="{{ url }}" rel="bookmark">
-      {{ content.field_teaser_image|field_value }}
-    </a>
-  {% endif %}
+  <div class="press__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3">
+        <div class="event__teaser__day">{{ node.field_event_date.value|date('d') }}</div>
   </div>
 
   <div class="press__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
