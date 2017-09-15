@@ -19,7 +19,7 @@ set media_classes = [
   'clearfix',
 ]
 %}
-<article{{ attributes.addClass(media_classes) }}>
+<div{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp pswp__media-gallery" tabindex="-1" role="dialog" aria-hidden="true">
@@ -120,4 +120,4 @@ set media_classes = [
       {{ content.field_tags|field_value }}
     </div>
   {% endif %}
-</article>
+</div>
