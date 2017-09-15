@@ -28,12 +28,14 @@
 {%
   set classes = [
     'file',
+    'file--download',
     'file--mime-' ~ file.getMimeType()|clean_class,
     'file--' ~ icon|clean_class
   ]
 %}
 <span {{ attributes.addClass(classes) }}>
-    {{ download_link }}
-    <span class="file-type">{{ file_type }}</span>
-    <span class="file-size">{{ file_size }}</span>
+  <i class="fa fa-download"></i>
+  {{ download_link }}
+  <span class="file-type">{{ file_type }}</span>
+  <span class="file-size">{{ file_size }}</span>
 </span>
