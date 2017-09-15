@@ -12,3 +12,10 @@ function degov_taxonomy_media_language_uninstall() {
     'entity_bundles' => ['media_language'],
   ]);
 }
+
+/**
+ * Change media audio and video default display.
+ */
+function degov_taxonomy_media_language_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_taxonomy_media_language', '8001');
+}

@@ -107,3 +107,21 @@ function degov_media_video_update_dependencies() {
 function degov_media_video_update_8008() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8008');
 }
+
+/**
+ * Add copyright and description fields to default display.
+ */
+function degov_media_video_update_8009() {
+  // Remove copyright and description fields form hidden.
+  $hidden = \Drupal::config('core.entity_view_display.media.video.default')
+    ->get('hidden');
+  unset($hidden['field_copyright']);
+  unset($hidden['field_description']);
+
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.media.video.default')
+    ->set('hidden', $hidden)
+    ->save(TRUE);
+  // Add new fields to display with yml update.
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8009');
+}
