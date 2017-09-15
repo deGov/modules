@@ -20,3 +20,6 @@ services:
     arguments: ['@current_user']
     tags:
       - { name: 'event_subscriber' }
+  degov_common.video_utils:
+    class: '\Drupal\degov_common\VideoUtils'
+    arguments: ['@http_client', '@video_embed_field.provider_manager']

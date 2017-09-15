@@ -25,3 +25,18 @@ function degov_media_video_preprocess_media__video(&$variables) {
   $variables['video_url'] = $media->url();
   $variables['created'] = $variables['media']->created->value;
 }
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function degov_media_video_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $bundle = $entity->bundle();
+  if ($bundle == 'video' && !$entity->get('field_media_video_embed_field')->isEmpty()) {
+    if ($entity->hasField('field_media_duration')) {
+      /** @var \Drupal\degov_common\VideoUtils $videoUtils */
+      $videoUtils = \Drupal::service('degov_common.video_utils');
+      $duration = $videoUtils->getVideoDuration($entity);
+      $entity->set('field_media_duration', [0 => ['value' => $duration]]);
+    }
+  }
+}
