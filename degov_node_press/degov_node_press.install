@@ -48,3 +48,10 @@ function degov_node_press_update_8007() {
 function degov_node_press_update_8008() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8008');
 }
+
+/**
+ * Change teaser view mode for press content type.
+ */
+function degov_node_press_update_8009() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8009');
+}
