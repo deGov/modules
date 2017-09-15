@@ -12,19 +12,19 @@
    */
   Drupal.behaviors.slideshow = {
     attach: function (context, settings) {
-
-      var $slider = $('.slideshow.default .slideshow__slides');
+      var $slideshow = $('.slideshow.default');
+      var $slider = $('.slideshow__slides', $slideshow);
       $slider.once().slick({
         dots: true,
         autoplay: false,
         speed: 500
       });
 
-      $('.slick__pause', $slider).on('click', function () {
+      $('.slick__pause', $slideshow).on('click', function () {
         $slider.slick('slickPause');
         $(this).hide().siblings('.slick__play').show().focus();
       });
-      $('.slick__play', $slider).on('click', function () {
+      $('.slick__play', $slideshow).on('click', function () {
         $slider.slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show().focus();
       });
