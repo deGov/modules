@@ -1,0 +1,4 @@
+audio:
+  version: 1.0
+  js:
+    js/audio.js: {}
