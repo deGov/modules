@@ -1,0 +1,6 @@
+content:
+  field_video_upload_preview:
+    type: entity_reference_entity_view
+    settings:
+      view_mode: teaser_squared_1_1
+      link: true

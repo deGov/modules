@@ -1,0 +1,13 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.media_accessibility
+  enforced:
+    module:
+      - degov_taxonomy_media_accessibility
+id: taxonomy_term.media_accessibility
+target_entity_type_id: taxonomy_term
+target_bundle: media_accessibility
+default_langcode: site_default
+language_alterable: false

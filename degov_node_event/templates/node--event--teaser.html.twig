@@ -65,7 +65,7 @@
  *   in different view modes.
  */
 #}
- 
+
 {%
   set classes = [
     'event__teaser',
@@ -81,7 +81,7 @@
 {% if content.field_teaser_image|field_value %}
   {% set class_sidebar = 'col-sm-3'  %}
   {% set class_content = 'col-sm-9' %}
-  
+
 {% else %}
   {%  set class_sidebar = 'invisible' %}
   {%  set class_content = 'col-sm-12' %}
@@ -114,7 +114,9 @@
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="event__teaser-title teaser-title">
-        <h3 {{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title }}</h3>
+        <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       </a>
     {% endif %}
@@ -130,7 +132,9 @@
       {% if content.field_teaser_text %}
         <a href="{{ url }}" rel="bookmark">
           <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
-            {{ content.field_teaser_text }}
+            {% autoescape false %}
+              {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
+            {% endautoescape %}
           </div>
         </a>
       {% endif %}

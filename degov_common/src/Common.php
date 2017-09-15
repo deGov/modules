@@ -47,6 +47,9 @@ class Common {
         if ($hook === 'media') {
           $entity = $variables['elements']['#media'];
         }
+        elseif ($hook == 'taxonomy_term') {
+          $entity = $variables['term'];
+        }
         else {
           $entity = $variables[$entity_type];
         }

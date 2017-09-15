@@ -1,0 +1,11 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_taxonomy_media_accessibility
+name: Medien Barrierefreiheit
+vid: media_accessibility
+description: 'Enthält die verschiedenen Medien Barrierefreiheit'
+hierarchy: 0
+weight: 0

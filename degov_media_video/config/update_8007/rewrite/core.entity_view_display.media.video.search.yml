@@ -1,0 +1,13 @@
+dependencies:
+  config:
+    - image.style.thumbnail
+content:
+  thumbnail:
+    type: image
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }

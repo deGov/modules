@@ -1,0 +1,10 @@
+name: 'deGov - Taxonomie Medien Barrierefreiheit'
+package: deGov
+description: 'Enthält die verschiedenen Medien Barrierefreiheit'
+type: module
+core: 8.x
+dependencies:
+  - language
+  - path
+  - taxonomy
+  - text
