@@ -18,6 +18,7 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
       $variables['media_bytes'] = $file->getSize();
       $variables['media_size'] = format_size($file->getSize());
       $variables['media_mime'] = $file->getMimeType();
+      $variables['media_aria_label'] = sprintf('%s (%s)', $file->getFilename(), $variables['media_size']);
     }
   }
 

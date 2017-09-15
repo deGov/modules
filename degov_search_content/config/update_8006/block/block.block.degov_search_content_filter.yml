@@ -1,0 +1,25 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - degov_search_content
+    - system
+  theme:
+    - active_theme
+id: degovsearchcontentfilter
+theme: active_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: degov_search_content_filter
+settings:
+  id: degov_search_content_filter
+  label: 'DeGov search content filter'
+  provider: degov_search_content
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /suche
+    negate: false
+    context_mapping: {  }

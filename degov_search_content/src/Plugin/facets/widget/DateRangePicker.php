@@ -89,7 +89,12 @@ class DateRangePicker extends WidgetPluginBase {
       '#date_year_range' => '-10:+3',
       '#default_value' => (!empty($startDate)) ? DrupalDateTime::createFromTimestamp(strtotime($startDate)) : '',
       // Set the attributes to get the datepicker.
-      '#attributes' => ['data-drupal-date-format' => 'Y-m-d', 'class' => ['date-from']],
+      '#attributes' => [
+        'data-drupal-date-format' => 'Y-m-d',
+        'class' => ['date-from'],
+        'placeholder' => 'YYYY-mm-dd',
+        'aria-label' => $this->t('From date')
+      ],
     ];
     $form['date_filter_wrapper']['date_to'] = [
       '#type' => 'date',
@@ -102,7 +107,12 @@ class DateRangePicker extends WidgetPluginBase {
       '#date_year_range' => '-10:+3',
       '#default_value' => (!empty($endDate)) ? DrupalDateTime::createFromTimestamp(strtotime($endDate)) : '',
       // Set the attributes to get the datepicker.
-      '#attributes' => ['data-drupal-date-format' => 'Y-m-d', 'class' => ['date-to']],
+      '#attributes' => [
+        'data-drupal-date-format' => 'Y-m-d',
+        'class' => ['date-to'],
+        'placeholder' => 'YYYY-mm-dd',
+        'aria-label' => $this->t('To date')
+      ],
     ];
     // Attach the jquery datepicker library.
     $form['#attached']['library'][] = 'core/drupal.date';
