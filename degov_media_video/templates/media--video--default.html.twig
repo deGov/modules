@@ -20,39 +20,31 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-
-  <div class="video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
-
-  <div class="video__type-text">{{ 'Video'|t }}</div>
-  {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
-    <div class="video__info">
-      {% if content.field_video_caption|field_value %}
-        <div class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</div>
-      {% endif %}
-      {% if content.field_copyright|field_value %}
-        <div class="video__copyright">
-          <span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_copyright|field_value }}
+  <div class="video__video">
+    <div class="video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
+    <div class="video__type-text">{{ 'Video'|t }}</div>
+    {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
+      <div class="video__info">
+        <div class="video__info__wrap">
+          {% if content.field_video_caption|field_value %}
+            <span class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</span>
+          {% endif %}
+          {% if content.field_copyright|field_value %}
+            <span class="video__copyright">
+              <span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+              {{ content.field_copyright|field_value }}
+            </span>
+          {% endif %}
         </div>
-      {% endif %}
-    </div>
-  {% endif %}
-  <div class="video__extra-info">
-    <div class="video__date">{{ content.video_date }}</div>
-    <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
+      </div>
+    {% endif %}
   </div>
   <div class="video__extra-info">
     <div class="media__type-label">{{ 'Video'|t }}</div>
     {% if content.field_media_duration|field_value %}
       <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
     {% endif %}
-    <div class="video__date">
-      {% if content.field_video_date|field_value %}
-        {{ content.field_video_date|field_value }}
-      {% else %}
-        {{ created|date("d.m.Y") }}
-      {% endif %}
-    </div>
+    <div class="video__date">{{ content.video_date }}</div>
     {% if content.field_description|field_value %}
       <div class="video__description"{{ content.field_description|quickedit_attr }}>
         {{ content.field_description|field_value }}
@@ -61,7 +53,7 @@ set media_classes = [
     {% if content.field_tags|field_value %}
       <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
     {% endif %}
-    {% if content.field_media_transcription %}
+    {% if content.field_media_transcription|field_value %}
       <div class="video__transcription"{{ content.field_media_transcription|quickedit_attr }}>
         <div class="video__transcription__header">
           <i class="fa fa-caret-right"></i>
