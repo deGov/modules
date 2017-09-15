@@ -99,15 +99,18 @@
     <div class="normal-page__teaser-content teaser-content {{ class_content }}">
       {% if content.field_teaser_title %}
         <div class="normal-page__teaser-title teaser-title">
-          <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
+          <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       {% endif %}
       {% if content.field_teaser_text %}
         <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-          {{ content.field_teaser_text|field_value }}
+          {% autoescape false %}
+            {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
+          {% endautoescape %}
         </div>
       {% endif %}
     </div>
   </a>
-
 </article>

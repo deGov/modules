@@ -40,6 +40,6 @@ function degov_search_content_update_8006() {
 /**
  * Improve sort by block. Search result page view.
  */
-function degov_search_content_update_8008() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8008');
+function degov_search_content_update_8007() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', '8007');
 }
