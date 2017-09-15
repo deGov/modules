@@ -42,7 +42,7 @@ content:
     weight: 9
     label: above
     settings:
-      format_type: short
+      format_type: date_medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default

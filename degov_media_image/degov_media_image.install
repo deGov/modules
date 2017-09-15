@@ -153,3 +153,13 @@ function updateActiveConfig($configFile, $setting, $field_name, $operation, $is_
   $defaultForm->set($setting, $clean_array);
   $defaultForm->save();
 }
+
+
+/**
+ * Change the date format for default view mode.
+ */
+function degov_media_image_update_8009() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
+  $moduleUpdaterService = \Drupal::service('degov_config.module_updater');
+  $moduleUpdaterService->applyUpdates('degov_media_image', '8009');
+}
