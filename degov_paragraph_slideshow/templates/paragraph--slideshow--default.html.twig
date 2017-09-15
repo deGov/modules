@@ -38,6 +38,9 @@
  * @ingroup themeable
  */
 #}
+<section aria-label="{{ 'Slideshow'|t }}">
+<h3 class="visually-hidden">{{ 'Navigationshinweise zur Slideshow'|t }}</h3>
+<p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
 {% if slideshow_type == "type_1" %}
 <div{{ create_attribute({'class': ['slideshow', 'default', 'slideshow--' ~ slideshow_type|clean_class ]}) }}>
   <div class="row">
@@ -48,8 +51,8 @@
       {% endfor %}
       </div>
       <div class="slick-controls">
-        <button class="slick__pause">Pause</button>
-        <button class="slick__play">Play</button>
+        <button class="slick__pause">{{ 'Pause'|t }}</button>
+        <button class="slick__play">{{ 'Play'|t }}</button>
       </div>
     </div>
   </div>
@@ -64,11 +67,11 @@
           {% endfor %}
         </div>
         <div class="slick-controls">
-          <button class="slick__pause">Pause</button>
-          <button class="slick__play">Play</button>
+          <button class="slick__pause">{{ 'Pause'|t }}</button>
+          <button class="slick__play">{{ 'Play'|t }}</button>
         </div>
       </div>
     </div>
   </div>
 {% endif %}
-
+</section>

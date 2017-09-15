@@ -15,8 +15,7 @@
             {% else %}
                 {% set icon = 'fa-list' %}
             {% endif %}
-
-            <a href=" {{ url }}" class="link{{ element }} nrw-menu-header__icon menu-icon  ">
+            <a href=" {{ url }}" class="link{{ element }} nrw-menu-header__icon menu-icon{% if menu_item.active_trail %} active-trail{% endif %}">
                 <div>
                     <i class="fa {{ icon }}" aria-hidden="true"></i>
                     <span>{{ menu_item.text }}</span>
@@ -40,7 +39,7 @@
                     {% else %}
                         {% set active = "" %}
                     {% endif %}
-                    <div class="link{{ element }} nrw-menu-header__col  {{ active }}">
+                    <div class="link{{ element }} nrw-menu-header__col {{ active }}{% if submenu_item.active_trail %} active-trail{% endif %}">
                         <div class="nrw-menu__header">
                             <!-- First level of main menu-->
                             <div class="nrw-menu__header-link-area">
@@ -76,7 +75,7 @@
                                 <ul class="nrw-menu__list" style="">
                                     {% for third_level_item in submenu_item.submenu %}
                                         <div class="submenu">
-                                            <a class="link{% if third_level_item.external %} link--external{% endif %}" href="{{ third_level_item.url }}"
+                                            <a class="link{% if third_level_item.external %} link--external{% endif %}{% if third_level_item.active_trail %} active-trail{% endif %}" href="{{ third_level_item.url }}"
                                                title="{{ third_level_item.description }}"{% if third_level_item.external %} target="_blank"{% endif %}>
                                                 {{ third_level_item.text }}
                                             </a>
@@ -86,7 +85,7 @@
                                                         <!-- Third level of main menu-->
                                                         <ul class="nrw-menu__list">
                                                             <li class="nrw-menu__item">
-                                                                <a class="link{% if fourth_level_item.external %} link--external{% endif %}"
+                                                                <a class="link{% if fourth_level_item.external %} link--external{% endif %}{% if fourth_level_item.active_trail %} active-trail{% endif %}"
                                                                    href="{{ fourth_level_item.url }}"
                                                                    title="{{ fourth_level_item.description }}"{% if fourth_level_item.external %} target="_blank"{% endif %}>
                                                                     {{ fourth_level_item.text }}
