@@ -133,7 +133,7 @@ class VideoUtils {
    * @return int
    */
   private function getYoutubeDuration($videoId, $url = '') {
-    $config = \Drupal::config('degov.default_settings');
+    $config = \Drupal::config('degov_common.default_settings');
     $key = $config->get('youtube_apikey');
     if ($key == '') {
       return 0;
