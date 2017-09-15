@@ -5,6 +5,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.press.field_content_paragraphs
     - field.field.node.press.field_header_paragraphs
+    - field.field.node.press.field_metatags
     - field.field.node.press.field_press_date
     - field.field.node.press.field_section
     - field.field.node.press.field_sidebar_right_paragraphs
@@ -13,12 +14,14 @@ dependencies:
     - field.field.node.press.field_teaser_image
     - field.field.node.press.field_teaser_text
     - field.field.node.press.field_teaser_title
+    - field.field.node.press.scheduled_updates
     - node.type.press
   enforced:
     module:
       - degov_node_press
   module:
     - datetime
+    - degov_common
     - text
     - user
 id: node.press.teaser
@@ -27,13 +30,21 @@ bundle: press
 mode: teaser
 content:
   field_press_date:
-    type: datetime_default
+    type: datetime_custom
     weight: 0
     region: content
     label: hidden
     settings:
       timezone_override: ''
-      format_type: html_date
+      date_format: 'F Y'
+    third_party_settings: {  }
+  field_tags:
+    type: taxonomy_term_search
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_content.page_1
     third_party_settings: {  }
   field_teaser_image:
     type: entity_reference_entity_view
@@ -41,7 +52,7 @@ content:
     region: content
     label: hidden
     settings:
-      view_mode: default
+      view_mode: teaser_squared_1_1
       link: false
     third_party_settings: {  }
   field_teaser_text:
@@ -62,11 +73,12 @@ content:
 hidden:
   field_content_paragraphs: true
   field_header_paragraphs: true
+  field_metatags: true
   field_section: true
   field_sidebar_right_paragraphs: true
   field_social_media: true
-  field_tags: true
   langcode: true
   links: true
+  scheduled_updates: true
   shariff_field: true
   workbench_moderation_control: true
