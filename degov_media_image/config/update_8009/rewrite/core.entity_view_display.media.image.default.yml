@@ -1,0 +1,4 @@
+content:
+  field_image_date:
+    settings:
+      format_type: date_medium
