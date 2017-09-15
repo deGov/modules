@@ -60,5 +60,16 @@ function degov_media_video_upload_update_8008() {
  * Add asset fields.
  */
 function degov_media_video_upload_update_8009() {
+  // Remove copyright and description fields form hidden.
+  $hidden = \Drupal::config('core.entity_view_display.media.video_upload.default')
+    ->get('hidden');
+  unset($hidden['field_copyright']);
+  unset($hidden['field_description']);
+
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.media.video_upload.default')
+    ->set('hidden', $hidden)
+    ->save(TRUE);
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8009');
 }
+
