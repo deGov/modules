@@ -38,7 +38,7 @@ set media_classes = [
     </div>
   {% endif %}
   <div class="video__extra-info">
-    {{ content.video_date }}
+    <div class="video__date">{{ content.video_date }}</div>
     <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
   </div>
   {% if content.field_description %}
