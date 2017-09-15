@@ -27,16 +27,6 @@ set media_classes = [
     <div class="video__video teaser-image">
       {{ content.thumbnail }}
     </div>
-    {% if content.field_copyright|field_value %}
-    <div class="media--preview__info">
-      {% if content.field_copyright|field_value %}
-        <span class="media--preview__copyright">
-          <span class="media--preview__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_copyright|field_value }}
-        </span>
-      {% endif %}
-    </div>
-    {% endif %}
     </a>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
