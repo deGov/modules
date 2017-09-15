@@ -96,6 +96,29 @@ class VideoUtils {
           $duration = (int) ceil($id3Info['playtime_seconds']);
         }
       }
+      if ($media->bundle() == 'audio') {
+        $file_uri = '';
+        if (!$media->get('field_audio_mp3')->isEmpty()) {
+          $file_uri = $media->get('field_audio_mp3')->entity->getFileUri();
+        } elseif (!$media->get('field_audio_ogg')->isEmpty()) {
+          $file_uri = $media->get('field_audio_ogg')->entity->getFileUri();
+        }
+        if ($file_uri != '') {
+          $file_uri = $this->fileSystem->realpath($file_uri);
+        }
+        $getId3 = new GetId3();
+        $id3Info = $getId3
+          ->setOptionMD5Data(true)
+          ->setOptionMD5DataSource(true)
+          ->setEncoding('UTF-8')
+          ->analyze($file_uri);
+        if (isset($id3Info['error'])) {
+          drupal_set_message(t('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]));
+        }
+        if (!empty($id3Info['playtime_seconds'])) {
+          $duration = (int) ceil($id3Info['playtime_seconds']);
+        }
+      }
     }
     return $duration;
   }

@@ -56,7 +56,58 @@ set media_classes = [
       {% endif %}
     </div>
   {% endif %}
-    {% if content.field_tags|field_value %}
-        <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
+  <div class="audio__extra-info">
+    <div class="media__type-label">{{ 'Audio'|t }}</div>
+    {% if content.field_media_duration|field_value %}
+      <div class="audio__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
     {% endif %}
+    <div class="audio__date">
+      {% if content.audio_date %}
+        {{ content.audio_date }}
+      {% else %}
+        {{ created|date("d.m.Y") }}
+      {% endif %}
+    </div>
+    <div class="audio__downloads">
+      {% if content.download_mp3 %}
+        {{ content.download_mp3 }}
+      {% endif %}
+      {% if content.download_ogg %}
+        {{ content.download_ogg }}
+      {% endif %}
+    </div>
+    {% if content.field_description|field_value %}
+      <div class="audio__description"{{ content.field_description|quickedit_attr }}>
+        {{ content.field_description|field_value }}
+      </div>
+    {% endif %}
+    {% if content.field_tags|field_value %}
+      <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags|field_value }}</div>
+    {% endif %}
+    {% if content.field_media_transcription %}
+      <div class="audio__transcription"{{ content.field_media_transcription|quickedit_attr }}>
+        <div class="audio__transcription__header">
+          <i class="fa fa-caret-right"></i>
+          {{ 'Transkription'|trans }}
+        </div>
+        <div class="audio__transcription__body closed">
+          {{ content.field_media_transcription|field_value }}
+        </div>
+      </div>
+    {% endif %}
+    {% if content.field_media_accessibility or content.field_media_language %}
+      <div class="audio__assets">
+        {% if content.field_media_accessibility %}
+          <div class="audio__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+            {{ content.field_media_accessibility|field_value }}
+          </div>
+        {% endif %}
+        {% if content.field_media_language %}
+          <div class="audio__assets-language"{{ content.field_media_language|quickedit_attr }}>
+            {{ content.field_media_language|field_value }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
 </article>
