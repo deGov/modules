@@ -12,3 +12,10 @@ function degov_taxonomy_media_accessibility_uninstall() {
     'entity_bundles' => ['media_accessibility'],
   ]);
 }
+
+/**
+ * Change media audio and video default display.
+ */
+function degov_taxonomy_media_accessibility_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_taxonomy_media_accessibility', '8001');
+}
