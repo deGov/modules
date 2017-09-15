@@ -54,7 +54,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    type: duration
     region: content
   field_media_transcription:
     weight: 9
