@@ -34,6 +34,7 @@
     {% endspaceless %}
   </div>
   <div class="image__extra-info">
+    <div class="media__type-label">{{ content.media_type_label }}</div>
     {% if content.field_image_date %}
       <div class="image__date"{{ content.field_image_date|quickedit_attr }}>
         {{ content.field_image_date|field_value }}

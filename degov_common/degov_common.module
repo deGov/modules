@@ -58,6 +58,23 @@ function degov_common_file_download_link($file, $options = []) {
 }
 
 /**
+ * Get file type.
+ *
+ * @param $variables
+ */
+function degov_common_preprocess_degov_file_download_link(&$variables) {
+  /** @var \Drupal\file\FileInterface $file */
+  $file = $variables['file'];
+  $mime_type = $file->getMimeType();
+  $mime_type = explode('/', $mime_type);
+  if (!empty($mime_type[1])) {
+    $variables['file_type'] = $mime_type[1];
+  } else {
+    $variables['file_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
+  }
+}
+
+/**
  * @param \Drupal\file\FileInterface $file
  *
  * @return array
