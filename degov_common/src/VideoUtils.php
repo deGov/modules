@@ -4,11 +4,12 @@ namespace Drupal\degov_common;
 
 
 use DateInterval;
+use Drupal\Core\File\FileSystem;
 use Drupal\media_entity\Entity\Media;
 use Drupal\video_embed_field\ProviderManager;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
+use GetId3\GetId3Core as GetId3;
 
 /**
  * Class VideoUtils
@@ -29,19 +30,25 @@ class VideoUtils {
    */
   protected $videoProviderManager;
 
-
+  /**
+   * @var FileSystem
+   */
+  protected $fileSystem;
   /**
    * Create a service class.
    *
    *   The plugin definition.
+   *
    * @param \GuzzleHttp\ClientInterface $http_client
    *    An HTTP client.
    * @param \Drupal\video_embed_field\ProviderManager $video_provider_manager
    *    Video provider manager.
+   * @param \Drupal\Core\File\FileSystem $file_system
    */
-  public function __construct(ClientInterface $http_client, ProviderManager $video_provider_manager) {
+  public function __construct(ClientInterface $http_client, ProviderManager $video_provider_manager, FileSystem $file_system) {
     $this->httpClient = $http_client;
     $this->videoProviderManager = $video_provider_manager;
+    $this->fileSystem = $file_system;
   }
 
   /**
@@ -62,6 +69,31 @@ class VideoUtils {
         $method = 'get' . ucfirst($provider) . 'Duration';
         if (method_exists($this, $method)) {
           $duration = $this->$method($videoId, $url);
+        }
+      }
+      if ($media->bundle() == 'video_upload') {
+        $file_uri = '';
+        if (!$media->get('field_video_upload_mp4')->isEmpty()) {
+          $file_uri = $media->get('field_video_upload_mp4')->entity->getFileUri();
+        } elseif (!$media->get('field_video_upload_webm')->isEmpty()) {
+          $file_uri = $media->get('field_video_upload_webm')->entity->getFileUri();
+        } elseif (!$media->get('field_video_upload_ogg')->isEmpty()) {
+          $file_uri = $media->get('field_video_upload_ogg')->entity->getFileUri();
+        }
+        if ($file_uri != '') {
+          $file_uri = $this->fileSystem->realpath($file_uri);
+        }
+        $getId3 = new GetId3();
+        $id3Info = $getId3
+          ->setOptionMD5Data(true)
+          ->setOptionMD5DataSource(true)
+          ->setEncoding('UTF-8')
+          ->analyze($file_uri);
+        if (isset($id3Info['error'])) {
+          drupal_set_message(t('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]));
+        }
+        if (!empty($id3Info['playtime_seconds'])) {
+          $duration = (int) ceil($id3Info['playtime_seconds']);
         }
       }
     }
