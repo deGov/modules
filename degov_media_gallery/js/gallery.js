@@ -13,7 +13,8 @@
   Drupal.behaviors.gallery = {
     pswpItems: [],
     attach: function (context, settings) {
-      var $slider = $('.media-gallery__images .slideshow__slides');
+      var $galery = $('.media-gallery__images');
+      var $slider = $('.slideshow__slides', $galery);
       var $images = $slider.find('img');
       $slider.once().slick({
         dots: false,
@@ -37,9 +38,9 @@
         Drupal.behaviors.gallery.pswpItems.push($pswpItem);
       });
 
-      $('.slick-controls__gallery').once().append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[0].uri + '"><i class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
+      $('.slick-controls__gallery', $galery).once().append('<span class="slick__download"><a href="' + drupalSettings.degov_media_gallery.imagesDownloadLinks[0].uri + '"><i aria-hidden="true" class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
 
-      $slider.find('article').click(function () {
+      $slider.find('.media-image').click(function () {
         var $index = parseInt($slider.slick('slickCurrentSlide'));
         var $options = {
           index: $index
@@ -48,7 +49,7 @@
         var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
         $pswp.init();
       });
-      $('.media-gallery-js-open-lightroom').click(function () {
+      $('.media-gallery-js-open-lightroom', $galery).click(function () {
         $images.get($slider.slick('slickCurrentSlide')).click();
       });
       $slider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -59,11 +60,11 @@
       });
       $('.slick__pause', $slider).on('click', function () {
         $('.slideshow__slides').slick('slickPause');
-        $(this).hide().siblings('.slick__play').show();
+        $(this).hide().siblings('.slick__play').show().focus();
       });
       $('.slick__play', $slider).on('click', function () {
         $('.slideshow__slides').slick('slickPlay');
-        $(this).hide().siblings('.slick__pause').show();
+        $(this).hide().siblings('.slick__pause').show().focus();
       });
     }
   }

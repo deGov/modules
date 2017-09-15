@@ -16,7 +16,7 @@
       var $slider = $('.slideshow.default .slideshow__slides');
       $slider.once().slick({
         dots: true,
-        autoplay: true,
+        autoplay: false,
         speed: 500
       });
 
