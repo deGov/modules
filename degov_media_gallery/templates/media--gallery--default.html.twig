@@ -19,18 +19,16 @@ set media_classes = [
   'clearfix',
 ]
 %}
-<article{{ attributes.addClass(media_classes) }}>
+<div{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <!-- Root element of PhotoSwipe. Must have class pswp. -->
   <div class="pswp pswp__media-gallery" tabindex="-1" role="dialog" aria-hidden="true">
-
     <!-- Background of PhotoSwipe.
          It's a separate element as animating opacity is faster than rgba(). -->
     <div class="pswp__bg"></div>
 
     <!-- Slides wrapper with overflow:hidden. -->
     <div class="pswp__scroll-wrap">
-
       <!-- Container that holds slides.
           PhotoSwipe keeps only 3 of them in the DOM to save memory.
           Don't modify these 3 pswp__item elements, data is added later on. -->
@@ -42,20 +40,19 @@ set media_classes = [
 
       <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
       <div class="pswp__ui pswp__ui--hidden">
-
         <div class="pswp__top-bar">
 
           <!--  Controls are self-explanatory. Order can be changed. -->
 
           <div class="pswp__counter"></div>
 
-          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--close" title="{{ 'Close (Esc)'|t }}"></button>
 
-          <button class="pswp__button pswp__button--share" title="Share"></button>
+          <button class="pswp__button pswp__button--share" title="{{ 'Share'|t }}"></button>
 
-          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <button class="pswp__button pswp__button--fs" title="{{ 'Toggle fullscreen'|t }}"></button>
 
-          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <button class="pswp__button pswp__button--zoom" title="{{ 'Zoom in/out'|t }}"></button>
 
           <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
           <!-- element will get class pswp__preloader--active when preloader is running -->
@@ -72,47 +69,45 @@ set media_classes = [
           <div class="pswp__share-tooltip"></div>
         </div>
 
-        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        <button class="pswp__button pswp__button--arrow--left" title="{{ 'Previous (arrow left)'|t }}">
         </button>
 
-        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        <button class="pswp__button pswp__button--arrow--right" title="{{ 'Next (arrow right)'|t }}">
         </button>
 
         <div class="pswp__caption">
           <div class="pswp__caption__center"></div>
         </div>
-
       </div>
-
-    </div>
-
-  </div>
-  <div class="media-gallery__images">
-    <div class="slideshow__slides">
-    {% for key, slideshow_slide in content.field_gallery_images|field_value %}
-      {{ slideshow_slide }}
-    {% endfor %}
-
-    </div>
-    <div class="slick-controls slick-controls__gallery">
-      <button class="slick__pause slick__pause--gallery">{{ 'Pause'|t }}</button>
-      <button class="slick__play slick__play--gallery">{{ 'Play'|t }}</button>
-      <button class="slick__lightroom media-gallery-js-open-lightroom"><i class="fa fa-expand"></i> {{ 'Open image in a lightroom'|t }}</button>
-      <span class="slick__counter">
-        <span class="slick__counter__current">1</span>
-        <span>{{ 'of'|t }}</span>
-        <span class="slick__counter__total">{{ content.totalImages }}</span>
-      </span>
     </div>
   </div>
-  {% if content.field_gallery_title|field_value or content.field_gallery_sub_title|field_value or content.field_gallery_text|field_value %}
-  <div class="media-gallery__info">
-    <div class="media-gallery__tag">
-      {{ 'Galerie'|t }}
+  <section aria-label="{{ 'Galerie'|t }}">
+    <h3 class="visually-hidden">{{ 'Navigationshinweise zur Galerie'|t }}</h3>
+    <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Galerie'|t }}</p>
+    <div class="media-gallery__images">
+      <div class="slideshow__slides">
+      {% for key, slideshow_slide in content.field_gallery_images|field_value %}
+        {{ slideshow_slide }}
+      {% endfor %}
+      </div>
+      <div class="slick-controls slick-controls__gallery">
+        <button class="slick__pause slick__pause--gallery">{{ 'Pause'|t }}</button>
+        <button class="slick__play slick__play--gallery">{{ 'Play'|t }}</button>
+        <button aria-hidden="true" class="slick__lightroom media-gallery-js-open-lightroom"><i class="fa fa-expand"></i> {{ 'Open image in a lightroom'|t }}</button>
+        <span class="slick__counter">
+          <span class="slick__counter__current">1</span>
+          <span>{{ 'of'|t }}</span>
+          <span class="slick__counter__total">{{ content.totalImages }}</span>
+        </span>
+      </div>
     </div>
-    <h2 class="media-gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</h2>
-    <div class="media-gallery__sub_title"{{ content.field_gallery_sub_title|quickedit_attr }}><strong>{{ content.field_gallery_sub_title|field_value }}</strong></div>
-    <div class="media-gallery__text"{{ content.field_description|quickedit_attr }}>{{ content.field_description|field_value }}</div>
-  </div>
+    {% if content.field_gallery_title|field_value or content.field_gallery_sub_title|field_value or content.field_gallery_text|field_value %}
+    <div class="media-gallery__info">
+      <div class="media-gallery__tag">{{ 'Galerie'|t }}</div>
+      <h2 class="media-gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</h2>
+      <div class="media-gallery__sub_title"{{ content.field_gallery_sub_title|quickedit_attr }}><strong>{{ content.field_gallery_sub_title|field_value }}</strong></div>
+      <div class="media-gallery__text"{{ content.field_description|quickedit_attr }}>{{ content.field_description|field_value }}</div>
+    </div>
+  </section>
   {% endif %}
-</article>
+</div>
