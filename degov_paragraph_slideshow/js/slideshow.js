@@ -12,7 +12,10 @@
    */
   Drupal.behaviors.slideshow = {
     attach: function (context, settings) {
-      var $slideshow = $('.slideshow.default');
+      var $slideshow = $('.slideshow.default', context);
+      if ($slideshow.length < 1) {
+        return;
+      }
       var $slider = $('.slideshow__slides', $slideshow);
       $slider.once().slick({
         dots: true,
@@ -23,11 +26,11 @@
       $('.slick__pause', $slideshow).on('click', function () {
         $slider.slick('slickPause');
         $(this).hide().siblings('.slick__play').show().focus();
-      });
+      }).hide();
       $('.slick__play', $slideshow).on('click', function () {
         $slider.slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show().focus();
-      });
+      }).show();
 
       // Slick slider for prev/next thumbnails images
       var $slideshow_prev_next = $('.slideshow-with-prev-next');

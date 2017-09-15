@@ -13,12 +13,15 @@
   Drupal.behaviors.gallery = {
     pswpItems: [],
     attach: function (context, settings) {
-      var $galery = $('.media-gallery__images');
+      var $galery = $('.media-gallery__images', context);
+      if ($galery.length < 1) {
+        return;
+      }
       var $slider = $('.slideshow__slides', $galery);
       var $images = $slider.find('img');
       $slider.once().slick({
         dots: false,
-        autoplay: true,
+        autoplay: false,
         arrows: true,
         swipeToSlide: true
       });
@@ -54,18 +57,18 @@
       });
       $slider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;
-        $('.slick__counter__current').text(i);
-        $('.slick__counter__total').text(slick.slideCount);
-        $('.slick-controls__gallery .slick__download a').prop('href', drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
+        $('.slick__counter__current', $galery).text(i);
+        $('.slick__counter__total', $galery).text(slick.slideCount);
+        $('.slick-controls__gallery .slick__download a', $galery).prop('href', drupalSettings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
       });
       $('.slick__pause', $galery).on('click', function () {
         $slider.slick('slickPause');
         $(this).hide().siblings('.slick__play').show().focus();
-      });
+      }).hide();
       $('.slick__play', $galery).on('click', function () {
         $slider.slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show().focus();
-      });
+      }).show();
     }
   }
 
