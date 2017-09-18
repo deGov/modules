@@ -8,6 +8,11 @@
     "drupal/image_widget_crop": "^2.0"
   },
   "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
     "patches": {
       "drupal/image_widget_crop": {
         "2871137 - Required croppings": "https://www.drupal.org/files/issues/required_croppings-2871137-17.patch"

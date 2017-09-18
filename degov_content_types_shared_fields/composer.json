@@ -8,6 +8,11 @@
     "drupal/shariff": "^1.0"
   },
   "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
     "patches": {
       "drupal/shariff": {
         "2881126 - two twitter popups: missing js & dependency issue": "https://www.drupal.org/files/issues/two_twitter_popups-2881126-6.patch"
