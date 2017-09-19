@@ -8,6 +8,11 @@
     "drupal/scheduled_updates": "^1.0.0"
   },
   "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
     "patches": {
       "drupal/scheduled_updates": {
         "2858397 - Leave blank to use the time of form submission.": "https://www.drupal.org/files/issues/2636282-remove-set-required-bool.patch"
