@@ -38,3 +38,29 @@ function degov_multilingual_module_implements_alter(&$implementations, $hook) {
     $implementations['degov_multilingual'] = $group;
   }
 }
+
+/**
+ * Alters the header menu.
+ *
+ * @param $menuId
+ */
+function degov_multilingual_degov_main_menu_alter(&$menuId) {
+  $languageId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $main_menu = \Drupal::config('degov_multilingual.settings')->get('main_menu');
+  if (!empty($main_menu[$languageId])) {
+    $menuId = $main_menu[$languageId];
+  }
+}
+
+/**
+ * Alters the footer menu.
+ *
+ * @param $menuId
+ */
+function degov_multilingual_degov_footer_menu_alter(&$menuId) {
+  $languageId = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $footer_menu = \Drupal::config('degov_multilingual.settings')->get('footer_menu');
+  if (!empty($footer_menu[$languageId])) {
+    $menuId = $footer_menu[$languageId];
+  }
+}

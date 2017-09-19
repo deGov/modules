@@ -28,16 +28,31 @@ function nrw_menu_theme($existing, $type, $theme, $path) {
 function nrw_menu_preprocess_page(&$variables) {
   // get the simplify_menu service
   $menuTree = \Drupal::service('nrw_menu.menu_items');
+
+  $headerMenuId = 'main';
+  // Allow other modules to change the header menu.
+  \Drupal::moduleHandler()->alter('degov_main_menu', $headerMenuId);
+
+  $footerMenuId = 'main';
+  // Allow other modules to change the footer menu.
+  \Drupal::moduleHandler()->alter('degov_footer_menu', $footerMenuId);
+
   // get the menu items from main menu tree
-  $menuItems = $menuTree->getMenuTree('main');
+  $menuItemsHeader = $menuTree->getMenuTree($headerMenuId);
+  if ($headerMenuId == $footerMenuId) {
+    $menuItemsFooter = $menuItemsHeader;
+  } else {
+    $menuItemsFooter = $menuTree->getMenuTree($footerMenuId);
+  }
+
   // create the variables for page.html.twig template
   $variables['page_header_menu'] = [
     '#theme' => 'nrw_menu_header',
-    '#menu_items' => $menuItems,
+    '#menu_items' => $menuItemsHeader,
   ];
   $variables['page_footer_menu'] = [
     '#theme' => 'nrw_menu_footer',
-    '#menu_items' => $menuItems,
+    '#menu_items' => $menuItemsFooter,
   ];
   // add the library for adding expandable functionality
   $variables['#attached']['library'][] = 'nrw_menu/nrw_menu';

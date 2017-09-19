@@ -2,6 +2,7 @@
 
 namespace Drupal\nrw_menu;
 
+use Drupal\Core\Menu\MenuLinkDefault;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\simplify_menu\MenuItems as SimplifiedMenuItems;
 
@@ -29,16 +30,19 @@ class MenuItems extends SimplifiedMenuItems {
     foreach ($links as $item) {
       // get menu item definitions to get the entity id of the menu item
       $menuDefinition = $item->link->getPluginDefinition();
-      // load the menu link content entity to get menu_extra valuie
-      $menuItem = MenuLinkContent::load($menuDefinition['metadata']['entity_id']);
+      // load the menu link content entity to get menu_extra value
       $extra = '';
       $class = '';
-      $classes = $menuItem->getPluginDefinition();
-      // check if the value is set
-      if (!$menuItem->get('menu_extra')->isEmpty()) {
-        // create the proper markup with all the filters applied
-        $extra = check_markup($menuItem->get('menu_extra')->value, $menuItem->get('menu_extra')->format);
+      if ($menuDefinition instanceof MenuLinkContent) {
+        $menuItem = MenuLinkContent::load($menuDefinition['metadata']['entity_id']);
+        $classes = $menuItem->getPluginDefinition();
+        // check if the value is set
+        if (!$menuItem->get('menu_extra')->isEmpty()) {
+          // create the proper markup with all the filters applied
+          $extra = check_markup($menuItem->get('menu_extra')->value, $menuItem->get('menu_extra')->format);
+        }
       }
+
       $simplifiedLink = [
         'text' => $item->link->getTitle(),
         'url' => $item->link->getUrlObject()->toString(),
