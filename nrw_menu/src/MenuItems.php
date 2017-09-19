@@ -32,10 +32,9 @@ class MenuItems extends SimplifiedMenuItems {
       $menuDefinition = $item->link->getPluginDefinition();
       // load the menu link content entity to get menu_extra value
       $extra = '';
-      $class = '';
+      $menuItem = MenuLinkContent::load($menuDefinition['metadata']['entity_id']);
+      $classes = $menuItem->getPluginDefinition();
       if ($menuDefinition instanceof MenuLinkContent) {
-        $menuItem = MenuLinkContent::load($menuDefinition['metadata']['entity_id']);
-        $classes = $menuItem->getPluginDefinition();
         // check if the value is set
         if (!$menuItem->get('menu_extra')->isEmpty()) {
           // create the proper markup with all the filters applied
