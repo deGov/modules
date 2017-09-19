@@ -8,6 +8,7 @@ use Drupal\Core\File\FileSystem;
 use Drupal\media_entity\Entity\Media;
 use Drupal\video_embed_field\ProviderManager;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use GetId3\GetId3Core as GetId3;
 
@@ -145,10 +146,17 @@ class VideoUtils {
       'time' => time(),
     );
     $query_url = 'https://www.googleapis.com/youtube/v3/videos?' . http_build_query($params);
-    $request = $this->httpClient->request('GET', $query_url);
-    if ($request->getStatusCode() == 200) {
+    $response = NULL;
+    try {
+      $response = $this->httpClient->request('GET', $query_url);
+    } catch (ClientException $e) {
+      \Drupal::logger('degov_common')->error("Youtube access failure with status: " . \GuzzleHttp\Psr7\str($e->getResponse()));
+      return 0;
+    }
+
+    if ($response->getStatusCode() == 200) {
       $result = new JsonDecode(TRUE);
-      $details = $result->decode($request->getBody(), 'json');
+      $details = $result->decode($response->getBody(), 'json');
       if (!empty($details['items'][0]['contentDetails'])) {
         $vinfo = $details['items'][0]['contentDetails'];
         $interval = new DateInterval($vinfo['duration']);
@@ -168,10 +176,18 @@ class VideoUtils {
    */
   private function getVimeoDuration($videoId, $url) {
     $query_url = 'https://vimeo.com/api/oembed.json?url=' . $url;
-    $request = $this->httpClient->request('GET', $query_url);
-    if ($request) {
+
+    $response = NULL;
+    try {
+      $response = $this->httpClient->request('GET', $query_url);
+    } catch (ClientException $e) {
+      \Drupal::logger('degov_common')->error("Vimeo access failure with status: " . \GuzzleHttp\Psr7\str($e->getResponse()));
+      return 0;
+    }
+
+    if ($response) {
       $result = new JsonDecode(TRUE);
-      $details = $result->decode($request->getBody(), 'json');
+      $details = $result->decode($response->getBody(), 'json');
       if (!empty($details['duration'])) {
         return $details['duration'];
       }
