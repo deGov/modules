@@ -5,7 +5,7 @@ dependencies:
     module:
       - degov_media_social_media_embed
 id: some_embed
-label: 'Social Media Embed'
+label: 'Social-Media-Einbettung'
 description: 'Stellt ein Media Bundle für das Einbetten von Social Media Inhalten (Feeds und dgl.) zur Verfügung.'
 type: generic
 queue_thumbnail_downloads: false

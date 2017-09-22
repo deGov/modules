@@ -5,7 +5,7 @@ dependencies:
     - media_entity_twitter
 id: tweet
 label: Tweet
-description: 'Represents a tweet.'
+description: 'Twitter-Meldungen einbinden'
 type: twitter
 queue_thumbnail_downloads: false
 new_revision: false

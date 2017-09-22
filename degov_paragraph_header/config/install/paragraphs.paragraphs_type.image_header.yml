@@ -5,5 +5,5 @@ dependencies:
     module:
       - degov_paragraph_header
 id: image_header
-label: 'Image Header'
+label: 'Banner'
 behavior_plugins: {  }

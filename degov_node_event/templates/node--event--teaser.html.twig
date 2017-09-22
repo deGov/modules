@@ -65,7 +65,7 @@
  *   in different view modes.
  */
 #}
- 
+
 {%
   set classes = [
     'event__teaser',
@@ -78,13 +78,14 @@
   ]
 %}
 
-{% if content.field_teaser_image %}
+{% if content.field_teaser_image|field_value %}
   {% set class_sidebar = 'col-sm-3'  %}
   {% set class_content = 'col-sm-9' %}
-  
+
 {% else %}
   {%  set class_sidebar = 'invisible' %}
   {%  set class_content = 'col-sm-12' %}
+  {%  set class_teaser_text = 'row' %}
 {% endif %}
 
 
@@ -94,12 +95,14 @@
   <!-- teaser image -->
   <div class="event__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
     <div class="event__teaser__day">{{ node.field_event_date.value|date('d') }}</div>
+    <div class="event__teaser__location">{{ content.field_event_location.0.locality}}</div>
+    <div class="event__teaser__time">{{ node.field_event_date.value|date('G:i') }}</div>
   </div>
 
   <div class="event__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
     <!-- teaser date -->
     {% if content.field_tags %}
-      {{ content.field_tags }}
+      {% spaceless %}{{ content.field_tags }}{% endspaceless %}
     {% endif %}
     {% if content.field_event_date %}
       <div class="event__teaser__month"{{ content.field_event_date|quickedit_attr }}>
@@ -111,11 +114,13 @@
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="event__teaser-title teaser-title">
-        <h3 {{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title }}</h3>
+        <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       </a>
     {% endif %}
-    <div class="row">
+    <div class="{{ class_teaser_text }}">
       {% if content.field_teaser_image %}
         <div class="event__teaser__img {{ class_sidebar }}"{{ content.field_teaser_image|quickedit_attr }}>
           <a href="{{ url }}" rel="bookmark">
@@ -125,9 +130,13 @@
       {% endif %}
       <!-- Teaser text -->
       {% if content.field_teaser_text %}
-        <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
-          {{ content.field_teaser_text }}
-        </div>
+        <a href="{{ url }}" rel="bookmark">
+          <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
+            {% autoescape false %}
+              {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
+            {% endautoescape %}
+          </div>
+        </a>
       {% endif %}
     </div>
   </div>

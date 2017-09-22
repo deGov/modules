@@ -39,13 +39,13 @@ third_party_settings:
       weight: 21
       format_type: tab
       format_settings:
-        label: Common
+        label: Allgemein
         formatter: closed
         description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: Common
+      label: Allgemein
       region: content
     group_code:
       children:

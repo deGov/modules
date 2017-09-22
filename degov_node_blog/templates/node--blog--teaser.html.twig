@@ -75,19 +75,18 @@
     'clearfix',
   ]
 %}
-{% if content.field_teaser_image %}
-  {% set class_sidebar = 'col-sm-3'  %}
-  {% set class_content = 'col-sm-9' %}
-  
+{% if content.field_teaser_image|field_value %}
+    {% set class_sidebar = 'col-xs-5 col-sm-4 col-md-3' %}
+    {% set class_content = 'col-xs-7 col-sm-8 col-md-9' %}
 {% else %}
-  {%  set class_sidebar = 'invisible' %}
-  {%  set class_content = 'col-sm-12' %}
+    {% set class_sidebar = 'invisible' %}
+    {% set class_content = 'col-xs-12 col-sm-12 col-md-12' %}
 {% endif %}
 
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  <div class="nblog__teaser-image {{ class_sidebar }}">
+  <div class="blog__teaser-image {{ class_sidebar }}">
     {% if content.field_teaser_image %}
       <a href="{{ url }}" rel="bookmark">
         {{ content.field_teaser_image|field_value }}
@@ -99,14 +98,18 @@
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="blog__teaser-title"{{ content.field_teaser_title|quickedit_attr }}>
-          {{ content.field_teaser_title|field_value }}
+          <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+          </h3>
         </div>
       </a>
     {% endif %}
 
     {% if content.field_teaser_text %}
       <div class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
+        {% autoescape false %}
+          {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
+        {% endautoescape %}
       </div>
     {% endif %}
   </div>

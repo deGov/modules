@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set media_classes = [
+'video',
+'clearfix',
+]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  {{ content.contextual_links }}
+  <div class="video__video">
+    <div class="video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
+    <div class="video__type-text">{{ 'Video'|t }}</div>
+    {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
+      <div class="video__info">
+        <div class="video__info__wrap">
+          {% if content.field_video_caption|field_value %}
+            <span class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</span>
+          {% endif %}
+          {% if content.field_copyright|field_value %}
+            <span class="video__copyright">
+              <span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+              {{ content.field_copyright|field_value }}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</article>

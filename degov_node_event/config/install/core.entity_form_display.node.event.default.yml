@@ -8,13 +8,13 @@ dependencies:
     - field.field.node.event.field_event_date_end
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
+    - field.field.node.event.field_section
     - field.field.node.event.field_sidebar_right_paragraphs
     - field.field.node.event.field_social_media
     - field.field.node.event.field_tags
     - field.field.node.event.field_teaser_image
     - field.field.node.event.field_teaser_text
     - field.field.node.event.field_teaser_title
-    - field.field.node.event.field_section
     - node.type.event
   enforced:
     module:
@@ -32,13 +32,13 @@ third_party_settings:
   field_group:
     group_vertical:
       children:
-        - group_common
         - group_preview
+        - group_common
         - group_header
         - group_righ
         - group_content
       parent_name: ''
-      weight: 2
+      weight: 4
       format_type: tabs
       format_settings:
         id: ''
@@ -48,9 +48,9 @@ third_party_settings:
       region: content
     group_preview:
       children:
-        - field_teaser_image
         - field_teaser_title
         - field_teaser_text
+        - field_teaser_image
       parent_name: group_vertical
       weight: 17
       format_type: tab
@@ -66,7 +66,7 @@ third_party_settings:
       children:
         - field_header_paragraphs
       parent_name: group_vertical
-      weight: 19
+      weight: 20
       format_type: tab
       format_settings:
         id: ''
@@ -79,11 +79,9 @@ third_party_settings:
     group_common:
       children:
         - field_tags
-        - field_event_date
-        - field_event_date_end
-        - langcode
         - field_social_media
         - field_section
+        - langcode
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -93,13 +91,13 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
       region: content
     group_righ:
       children:
         - field_sidebar_right_paragraphs
       parent_name: group_vertical
-      weight: 19
+      weight: 21
       format_type: tab
       format_settings:
         id: ''
@@ -107,13 +105,13 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Right Sidebar'
+      label: 'Seitenleiste rechts'
       region: content
     group_content:
       children:
         - field_content_paragraphs
       parent_name: group_vertical
-      weight: 20
+      weight: 22
       format_type: tab
       format_settings:
         id: ''
@@ -130,7 +128,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -147,19 +145,19 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_event_date:
-    weight: 7
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_event_date_end:
-    weight: 7
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_event_location:
-    weight: 1
+    weight: 3
     settings:
       default_country: DE
     third_party_settings: {  }
@@ -177,6 +175,12 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
+  field_section:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_sidebar_right_paragraphs:
     weight: 15
     settings:
@@ -234,21 +238,15 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_section:
-    type: options_select
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 8
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -256,14 +254,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -276,7 +274,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60

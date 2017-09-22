@@ -1,0 +1,17 @@
+{
+  "name": "degov_restrict_ip",
+  "type": "drupal-module",
+  "description": "Provides default configuration for the restrict ip module.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.degov.org",
+  "require": {
+    "drupal/restrict_ip": "^1.0"
+  },
+  "extra": {
+    "patches": {
+      "drupal/restrict_ip": {
+        "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
+      }
+    }
+  }
+}

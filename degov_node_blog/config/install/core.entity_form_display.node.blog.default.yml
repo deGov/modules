@@ -5,16 +5,15 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.blog.field_blog_author
     - field.field.node.blog.field_blog_date
-    - field.field.node.blog.field_blog_sub_title
     - field.field.node.blog.field_content_paragraphs
     - field.field.node.blog.field_header_paragraphs
+    - field.field.node.blog.field_section
     - field.field.node.blog.field_sidebar_right_paragraphs
     - field.field.node.blog.field_social_media
     - field.field.node.blog.field_tags
     - field.field.node.blog.field_teaser_image
     - field.field.node.blog.field_teaser_text
     - field.field.node.blog.field_teaser_title
-    - field.field.node.blog.field_section
     - node.type.blog
   enforced:
     module:
@@ -65,7 +64,7 @@ third_party_settings:
         - group_right_sidebar
         - group_media
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         id: ''
@@ -115,16 +114,14 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Right Sidebar'
+      label: 'Seitenleiste rechts'
       region: content
     group_common:
       children:
-        - field_blog_sub_title
         - field_tags
-        - field_blog_date
-        - langcode
         - field_social_media
         - field_section
+        - langcode
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -134,7 +131,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
       region: content
 id: node.blog.default
 targetEntityType: node
@@ -143,7 +140,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -162,18 +159,10 @@ content:
     region: content
     third_party_settings: {  }
   field_blog_date:
-    weight: 4
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_blog_sub_title:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_content_paragraphs:
     weight: 8
@@ -199,6 +188,12 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
     region: content
+  field_section:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_sidebar_right_paragraphs:
     weight: 9
     settings:
@@ -212,7 +207,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_social_media:
-    weight: 6
+    weight: 4
     settings:
       display_label: true
     third_party_settings: {  }
@@ -257,21 +252,15 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_section:
-    type: options_select
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -279,14 +268,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 6
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -299,7 +288,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60

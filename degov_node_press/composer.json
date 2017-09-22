@@ -1,0 +1,23 @@
+{
+  "name": "degov_node_press",
+  "type": "drupal-module",
+  "description": "Adds creation and listings of press with a calendar overview.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.degov.org",
+  "require": {
+    "drupal/date_popup": "^1.0",
+    "drupal/calendar": "1.x-dev"
+  },
+  "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
+    "patches": {
+      "drupal/calendar": {
+        "2845257 - Undefined index: id in calendar_views_data_alter": "https://www.drupal.org/files/issues/undefined_index-2845257-10.patch"
+      }
+    }
+  }
+}

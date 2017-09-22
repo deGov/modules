@@ -1,7 +1,6 @@
 excluded:
   - views.view.search
   - block.block.bartik_search
-  - block.block.nrw_base_theme_search
   - block.block.hervorgehobenesformularsearch_contentpage_1
   - block.block.search_content_node_bundle
   - block.block.search_content_node_changed

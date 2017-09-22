@@ -7,7 +7,6 @@ dependencies:
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
     - field.field.media.audio.field_audio_caption
-    - field.field.media.audio.field_audio_copyright
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
@@ -39,14 +38,6 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-  field_audio_copyright:
-    type: entity_reference_label
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link: false
     third_party_settings: {  }
   field_audio_preview:
     weight: 0

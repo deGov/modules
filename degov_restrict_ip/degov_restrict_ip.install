@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function degov_restrict_ip_install() {
+  $paths = ['/admin/*'];
+
+  /* @var \Drupal\restrict_ip\Mapper\RestrictIpMapperInterface $mapper */
+  $mapper = \Drupal::service('restrict_ip.mapper');
+  $mapper->saveBlacklistedPaths($paths);
+}

@@ -14,8 +14,8 @@ third_party_settings:
       - needs_review
     default_moderation_state: draft
 id: image
-label: Image
-description: 'Locally hosted images.'
+label: Bild
+description: 'Zum Hochloaden von Bildern und Grafiken.'
 type: image
 queue_thumbnail_downloads: false
 new_revision: false

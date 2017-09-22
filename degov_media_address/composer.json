@@ -3,7 +3,7 @@
   "type": "drupal-module",
   "description": "Adds an address media type.",
   "license": "GPL-2.0+",
-  "homepage": "https://www.nrwgov.org",
+  "homepage": "https://www.degov.org",
   "require": {
     "drupal/address": "^1.0",
     "drupal/styled_google_map": "^1.2",

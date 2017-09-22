@@ -5,7 +5,7 @@ dependencies:
     - core.entity_view_mode.media.thumbnail
     - field.field.media.video.field_media_in_library
     - field.field.media.video.field_video_caption
-    - field.field.media.video.field_video_copyright
+    - field.field.media.video.field_copyright
     - field.field.media.video.field_media_video_embed_field
     - image.style.medium
     - media_entity.bundle.video
@@ -29,7 +29,7 @@ hidden:
   created: true
   field_media_in_library: true
   field_video_caption: true
-  field_video_copyright: true
+  field_copyright: true
   field_media_video_embed_field: true
   langcode: true
   name: true

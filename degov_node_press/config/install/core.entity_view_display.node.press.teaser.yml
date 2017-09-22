@@ -19,6 +19,8 @@ dependencies:
       - degov_node_press
   module:
     - datetime
+    - degov_common
+    - text
     - user
 id: node.press.teaser
 targetEntityType: node
@@ -26,13 +28,37 @@ bundle: press
 mode: teaser
 content:
   field_press_date:
-    type: datetime_default
+    type: datetime_custom
     weight: 0
     region: content
     label: hidden
     settings:
       timezone_override: ''
-      format_type: html_date
+      date_format: 'F Y'
+    third_party_settings: {  }
+  field_tags:
+    type: taxonomy_term_search
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_content.page_1
+    third_party_settings: {  }
+  field_teaser_image:
+    type: entity_reference_entity_view
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: teaser_squared_1_1
+      link: false
+    third_party_settings: {  }
+  field_teaser_text:
+    type: text_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
   field_teaser_title:
     type: string
@@ -48,9 +74,6 @@ hidden:
   field_section: true
   field_sidebar_right_paragraphs: true
   field_social_media: true
-  field_tags: true
-  field_teaser_image: true
-  field_teaser_text: true
   langcode: true
   links: true
   shariff_field: true

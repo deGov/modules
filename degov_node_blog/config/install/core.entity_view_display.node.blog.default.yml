@@ -4,22 +4,22 @@ dependencies:
   config:
     - field.field.node.blog.field_blog_author
     - field.field.node.blog.field_blog_date
-    - field.field.node.blog.field_blog_sub_title
     - field.field.node.blog.field_content_paragraphs
     - field.field.node.blog.field_header_paragraphs
+    - field.field.node.blog.field_section
     - field.field.node.blog.field_sidebar_right_paragraphs
     - field.field.node.blog.field_social_media
     - field.field.node.blog.field_tags
     - field.field.node.blog.field_teaser_image
     - field.field.node.blog.field_teaser_text
     - field.field.node.blog.field_teaser_title
-    - field.field.node.blog.field_section
     - node.type.blog
   enforced:
     module:
       - degov_node_blog
   module:
     - datetime
+    - degov_common
     - entity_reference_revisions
     - user
 id: node.blog.default
@@ -36,14 +36,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_blog_sub_title:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_content_paragraphs:
     weight: 4
     label: hidden
@@ -54,7 +46,7 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_header_paragraphs:
-    weight: -1
+    weight: 0
     label: hidden
     settings:
       view_mode: default
@@ -71,15 +63,27 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_tags:
+    type: taxonomy_term_search
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_content.page_1
+    third_party_settings: {  }
+  shariff_field:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_blog_author: true
+  field_metatags: true
   field_section: true
   field_social_media: true
-  field_tags: true
   field_teaser_image: true
   field_teaser_text: true
   field_teaser_title: true
   langcode: true
   links: true
-  shariff_field: true
   workbench_moderation_control: true

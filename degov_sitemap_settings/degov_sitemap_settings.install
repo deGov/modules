@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Update config for sitemap
+ */
+function degov_sitemap_settings_update_8001() {
+  \Drupal::service('degov_config.updater')->configPartialImport('degov_sitemap_settings');
+}

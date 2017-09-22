@@ -1,0 +1,11 @@
+{
+  "name": "degov_metatags",
+  "type": "drupal-module",
+  "description": "Sets correct meta tags.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.degov.org",
+  "require": {
+    "drupal/metatag": "^1.1",
+    "drupal/token": "*"
+  }
+}

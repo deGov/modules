@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.press.field_teaser_image
     - field.field.node.press.field_teaser_text
     - field.field.node.press.field_teaser_title
-    - field.field.node.press.field_section
     - node.type.press
   enforced:
     module:
@@ -29,13 +28,13 @@ third_party_settings:
   field_group:
     group_vertical:
       children:
-        - group_common
         - group_preview
+        - group_common
+        - group_header
         - group_right_sidebar
         - group_content
-        - group_header
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         id: ''
@@ -46,10 +45,9 @@ third_party_settings:
     group_common:
       children:
         - field_tags
-        - field_press_date
-        - langcode
         - field_social_media
         - field_section
+        - langcode
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -59,13 +57,13 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
       region: content
     group_preview:
       children:
-        - field_teaser_image
         - field_teaser_title
         - field_teaser_text
+        - field_teaser_image
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -89,7 +87,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Right Sidebar'
+      label: 'Seitenleiste rechts'
       region: content
     group_content:
       children:
@@ -126,7 +124,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -155,11 +153,17 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_press_date:
-    weight: 8
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_section:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_sidebar_right_paragraphs:
     weight: 6
     settings:
@@ -173,7 +177,7 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_social_media:
-    weight: 10
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
@@ -218,21 +222,15 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_section:
-    type: options_select
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -240,14 +238,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 6
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -260,7 +258,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60

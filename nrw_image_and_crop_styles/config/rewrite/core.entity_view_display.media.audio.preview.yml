@@ -1,6 +1,0 @@
-content:
-  field_audio_preview:
-    settings:
-      view_mode: teaser_squared_1_1
-      link: false
-    type: entity_reference_entity_view

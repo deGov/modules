@@ -1,4 +1,7 @@
 services:
+  cache.backend.degov_common:
+    class: Drupal\degov_common\DegovCacheBackendFactory
+    arguments: ['@database', '@settings', '@cache_tags.invalidator.checksum']
   degov_common.quickedit.twig.extension:
     class: Drupal\degov_common\Twig\Extension\FieldQuickEditAttributesExtension
     tags:
@@ -15,3 +18,11 @@ services:
   degov_locale.updater:
     class: Drupal\degov_common\DegovLocaleUpdate
     arguments: ['@module_handler']
+  degov_common_media_access:
+    class: '\Drupal\degov_common\EventSubscriber\MediaManagerSubscriber'
+    arguments: ['@current_user']
+    tags:
+      - { name: 'event_subscriber' }
+  degov_common.video_utils:
+    class: '\Drupal\degov_common\VideoUtils'
+    arguments: ['@http_client', '@video_embed_field.provider_manager', '@file_system', '@logger.factory']

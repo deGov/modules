@@ -56,7 +56,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
       region: content
 id: media.instagram.default
 targetEntityType: media

@@ -9,6 +9,8 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
+    - field.field.media.video.field_media_duration
+    - field.field.media.video.field_media_transcription
     - media_entity.bundle.video
   module:
     - field_group
@@ -22,6 +24,7 @@ third_party_settings:
         - group_media
         - group_description
         - group_common
+        - group_assets
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -76,7 +79,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
+      region: content
+    group_assets:
+      children:
+        - field_media_duration
+        - field_media_transcription
+      parent_name: group_vertical
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
       region: content
 id: media.video.default
 targetEntityType: media
@@ -136,6 +154,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_media_duration:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_media_transcription:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   langcode:
     type: language_select

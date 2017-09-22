@@ -5,13 +5,13 @@ dependencies:
     - entity_browser.browser.media_browser
     - field.field.node.normal_page.field_content_paragraphs
     - field.field.node.normal_page.field_header_paragraphs
+    - field.field.node.normal_page.field_section
     - field.field.node.normal_page.field_sidebar_right_paragraphs
     - field.field.node.normal_page.field_social_media
     - field.field.node.normal_page.field_tags
     - field.field.node.normal_page.field_teaser_image
     - field.field.node.normal_page.field_teaser_text
     - field.field.node.normal_page.field_teaser_title
-    - field.field.node.normal_page.field_section
     - node.type.normal_page
   enforced:
     module:
@@ -72,7 +72,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
       region: content
     group_content:
       children:
@@ -100,7 +100,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Right Sidebar'
+      label: 'Seitenleiste rechts'
       region: content
     group_header:
       children:

@@ -24,23 +24,9 @@ set media_classes = [
   <div class="media--preview__image-block col-xs-12 col-sm-6 no-padding">
     <a href="{{ video_url }}">
     <div class="media--preview__type-text">{{ 'Video'|t }}</div>
-    {% if social_media_disabled %}
-    <div class="video__video teaser-image js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
-    {% else %}
-    <div class="video__video teaser-image"{{ content.field_media_video_embed_field|quickedit_attr }}>
-      {{ content.field_media_video_embed_field|field_value }}
+    <div class="video__video teaser-image">
+      {{ content.thumbnail }}
     </div>
-    {% endif %}
-    {% if content.field_copyright|field_value %}
-    <div class="media--preview__info">
-      {% if content.field_copyright|field_value %}
-        <span class="media--preview__copyright">
-          <span class="media--preview__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-          {{ content.field_copyright|field_value }}
-        </span>
-      {% endif %}
-    </div>
-    {% endif %}
     </a>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">

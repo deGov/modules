@@ -11,3 +11,10 @@ degov_common.ajax_load_entity:
     _controller: '\Drupal\degov_common\Controller\CommonController::ajaxEntityLoad'
   requirements:
     _permission: 'access content'
+degov_common.file_download:
+  path: /file/{file}/download
+  defaults:
+    _controller: '\Drupal\degov_common\Controller\FileController::download'
+    _title: 'Download file'
+  requirements:
+    _entity_access: 'file.download'

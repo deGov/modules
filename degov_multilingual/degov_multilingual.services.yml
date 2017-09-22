@@ -1,5 +1,0 @@
-services:
-  degov_multilingual.front_page:
-    class: '\Drupal\degov_multilingual\DegovMultilingualFrontPage'
-    arguments:
-      ['@language_manager', '@entity_type.manager', '@config.factory']

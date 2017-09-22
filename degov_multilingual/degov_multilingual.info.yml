@@ -1,6 +1,0 @@
-name: 'deGov - Multilingual'
-description: 'Fügt Funktionen für eine mehrsprachige Startseite und für Templatevorschläge mit Sprachkürzelsuffix hinzu.'
-package: deGov
-type: module
-core: 8.x
-configure: degov_multilingual.settings

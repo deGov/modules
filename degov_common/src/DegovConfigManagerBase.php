@@ -136,7 +136,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
             do {
               $config_importer->doSyncStep($step, $context);
               if (isset($context['message'])) {
-                drupal_set_message(str_replace('Synchronizing', 'Synchronized', (string) $context['message']), 'info');
+                drupal_set_message(str_replace('Synchronizing', 'Synchronized', (string) $context['message']), 'status');
               }
             } while ($context['finished'] < 1);
           }
@@ -145,7 +145,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
           throw new ConfigException('Errors occurred during import');
         }
         else {
-          drupal_set_message('The configuration was imported successfully.', 'success');
+          drupal_set_message('The configuration was imported successfully.', 'status');
         }
       } catch (ConfigException $e) {
         // Return a negative result for UI purposes. We do not differentiate

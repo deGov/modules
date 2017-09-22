@@ -1,6 +1,0 @@
-degov_multilingual.settings:
-  title: 'Multilingual Settings'
-  route_name: 'degov_multilingual.settings'
-  parent: 'degov.default'
-  description: 'Administer deGov multilingual front page.'
-  weight: -9

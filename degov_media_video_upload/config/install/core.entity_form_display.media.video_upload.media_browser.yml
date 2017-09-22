@@ -8,12 +8,14 @@ dependencies:
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
     - field.field.media.video_upload.field_video_upload_caption
-    - field.field.media.video_upload.field_video_upload_copyright
+    - field.field.media.video_upload.field_copyright
     - field.field.media.video_upload.field_video_upload_mp4
     - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - field.field.media.video.field_media_duration
+    - field.field.media.video.field_media_transcription
     - media_entity.bundle.video_upload
   enforced:
     module:
@@ -31,6 +33,7 @@ third_party_settings:
         - group_media
         - group_description
         - group_common
+        - group_assets
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -61,7 +64,7 @@ third_party_settings:
       children:
         - field_video_upload_subtitle
         - field_video_upload_caption
-        - field_video_upload_copyright
+        - field_copyright
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -88,7 +91,22 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Common
+      label: Allgemein
+      region: content
+    group_assets:
+      children:
+        - field_media_duration
+        - field_media_transcription
+      parent_name: group_vertical
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
       region: content
 id: media.video_upload.media_browser
 targetEntityType: media
@@ -126,7 +144,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_video_upload_copyright:
+  field_copyright:
     weight: 9
     settings:
       match_operator: CONTAINS
@@ -181,6 +199,22 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+    region: content
+  field_media_duration:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_media_transcription:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   langcode:
     type: language_select

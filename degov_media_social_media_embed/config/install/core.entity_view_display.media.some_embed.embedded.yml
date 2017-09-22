@@ -5,7 +5,6 @@ dependencies:
     - core.entity_view_mode.media.embedded
     - field.field.media.some_embed.field_include_search
     - field.field.media.some_embed.field_media_in_library
-    - field.field.media.some_embed.field_social_media_source
     - field.field.media.some_embed.field_some_embed_code
     - field.field.media.some_embed.field_tags
     - media_entity.bundle.some_embed
@@ -36,7 +35,6 @@ hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
-  field_social_media_source: true
   field_tags: true
   langcode: true
   thumbnail: true

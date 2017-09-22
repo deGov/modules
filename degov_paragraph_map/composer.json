@@ -3,6 +3,6 @@
   "type": "drupal-module",
   "description": "Adds a map paragraph that reference media address.",
   "license": "GPL-2.0+",
-  "homepage": "https://www.nrwgov.org",
+  "homepage": "https://www.degov.org",
   "require": { }
 }

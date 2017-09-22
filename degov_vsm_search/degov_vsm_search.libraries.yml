@@ -1,6 +1,0 @@
-vsm-search-assets:
-  css:
-    theme:
-      css/vsm-search.css: {}
-  js:
-    js/vsm-search.js: {}

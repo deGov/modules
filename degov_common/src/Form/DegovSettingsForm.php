@@ -21,7 +21,7 @@ class DegovSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'degov.default_settings',
+      'degov_common.default_settings',
     ];
   }
 
@@ -39,11 +39,33 @@ class DegovSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $config = $this->config('degov_common.default_settings');
+
     $form['help'] = [
       '#type' => 'markup',
       '#markup' => '<p>' . $this->t('This is configuration section of deGov distribution') . '</p>',
     ];
+    $form['youtube_apikey'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Youtube API Key'),
+      '#description' => $this->t('Obtain a Youtube API key at <a href="@link">@link</a>', array(
+        '@link' => 'https://console.developers.google.com/apis/credentials',
+      )),
+      '#default_value' => $config->get('youtube_apikey', ''),
+      '#required' => FALSE,
+    );
     return parent::buildForm($form, $form_state);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $config = \Drupal::service('config.factory')->getEditable('degov_common.default_settings');
+    $config->set('youtube_apikey', $form_state->getValue('youtube_apikey'))
+      ->save();
+
+    parent::submitForm($form, $form_state);
   }
 
 }

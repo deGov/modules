@@ -1,0 +1,7 @@
+enable: false
+mail_address: ''
+dblog: true
+allow_role_bypass: true
+bypass_action: redirect_login_page
+white_black_list: 2
+langcode: de

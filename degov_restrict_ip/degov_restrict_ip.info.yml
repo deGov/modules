@@ -1,0 +1,7 @@
+name: 'deGov - Restrict IP'
+description: 'Stellt Standardkonfiguration für das Restrict IP-Modul bereit.'
+package: deGov
+type: module
+core: 8.x
+dependencies:
+  - restrict_ip

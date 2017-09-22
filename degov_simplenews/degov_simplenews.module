@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'simplenews_confirm_removal') {
+    $form['#submit'][] = '_degov_optout_submitform';
+  }
+  if ($form_id == 'user_register_form' && !empty($form['account']['mail'])) {
+    $form['account']['mail']['#required'] = TRUE;
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function _degov_optout_submitform(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $config = \Drupal::config('simplenews.settings');
+  if (!$path = $config->get('subscription.confirm_unsubscribe_page')) {
+    $form_state->setRedirectUrl(\Drupal\Core\Url::fromRoute('<front>'));
+  } else {
+    $form_state->setRedirectUrl(\Drupal\Core\Url::fromUri("internal:/$path"));
+  }
+}
