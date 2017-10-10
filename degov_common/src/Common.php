@@ -70,20 +70,27 @@ class Common {
       $path_to_theme = \Drupal::theme()->getActiveTheme()->getPath();
       // Only override templates that are defined by contrib modules.
       if (strpos($template_path, 'themes/contrib') === 0 || strpos($template_path, $path_to_theme) === FALSE) {
-        $info['theme path'] = $module_path = drupal_get_path('module', $module_name);
-        $info['path'] = $module_path . '/templates';
         // Add a template for every defined view mode else add it for the default view mode.
-        if (isset($variables['elements']['#view_mode']) && in_array($variables['elements']['#view_mode'], $entity_view_modes)) {
-          $info['template'] = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
+        if (isset($variables['elements']['#view_mode'])
+          && in_array($variables['elements']['#view_mode'], $entity_view_modes)) {
+            $template_filename = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
         }
         else {
           if (isset($entity_bundle)) {
-            $info['template'] = $entity_type . '--' . $entity_bundle . '--default';
+            $template_filename = $entity_type . '--' . $entity_bundle . '--default';
           }
           else {
-            $info['template'] = $entity_type . '--default';
+            $template_filename = $entity_type . '--default';
           }
         }
+        $module_path = drupal_get_path('module', $module_name);
+        $template_fullname = $module_path . '/templates/' . $template_filename . '.html.twig';
+        if (file_exists($template_fullname )) {
+          $info['template'] = $template_filename;
+          $info['theme path'] = "modules";
+          $info['path'] = $module_path . '/templates';
+        }
+
         // Include defined entity bundle libraries.
         if (isset($entity_bundle)) {
           $library = \Drupal::service('library.discovery')->getLibraryByName($module_name, $entity_bundle);
