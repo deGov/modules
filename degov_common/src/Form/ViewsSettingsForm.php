@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_views_helper\Form;
+namespace Drupal\degov_common\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\views\Views;
 /**
  * Class ViewsSettingsForm.
  *
- * @package Drupal\degov_views_helper
+ * @package Drupal\degov_common
  */
 class ViewsSettingsForm extends ConfigFormBase {
 

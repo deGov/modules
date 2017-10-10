@@ -4,6 +4,7 @@ package: deGov
 type: module
 core: 8.x
 dependencies:
+  - viewsreference
   - config_rewrite
   - dropzonejs_eb_widget
   - lightning_media
