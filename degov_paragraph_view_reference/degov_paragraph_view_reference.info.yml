@@ -5,7 +5,6 @@ type: module
 core: 8.x
 dependencies:
   - degov_content_types_shared_fields
-  - degov_views_helper
   - field
   - link
   - paragraphs

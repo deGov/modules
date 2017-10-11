@@ -20,3 +20,24 @@ function degov_paragraph_view_reference_uninstall() {
  * 1.3, 1.4, 1.5, 1.6 and then to 1.7 respectively.
  * The fresh install should have all the changes from 1.1 to 1.8.
  */
+
+function degov_paragraph_view_reference_dependencies() {
+  // The update should run only after degov_common 8010.
+  $dependencies['degov_paragraph_view_reference'][8002] = array(
+    // Merge the plugins from degov_views_helper into degov_common.
+    'degov_common' => 8010,
+  );
+  return $dependencies;
+}
+
+/**
+ * Remove dependency on degov_views_helper in view modes.
+ */
+function degov_paragraph_view_reference_update_8002() {
+  $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+  /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $view_display */
+  $view_display = $storage->load('paragraph.view_reference.preview');
+  $view_display->removeComponent('field_view_reference_view');
+  $view_display->save();
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_view_reference', '8002');
+}
