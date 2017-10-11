@@ -6,6 +6,6 @@
   "homepage": "https://www.degov.org",
   "require": {
     "drupal/role_delegation": "^1.0.0",
-    "drupal/workbench:": "^1.0"
+    "drupal/workbench": "^1.0"
   }
 }
