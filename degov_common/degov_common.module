@@ -248,10 +248,19 @@ function degov_common_entity_type_alter(array &$entity_types) {
  * @param $form_id
  */
 function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\Core\Form\FormInterface $form_object */
   $form_object = $form_state->getFormObject();
   if ($form_object->getFormId() === 'media_multiple_delete_confirm') {
     \Drupal::service('class_resolver')
       ->getInstanceFromDefinition(MediaFormAlter::class)
       ->formAlter($form, $form_state, $form_id);
+  }
+  // Alter the media forms.
+  if ($form_object->getBaseFormId() == 'media_form') {
+    // field_media_in_library now is deprecated, let's restrict access to it.
+    // @TODO the field comes from lightning, remove the code after eliminating the dependency on Lightning profile.
+    if (!empty($form['field_media_in_library'])) {
+      $form['field_media_in_library']['#access'] = FALSE;
+    }
   }
 }
