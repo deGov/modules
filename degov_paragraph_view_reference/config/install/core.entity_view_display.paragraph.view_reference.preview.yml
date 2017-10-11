@@ -12,7 +12,7 @@ dependencies:
     module:
       - degov_paragraph_view_reference
   module:
-    - degov_views_helper
+    - degov_common
 id: paragraph.view_reference.preview
 targetEntityType: paragraph
 bundle: view_reference
@@ -34,12 +34,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_view_reference_view:
-    weight: 2
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: degov_viewsreference_label
-    region: content
 hidden:
   field_title_link: true
+  field_view_reference_view: true
