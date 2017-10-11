@@ -7,6 +7,5 @@ address:
   js:
     /libraries/leaflet/dist/leaflet.js: {}
     js/map.js: {}
-    js/geocoding_map/init.js: {}
   dependencies:
     - core/jquery
