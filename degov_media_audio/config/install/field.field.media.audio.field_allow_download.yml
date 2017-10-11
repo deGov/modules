@@ -4,6 +4,9 @@ dependencies:
   config:
     - field.storage.media.field_allow_download
     - media_entity.bundle.audio
+  enforced:
+    module:
+      - degov_media_audio
 id: media.audio.field_allow_download
 field_name: field_allow_download
 entity_type: media
