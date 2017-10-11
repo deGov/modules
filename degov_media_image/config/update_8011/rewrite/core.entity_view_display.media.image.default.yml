@@ -1,0 +1,5 @@
+dependencies:
+  config:
+    - field.field.media.image.field_allow_download
+hidden:
+  field_allow_download: true
