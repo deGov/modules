@@ -23,3 +23,20 @@ function degov_common_update_8010() {
   // Clear all plugin caches.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 }
+
+/**
+ * Resave all field_include_search instances to change the label.
+ */
+function degov_common_update_8011() {
+  $entity_type = 'media';
+  $field_name = 'field_include_search';
+  $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type);
+  foreach ($bundles as $bundle => $bundle_definition) {
+    $bundle_fields = \Drupal::service('entity_field.manager')
+      ->getFieldDefinitions($entity_type, $bundle);
+    /** @var \Drupal\Core\Field\FieldConfigInterface $field_definition */
+    $field_definition = $bundle_fields[$field_name];
+    $field_definition->setLabel('Mediathek');
+    $field_definition->save();
+  }
+}

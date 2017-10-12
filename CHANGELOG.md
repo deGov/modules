@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - degov_views_helper functionality was transfered to degov_common module.
 - Added control field for optional media download.
+- Make field_image_caption for media (image) optional.
 
 ### Fixed
 - Template suggestions now can be set from different modules for the same bundle of entity type.
