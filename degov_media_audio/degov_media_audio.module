@@ -63,7 +63,9 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
 function degov_media_audio_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $bundle = $entity->bundle();
   if ($bundle == 'audio') {
-    if ($entity->hasField('field_media_duration')) {
+    // Check if the field for duration is enabled for the media bundle and that it is empty.
+    // There is no need to check the duration again and again if it is already set.
+    if ($entity->hasField('field_media_duration') && $entity->get('field_media_duration')->isEmpty()) {
       /** @var \Drupal\degov_common\VideoUtils $videoUtils */
       $videoUtils = \Drupal::service('degov_common.video_utils');
       $duration = $videoUtils->getVideoDuration($entity);
