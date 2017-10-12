@@ -68,3 +68,11 @@ function degov_media_image_update_dependencies() {
 function degov_media_image_update_8011() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8011');
 }
+
+/**
+ * Make field_image_caption for media (image) optional.
+ */
+function degov_media_image_update_8012() {
+  $config = \Drupal::service('config.factory')->getEditable('field.field.media.image.field_image_caption');
+  $config->set('required', FALSE)->save();
+}

@@ -13,7 +13,7 @@ entity_type: media
 bundle: image
 label: Bildunterschrift
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
