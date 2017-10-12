@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.audio.field_allow_download
     - field.field.media.audio.field_include_search
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
@@ -83,6 +84,7 @@ content:
     region: content
 hidden:
   created: true
+  field_allow_download: true
   field_include_search: true
   field_media_in_library: true
   field_audio_mp3: true

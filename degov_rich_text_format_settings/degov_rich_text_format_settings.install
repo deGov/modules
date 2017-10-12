@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Add the special char button to the editor toolbar.
+ */
+function degov_rich_text_format_settings_update_8001() {
+  $config = \Drupal::configFactory()
+    ->getEditable('editor.editor.rich_text');
+  $rows = $config->get('settings.toolbar.rows.0');
+
+  foreach ($rows as $key => $row) {
+    if ($row['name'] === 'Tools') {
+      $rows[$key]['items'][] = 'SpecialChar';
+      break;
+    }
+  }
+
+  $config->set('settings.toolbar.rows.0', $rows)->save();
+}

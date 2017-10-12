@@ -1,0 +1,16 @@
+dependencies:
+  config:
+    - field.field.media.video_upload.field_allow_download
+third_party_settings:
+  field_group:
+    group_media:
+      children:
+        - field_allow_download
+content:
+  field_allow_download:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content

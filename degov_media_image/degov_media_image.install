@@ -51,3 +51,32 @@ function degov_media_image_update_8010() {
   $config = \Drupal::service('config.factory')->getEditable('core.entity_view_display.media.image.embedded');
   $config->set('dependencies.config', $dependencies)->save();
 }
+
+/**
+ * Add update dependencies.
+ */
+function degov_media_image_update_dependencies() {
+  // First install the fields storage for optional download.
+  $dependencies['degov_media_image'][8011] = array(
+    'degov_content_types_shared_fields' => 8008,
+  );
+}
+
+/**
+ * Add optional download for image.
+ */
+function degov_media_image_update_8011() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8011');
+}
+
+/**
+ * Make field_image_caption for media (image) optional.
+ */
+function degov_media_image_update_8012() {
+  $image_fields = \Drupal::service('entity_field.manager')
+          ->getFieldDefinitions('media', 'image');
+  /** @var \Drupal\Core\Field\FieldConfigInterface $field_definition */
+  $field_definition = $image_fields['field_image_caption'];
+  $field_definition->setRequired(FALSE);
+  $field_definition->save();
+}

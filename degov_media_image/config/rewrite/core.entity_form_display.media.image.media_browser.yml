@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_browser
+    - field.field.media.image.field_allow_download
     - field.field.media.image.field_image_caption
     - field.field.media.image.field_copyright
     - field.field.media.image.field_image_date
@@ -41,6 +42,7 @@ third_party_settings:
     group_media:
       children:
         - image
+        - field_allow_download
       parent_name: group_vertical
       weight: 6
       format_type: tab
@@ -107,6 +109,13 @@ targetEntityType: media
 bundle: image
 mode: media_browser
 content:
+  field_allow_download:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_image_caption:
     type: string_textfield
     weight: 11

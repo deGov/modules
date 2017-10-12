@@ -29,14 +29,22 @@ function degov_media_image_preprocess_media__image(&$variables) {
     // Add media type name to display.
     $bundle_definition = $media->getType()->getPluginDefinition();
     $variables['content']['media_type_label'] = $bundle_definition['label'];
-    // First checj if the image is there.
-    if (!$media->get('image')->isEmpty()) {
-      /** @var \Drupal\file\FileInterface $sourceFile */
-      $sourceFile = $media->get('image')->entity;
-      $variables['content']['download'] = degov_common_file_download_render_array($sourceFile);
+    // Check if the download of the video is allowed by media settings.
+    $download_is_allowed = FALSE;
+    if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
+      $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
     }
-    else {
-      $variables['content']['download'] = [];
+    // If allowed let's prepare the links.
+    if ($download_is_allowed) {
+      // First check if the image is there.
+      if (!$media->get('image')->isEmpty()) {
+        /** @var \Drupal\file\FileInterface $sourceFile */
+        $sourceFile = $media->get('image')->entity;
+        $variables['content']['download'] = degov_common_file_download_render_array($sourceFile);
+      }
+      else {
+        $variables['content']['download'] = [];
+      }
     }
   }
 }

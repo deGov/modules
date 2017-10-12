@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - entity_browser.browser.media_browser
+    - field.field.media.video_upload.field_allow_download
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
@@ -49,6 +50,7 @@ third_party_settings:
         - field_video_upload_mp4
         - field_video_upload_ogg
         - field_video_upload_webm
+        - field_allow_download
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -113,6 +115,13 @@ targetEntityType: media
 bundle: video_upload
 mode: media_browser
 content:
+  field_allow_download:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_include_search:
     weight: 10
     settings:

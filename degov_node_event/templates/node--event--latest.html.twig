@@ -83,15 +83,15 @@
 
   <!-- teaser image -->
   <div class="event__latest-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
-    <div class="event__latest__day">{{ node.field_event_date.value|date('d') }}</div>
+    <div class="event__latest__day">{{ start_date_timestamp|format_date('custom', 'd') }}</div>
   </div>
 
   <div class="event__latest-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
     <!-- teaser date -->
     {% if content.field_event_date %}
       <div class="event__latest-date" {{ content.field_event_date|quickedit_attr }}>
-        <div class="event__latest__day-of-week">{{ node.field_event_date.value|date('l') }}</div>
-        <div class="event__latest__month">{{ node.field_event_date.value|date('F') }} {{ node.field_event_date.value|date('Y') }}</div>
+        <div class="event__latest__day-of-week">{{ start_date_timestamp|format_date('custom', 'l') }}</div>
+        <div class="event__latest__month">{{ start_date_timestamp|format_date('custom', 'F') }} {{ start_date_timestamp|format_date('custom', 'Y') }}</div>
       </div>
     {% endif %}
 

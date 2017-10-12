@@ -15,7 +15,8 @@
       // Go over every data-entity-id value and filter the field view modes.
       $('.field--name-field-media-reference-media [data-entity-id]', context).each(function() {
         var media = $(this).attr('data-entity-id').split(":");
-        ajaxFilterViewModes(media[0], media[1], '.field--name-field-media-reference-media [data-entity-id]');
+        var view_mode_selector = $(this).closest('.paragraphs-subform').find('.field--type-entity-reference-display .form-select');
+        ajaxFilterViewModes(media[0], media[1], view_mode_selector.attr('data-drupal-selector'));
       });
     }
   };
@@ -34,10 +35,12 @@
     // Ajax request to receive all allowed view modes for this entity.
     $.ajax({
       url: Drupal.url('ajax-load-entity/' + entity_type + '/' + entity_id),
-      type: "GET",
+      type: "POST",
+      dataType: "json",
       success: function(response) {
+        var view_mode_selector = "select[data-drupal-selector='" + selector + "']";
         // Find the view mode field in the paragraph subform.
-        var view_mode_field = $(selector).closest('.paragraphs-subform').find('.field--name-field-media-reference-view-mode select');
+        var view_mode_field = $(view_mode_selector);
         var view_mode_field_class = '#' + $(view_mode_field).attr('id');
         // Hide all options by default.
         $(view_mode_field_class + " option").hide();
