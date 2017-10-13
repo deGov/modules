@@ -1,0 +1,16 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function degov_rich_text_format_settings_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['attributes']['data-entity-embed-display-settings']['link_url'])) {
+    $form['attributes']['data-entity-embed-display-settings']['link_url']['#type'] = 'linkit';
+    $form['attributes']['data-entity-embed-display-settings']['link_url']['#autocomplete_route_name'] = 'linkit.autocomplete';
+    $form['attributes']['data-entity-embed-display-settings']['link_url']['#autocomplete_route_parameters'] = [
+      'linkit_profile_id' => 'full_text',
+    ];
+  }
+}
