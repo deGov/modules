@@ -19,7 +19,10 @@ function degov_common_uninstall() {
 /**
  * Clear plugin cache definitions so the transfered plugins become visible.
  */
-function degov_common_update_8010() {
+function degov_common_update_8011() {
+  if (\Drupal::moduleHandler()->moduleExists('degov_views_helper')) {
+    \Drupal::service('module_installer')->uninstall(['degov_views_helper']);
+  }
   // Clear all plugin caches.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 }
@@ -27,7 +30,7 @@ function degov_common_update_8010() {
 /**
  * Resave all field_include_search instances to change the label.
  */
-function degov_common_update_8011() {
+function degov_common_update_8012() {
   $entity_type = 'media';
   $field_name = 'field_include_search';
   $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type);

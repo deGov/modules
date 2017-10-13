@@ -60,6 +60,7 @@ function degov_media_image_update_dependencies() {
   $dependencies['degov_media_image'][8011] = array(
     'degov_content_types_shared_fields' => 8008,
   );
+  return $dependencies;
 }
 
 /**

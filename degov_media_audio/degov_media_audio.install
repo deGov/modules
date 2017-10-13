@@ -54,6 +54,7 @@ function degov_media_audio_update_dependencies() {
   $dependencies['degov_media_audio'][8007] = array(
     'degov_content_types_shared_fields' => 8008,
   );
+  return $dependencies;
 }
 
 /**

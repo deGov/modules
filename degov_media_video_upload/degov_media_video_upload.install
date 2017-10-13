@@ -42,6 +42,7 @@ function degov_media_video_upload_update_dependencies() {
   $dependencies['degov_media_video_upload'][8011] = array(
     'degov_content_types_shared_fields' => 8008,
   );
+  return $dependencies;
 }
 
 /**
