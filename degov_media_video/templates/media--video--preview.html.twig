@@ -28,6 +28,12 @@ set media_classes = [
       {{ content.thumbnail }}
     </div>
     </a>
+    <a href="{{ image_url }}">
+      <div class="media--preview__info">
+        <div class="media--preview__ico"><i class="fa fa-play" aria-hidden="true"></i></div>
+        <div class="media--preview__linktext">Zum Video</div>
+      </div>
+    </a>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     {% if content.field_image_date|field_value %}
