@@ -8,6 +8,11 @@
     "drupal/linkit": "^4.3"
   },
   "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
     "patches": {
       "drupal/entity_embed": {
         "2511404 - Image entities/fields embedded using Entity Embed cannot be linked in CKEditor":
