@@ -38,6 +38,17 @@ function degov_media_image_uninstall() {
  */
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_media_image_update_dependencies() {
+  // First install the fields storage for optional download.
+  $dependencies['degov_media_image'][8011] = array(
+    'degov_content_types_shared_fields' => 8008,
+  );
+  return $dependencies;
+}
+
+/**
  * Set the image style for embedded image view mode to large.
  */
 function degov_media_image_update_8010() {
@@ -50,17 +61,6 @@ function degov_media_image_update_8010() {
   $dependencies[] = 'image.style.large';
   $config = \Drupal::service('config.factory')->getEditable('core.entity_view_display.media.image.embedded');
   $config->set('dependencies.config', $dependencies)->save();
-}
-
-/**
- * Add update dependencies.
- */
-function degov_media_image_update_dependencies() {
-  // First install the fields storage for optional download.
-  $dependencies['degov_media_image'][8011] = array(
-    'degov_content_types_shared_fields' => 8008,
-  );
-  return $dependencies;
 }
 
 /**
@@ -81,3 +81,4 @@ function degov_media_image_update_8012() {
   $field_definition->setRequired(FALSE);
   $field_definition->save();
 }
+

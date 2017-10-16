@@ -37,6 +37,9 @@ function degov_media_video_upload_uninstall() {
  * The fresh install should have all the changes from 1.1 to 1.8.
  */
 
+/**
+ * Implements hook_update_dependencies().
+ */
 function degov_media_video_upload_update_dependencies() {
   // First install the fields storage for optional download.
   $dependencies['degov_media_video_upload'][8011] = array(

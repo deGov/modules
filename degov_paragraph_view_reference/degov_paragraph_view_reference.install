@@ -21,11 +21,14 @@ function degov_paragraph_view_reference_uninstall() {
  * The fresh install should have all the changes from 1.1 to 1.8.
  */
 
-function degov_paragraph_view_reference_dependencies() {
-  // The update should run only after degov_common 8010.
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_paragraph_view_reference_update_dependencies() {
+  // The update should run only after degov_common 8011.
   $dependencies['degov_paragraph_view_reference'][8002] = array(
     // Merge the plugins from degov_views_helper into degov_common.
-    'degov_common' => 8010,
+    'degov_common' => 8011,
   );
   return $dependencies;
 }
@@ -40,6 +43,14 @@ function degov_paragraph_view_reference_update_8002() {
   if ($view_display) {
     $view_display->removeComponent('field_view_reference_view');
     $view_display->save();
+    \Drupal::configFactory()
+        ->getEditable('core.entity_view_display.paragraph.view_reference.preview')
+        ->set('dependencies.module', ['degov_common'])
+        ->save();
+    \Drupal::configFactory()
+      ->getEditable('core.entity_view_display.paragraph.view_reference.default')
+      ->set('dependencies.module', ['degov_common', 'link'])
+      ->save();
   }
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_view_reference', '8002');
 }

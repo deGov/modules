@@ -9,6 +9,18 @@
  */
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_content_types_shared_fields_update_dependencies() {
+  // The update should run only after degov_common 8011.
+  $dependencies['degov_content_types_shared_fields'][8008] = array(
+    // Merge the plugins from degov_views_helper into degov_common.
+    'degov_common' => 8011,
+  );
+  return $dependencies;
+}
+
+/**
  * Add optional download for downloadable media types
  */
 function degov_content_types_shared_fields_update_8008() {
