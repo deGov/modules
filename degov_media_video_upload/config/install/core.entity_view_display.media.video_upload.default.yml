@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.video_upload.field_allow_download
     - field.field.media.video_upload.field_include_search
     - field.field.media.video_upload.field_media_in_library
     - field.field.media.video_upload.field_tags
@@ -89,6 +90,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_allow_download: true
   field_include_search: true
   field_media_in_library: true
   field_video_upload_mp4: true

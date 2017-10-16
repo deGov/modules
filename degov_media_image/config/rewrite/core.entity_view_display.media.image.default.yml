@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_allow_download
     - field.field.media.image.field_image_caption
     - field.field.media.image.field_copyright
     - field.field.media.image.field_image_date
@@ -87,6 +88,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_allow_download: true
   field_include_search: true
   field_media_in_library: true
   langcode: true

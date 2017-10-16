@@ -11,7 +11,7 @@ dependencies:
     module:
       - degov_paragraph_view_reference
   module:
-    - degov_views_helper
+    - degov_common
     - link
 id: paragraph.view_reference.default
 targetEntityType: paragraph

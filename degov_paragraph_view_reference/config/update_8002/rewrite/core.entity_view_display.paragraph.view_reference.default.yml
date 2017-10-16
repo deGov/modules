@@ -1,0 +1,3 @@
+content:
+  field_view_reference_view:
+    type: degov_viewsreference_formatter

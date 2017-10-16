@@ -5,3 +5,8 @@ type: module
 core: 8.x
 dependencies:
   - viewsreference
+
+# This is a deprecated module that has been merged into the degov_common module.
+# For upgrade path simplicity, we will remove this module on a later update.
+# This is the reason why we have chosen for a impossible installation of this module.
+php: 1

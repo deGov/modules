@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_allow_download
     - field.field.media.image.field_copyright
     - field.field.media.image.field_description
     - field.field.media.image.field_image_caption
@@ -89,6 +90,7 @@ third_party_settings:
     group_media:
       children:
         - image
+        - field_allow_download
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -105,6 +107,13 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_allow_download:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_copyright:
     type: entity_reference_autocomplete
     weight: 12

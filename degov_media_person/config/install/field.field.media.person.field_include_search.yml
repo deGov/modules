@@ -11,7 +11,7 @@ id: media.person.field_include_search
 field_name: field_include_search
 entity_type: media
 bundle: person
-label: 'In Suche'
+label: 'Mediathek'
 description: ''
 required: false
 translatable: true

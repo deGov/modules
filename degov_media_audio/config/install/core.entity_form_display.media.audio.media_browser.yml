@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - entity_browser.browser.media_browser
+    - field.field.media.audio.field_allow_download
     - field.field.media.audio.field_include_search
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
@@ -46,6 +47,7 @@ third_party_settings:
         - field_audio_preview
         - field_audio_mp3
         - field_audio_ogg
+        - field_allow_download
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -109,6 +111,13 @@ targetEntityType: media
 bundle: audio
 mode: media_browser
 content:
+  field_allow_download:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_include_search:
     weight: 10
     settings:

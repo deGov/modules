@@ -10,3 +10,10 @@ slick:
 doubletap:
   js:
     /libraries/DoubleTapToGo/jquery.doubletaptogo.min.js: {}
+viewsreference:
+  version: 1.0
+  js:
+    js/viewsreference.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
