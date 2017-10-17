@@ -25,3 +25,27 @@ function degov_node_event_views_pre_render(ViewExecutable $view) {
   }
 }
 
+/**
+ * Preprocess event nodes.
+ *
+ * @param $variables
+ */
+function degov_node_event_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->bundle() == 'event') {
+    $variables['start_date_timestamp'] = FALSE;
+    $variables['end_date_timestamp'] = FALSE;
+    $timezone = drupal_get_user_timezone();
+
+    if (!$node->get('field_event_date')->isEmpty()) {
+      $startDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date')->value, 'UTC');
+      $startDateObject->setTimeZone(timezone_open($timezone));
+      $variables['start_date_timestamp'] = $startDateObject->getTimestamp();
+    }
+    if (!$node->get('field_event_date_end')->isEmpty()) {
+      $endDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date_end')->value, 'UTC');
+      $endDateObject->setTimeZone(timezone_open($timezone));
+      $variables['end_date_timestamp'] = $endDateObject->getTimestamp();
+    }
+  }
+}

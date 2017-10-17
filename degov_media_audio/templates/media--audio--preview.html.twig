@@ -28,6 +28,12 @@ set media_classes = [
       {% else %}
         <a href="{{ audio_url }}"><div class="media--preview__dummy"></div></a>
       {% endif %}
+    <a href="{{ audio_url }}">
+      <div class="media--preview__info">
+        <div class="media--preview__ico"><i class="fa fa-volume-up" aria-hidden="true"></i></div>
+        <div class="media--preview__linktext">Zum Audio</div>
+      </div>
+    </a>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     <a href="{{ audio_url }}">

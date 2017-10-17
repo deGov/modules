@@ -12,6 +12,18 @@
     "php-coord/php-coord": "^2.1",
     "leaflet/leaflet": "1.1.0"
   },
+  "extra": {
+    "installer-paths": {
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    },
+    "patches": {
+      "drupal/geocoder": {
+        "12126400 - No configuration page": "https://www.drupal.org/files/issues/api_keys_form_fixed.patch"
+      }
+    }
+  },
   "repositories": {
     "leaflet": {
       "type": "package",

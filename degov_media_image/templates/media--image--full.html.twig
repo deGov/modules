@@ -40,7 +40,9 @@
         {{ content.field_image_date|field_value }}
       </div>
     {% endif %}
-    {{ content.download }}
+    {% if content.download %}
+      {{ content.download }}
+    {% endif %}
     {% if content.field_description %}
       <div class="image__description"{{ content.field_description|quickedit_attr }}>
         {{ content.field_description|field_value }}
