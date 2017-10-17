@@ -29,6 +29,12 @@ set media_classes = [
         <a href="{{ gallery_url }}"> {{ content.field_gallery_images|field_value|slice(1, 1) }} </a>
       </div>
     </div>
+    <a href="{{ image_url }}">
+      <div class="media--preview__info">
+        <div class="media--preview__ico"><i class="fa fa-camera" aria-hidden="true"></i></div>
+        <div class="media--preview__linktext">Zur Bildgalerie</div>
+      </div>
+    </a>
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     <a href="{{ gallery_url }}">
