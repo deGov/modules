@@ -50,3 +50,12 @@ function degov_common_update_8012() {
     $field_definition->save();
   }
 }
+
+/**
+ * Add sortable selection area for multivalued fields that are using the media browser.
+ */
+function degov_common_update_8013() {
+  // Clear all plugin caches.
+  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8013');
+}

@@ -210,9 +210,32 @@ function degov_common_modules_installed($modules) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ * Add styles for the ckeditor media browser.
+ *
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
 function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'lightning_media/browser.styling';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Add styles for the media browser.
+ *
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function degov_common_form_entity_browser_media_browser_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['#attached']['library'][] = 'degov_common/browser.styling';
+  if (!empty($form['selection_display'])) {
+    $form['#attributes']['class'][] = 'with-selection clearfix';
+    $form['widget_selector']['#prefix'] = '<div class="widget-area">';
+    $form['widget']['#suffix'] = '</div>';
+    $form['selection_display']['#prefix'] = '<div class="selection-area"><h3>' . t('Selected Items') . '</h3>';
+    $form['selection_display']['#suffix'] = '</div>';
+    $form['widget']['actions']['submit']['#value'] = t('Select');
+  }
 }
 
 /**

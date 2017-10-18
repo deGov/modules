@@ -1,0 +1,10 @@
+selection_display: degov_multi_step_display
+selection_display_configuration:
+  entity_type: media
+  display: rendered_entity
+  display_settings:
+    view_mode: preview
+  select_text: 'Use selected'
+  selection_hidden: 0
+  view: null
+  view_display: null
