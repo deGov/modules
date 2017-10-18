@@ -1,19 +1,9 @@
 <?php
-
 /**
- * Add the special char button to the editor toolbar.
+ * Next module update version is 8002.
+ * All update hooks from 1.1 to 1.8 were deleted.
+ * There is no upgrade path from 1.1 to 1.8, you need first to update to 1.2,
+ * 1.3, 1.4, 1.5, 1.6 and then to 1.7 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.8.
  */
-function degov_rich_text_format_settings_update_8001() {
-  $config = \Drupal::configFactory()
-    ->getEditable('editor.editor.rich_text');
-  $rows = $config->get('settings.toolbar.rows.0');
 
-  foreach ($rows as $key => $row) {
-    if ($row['name'] === 'Tools') {
-      $rows[$key]['items'][] = 'SpecialChar';
-      break;
-    }
-  }
-
-  $config->set('settings.toolbar.rows.0', $rows)->save();
-}
