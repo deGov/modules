@@ -25,3 +25,22 @@ function degov_media_gallery_uninstall() {
  * and every minor release as well until 1.9 respectively.
  * The fresh install should have all the changes from 1.1 to 1.9.
  */
+
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @return mixed
+ */
+function degov_media_gallery_update_dependencies() {
+  $dependencies['degov_media_gallery'][8006] = [
+    'degov_content_types_shared_fields' => 8009,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Install field_title for audio media.
+ */
+function degov_media_gallery_update_8006() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8006');
+}

@@ -36,3 +36,22 @@ function degov_media_video_upload_uninstall() {
  * and every minor release as well until 1.9 respectively.
  * The fresh install should have all the changes from 1.1 to 1.9.
  */
+
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @return mixed
+ */
+function degov_media_video_upload_update_dependencies() {
+  $dependencies['degov_media_video_upload'][8012] = [
+    'degov_content_types_shared_fields' => 8009,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Install field_title for audio media.
+ */
+function degov_media_video_upload_update_8012() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8012');
+}
