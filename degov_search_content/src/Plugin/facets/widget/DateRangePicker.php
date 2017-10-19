@@ -80,6 +80,7 @@ class DateRangePicker extends WidgetPluginBase {
     ];
     $form['date_filter_wrapper']['date_from'] = [
       '#type' => 'date',
+      '#name' => 'date_from',
       '#date_date_format' => 'Y-m-d',
       '#date_date_element' => 'text',
       '#date_time_element' => 'none',
@@ -98,6 +99,7 @@ class DateRangePicker extends WidgetPluginBase {
     ];
     $form['date_filter_wrapper']['date_to'] = [
       '#type' => 'date',
+      '#name' => 'date_to',
       '#date_date_format' => 'Y-m-d',
       '#date_date_element' => 'text',
       '#date_time_element' => 'none',
