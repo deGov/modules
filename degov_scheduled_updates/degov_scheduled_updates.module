@@ -14,10 +14,27 @@ function degov_scheduled_updates_field_widget_form_alter(&$element, \Drupal\Core
   if ($field_definition->getType() == 'entity_reference') {
     $item_definition = $field_definition->getItemDefinition();
     if ($item_definition->getSetting('target_type') == 'scheduled_update') {
+      if (!isset($element['#prefix'])) {
+        $element['#prefix'] = '';
+      }
+      if (!isset($element['#suffix'])) {
+        $element['#suffix'] = '';
+      }
+      $ajax_attributes = '';
+      $ajax_wrapper_attributes = '';
+      $user_input = $form_state->getUserInput();
+      if (!empty($user_input['_triggering_element_name'])) {
+        if (strpos($user_input['_triggering_element_name'], $element['#ief_id']) !== FALSE) {
+          $element['#attached']['library'][] = 'degov_scheduled_updates/ief';
+          $ajax_attributes = ' aria-expanded="true" aria-pressed="true"';
+          $ajax_wrapper_attributes = ' open=""';
+        }
+      }
       $element['#group'] = 'advanced';
-      $element['#prefix'] = '<details><summary>' . $element['#field_title'] . '</summary>';
+      $element['#prefix'] .= '<details' . $ajax_wrapper_attributes . '><summary id="scheduled-updates"' . $ajax_attributes . '>' . $element['#field_title'] . '</summary>';
       $element['#field_title'] = '';
-      $element['#suffix'] = '</details>';
+      $element['#title'] = '';
+      $element['#suffix'] = '</details>' . $element['#suffix'];
     }
   }
 }
