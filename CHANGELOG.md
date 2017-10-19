@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Multi valued entity reference fields that have entity browser widget now have ability to sort items
   with media_browser Entity Browser.
-
+- Scheduled updates field widget on nodes is now set as a complex inline entity form. 
 
 ## [1.8.0]
 
