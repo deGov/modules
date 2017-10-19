@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   with media_browser Entity Browser.
 - Scheduled updates field widget on nodes is now set to be a complex inline entity form. 
 
+### Fixed
+- Default permissions have been added for the degov_sitemap_settings module.
+
 ## [1.8.0]
 ### Changed
 - degov_views_helper functionality was transfered to degov_common module.
