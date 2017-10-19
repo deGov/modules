@@ -71,6 +71,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   thumbnail:
     type: image
     weight: 1

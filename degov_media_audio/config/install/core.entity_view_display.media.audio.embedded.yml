@@ -50,6 +50,14 @@ content:
     settings:
       route_name: ''
     third_party_settings: {  }
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
 hidden:
   created: true
   field_audio_mp3: true
