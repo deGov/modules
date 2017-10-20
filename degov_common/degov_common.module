@@ -264,6 +264,22 @@ function degov_common_entity_type_alter(array &$entity_types) {
   if (get_parent_class($replacement_class) == $entity_type->getFormClass('edit')) {
     $entity_type->setFormClass('edit', $replacement_class);
   }
+  $entity_type->setLabelCallback('degov_media_label_callback');
+}
+
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ * @param string $entity_type
+ *
+ * @return mixed
+ */
+function degov_media_label_callback($entity) {
+  if ($entity instanceof \Drupal\media_entity\Entity\Media) {
+    if ($entity->hasField('field_title') && !$entity->get('field_title')->isEmpty()) {
+      return $entity->get('field_title')->value;
+    }
+    return $entity->name->value;
+  }
 }
 
 /**

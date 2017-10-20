@@ -3,12 +3,12 @@
 namespace Drupal\degov_common\Controller;
 
 
-use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\Controller\EntityController;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class CommonController extends ControllerBase {
+class CommonController extends EntityController {
 
   /**
    * Returns an array of allowed view modes by given entity type and id.
@@ -24,12 +24,12 @@ class CommonController extends ControllerBase {
   public function ajaxEntityLoad($entity_type, $entity_id) {
     $allowed_view_modes = [];
     // Retrieve the entity storage.
-    $entity_storage = $this->entityTypeManager()->getStorage($entity_type);
+    $entity_storage = $this->entityTypeManager->getStorage($entity_type);
     if (!empty($entity_storage)) {
       // Load the entity to get its bundle, so we can then load the view modes for this bundle.
       $entity = $entity_storage->load($entity_id);
       // Check the entity for enabled view modes.
-      $query = $this->entityTypeManager()->getStorage('entity_view_display')->getQuery();
+      $query = $this->entityTypeManager->getStorage('entity_view_display')->getQuery();
       $view_modes = $query->condition('bundle', $entity->bundle())
         ->execute();
       foreach ($view_modes as $view_mode) {

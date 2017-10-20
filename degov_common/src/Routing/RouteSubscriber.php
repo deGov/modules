@@ -19,6 +19,7 @@ class RouteSubscriber extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
     if ($route = $collection->get('entity.media.canonical')) {
+      $route->setDefault('_controller', '\Drupal\degov_common\Controller\MediaViewController::view');
       $route->setDefault('_title_callback', '\Drupal\degov_common\Controller\CommonController::mediaTitle');
     }
   }
