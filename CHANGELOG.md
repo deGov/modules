@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - Default permissions have been added for the degov_sitemap_settings module.
+- Right sidebar paragraph block is now shown in the node preview mode.
 
 ## [1.8.0]
 ### Changed

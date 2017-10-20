@@ -79,6 +79,9 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
     $build = [];
     // Try to get the node from the route.
     $node = $this->routeMatcher->getParameter('node');
+    if ($this->routeMatcher->getRouteName() == 'entity.node.preview') {
+      $node = $this->routeMatcher->getParameter('node_preview');
+    }
     if ($node && $node instanceof NodeInterface) {
       if ($node->hasField('field_sidebar_right_paragraphs') && !$node->get('field_sidebar_right_paragraphs')->isEmpty()) {
         $field_rendered_array = $node->get('field_sidebar_right_paragraphs')
