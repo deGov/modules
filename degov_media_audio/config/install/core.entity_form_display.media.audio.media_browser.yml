@@ -15,6 +15,7 @@ dependencies:
     - field.field.media.audio.field_audio_preview
     - field.field.media.audio.field_media_duration
     - field.field.media.audio.field_media_transcription
+    - field.field.media.audio.field_title
     - media_entity.bundle.audio
   enforced:
     module:

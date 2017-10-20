@@ -9,6 +9,7 @@ dependencies:
     - field.field.media.gallery.field_include_search
     - field.field.media.gallery.field_media_in_library
     - field.field.media.gallery.field_tags
+    - field.field.media.gallery.field_title
     - image.style.thumbnail
     - media_entity.bundle.gallery
   enforced:

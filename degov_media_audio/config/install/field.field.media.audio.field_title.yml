@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.media.field_title
     - media_entity.bundle.audio
-  module:
-    - geocoder_field
   enforced:
     module:
       - degov_media_audio

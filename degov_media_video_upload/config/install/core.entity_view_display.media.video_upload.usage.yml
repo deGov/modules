@@ -14,6 +14,7 @@ dependencies:
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - field.field.media.video_upload.field_title
     - image.style.thumbnail
     - media_entity.bundle.video_upload
   enforced:

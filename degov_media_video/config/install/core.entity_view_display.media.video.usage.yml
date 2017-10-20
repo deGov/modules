@@ -8,6 +8,7 @@ dependencies:
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_copyright
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_title
     - image.style.thumbnail
     - media_entity.bundle.video
   module:

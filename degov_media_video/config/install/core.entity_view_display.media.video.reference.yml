@@ -11,6 +11,7 @@ dependencies:
     - field.field.media.video.field_media_transcription
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
+    - field.field.media.video.field_title
     - field.field.media.video.field_video_caption
     - media_entity.bundle.video
   enforced:

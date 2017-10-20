@@ -10,6 +10,7 @@ dependencies:
     - field.field.media.audio.field_audio_mp3
     - field.field.media.audio.field_audio_ogg
     - field.field.media.audio.field_audio_preview
+    - field.field.media.audio.field_title
     - image.style.large
     - media_entity.bundle.audio
   enforced:
