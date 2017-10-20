@@ -27,7 +27,7 @@ set media_classes = [
       {{ content.field_gallery_images|field_value|slice(1, 1) }}
     </div>
   </div>
-  {% if content.field_gallery_title|field_value %}
+  {% if content.field_title|field_value %}
   <div class="media--search__info">
     <div class="media--search__date gallery__date">
       {% if content.field_gallery_date|field_value %}
@@ -36,7 +36,7 @@ set media_classes = [
         {{ created|date("d.m.Y") }}
       {% endif %}
     </div>
-    <span class="gallery__title">{{ content.field_gallery_title|field_value }}</span>
+    <span class="gallery__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
   </div>
   {% endif %}
   {% if content.field_tags|field_value %}

@@ -44,14 +44,6 @@ content:
     settings:
       route_name: ''
     third_party_settings: {  }
-  field_video_upload_caption:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_video_upload_preview:
     type: media_thumbnail
     weight: 3
@@ -76,6 +68,7 @@ hidden:
   field_description: true
   field_include_search: true
   field_media_in_library: true
+  field_video_upload_caption: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
   field_video_upload_webm: true

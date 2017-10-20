@@ -26,9 +26,9 @@ set media_classes = [
       <a href="{{ gallery_url }}"> {{ content.field_gallery_images|field_value|slice(1, 1) }} </a>
     </div>
   </div>
-  {% if content.field_gallery_title|field_value %}
+  {% if content.field_title|field_value %}
   <div class="media--embedded__info">
-    <span class="gallery__title"{{ content.field_gallery_title|quickedit_attr }}>{{ content.field_gallery_title|field_value }}</span>
+    <span class="gallery__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
   </div>
   {% endif %}
   {% if content.field_description|field_value %}

@@ -54,14 +54,6 @@ content:
     settings:
       route_name: view.search_media.page
     third_party_settings: {  }
-  field_video_caption:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   thumbnail:
     type: image
     weight: 5
@@ -76,6 +68,7 @@ hidden:
   field_include_search: true
   field_media_in_library: true
   field_media_video_embed_field: true
+  field_video_caption: true
   langcode: true
   name: true
   uid: true

@@ -41,14 +41,6 @@ content:
     settings:
       route_name: view.search_media.page
     third_party_settings: {  }
-  field_video_upload_caption:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_copyright:
     type: entity_reference_label
     weight: 2
@@ -70,6 +62,7 @@ hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
+  field_video_upload_caption: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
   field_video_upload_subtitle: true

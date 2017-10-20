@@ -25,8 +25,8 @@ set media_classes = [
   </div>
   {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
   <div class="media--embedded__info">
-    {% if content.field_video_caption|field_value %}
-      <div class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</div>
+    {% if content.field_title|field_value %}
+      <div class="video__caption"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</div>
     {% endif %}
     {% if content.field_copyright|field_value %}
       <span class="media--embedded__copyright">

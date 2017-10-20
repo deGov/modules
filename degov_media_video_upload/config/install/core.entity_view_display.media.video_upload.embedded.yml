@@ -35,14 +35,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_video_upload_caption:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_video_upload_preview:
     type: media_thumbnail
     weight: 2
@@ -68,6 +60,7 @@ hidden:
   field_include_search: true
   field_media_in_library: true
   field_tags: true
+  field_video_upload_caption: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
   field_video_upload_subtitle: true

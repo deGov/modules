@@ -42,8 +42,8 @@ set media_classes = [
     {% else %}
       <div class="audio__date">{{ created|date("d.m.Y") }}</div>
     {% endif %}
-    {% set title = content.field_audio_caption|render|striptags %}
-    <h2 class=""{{ content.field_audio_caption|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
+    {% set title = content.field_title|render|striptags %}
+    <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
     {% if content.field_description|field_value %}
       {% set text = content.field_description|render|striptags %}
       <div class="media--preview__description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>

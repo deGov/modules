@@ -35,8 +35,8 @@ set media_classes = [
           {{ created|date("d.m.Y") }}
         {% endif %}
       </div>
-      {% if content.field_audio_caption|field_value %}
-        <span class="media--search__caption">{{ content.field_audio_caption|field_value }}</span>
+      {% if content.field_title|field_value %}
+        <span class="media--search__caption">{{ content.field_title|field_value }}</span>
       {% endif %}
     </div>
   {% endif %}

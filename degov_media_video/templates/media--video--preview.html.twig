@@ -41,7 +41,7 @@ set media_classes = [
     {% else %}
       <div class="video__date">{{ created|date("d.m.Y") }}</div>
     {% endif %}
-    <h2 class=""{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</h2>
+    <h2 class=""{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
     {% if content.field_description|field_value %}
       {% set text = content.field_description|render|striptags %}
       <div class="media--preview__description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>

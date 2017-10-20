@@ -45,8 +45,8 @@ set media_classes = [
     </div>
     {% if content.field_audio_caption|field_value or content.field_copyright|field_value %}
         <div class="audio__info">
-            {% if content.field_audio_caption|field_value %}
-                <span class="audio__caption"{{ content.field_audio_caption|quickedit_attr }}>{{ content.field_audio_caption|field_value }}</span>
+            {% if content.field_title|field_value %}
+                <span class="audio__caption"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
             {% endif %}
             {% if content.field_copyright|field_value %}
                 <span class="audio__copyright">

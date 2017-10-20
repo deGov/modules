@@ -7,3 +7,5 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+hidden:
+  field_video_upload_caption: true
