@@ -7,6 +7,7 @@ dependencies:
   - media_entity
   - node
   - pathauto
+  - redirect
   - taxonomy
   - user
   - config_rewrite
