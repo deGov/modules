@@ -1,6 +1,6 @@
 {
     "name": "degov_breadcrumb",
-    "description": "Extends the easybreadbrumb module",
+    "description": "Extends the easybreadcrumb module",
     "type": "drupal-module",
     "license": "GPL-2.0+",
     "homepage": "https://www.degov.org",
