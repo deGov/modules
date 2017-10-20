@@ -1,9 +1,7 @@
 <?php
 
 /**
- * Migrate field_video_caption to field_title.
- *
- * @param $sandbox
+ * Migrate field_video_upload_caption to field_title.
  */
 function degov_media_video_upload_post_update_migrate_field_title(&$sandbox) {
   // Initialize some variables during the first pass through.
@@ -23,16 +21,14 @@ function degov_media_video_upload_post_update_migrate_field_title(&$sandbox) {
     ->condition('bundle', 'video_upload')
     ->range($sandbox['current'], $sandbox['current'] + $media_per_batch)
     ->execute();
-
-  foreach($mids as $mid) {
-    $media = \Drupal\media_entity\Entity\Media::load($mid);
-    $caption = $media->get('field_video_upload_caption');
+  $medias = \Drupal\media_entity\Entity\Media::loadMultiple($mids);
+  foreach($medias as $media) {
+    $caption = $media->get('field_video_upload_caption')->getValue();
     $media->set('field_title', $caption);
     $media->save();
     $sandbox['current']++;
   }
 
-  drupal_set_message($sandbox['current'] . ' media processed.');
-
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+  return t($sandbox['current'] . ' media processed.');
 }

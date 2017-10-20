@@ -21,7 +21,7 @@ function degov_media_video_update_dependencies() {
 }
 
 /**
- * Install field_title for audio media.
+ * Install field_title for video media.
  */
 function degov_media_video_update_8011() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8011');

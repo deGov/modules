@@ -50,7 +50,7 @@ function degov_media_video_upload_update_dependencies() {
 }
 
 /**
- * Install field_title for audio media.
+ * Install field_title for video_upload media.
  */
 function degov_media_video_upload_update_8012() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video_upload', '8012');

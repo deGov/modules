@@ -39,7 +39,7 @@ function degov_media_gallery_update_dependencies() {
 }
 
 /**
- * Install field_title for audio media.
+ * Install field_title for gallery media.
  */
 function degov_media_gallery_update_8006() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_gallery', '8006');

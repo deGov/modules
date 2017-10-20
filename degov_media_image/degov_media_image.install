@@ -50,7 +50,7 @@ function degov_media_image_update_dependencies() {
 }
 
 /**
- * Install field_title for audio media.
+ * Install field_title for image media.
  */
 function degov_media_image_update_8013() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8013');
