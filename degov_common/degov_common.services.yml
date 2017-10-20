@@ -26,3 +26,7 @@ services:
   degov_common.video_utils:
     class: '\Drupal\degov_common\VideoUtils'
     arguments: ['@http_client', '@video_embed_field.provider_manager', '@file_system', '@logger.factory']
+  degov_common.route_subscriber:
+    class: '\Drupal\degov_common\Routing\RouteSubscriber'
+    tags:
+      - { name: event_subscriber }

@@ -4,6 +4,8 @@ namespace Drupal\degov_common\Controller;
 
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CommonController extends ControllerBase {
@@ -39,5 +41,25 @@ class CommonController extends ControllerBase {
     }
     // Return response as JSON.
     return new JsonResponse($allowed_view_modes);
+  }
+
+  /**
+   * Provides a generic title callback for a single entity.
+   *
+   * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
+   *   The route match.
+   * @param \Drupal\Core\Entity\EntityInterface $_entity
+   *   (optional) An entity, passed in directly from the request attributes.
+   *
+   * @return string|null
+   *   The title for the entity view page, if an entity was found.
+   */
+  public function mediaTitle(RouteMatchInterface $route_match, EntityInterface $_entity = NULL) {
+    if ($entity = $this->doGetEntity($route_match, $_entity)) {
+      if ($entity->hasField('field_title') && !$entity->get('field_title')->isEmpty()) {
+        return $entity->get('field_title')->value;
+      }
+      return $entity->label();
+    }
   }
 }
