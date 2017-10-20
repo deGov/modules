@@ -26,7 +26,7 @@ set media_classes = [
     {% else %}
         <a href="{{ video_url }}"><div class="media--search__dummy"></div></a>
     {% endif %}
-  {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
+  {% if content.field_title|field_value or content.field_copyright|field_value %}
     <div class="media--search__info">
       <div class="media--search__date video_upload__date">
         {% if content.field_video_upload_date|field_value %}
@@ -35,8 +35,8 @@ set media_classes = [
           {{ created|date("d.m.Y") }}
         {% endif %}
       </div>
-      {% if content.field_video_upload_caption|field_value %}
-        <span class="media--search__caption">{{ content.field_video_upload_caption|field_value }}</span>
+      {% if content.field_title|field_value %}
+        <span class="media--search__caption">{{ content.field_title|field_value }}</span>
       {% endif %}
     </div>
   {% endif %}

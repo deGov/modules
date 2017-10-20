@@ -25,8 +25,8 @@ targetEntityType: media
 bundle: image
 mode: usage
 content:
-  field_image_caption:
-    weight: 5
+  field_title:
+    weight: 0
     label: above
     settings:
       link_to_entity: false
@@ -90,6 +90,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_image_caption: true
   field_include_search: true
   field_media_in_library: true
   langcode: true

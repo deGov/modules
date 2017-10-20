@@ -7,3 +7,22 @@
  * and every minor release as well until 1.9 respectively.
  * The fresh install should have all the changes from 1.1 to 1.9.
  */
+
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @return mixed
+ */
+function degov_media_video_update_dependencies() {
+  $dependencies['degov_media_video'][8011] = [
+    'degov_content_types_shared_fields' => 8009,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Install field_title for video media.
+ */
+function degov_media_video_update_8011() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_video', '8011');
+}

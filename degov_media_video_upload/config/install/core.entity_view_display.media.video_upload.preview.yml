@@ -13,6 +13,9 @@ dependencies:
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - field.field.media.video_upload.field_media_duration
+    - field.field.media.video_upload.field_media_transcription
+    - field.field.media.video_upload.field_title
     - image.style.large
     - media_entity.bundle.video_upload
   enforced:
@@ -25,6 +28,14 @@ targetEntityType: media
 bundle: video_upload
 mode: preview
 content:
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_tags:
     type: taxonomy_term_search
     weight: 3
@@ -32,14 +43,6 @@ content:
     label: hidden
     settings:
       route_name: view.search_media.page
-    third_party_settings: {  }
-  field_video_upload_caption:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
     third_party_settings: {  }
   field_copyright:
     type: entity_reference_label
@@ -62,6 +65,7 @@ hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
+  field_video_upload_caption: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
   field_video_upload_subtitle: true

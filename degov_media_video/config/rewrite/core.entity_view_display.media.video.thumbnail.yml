@@ -16,6 +16,14 @@ targetEntityType: media
 bundle: video
 mode: thumbnail
 content:
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   thumbnail:
     type: image
     weight: 0
