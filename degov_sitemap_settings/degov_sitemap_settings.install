@@ -7,3 +7,10 @@
  * and every minor release as well until 1.9 respectively.
  * The fresh install should have all the changes from 1.1 to 1.9.
  */
+
+/**
+ * Add default user permissions for the sitemap.
+ */
+function degov_sitemap_settings_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_sitemap_settings', '8002');
+}
