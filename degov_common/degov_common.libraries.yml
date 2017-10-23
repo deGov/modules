@@ -17,3 +17,8 @@ viewsreference:
   dependencies:
     - core/jquery
     - core/drupal
+browser.styling:
+  version: 1.0
+  css:
+    theme:
+      css/browser.styling.css: {}

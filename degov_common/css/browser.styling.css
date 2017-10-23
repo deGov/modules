@@ -1,0 +1,56 @@
+.with-selection .widget-area {
+  width: 75%;
+  float: left;
+}
+.with-selection .selection-area {
+  width: 25%;
+  float: left;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.with-selection .selection-area > h3 {
+  padding-bottom: 15px;
+  border-bottom: 3px solid #ebebeb;
+}
+.with-selection .selection-area .entities-list .item-container {
+  box-sizing: border-box;
+  padding: 15px 0;
+  border: 3px solid #ebebeb;
+  margin: 5px 0;
+  display: block;
+}
+.with-selection .selection-area .entities-list .item-container:after,
+.with-selection .selection-area .entities-list .item-container .media:after{
+  clear: both;
+  content: "";
+  font-size: 0;
+  display: table;
+}
+.with-selection .selection-area .entities-list .item-container .media {
+  width: 75%;
+  float: left;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.with-selection .selection-area .entities-list .item-container .media:before {
+  content: " ";
+  background: url('/core/themes/stable/images/core/icons/787878/move.svg') no-repeat 6px 7px;
+  margin: 0 0 0 -2.5em;
+  padding: 1em 1.5em;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+}
+.with-selection .selection-area .entities-list .item-container .button {
+  width: 25%;
+  float: left;
+  box-sizing: border-box;
+  padding: 3px 5px;
+}
+
+.with-selection .selection-area .entities-list .item-container .media img {
+  max-width: 100px;
+  height: auto;
+  float: left;
+  margin-right: 15px;
+}

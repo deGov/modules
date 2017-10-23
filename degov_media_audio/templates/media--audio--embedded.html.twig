@@ -24,8 +24,8 @@ set media_classes = [
   {% if content.field_audio_preview|field_value %}
     <a href="{{ audio_url }}"><div class="audio__image teaser-image">{{ content.field_audio_preview|field_value }}</div></a>
   {% endif %}
-  {% if content.field_audio_caption|field_value %}
-    <span class="media--preview__caption">{{ content.field_audio_caption|field_value }}</span>
+  {% if content.field_title|field_value %}
+    <span class="media--preview__caption">{{ content.field_title|field_value }}</span>
   {% endif %}
   {% if content.field_description|field_value %}
     <div class="media--preview__description">{{ content.field_description|field_value }}</div>

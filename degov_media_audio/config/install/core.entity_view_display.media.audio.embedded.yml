@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.audio.field_include_search
     - field.field.media.audio.field_media_in_library
     - field.field.media.audio.field_tags
+    - field.field.media.audio.field_title
     - image.style.thumbnail
     - media_entity.bundle.audio
   enforced:
@@ -50,6 +51,14 @@ content:
     settings:
       route_name: ''
     third_party_settings: {  }
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
 hidden:
   created: true
   field_audio_mp3: true

@@ -45,17 +45,17 @@ set media_classes = [
             {% endfor %}
         </video>
         <div class="video-upload__type-text">{{ 'Video'|t }}</div>
-        {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
+        {% if content.field_title|field_value or content.field_copyright|field_value %}
             <div class="video-upload__info">
                 <div class="video__info__wrap">
-                    {% if content.field_video_upload_caption|field_value %}
-                        <span class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
+                    {% if content.field_title|field_value %}
+                        <span class="video-upload__caption"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
                     {% endif %}
                     {% if content.field_copyright|field_value %}
                         <span class="video-upload__copyright">
-            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+                        <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
                             {{ content.field_copyright|field_value }}
-          </span>
+                        </span>
                     {% endif %}
                 </div>
             </div>

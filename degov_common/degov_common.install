@@ -9,44 +9,19 @@ function degov_common_uninstall() {
 }
 
 /**
- * Next module update version is 8011.
- * All update hooks from 1.1 to 1.8 were deleted.
- * There is no upgrade path from 1.1 to 1.8, you need first to update to 1.2,
- * 1.3, 1.4, 1.5, 1.6 and then to 1.7 respectively.
- * The fresh install should have all the changes from 1.1 to 1.8.
+ * Next module update version is 8013.
+ * All update hooks from 1.1 to 1.9 were deleted.
+ * There is no upgrade path from 1.1 to 1.9, you need first to update to 1.2
+ * and every minor release as well until 1.9 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.9.
  */
 
+
 /**
- * Clear plugin cache definitions so the transfered plugins become visible.
+ * Add sortable selection area for multivalued fields that are using the media browser.
  */
-function degov_common_update_8011() {
-  // Rename the views helpers settings to reflect the move of settings to degov_common.
-  \Drupal::configFactory()->rename('degov_views_helper.settings', 'degov_common.views_helper_settings');
-  // Uninstall the degov_views_helper module.
-  if (\Drupal::moduleHandler()->moduleExists('degov_views_helper')) {
-    \Drupal::service('module_installer')->uninstall(['degov_views_helper']);
-  }
+function degov_common_update_8013() {
   // Clear all plugin caches.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
-  \Drupal::database()->delete('key_value')
-      ->condition('collection', 'system.schema')
-      ->condition('name', 'degov_views_helper')
-      ->execute();
-}
-
-/**
- * Resave all field_include_search instances to change the label.
- */
-function degov_common_update_8012() {
-  $entity_type = 'media';
-  $field_name = 'field_include_search';
-  $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type);
-  foreach ($bundles as $bundle => $bundle_definition) {
-    $bundle_fields = \Drupal::service('entity_field.manager')
-      ->getFieldDefinitions($entity_type, $bundle);
-    /** @var \Drupal\Core\Field\FieldConfigInterface $field_definition */
-    $field_definition = $bundle_fields[$field_name];
-    $field_definition->setLabel('Mediathek');
-    $field_definition->save();
-  }
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8013');
 }

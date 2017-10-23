@@ -8,6 +8,7 @@ dependencies:
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_copyright
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_title
     - image.style.thumbnail
     - media_entity.bundle.video
   module:
@@ -20,6 +21,14 @@ targetEntityType: media
 bundle: video
 mode: usage
 content:
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_video_caption:
     weight: 1
     label: hidden

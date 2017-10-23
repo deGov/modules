@@ -30,55 +30,28 @@ function degov_media_image_uninstall() {
 }
 
 /**
- * Next module update version is 8010.
- * All update hooks from 1.1 to 1.8 were deleted.
- * There is no upgrade path from 1.1 to 1.8, you need first to update to 1.2,
- * 1.3, 1.4, 1.5, 1.6 and then to 1.7 respectively.
- * The fresh install should have all the changes from 1.1 to 1.8.
+ * Next module update version is 8013.
+ * All update hooks from 1.1 to 1.9 were deleted.
+ * There is no upgrade path from 1.1 to 1.9, you need first to update to 1.2
+ * and every minor release as well until 1.9 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.9.
  */
 
 /**
  * Implements hook_update_dependencies().
+ *
+ * @return mixed
  */
 function degov_media_image_update_dependencies() {
-  // First install the fields storage for optional download.
-  $dependencies['degov_media_image'][8011] = array(
-    'degov_content_types_shared_fields' => 8008,
-  );
+  $dependencies['degov_media_image'][8013] = [
+    'degov_content_types_shared_fields' => 8009,
+  ];
   return $dependencies;
 }
 
 /**
- * Set the image style for embedded image view mode to large.
+ * Install field_title for image media.
  */
-function degov_media_image_update_8010() {
-  // Set large image style for the embedded image.
-  $config = \Drupal::service('config.factory')->getEditable('core.entity_view_display.media.image.embedded');
-  $config->set('content.image.settings.image_style', 'large')->save();
-  // Add the large dependency and style to embedded image view mode.
-  $config = \Drupal::config('core.entity_view_display.media.image.embedded');
-  $dependencies = $config->get('dependencies.config');
-  $dependencies[] = 'image.style.large';
-  $config = \Drupal::service('config.factory')->getEditable('core.entity_view_display.media.image.embedded');
-  $config->set('dependencies.config', $dependencies)->save();
+function degov_media_image_update_8013() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8013');
 }
-
-/**
- * Add optional download for image.
- */
-function degov_media_image_update_8011() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8011');
-}
-
-/**
- * Make field_image_caption for media (image) optional.
- */
-function degov_media_image_update_8012() {
-  $image_fields = \Drupal::service('entity_field.manager')
-          ->getFieldDefinitions('media', 'image');
-  /** @var \Drupal\Core\Field\FieldConfigInterface $field_definition */
-  $field_definition = $image_fields['field_image_caption'];
-  $field_definition->setRequired(FALSE);
-  $field_definition->save();
-}
-

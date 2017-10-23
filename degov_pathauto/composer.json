@@ -1,0 +1,10 @@
+{
+  "name": "degov_pathauto",
+  "type": "drupal-module",
+  "description": "Adds path related configuration.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.degov.org",
+  "require": {
+    "drupal/redirect": "^1.0.0"
+  }
+}

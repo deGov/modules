@@ -12,3 +12,10 @@ function degov_paragraph_downloads_uninstall() {
     'entity_bundles' => ['downloads'],
   ]);
 }
+
+/**
+ * Change downloads selection behavior.
+ */
+function degov_paragraph_downloads_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_downloads', '8001');
+}
