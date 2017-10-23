@@ -9,19 +9,9 @@ function degov_common_uninstall() {
 }
 
 /**
- * Next module update version is 8013.
- * All update hooks from 1.1 to 1.9 were deleted.
- * There is no upgrade path from 1.1 to 1.9, you need first to update to 1.2
- * and every minor release as well until 1.9 respectively.
- * The fresh install should have all the changes from 1.1 to 1.9.
+ * Next module update version is 8014.
+ * All update hooks from 1.1 to 1.10 were deleted.
+ * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
+ * and every minor release as well until 1.10 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.10.
  */
-
-
-/**
- * Add sortable selection area for multivalued fields that are using the media browser.
- */
-function degov_common_update_8013() {
-  // Clear all plugin caches.
-  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8013');
-}
