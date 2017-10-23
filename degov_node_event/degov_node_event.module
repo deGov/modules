@@ -2,27 +2,28 @@
 
 use Drupal\degov_common\Common;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess().
  */
 function degov_node_event_preprocess(&$variables, $hook, &$info) {
-  // Add template suggestions and libraries implemented in this module.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_node_event',
-    'entity_type' => 'node',
-    'entity_bundles' => ['event'],
-    'entity_view_modes' => ['teaser', 'latest', 'slideshow']
-  ]);
+    // Add template suggestions and libraries implemented in this module.
+    Common::addThemeSuggestions($variables, $hook, $info, [
+        'module_name' => 'degov_node_event',
+        'entity_type' => 'node',
+        'entity_bundles' => ['event'],
+        'entity_view_modes' => ['teaser', 'latest', 'slideshow']
+    ]);
 }
 
 /**
  * Implements hook_views_pre_render().
  */
 function degov_node_event_views_pre_render(ViewExecutable $view) {
-  if ($view->storage->id() == "events" && $view->current_display == 'calendar_widget') {
-    $view->element['#attached']['library'][] = 'degov_node_event/degov_events';
-  }
+    if ($view->storage->id() == "events" && $view->current_display == 'calendar_widget') {
+        $view->element['#attached']['library'][] = 'degov_node_event/degov_events';
+    }
 }
 
 /**
@@ -31,21 +32,50 @@ function degov_node_event_views_pre_render(ViewExecutable $view) {
  * @param $variables
  */
 function degov_node_event_preprocess_node(&$variables) {
-  $node = $variables['node'];
-  if ($node->bundle() == 'event') {
-    $variables['start_date_timestamp'] = FALSE;
-    $variables['end_date_timestamp'] = FALSE;
-    $timezone = drupal_get_user_timezone();
+    $node = $variables['node'];
+    if ($node->bundle() == 'event') {
+        $variables['start_date_timestamp'] = FALSE;
+        $variables['end_date_timestamp'] = FALSE;
+        $timezone = drupal_get_user_timezone();
 
-    if (!$node->get('field_event_date')->isEmpty()) {
-      $startDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date')->value, 'UTC');
-      $startDateObject->setTimeZone(timezone_open($timezone));
-      $variables['start_date_timestamp'] = $startDateObject->getTimestamp();
+        if (!$node->get('field_event_date')->isEmpty()) {
+            $startDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date')->value, 'UTC');
+            $startDateObject->setTimeZone(timezone_open($timezone));
+            $variables['start_date_timestamp'] = $startDateObject->getTimestamp();
+        }
+        if (!$node->get('field_event_date_end')->isEmpty()) {
+            $endDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date_end')->value, 'UTC');
+            $endDateObject->setTimeZone(timezone_open($timezone));
+            $variables['end_date_timestamp'] = $endDateObject->getTimestamp();
+        }
     }
-    if (!$node->get('field_event_date_end')->isEmpty()) {
-      $endDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date_end')->value, 'UTC');
-      $endDateObject->setTimeZone(timezone_open($timezone));
-      $variables['end_date_timestamp'] = $endDateObject->getTimestamp();
+}
+
+/**
+ * Event calender date form alter
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @param $form_id
+ */
+function degov_node_event_form_alter(&$form, FormStateInterface $form_state, $form_id){
+    if($form['#id'] == "views-exposed-form-events-events-page-list"){
+        // Custom validate function.
+        $form['#validate'][] = 'degov_node_event_date_form_validate';
     }
-  }
+}
+
+/**
+ * Event calender date form custom validation
+ * Add 24 hours in date_to filed to get current date events
+ * @param $form
+ * @param FormStateInterface $form_state
+ */
+function degov_node_event_date_form_validate($form, FormStateInterface $form_state){
+    if($form['#id'] == "views-exposed-form-events-events-page-list") {
+        if($form_state->getValue('to')){
+            $date_to = $form_state->getValue('to');
+            $date_to = $date_to . ' ' . '24:59:00';
+            $form_state->setValue('to', $date_to);
+        }
+    }
 }
