@@ -4,7 +4,6 @@
  * Implement hook_uninstall().
  */
 function degov_common_uninstall() {
-  \Drupal::configFactory()->getEditable('degov_common.views_helper_settings')->delete();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->delete();
 }
 

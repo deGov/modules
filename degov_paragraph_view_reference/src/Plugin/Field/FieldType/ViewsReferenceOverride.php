@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\degov_common\Plugin\Field\FieldType;
+namespace Drupal\degov_paragraph_view_reference\Plugin\Field\FieldType;
 
 use Drupal\viewsreference\Plugin\Field\FieldType\ViewsReferenceItem;
 
 /**
  * Class ViewsReferenceOverride.
  *
- * @package Drupal\degov_common\Plugin\Field\FieldType
+ * @package Drupal\degov_paragraph_view_reference\Plugin\Field\FieldType
  */
 class ViewsReferenceOverride extends ViewsReferenceItem {
 
