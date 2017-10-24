@@ -59,7 +59,7 @@ function degov_views_argument_getter(array &$form, \Drupal\Core\Form\FormStateIn
   $trigger = $form_state->getTriggeringElement();
   $parents = $trigger['#array_parents'];
   $triggered_element = array_pop($parents);
-  $parents[] = 'view_settings';
+  $parents[] = 'options';
   return \Drupal\Component\Utility\NestedArray::getValue($form, $parents);
 }
 
@@ -119,10 +119,10 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
         }
       }
     }
-    $element['title']['#access'] = FALSE;
+    $element['options']['title']['#access'] = FALSE;
     // Create the selector for the arguments fields for the ajax response.
     $arguments_wrapper_selector = implode('_', $element['target_id']['#field_parents']) . '_arguments';
-    $arguments_weight = !empty($element['argument']['#weight']) ? $element['argument']['#weight'] : 10;
+    $arguments_weight = !empty($element['options']['argument']['#weight']) ? $element['options']['argument']['#weight'] : 10;
     // Add empty option and ajax callback for the display_id field.
     $element['display_id']['#options'] = ['_none' => t('-- Choose view display --')] + $element['display_id']['#options'];
     $element['display_id']['#ajax'] = [
@@ -138,19 +138,8 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     $element['target_id']['#attributes']['class'][] = 'viewreference_target_id';
     $element['display_id']['#attributes']['class'][] = 'viewreference_display_id';
     $element['#attached']['library'][] = 'degov_paragraph_view_reference/viewsreference';
-    // Fix state for argument.
-    // Get correct field name including parents.
-    $view_selector = _views_selector_get_state_name('target_id', $element, $field_definition);
-    $element['display_id']['#states']['visible'] = [
-      ':input[name="' . $view_selector . '"]' => ['!value' => '_none'],
-    ];
-    $display_selector = _views_selector_get_state_name('display_id', $element, $field_definition);
-    $element['argument']['#states']['visible'] = [
-      ':input[name="' . $display_selector . '"]' => ['!value' => 'default'],
-      ':input[name="' . $display_selector . '"]' => ['!value' => '_none'],
-    ];
     // Get arguments states to set them to entity reference field too.
-    $argument_states = $element['argument']['#states'];
+    $argument_states = $element['options']['argument']['#states'];
     // Get extra data from serialized field.
     $extra_data = [];
     $values = $items->getValue();
@@ -165,7 +154,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     ];
     $element['argument'] = [
       '#tree' => TRUE,
-      '0' => $element['argument'],
+      '0' => $element['options']['argument'],
     ];
     $entity_type = 'node';
     if (!empty($values[0]['target_id'])) {
@@ -287,14 +276,11 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
       '#weight' => 11,
       '#attributes' => ['class' => ['viewsreference_view_mode']],
     ];
-    $element['view_settings'] = [
-      '#prefix' => '<div id="' . $arguments_wrapper_selector . '" class="form-wrapper">',
-      '#suffix' => '</div>',
-      '#type' => 'fieldset',
-      '#weight' => 100,
-    ];
-    $element['view_settings']['argument'] = $element['argument'];
-    $element['view_settings']['view_mode'] = $element['view_mode'];
+    $element['options']['#prefix'] = '<div id="' . $arguments_wrapper_selector . '" class="form-wrapper">';
+    $element['options']['#suffix'] = '</div>';
+    $element['options']['#weight'] = 100;
+    $element['options']['argument'] = $element['argument'];
+    $element['options']['view_mode'] = $element['view_mode'];
     unset($element['argument']);
     unset($element['view_mode']);
   }
