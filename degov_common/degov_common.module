@@ -396,7 +396,7 @@ function degov_common_field_widget_form_alter(&$element, \Drupal\Core\Form\FormS
   if ($field_definition->getType() == 'viewsreference') {
     // Get configuration settings for the form widget.
     $config = \Drupal::service('config.factory')
-      ->getEditable('degov_views_helper.settings');
+      ->getEditable('degov_common.views_helper_settings');
     $allowed_forms = $config->get('form_ids');
     // Get the form renderer array.
     $form = $form_state->getCompleteForm();
