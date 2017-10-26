@@ -84,6 +84,52 @@ class DegovDateRange extends SearchApiDate {
     $isValidStartDate = strtotime($value[0]);
     $isValidEndDate = strtotime($value[1]);
 
+    if ($isValidStartDate) {
+      switch ($this->getGranularity()) {
+        case static::FACETAPI_DATE_YEAR:
+          $value[0] = date('Y', $isValidStartDate);
+          break;
+        case static::FACETAPI_DATE_MONTH:
+          $value[0] = date('Y-m', $isValidStartDate);
+          break;
+        case static::FACETAPI_DATE_DAY:
+          $value[0] = date('Y-m-d', $isValidStartDate);
+          break;
+        case static::FACETAPI_DATE_HOUR:
+          $value[0] = date('Y-m-d\TH:', $isValidStartDate);
+          break;
+        case static::FACETAPI_DATE_MINUTE:
+          $value[0] = date('Y-m-d\TH:i:', $isValidStartDate);
+          break;
+        case static::FACETAPI_DATE_SECOND:
+          $value[0] = date('Y-m-d\TH:i:s', $isValidStartDate);
+          break;
+      }
+    }
+
+    if ($isValidEndDate) {
+      switch ($this->getGranularity()) {
+        case static::FACETAPI_DATE_YEAR:
+          $value[1] = date('Y', $isValidEndDate);
+          break;
+        case static::FACETAPI_DATE_MONTH:
+          $value[1] = date('Y-m', $isValidEndDate);
+          break;
+        case static::FACETAPI_DATE_DAY:
+          $value[1] = date('Y-m-d', $isValidEndDate);
+          break;
+        case static::FACETAPI_DATE_HOUR:
+          $value[1] = date('Y-m-d\TH:', $isValidEndDate);
+          break;
+        case static::FACETAPI_DATE_MINUTE:
+          $value[1] = date('Y-m-d\TH:i:', $isValidEndDate);
+          break;
+        case static::FACETAPI_DATE_SECOND:
+          $value[1] = date('Y-m-d\TH:i:s', $isValidEndDate);
+          break;
+      }
+    }
+
     switch ($this->getGranularity()) {
       case static::FACETAPI_DATE_YEAR:
         if ($isValidStartDate) {

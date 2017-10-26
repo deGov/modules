@@ -80,7 +80,7 @@ class DateRangePicker extends WidgetPluginBase {
     ];
     $form['date_filter_wrapper']['date_from'] = [
       '#type' => 'date',
-      '#date_date_format' => 'Y-m-d',
+      '#date_date_format' => 'd.m.Y',
       '#date_date_element' => 'text',
       '#date_time_element' => 'none',
       '#date_increment' => 1,
@@ -90,15 +90,15 @@ class DateRangePicker extends WidgetPluginBase {
       '#default_value' => (!empty($startDate)) ? DrupalDateTime::createFromTimestamp(strtotime($startDate)) : '',
       // Set the attributes to get the datepicker.
       '#attributes' => [
-        'data-drupal-date-format' => 'Y-m-d',
+        'data-drupal-date-format' => 'd.m.Y',
         'class' => ['date-from'],
-        'placeholder' => 'YYYY-mm-dd',
+        'placeholder' => $this->t('dd.mm.yy'),
         'aria-label' => $this->t('From date')
       ],
     ];
     $form['date_filter_wrapper']['date_to'] = [
       '#type' => 'date',
-      '#date_date_format' => 'Y-m-d',
+      '#date_date_format' => 'd.m.Y',
       '#date_date_element' => 'text',
       '#date_time_element' => 'none',
       '#date_increment' => 1,
@@ -108,9 +108,9 @@ class DateRangePicker extends WidgetPluginBase {
       '#default_value' => (!empty($endDate)) ? DrupalDateTime::createFromTimestamp(strtotime($endDate)) : '',
       // Set the attributes to get the datepicker.
       '#attributes' => [
-        'data-drupal-date-format' => 'Y-m-d',
+        'data-drupal-date-format' => 'dd.mm.yy',
         'class' => ['date-to'],
-        'placeholder' => 'YYYY-mm-dd',
+        'placeholder' => $this->t('dd.mm.yy'),
         'aria-label' => $this->t('To date')
       ],
     ];
