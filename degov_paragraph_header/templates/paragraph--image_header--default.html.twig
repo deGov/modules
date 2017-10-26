@@ -52,7 +52,9 @@ set classes = [
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
   <div class="header-image__image content-header__media">{{ content.field_header_media }}</div>
-  <div class="header-image__text content-header__text"{{ content.field_header_text|quickedit_attr }}>
-    {{ content.field_header_text|field_value }}
-  </div>
+  {% if content.field_header_text %}
+    <div class="header-image__text content-header__text"{{ content.field_header_text|quickedit_attr }}>
+      {{ content.field_header_text|field_value }}
+    </div>
+  {% endif %}
 </div>
