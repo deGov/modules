@@ -1,9 +1,0 @@
-field_settings:
-  field_title:
-    label: 'Titel'
-    datasource_id: 'entity:media'
-    property_path: field_title
-    type: text
-    dependencies:
-      config:
-        - field.storage.media.field_title

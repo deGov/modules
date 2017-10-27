@@ -1,0 +1,7 @@
+degov_paragraph_view_reference.views_helper_settings:
+  path: '/admin/config/degov/views'
+  defaults:
+    _form: '\Drupal\degov_paragraph_view_reference\Form\ViewsSettingsForm'
+    _title: 'Views Helper Settings'
+  requirements:
+    _permission: 'administer degov'
