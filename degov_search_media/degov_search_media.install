@@ -15,3 +15,10 @@ function degov_search_media_install() {
  * and every minor release as well until 1.10 respectively.
  * The fresh install should have all the changes from 1.1 to 1.10.
  */
+
+/**
+ * Update media search view.
+ */
+function degov_search_media_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_media', '8004');
+}

@@ -29,7 +29,7 @@ function degov_node_event_uninstall() {
  */
 
 /**
- * Make field header paragraphs not required.
+ * Update calendar view.
  */
 function degov_node_event_update_8009() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8009');
