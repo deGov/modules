@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_common\Plugin\Field\FieldFormatter;
+namespace Drupal\degov_paragraph_view_reference\Plugin\Field\FieldFormatter;
 
 use Drupal\views\Views;
 use Drupal\Core\Field\FieldItemListInterface;
