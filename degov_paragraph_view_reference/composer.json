@@ -1,0 +1,10 @@
+{
+  "name": "degov_paragraph_view_reference",
+  "type": "drupal-module",
+  "description": "Adds ability to reference view in paragraphs.",
+  "license": "GPL-2.0+",
+  "homepage": "https://www.degov.org",
+  "require": {
+    "drupal/viewsreference": "^1.0"
+  }
+}

@@ -1,0 +1,6 @@
+degov_paragraph_view_reference.views_helper_settings:
+  title: 'Views Helper Settings'
+  route_name: 'degov_paragraph_view_reference.views_helper_settings'
+  parent: 'degov.default'
+  description: 'Administer deGov views reference.'
+  weight: -9

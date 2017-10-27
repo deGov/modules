@@ -5,8 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.10.0] - IN DEVELOPMENT
+
 ### Changed
+- Move views helper functionality from degov_common to degov_paragraph_view_reference.
 - Field header paragraphs is not required in any content type anymore.
+
+### Added
+- Added composer dependency on views_reference module to degov_paragraph_view_reference.
 
 ## [1.9.0] - 23.10.17
 ### Added
