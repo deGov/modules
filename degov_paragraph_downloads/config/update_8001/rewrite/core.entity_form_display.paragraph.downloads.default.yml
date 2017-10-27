@@ -1,7 +1,0 @@
-content:
-  field_downloads_files:
-    settings:
-      field_widget_display: rendered_entity
-      selection_mode: selection_edit
-      field_widget_display_settings:
-        view_mode: preview

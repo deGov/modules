@@ -1,27 +1,32 @@
 <?php
 
 /**
+ * Implements hook_install().
+ */
+function degov_common_install() {
+  // Set the first day of the week to Monday.
+  \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
+}
+
+/**
  * Implement hook_uninstall().
  */
 function degov_common_uninstall() {
-  \Drupal::configFactory()->getEditable('degov_common.views_helper_settings')->delete();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->delete();
 }
 
 /**
- * Next module update version is 8013.
- * All update hooks from 1.1 to 1.9 were deleted.
- * There is no upgrade path from 1.1 to 1.9, you need first to update to 1.2
- * and every minor release as well until 1.9 respectively.
- * The fresh install should have all the changes from 1.1 to 1.9.
+ * Next module update version is 8014.
+ * All update hooks from 1.1 to 1.10 were deleted.
+ * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
+ * and every minor release as well until 1.10 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.10.
  */
-
 
 /**
- * Add sortable selection area for multivalued fields that are using the media browser.
+ * Set the first day of the week to Monday.
  */
-function degov_common_update_8013() {
-  // Clear all plugin caches.
-  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8013');
+function degov_common_update_8014() {
+  // Set the first day of the week to Monday.
+  \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
 }

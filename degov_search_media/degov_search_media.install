@@ -9,36 +9,16 @@ function degov_search_media_install() {
 }
 
 /**
- * Next module update version is 8003.
- * All update hooks from 1.1 to 1.9 were deleted.
- * There is no upgrade path from 1.1 to 1.9, you need first to update to 1.2
- * and every minor release as well until 1.9 respectively.
- * The fresh install should have all the changes from 1.1 to 1.9.
+ * Next module update version is 8004.
+ * All update hooks from 1.1 to 1.10 were deleted.
+ * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
+ * and every minor release as well until 1.10 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.10.
  */
 
 /**
- * Implements hook_update_dependencies().
- *
- * @return mixed
+ * Update media search view.
  */
-function degov_search_media_update_dependencies() {
-  $dependencies['degov_search_media'][8003] = [
-    'degov_content_types_shared_fields' => 8009,
-    'degov_media_video_upload' => 8012,
-    'degov_media_video' => 8011,
-    'degov_media_image' => 8013,
-    'degov_media_gallery' => 8006,
-    'degov_media_audio' => 8008,
-  ];
-  return $dependencies;
-}
-
-/**
- * Add field_title to search media index.
- */
-function degov_search_media_update_8003() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_media', '8003');
-  // Try to re-index content after adding new field.
-  $index = \Drupal\search_api\Entity\Index::load('search_media');
-  $index->reindex();
+function degov_search_media_update_8004() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_media', '8004');
 }
