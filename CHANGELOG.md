@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.10.0] - IN DEVELOPMENT
+### Fixed
+- Iframe paragraph title now uses the same layout as other paragraphs.
 
 ### Changed
 - Move views helper functionality from degov_common to degov_paragraph_view_reference.
