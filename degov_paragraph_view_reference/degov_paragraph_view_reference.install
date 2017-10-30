@@ -15,9 +15,9 @@ function degov_paragraph_view_reference_uninstall() {
 }
 
 /**
- * Rename view helper_settings and clear cache definitions
+ * Next module update version is 8004.
+ * All update hooks from 1.1 to 1.11 were deleted.
+ * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
+ * and every minor release as well until 1.11 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.11.
  */
-function degov_paragraph_view_reference_update_8003() {
-  \Drupal::configFactory()->rename('degov_common.views_helper_settings', 'degov_paragraph_view_reference.views_helper_settings');
-  \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
-}
