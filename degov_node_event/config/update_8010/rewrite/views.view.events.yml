@@ -1,0 +1,16 @@
+display:
+  default:
+    display_options:
+      filters:
+        field_event_date_value:
+          value:
+            value: today
+            type: offset
+          expose:
+            remember_roles:
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
+      arguments:
+        field_event_date_value_year_month:
+          default_action: ignore
