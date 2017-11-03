@@ -27,3 +27,10 @@ function degov_node_event_uninstall() {
  * and every minor release as well until 1.11 respectively.
  * The fresh install should have all the changes from 1.1 to 1.11.
  */
+
+/*
+ * Update view for displaying all events from today.
+ */
+function degov_node_event_update_8010() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8010');
+}
