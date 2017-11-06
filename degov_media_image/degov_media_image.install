@@ -31,8 +31,8 @@ function degov_media_image_uninstall() {
 
 /**
  * Next module update version is 8014.
- * All update hooks from 1.1 to 1.10 were deleted.
- * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
- * and every minor release as well until 1.10 respectively.
- * The fresh install should have all the changes from 1.1 to 1.10.
+ * All update hooks from 1.1 to 1.11 were deleted.
+ * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
+ * and every minor release as well until 1.11 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.11.
  */

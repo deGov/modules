@@ -4,7 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.10.0] - IN DEVELOPMENT
+## [1.12.0] - In development
+
+## [1.11.0] - 06-11-2017
+
+### Fixed
+- All the events should be displayed by default from today.
+
+### Changed
+- Removed deprecated degov_view_helper module from codebase.
+
+## [1.10.0] - 27-10-2017
+
 ### Fixed
 - Iframe paragraph title now uses the same layout as other paragraphs.
 
