@@ -6,6 +6,7 @@ use Drupal\degov_common\Common;
  * Implements hook_uninstall().
  */
 function degov_paragraph_view_reference_uninstall() {
+  \Drupal::configFactory()->getEditable('degov_paragraph_view_reference.views_helper_settings')->delete();
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
     'entity_type' => 'paragraph',
@@ -14,9 +15,9 @@ function degov_paragraph_view_reference_uninstall() {
 }
 
 /**
- * Next module update version is 8003.
- * All update hooks from 1.1 to 1.10 were deleted.
- * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
- * and every minor release as well until 1.10 respectively.
- * The fresh install should have all the changes from 1.1 to 1.10.
+ * Next module update version is 8004.
+ * All update hooks from 1.1 to 1.11 were deleted.
+ * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
+ * and every minor release as well until 1.11 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.11.
  */

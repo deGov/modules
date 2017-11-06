@@ -62,6 +62,18 @@ function degov_node_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $view_names = ['events'];
     $view = $form_state->getStorage('view');
     if (in_array($view['view']->id(), $view_names)) {
+      /** @var \Drupal\Core\Datetime\Entity\DateFormat $format */
+      $format = \Drupal::entityTypeManager()->getStorage('date_format')->load('short');
+      $pattern = 'd.m.Y';
+      if ($format) {
+        $pattern = $format->getPattern();
+      }
+      /*if (!empty($form['from'])) {
+        $form['from']['#attributes']['data-drupal-date-format'] = $pattern;
+      }
+      if (!empty($form['to'])) {
+        $form['to']['#attributes']['data-drupal-date-format'] = $pattern;
+      }*/
       // Custom validate function.
       $form['#validate'][] = 'degov_node_event_date_form_validate';
     }

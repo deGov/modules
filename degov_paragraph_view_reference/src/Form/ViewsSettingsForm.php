@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_common\Form;
+namespace Drupal\degov_paragraph_view_reference\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -9,7 +9,7 @@ use Drupal\views\Views;
 /**
  * Class ViewsSettingsForm.
  *
- * @package Drupal\degov_common
+ * @package Drupal\degov_paragraph_view_reference
  */
 class ViewsSettingsForm extends ConfigFormBase {
 
@@ -22,7 +22,7 @@ class ViewsSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'degov_common.views_helper_settings',
+      'degov_paragraph_view_reference.views_helper_settings',
     ];
   }
 
@@ -45,7 +45,7 @@ class ViewsSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Get the current configuration settings.
-    $config = $this->config('degov_common.views_helper_settings');
+    $config = $this->config('degov_paragraph_view_reference.views_helper_settings');
 
     // Get the list of all view names available in the system.
     $view_list = $this->getAllViewsNames();
@@ -74,7 +74,7 @@ class ViewsSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = \Drupal::service('config.factory')->getEditable('degov_common.views_helper_settings');
+    $config = \Drupal::service('config.factory')->getEditable('degov_paragraph_view_reference.views_helper_settings');
     $config->set('allowed_views', $form_state->getValue('allowed_views'))
       ->save();
     $form_ids = $form_state->getValue('form_ids');

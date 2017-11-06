@@ -47,7 +47,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Suche
           reset_button: false
           reset_button_label: Zurücksetzen
           exposed_sorts_label: 'Sortieren nach'
@@ -198,8 +198,8 @@ display:
           value:
             min: ''
             max: ''
-            value: ''
-            type: date
+            value: today
+            type: offset
           group: 1
           exposed: true
           expose:
@@ -216,6 +216,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -321,7 +324,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: default
+          default_action: ignore
           exception:
             value: all
             title_enable: false

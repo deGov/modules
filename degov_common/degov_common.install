@@ -1,17 +1,24 @@
 <?php
 
 /**
+ * Implements hook_install().
+ */
+function degov_common_install() {
+  // Set the first day of the week to Monday.
+  \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
+}
+
+/**
  * Implement hook_uninstall().
  */
 function degov_common_uninstall() {
-  \Drupal::configFactory()->getEditable('degov_common.views_helper_settings')->delete();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->delete();
 }
 
 /**
- * Next module update version is 8014.
- * All update hooks from 1.1 to 1.10 were deleted.
- * There is no upgrade path from 1.1 to 1.10, you need first to update to 1.2
- * and every minor release as well until 1.10 respectively.
- * The fresh install should have all the changes from 1.1 to 1.10.
+ * Next module update version is 8015.
+ * All update hooks from 1.1 to 1.11 were deleted.
+ * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
+ * and every minor release as well until 1.11 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.11.
  */

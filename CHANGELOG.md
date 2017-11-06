@@ -4,10 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.10.0] - IN DEVELOPMENT
+## [1.11.0] - In development
+
+### Fixed
+- All the events should be displayed by default from today.
 
 ### Changed
 - Removed deprecated degov_view_helper module from codebase.
+
+## [1.10.0] - 27-10-2017
+
+### Fixed
+- Iframe paragraph title now uses the same layout as other paragraphs.
+
+### Changed
+- Move views helper functionality from degov_common to degov_paragraph_view_reference.
+- Field header paragraphs is not required in any content type anymore.
+
+### Added
+- Added composer dependency on views_reference module to degov_paragraph_view_reference.
 
 ## [1.9.0] - 23.10.17
 ### Added
