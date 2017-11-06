@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - All the events should be displayed by default from today.
 
+### Changed
+- Removed deprecated degov_view_helper module from codebase.
+
 ## [1.10.0] - 27-10-2017
 
 ### Fixed
