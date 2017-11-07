@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.event.field_content_paragraphs
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_date_end
+    - field.field.node.event.field_event_display_time
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
     - field.field.node.event.field_section
@@ -55,6 +56,16 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
+  field_event_display_time:
+      weight: 8
+      label: above
+      settings:
+        format: default
+        format_custom_false: ''
+        format_custom_true: ''
+      third_party_settings: {  }
+      type: boolean
+      region: content
   field_event_location:
     type: address_default
     weight: 5

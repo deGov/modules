@@ -20,10 +20,6 @@ third_party_settings:
       label: 'Datum und Uhrzeit'
       region: content
 content:
-  created:
-    weight: 8
-  field_content_paragraphs:
-    weight: 14
   field_event_date:
     weight: 3
   field_event_date_end:
@@ -35,5 +31,3 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_event_location:
-    weight: 1

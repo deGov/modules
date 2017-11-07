@@ -27,3 +27,10 @@ function degov_node_event_uninstall() {
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Update add display time field to manage display of event time on frontend.
+ */
+function degov_common_update_8011() {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8011');
+}
