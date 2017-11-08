@@ -31,6 +31,6 @@ function degov_node_event_uninstall() {
 /**
  * Update add display time field to manage display of event time on frontend.
  */
-function degov_common_update_8011() {
-    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_common', '8011');
+function degov_node_event_update_8011() {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_event', '8011');
 }
