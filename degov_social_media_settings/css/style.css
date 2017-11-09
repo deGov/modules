@@ -1,0 +1,85 @@
+.social-media-settings .modal-dialog {
+  background: rgba(60, 80, 110, 0.8);
+  padding: 40px;
+  max-width: 100%;
+}
+.social-media-settings .modal-header {
+  padding: 0;
+}
+.social-media-settings .modal-title {
+  color: #ffffff;
+  margin: 20px 0 10px 0;
+  padding-left: 40px;
+}
+.social-media-settings .modal-content {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 20px;
+}
+.social-media-settings .social-media-settings__settings-list {
+  list-style-type: none;
+  margin-top: 10px;
+}
+.social-media-settings .social-media-settings__settings-list input {
+  margin-right: 10px;
+}
+
+.social-media-settings .modal-footer {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+}
+.social-media-settings button.btn-default {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 0 10px;
+}
+.social-media-settings button.btn-default:hover,
+.social-media-settings button.btn-default:focus,
+.social-media-settings button.btn-default:active {
+  box-shadow: none;
+}
+.social-media-settings button.btn-default:focus {
+  bottom:0;
+  background: transparent;
+}
+.social-media-settings span {
+  text-decoration: underline;
+}
+.social-media-settings .modal-button span {
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: super;
+}
+.social-media-settings .modal-button i:before {
+  display: block;
+  font-size: 24px;
+  color: #ffffff;
+  padding: 10px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.social-media-settings .modal-close {
+  cursor: pointer;
+}
+.social-media-settings .modal-close span {
+  color: #ffffff;
+  font-weight: normal;
+  font-size: 14px;
+}
+.social-media-settings .modal-close i:before {
+  background: rgba(200, 200, 200,  0.1);
+}
+.social-media-settings .modal-close:hover,
+.social-media-settings .modal-close:active,
+.social-media-settings .modal-close:focus {
+  background: rgba(200, 200, 200, 0.1);
+}
+.social-media-settings__save i:before {
+  background: #008732;
+}
+.social-media-settings__cancel i:before {
+  background: #3C506E;
+}

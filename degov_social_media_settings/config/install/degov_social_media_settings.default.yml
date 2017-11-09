@@ -1,0 +1,9 @@
+sources:
+  facebook: 'Facebook'
+  twitter: 'Twitter'
+  youtube: 'Youtube'
+  googleplus: 'Google+'
+  pinterest: 'Pinterest'
+  flickr: 'Flickr'
+  vimeo: 'Vimeo'
+  other: 'Andere'

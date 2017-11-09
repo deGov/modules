@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Default theme implementation to format the deGov social media settings block.
+ *
+ * Available variables:
+ *   - social_media_sources: available media sources.
+ */
+#}
+<ul class="social-media-settings-menu">
+  <li>
+    <a role="button" href="#" class="js-social-media-settings-open social-media-settings--menu-item hidden">{{ 'Social Media Settings'|trans }}<i class="fa fa-cog" aria-hidden="true"></i></a>
+  </li>
+</ul>
+<div id="social-media-settings" class="social-media-settings modal fade" aria-labelledby="social-media-settings-modal-title" role="dialog" aria-describedby="social-media-settings-modal-description" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button type="button" class="modal-close pull-right modal-button btn btn-default" data-dismiss="modal">
+        <span>{{ 'Schließen'|trans }}</span>
+        <i aria-hidden="true" class="fa fa-times"></i>
+      </button>
+      <h2 tabindex="-1" id="social-media-settings-modal-title" class="modal-title">{{ 'Social Media Settings'|trans }}</h2>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="social-media-settings-modal-description" class="social-media-settings__text">
+          <div>
+            {% trans %}
+            <p>Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an
+              <a href="http://www.facebook.com" target="_blank">Facebook</a>,
+              <a href="https://twitter.com/" target="_blank">Twitter</a>,
+              <a href="https://www.youtube.com/" target="_blank">Youtube</a>,
+              <a href="https://plus.google.com/" target="_blank">Google</a>,
+              <a href="https://de.pinterest.com/" target="_blank">Pinterest</a>,
+              <a href="https://www.flickr.com/" target="_blank">Flickr</a> oder
+              <a href="https://vimeo.com/" target="_blank">Vimeo</a>
+              übertragen und unter Umständen auch dort gespeichert.</p>
+            <p>Bitte beachten Sie unsere Hinweise und Informationen zum
+              <a href="/datenschutzhinweise" target="_blank"> Datenschutz </a> und zur <a href="/netiquette" target="_blank">Netiquette</a>, bevor Sie einzelne Soziale Medien aktivieren.</p>
+            <p>Datenfeeds von sozialen Netzwerken dauerhaft aktivieren und Datenübertragung zustimmen:</p>
+            {% endtrans %}
+          </div>
+        </div>
+        <ul class="social-media-settings__settings-list">
+          <li><label><input class="js-social-media-source-all" type="checkbox" value="all">{{ 'Alle'|trans }}</label></li>
+          {% for key, name in social_media_sources %}
+            <li><label><input class="js-social-media-source" type="checkbox" value="{{ key }}">{{ name }}</label></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="social-media-settings__cancel modal-button btn btn-default" data-dismiss="modal">
+          <span>{{ 'Abbrechen'|trans }}</span>
+          <i aria-hidden="true" class="fa fa-times"></i>
+        </button>
+        <button type="button" class="js-social-media-settings-save modal-button social-media-settings__save btn btn-default" data-dismiss="modal">
+          <span>{{ 'Speichern'|trans }}</span>
+          <i aria-hidden="true" class="fa fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
