@@ -8,9 +8,20 @@
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
 /**
- * Add new text filter which allows full html and only chief editor can use it because of security concerns.
+ * Implements hook_update_dependencies().
+ *
+ * @return mixed
  */
-function degov_user_roles_update_8005() {
-    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_user_roles', '8005');
+function degov_users_roles_update_dependencies() {
+    $dependencies['degov_users_roles'][8005] = [
+        'degov_rich_text_format_settings' => 8002,
+    ];
+    return $dependencies;
+}
+/**
+ * Chief editor can use rich_html text format.
+ */
+function degov_users_roles_update_8005() {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_users_roles', '8005');
 }
 
