@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.12.0] - In development
 ### Fixed
 - Reinstalls missing audio embedded view mode.
+### Added
+- New degov_social_media_settings module for social media access control.
 
 ## [1.11.0] - 06-11-2017
 ### Fixed

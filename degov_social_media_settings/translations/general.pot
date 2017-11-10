@@ -1,0 +1,38 @@
+# $Id$
+#
+# LANGUAGE translation of degov_social_media_settings module.
+# Copyright 2017 <info@degov.de>
+# Generated from files:
+#  modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.module: n/a
+#  modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.info.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Last-Translator: deGov <info@degov.de>\n"
+"Language-Team: DE <info@degov.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.module:122
+msgid "This social media source is disabled. You can enable it in the <a href=\"#\" class=\"js-social-media-settings-open\">social media settings</a>."
+msgstr ""
+
+#: modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.module:123
+msgid "This social media source is disabled. After accepting our cookie policy, you can enable it."
+msgstr ""
+
+#: modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.info.yml:0
+msgid "deGov - Social Media Settings"
+msgstr ""
+
+#: modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.info.yml:0
+msgid "Mit diesem Modul können Besucher steuern, welche Social Media Inhalte ihnen angezeigt werden."
+msgstr ""
+
+#: modules/nrw/modules/degov_social_media_settings/degov_social_media_settings.info.yml:0
+msgid "deGov"
+msgstr ""
