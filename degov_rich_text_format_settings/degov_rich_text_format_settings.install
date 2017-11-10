@@ -7,3 +7,11 @@
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Add new text filter which allows full html and only chief editor can use it because of security concerns.
+ */
+function degov_rich_text_format_settings_update_8002() {
+    \Drupal::service('degov_config.module_updater')->applyUpdates('degov_rich_text_format_settings', '8002');
+}
+
