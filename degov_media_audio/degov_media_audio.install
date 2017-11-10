@@ -44,3 +44,10 @@ function degov_media_audio_uninstall() {
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Adds audio embedded view mode.
+ */
+function degov_media_audio_update_8009() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8009');
+}
