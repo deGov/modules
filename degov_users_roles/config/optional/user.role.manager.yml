@@ -120,6 +120,7 @@ permissions:
   - 'use published_archived transition'
   - 'use published_draft transition'
   - 'use published_published transition'
+  - 'use text format rich_html'
   - 'use text format rich_text'
   - 'use workbench access'
   - 'view all revisions'
