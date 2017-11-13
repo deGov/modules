@@ -56,16 +56,6 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-  field_event_display_time:
-      weight: 8
-      label: above
-      settings:
-        format: default
-        format_custom_false: ''
-        format_custom_true: ''
-      third_party_settings: {  }
-      type: boolean
-      region: content
   field_event_location:
     type: address_default
     weight: 5
@@ -105,6 +95,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_event_display_time: true
   field_section: true
   field_social_media: true
   field_teaser_image: true

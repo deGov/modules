@@ -1,15 +1,2 @@
-dependencies:
-  config:
-    - field.field.node.event.field_event_display_time
-content:
-  field_event_display_time:
-    weight: 8
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-
+hidden:
+  field_event_display_time: true

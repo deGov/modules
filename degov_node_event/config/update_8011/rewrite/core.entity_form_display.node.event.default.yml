@@ -1,6 +1,3 @@
-dependencies:
-  config:
-    - field.field.node.event.field_event_display_time
 third_party_settings:
   field_group:
     group_date_and_time:
