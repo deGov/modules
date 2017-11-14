@@ -1,0 +1,15 @@
+dependencies:
+  config:
+    - field.field.media.some_embed.field_social_media_source
+third_party_settings:
+  field_group:
+    group_code:
+      children:
+        - field_social_media_source
+content:
+  field_social_media_source:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content

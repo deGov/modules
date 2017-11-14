@@ -5,40 +5,45 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.12.0] - In development
+### Added
+- New degov_social_media_settings module for social media access control.
+- The field to control the display of the time in event node type.
+
+### Changed
+- Changed RSS feeds view from rendered entity to fields for better control.
+
 ### Fixed
 - Reinstalls missing audio embedded view mode.
 - Fixes broken slideshow of type 2.
 
 ## [1.11.0] - 06-11-2017
-### Fixed
-- All the events should be displayed by default from today.
-
 ### Changed
 - Removed deprecated degov_view_helper module from codebase.
 
-## [1.10.0] - 27-10-2017
 ### Fixed
-- Iframe paragraph title now uses the same layout as other paragraphs.
+- All the events should be displayed by default from today.
+
+## [1.10.0] - 27-10-2017
+### Added
+- Added composer dependency on views_reference module to degov_paragraph_view_reference.
 
 ### Changed
 - Move views helper functionality from degov_common to degov_paragraph_view_reference.
 - Field header paragraphs is not required in any content type anymore.
 
-### Added
-- Added composer dependency on views_reference module to degov_paragraph_view_reference.
+### Fixed
+- Iframe paragraph title now uses the same layout as other paragraphs.
 
 ## [1.9.0] - 23.10.17
 ### Added
 - New field title has been added to media.
+- Redirect module as a dependency to degov_pathauto.
 
 ### Changed
 - Multi valued entity reference fields that have entity browser widget now have ability to sort items
   with media_browser Entity Browser.
 - Scheduled updates field widget on nodes is now set to be a complex inline entity form.
 - Caption fields on media are migrated to the new title field.
-
-### Added
-- Redirect module as a dependency to degov_pathauto.
 
 ### Fixed
 - Default permissions have been added for the degov_sitemap_settings module.
