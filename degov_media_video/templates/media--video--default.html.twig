@@ -22,7 +22,15 @@ set media_classes = [
   {{ content.contextual_links }}
   <div class="video__video">
     <div class="video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
-    <div class="video__type-text">{{ 'Video'|t }}</div>
+  </div>
+  <div class="video__extra-info">
+    {% if content.field_media_accessibility|field_value %}
+      <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+        {{ content.field_media_accessibility|field_value }}
+      </div>
+    {% else %}
+      <div class="media__type-label">{{ 'Video'|t }}</div>
+    {% endif %}
     {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
       <div class="video__info">
         <div class="video__info__wrap">
@@ -38,9 +46,6 @@ set media_classes = [
         </div>
       </div>
     {% endif %}
-  </div>
-  <div class="video__extra-info">
-    <div class="media__type-label">{{ 'Video'|t }}</div>
     {% if content.field_media_duration|field_value %}
       <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
     {% endif %}
@@ -66,13 +71,8 @@ set media_classes = [
         </div>
       </div>
     {% endif %}
-    {% if content.field_media_accessibility or content.field_media_language %}
+    {% if content.field_media_language %}
       <div class="video__assets">
-        {% if content.field_media_accessibility %}
-          <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
-            {{ content.field_media_accessibility|field_value }}
-          </div>
-        {% endif %}
         {% if content.field_media_language %}
           <div class="video__assets-language"{{ content.field_media_language|quickedit_attr }}>
             {{ content.field_media_language|field_value }}
