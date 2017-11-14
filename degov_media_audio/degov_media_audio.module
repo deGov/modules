@@ -21,7 +21,7 @@ function degov_media_audio_preprocess(&$variables, $hook, &$info) {
  */
 function degov_media_audio_preprocess_media__audio(&$variables) {
   /* @var \Drupal\media_entity\Entity\Media $media */
-  $media = $variables['media'];
+  $media = $variables['elements']['#media'];
 
   $variables['audio_url'] = $media->url();
   $variables['audio_attributes'] = new Attribute([
@@ -29,7 +29,7 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
     'controls' => 'controls',
   ]);
 
-  $variables['content']['audio_date'] = format_date($variables['media']->created->value, 'date_medium');
+  $variables['content']['audio_date'] = format_date($variables['elements']['#media']->created->value, 'date_medium');
   // Check if the download of the video is allowed by media settings.
   $download_is_allowed = FALSE;
   if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
@@ -64,7 +64,7 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
     }
   }
 
-  $variables['created'] = $variables['media']->created->value;
+  $variables['created'] = $variables['elements']['#media']->created->value;
 }
 
 /**
