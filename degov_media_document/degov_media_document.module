@@ -18,6 +18,11 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
       $variables['media_url'] = file_create_url($file->getFileUri());
       $variables['media_bytes'] = $file->getSize();
       $variables['media_size'] = format_size($file->getSize());
+      // The format_size() function does not allow for changing the
+      // decimal point, so do a simple string replace.
+      if (\Drupal::languageManager()->getCurrentLanguage()->getId() == 'de') {
+        $variables['media_size'] = str_replace('.', ',', $variables['media_size']);
+      }
       $variables['media_mime'] = $file->getMimeType();
       $variables['media_extention'] = $file_ext->getExtension();
       $variables['media_aria_label'] = sprintf('%s (%s)', $file->getFilename(), $variables['media_size']);
