@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.event.field_content_paragraphs
     - field.field.node.event.field_event_date
     - field.field.node.event.field_event_date_end
+    - field.field.node.event.field_event_display_time
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
     - field.field.node.event.field_section
@@ -94,6 +95,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_event_display_time: true
   field_section: true
   field_social_media: true
   field_teaser_image: true
