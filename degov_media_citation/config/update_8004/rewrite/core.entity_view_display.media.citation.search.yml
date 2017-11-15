@@ -1,0 +1,5 @@
+dependencies:
+  config:
+    - field.field.media.citation.field_title
+hidden:
+  field_title: true

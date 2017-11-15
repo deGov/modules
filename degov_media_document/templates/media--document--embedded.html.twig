@@ -20,7 +20,7 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
-  <div class="document__title"><a aria-label="{{ media_aria_label }}" type="{{ media_mime }}; length={{ media_bytes }}" href="{{ media_url }}">{{ name }}</a></div>
+  <div class="document__title"><a aria-label="{{ media_aria_label }}" type="{{ media_mime }}; length={{ media_bytes }}" href="{{ media_url }}">{{ content.field_title|field_value }}</a></div>
   <div aria-hidden="true" class="document__meta">
     <span class="mime-{{ media_mime|clean_class }}"></span>{{ media_extention|upper }}, {{ media_size }}
   </div>
