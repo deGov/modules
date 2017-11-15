@@ -45,7 +45,7 @@ function degov_media_gallery_preprocess_media(&$variables) {
       ];
     }
 
-    $media_current = $variables['media'];
+    $media_current = $variables['elements']['#media'];
     $variables['gallery_url'] = $media_current->url();
   }
 }
@@ -54,5 +54,5 @@ function degov_media_gallery_preprocess_media(&$variables) {
  * Implements hook_preprocess_type().
  */
 function degov_media_gallery_preprocess_media__gallery(&$variables) {
-  $variables['created'] = $variables['media']->created->value;
+  $variables['created'] = $variables['elements']['#media']->created->value;
 }

@@ -7,3 +7,10 @@
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Changes from entity to field display
+ */
+function degov_rss_feed_update_8002() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_rss_feed', '8002');
+}
