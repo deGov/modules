@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Implements hook_preprocess().
@@ -78,6 +80,10 @@ function degov_node_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       $form['#validate'][] = 'degov_node_event_date_form_validate';
     }
   }
+
+  if ($form_id == 'node_event_edit_form' || $form_id == 'node_event_form') {
+    $form['#validate'][] = 'degov_node_event_node_form_validate';
+  }
 }
 
 /**
@@ -94,5 +100,22 @@ function degov_node_event_date_form_validate($form, \Drupal\Core\Form\FormStateI
     // Change the date to the end of the day.
     $date_to = $date_to . ' ' . '23:59:00';
     $form_state->setValue('to', $date_to);
+  }
+}
+
+/**
+ * Make sure the begin date is before the end date.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function degov_node_event_node_form_validate($form, FormStateInterface $form_state) {
+  $from = $form_state->getValue('field_event_date');
+  $till = $form_state->getValue('field_event_date_end');
+
+  if (isset($from[0]['value']) && $from[0]['value'] instanceof DrupalDateTime && isset($till[0]['value']) && $till[0]['value'] instanceof DrupalDateTime) {
+    if ($from[0]['value'] >= $till[0]['value']) {
+      $form_state->setErrorByName('field_event_date', 'The start date must be earlier than the ende date.');
+    }
   }
 }
