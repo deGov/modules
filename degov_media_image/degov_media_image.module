@@ -20,7 +20,7 @@ function degov_media_image_preprocess(&$variables, $hook, &$info) {
  */
 function degov_media_image_preprocess_media__image(&$variables) {
   /** @var Drupal\media_entity\Entity\Media $media */
-  $media = $variables['media'];
+  $media = $variables['elements']['#media'];
   $variables['created'] = $media->created->value;
   $variables['image_url'] = $media->url();
 

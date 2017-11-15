@@ -99,7 +99,7 @@ function degov_social_media_settings_preprocess_paragraph__media_reference(&$var
  */
 function degov_social_media_settings_preprocess_media(&$variables) {
   /** @var \Drupal\media_entity\MediaInterface $media */
-  $media = $variables['media'];
+  $media = $variables['elements']['#media'];
   $entity_id = $media->id();
   $bundle = $media->bundle();
 
