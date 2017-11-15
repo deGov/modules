@@ -51,3 +51,11 @@ function degov_media_audio_uninstall() {
 function degov_media_audio_update_8009() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_audio', '8009');
 }
+
+/**
+ * Rename field_title label.
+ */
+function degov_media_audio_update_8010() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_audio', '8010');
+}

@@ -7,3 +7,11 @@
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Rename field_title label.
+ */
+function degov_media_video_update_8012() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video', '8012');
+}

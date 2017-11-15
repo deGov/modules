@@ -12,7 +12,7 @@ id: media.audio.field_title
 field_name: field_title
 entity_type: media
 bundle: audio
-label: Titel
+label: 'Öffentlicher Titel'
 description: ''
 required: true
 translatable: false
