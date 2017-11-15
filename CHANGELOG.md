@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Reinstalls missing audio embedded view mode.
 - Removed linking dependencies through variables from media modules. 
 - Fixes broken slideshow of type 2.
+- Displays the position field of a media contact.
 
 ### Changed
 - Changed RSS feeds view from rendered entity to fields for better control.
