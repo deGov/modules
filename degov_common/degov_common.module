@@ -167,10 +167,10 @@ function degov_common_preprocess_media(&$variables) {
   }
 
   if (isset($variables['elements']['#view_mode'])
-    && isset($variables['media'])
+    && isset($variables['elements']['#media'])
     && $variables['elements']['#view_mode'] === 'usage'
-    && $variables['media'] instanceof MediaInterface) {
-    $media = $variables['media'];
+    && $variables['elements']['#media'] instanceof MediaInterface) {
+    $media = $variables['elements']['#media'];
     /* @var \Drupal\entity_reference_integrity\EntityReferenceDependencyManager $dependency_manager */
     $dependency_manager = \Drupal::service('entity_reference_integrity.dependency_manager');
 
