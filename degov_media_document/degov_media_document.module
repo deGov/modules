@@ -9,7 +9,6 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
   if ($hook === 'media') {
     /* @var \Drupal\media_entity\Entity\Media $media */
     $media = $variables['elements']['#media'];
-    $variables['media'] = $media;
 
     if ($media->bundle() === 'document') {
       /* @var \Drupal\file\Entity\File $file */
