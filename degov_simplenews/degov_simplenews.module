@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\degov_common\Common;
+
 /**
  * Implements hook_form_alter().
  *
@@ -26,4 +28,17 @@ function _degov_optout_submitform(array &$form, \Drupal\Core\Form\FormStateInter
   } else {
     $form_state->setRedirectUrl(\Drupal\Core\Url::fromUri("internal:/$path"));
   }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function degov_simplenews_preprocess(&$variables, $hook, &$info) {
+  // Add template suggestions and libraries implemented in this module.
+  Common::addThemeSuggestions($variables, $hook, $info, [
+    'module_name' => 'degov_simplenews',
+    'entity_type' => 'node',
+    'entity_bundles' => ['simplenews_issue'],
+    'entity_view_modes' => ['teaser', 'email_html', 'email_plain', 'email_textalt']
+  ]);
 }

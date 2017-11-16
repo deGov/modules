@@ -1,0 +1,40 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_simplenews_issue_more
+    - node.type.blog
+    - node.type.event
+    - node.type.faq
+    - node.type.normal_page
+    - node.type.organization
+    - node.type.press
+    - node.type.simplenews_issue
+  enforced:
+    module:
+      - degov_simplenews
+id: node.simplenews_issue.field_simplenews_issue_more
+field_name: field_simplenews_issue_more
+entity_type: node
+bundle: simplenews_issue
+label: 'Weitere Meldungen'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      organization: organization
+      blog: blog
+      faq: faq
+      normal_page: normal_page
+      press: press
+      event: event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: organization
+field_type: entity_reference

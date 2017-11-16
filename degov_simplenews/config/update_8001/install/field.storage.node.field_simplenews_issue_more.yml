@@ -1,0 +1,21 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - node
+  enforced:
+    module:
+      - degov_simplenews
+id: node.field_simplenews_issue_more
+field_name: field_simplenews_issue_more
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+dependencies:
+  config:
+    - field.field.node.simplenews_issue.field_simplenews_issue_more
+    - field.field.node.simplenews_issue.field_simplenews_issue_week
+content:
+  field_simplenews_issue_more:
+    weight: 1
+    label: above
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_simplenews_issue_week:
+    weight: 0
+    label: above
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
