@@ -27,12 +27,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      organization: organization
-      blog: blog
-      faq: faq
-      normal_page: normal_page
       press: press
-      event: event
     sort:
       field: _none
     auto_create: false
