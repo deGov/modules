@@ -115,7 +115,7 @@ function degov_node_event_node_form_validate($form, FormStateInterface $form_sta
 
   if (isset($from[0]['value']) && $from[0]['value'] instanceof DrupalDateTime && isset($till[0]['value']) && $till[0]['value'] instanceof DrupalDateTime) {
     if ($from[0]['value'] >= $till[0]['value']) {
-      $form_state->setErrorByName('field_event_date', 'The start date must be earlier than the ende date.');
+      $form_state->setErrorByName('field_event_date', t('The start date must be earlier than the end date.'));
     }
   }
 }
