@@ -7,3 +7,11 @@
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Add title field.
+ */
+function degov_media_instagram_update_8005() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_instagram', '8005');
+}

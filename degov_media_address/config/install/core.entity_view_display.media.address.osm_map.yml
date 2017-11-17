@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.address.field_include_search
     - field.field.media.address.field_media_in_library
     - field.field.media.address.field_tags
+    - field.field.media.address.field_title
     - media_entity.bundle.address
   enforced:
     module:
@@ -40,6 +41,7 @@ hidden:
   field_include_search: true
   field_media_in_library: true
   field_tags: true
+  field_title: true
   langcode: true
   name: true
   thumbnail: true

@@ -41,6 +41,12 @@ function degov_media_image_uninstall() {
  * Link tags to search page.
  */
 function degov_media_image_update_8014() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_media_image', '8014');
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8014');
+}
+
+/**
+ * Rename field_title label.
+ */
+function degov_media_image_update_8015() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8015');
 }

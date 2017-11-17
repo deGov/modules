@@ -7,6 +7,7 @@ dependencies:
     - field.field.media.tweet.field_include_search
     - field.field.media.tweet.field_media_in_library
     - field.field.media.tweet.field_tags
+    - field.field.media.tweet.field_title
     - media_entity.bundle.tweet
   enforced:
     module:
@@ -38,6 +39,7 @@ hidden:
   field_include_search: true
   field_media_in_library: true
   field_tags: true
+  field_title: true
   langcode: true
   thumbnail: true
   uid: true

@@ -20,7 +20,7 @@ set classes = [
 %}
 <article{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
-  <h2 class="address__headline">{{ name }}</h2>
+  <h2 class="address__headline">{{ content.field_title|field_value }}</h2>
   <div class="address__label"><strong>{{ 'Postanschrift:'|trans }}</strong></div>
   <div class="address__title"{{ content.field_address_title|quickedit_attr }}>{{ content.field_address_title|field_value }}</div>
   <div class="address__address"{{ content.field_address_address|quickedit_attr }}>{{ content.field_address_address|field_value }}</div>
