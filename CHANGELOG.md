@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The field to control the display of the time in event node type.
 - Validation for event dates.
 - Public/internal title for all media bundles.
+- Added novalidate attribute to node and media forms.
 
 ### Fixed
 - Reinstalls missing audio embedded view mode.
