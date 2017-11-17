@@ -1,6 +1,5 @@
 dependencies:
   config:
-    - field.field.node.simplenews_issue.field_section
     - field.field.node.simplenews_issue.field_simplenews_issue_more
     - field.field.node.simplenews_issue.field_simplenews_issue_week
 content:
@@ -22,9 +21,3 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_section:
-    type: options_select
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }

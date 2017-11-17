@@ -8,3 +8,4 @@ dependencies:
   - simplenews
   - degov_content_types_shared_fields
   - degov_taxonomy_term_section
+  - degov_node_press
