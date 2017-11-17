@@ -92,7 +92,8 @@ content:
     weight: 8
     region: content
     label: above
-    settings: {  }
+    settings:
+      route_name: view.search_media.page
     third_party_settings: {  }
 hidden:
   created: true
