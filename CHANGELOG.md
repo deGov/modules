@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.
+- Validation for event dates.
 
 ### Fixed
 - Reinstalls missing audio embedded view mode.
