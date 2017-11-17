@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed linking dependencies through variables from media modules. 
 - Fixes broken slideshow of type 2.
 - Displays the position field of a media contact.
+- Use comma as decimal separator for file sizes.
 - Link image media tags to search page.
 
 ### Changed
