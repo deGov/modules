@@ -20,3 +20,8 @@ function degov_node_blog_uninstall() {
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+function degov_node_blog_update_8008() {
+  \Drupal::service('degov_config.module_updates')
+    ->applyUpdates('degov_node_blog', '8008');
+}
