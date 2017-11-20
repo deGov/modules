@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Displays the position field of a media contact.
 - Use comma as decimal separator for file sizes.
 - Link image media tags to search page.
+- Hide blog author if not specified in a blog article.
 
 ### Changed
 - Changed RSS feeds view from rendered entity to fields for better control.
