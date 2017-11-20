@@ -22,6 +22,6 @@ function degov_node_blog_uninstall() {
  */
 
 function degov_node_blog_update_8008() {
-  \Drupal::service('degov_config.module_updates')
+  \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_blog', '8008');
 }
