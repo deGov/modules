@@ -49,10 +49,13 @@ class DegovDateRange extends SearchApiDate {
           if ($range['stop']) {
             $item_filter->addCondition($this->facet->getFieldIdentifier(), $range['stop'], $exclude ? '>' : '<=');
           }
-
-          $filter->addConditionGroup($item_filter);
+          if ($range['start'] || $range['stop']) {
+            $filter->addConditionGroup($item_filter);
+          }
         }
-        $query->addConditionGroup($filter);
+        if (!empty($filter->getConditions())) {
+          $query->addConditionGroup($filter);
+        }
       }
     }
   }
