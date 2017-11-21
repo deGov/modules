@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added novalidate attribute to node and media forms.
 - Added entity reference fields to node type simplenews_issue.
 - Filter of view modes on paragraphs edit form.
+- Added Data protection checkbox to newsletter.
 
 ### Fixed
 - Reinstalls missing audio embedded view mode.
