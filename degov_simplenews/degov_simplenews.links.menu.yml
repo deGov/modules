@@ -1,0 +1,6 @@
+degov_simplenews.settings:
+  title: 'Simplenews Settings'
+  route_name: 'degov_simplenews.settings'
+  parent: 'degov.default'
+  description: 'Administer deGov Simplenews.'
+  weight: -9

@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added novalidate attribute to node and media forms.
 - Added entity reference fields to node type simplenews_issue.
 - Filter of view modes on paragraphs edit form.
+- Added Data protection checkbox to newsletter.
 
 ### Fixed
 - Reinstalls missing audio embedded view mode.
@@ -29,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove untranslated nodes from sitemap.xml
 - Use default theme for sending HTML mails.
 - By default the media search now shows 12 items and a full pager.
+- Removes auto trimming of the teaser title.
 - Updated editor role permissions.
 
 ## [1.11.0] - 06-11-2017
