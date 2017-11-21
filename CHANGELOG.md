@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Reinstalls missing audio embedded view mode.
 - Media video template.
+- Removed label and fixed info block for media video upload.
 
 ### Added
 - New degov_social_media_settings module for social media access control.
