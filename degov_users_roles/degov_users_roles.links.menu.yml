@@ -8,3 +8,7 @@ degov_taxonomy.overview:
   description: 'View vocabularies.'
   parent: system.admin_content
   route_name: entity.taxonomy_vocabulary.collection
+degov.workbench.links:
+  class: Drupal\degov_users_roles\Plugin\Menu\WorkbenchMenuLinks
+  deriver: Drupal\degov_users_roles\Plugin\Derivative\WorkbenchMenuLinks
+  menu_name: workbench
