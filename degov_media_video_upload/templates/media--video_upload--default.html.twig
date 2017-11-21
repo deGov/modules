@@ -47,11 +47,20 @@ set media_classes = [
   </div>
   <div class="video__extra-info">
     {% if content.field_media_accessibility|field_value %}
-      <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+      <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
         {{ content.field_media_accessibility|field_value }}
       </div>
     {% else %}
       <div class="media__type-label">{{ 'Video'|t }}</div>
+    {% endif %}
+    {% if content.field_copyright|field_value %}
+      <span class="video-upload__copyright">
+            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+        {{ content.field_copyright|field_value }}
+          </span>
+    {% endif %}
+    {% if content.field_video_upload_caption|field_value %}
+      <h2 class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</h2>
     {% endif %}
     <div class="video-upload__downloads">
       {% if content.download_mp4 %}
@@ -91,21 +100,6 @@ set media_classes = [
       <div class="video__assets">
         <div class="video__assets-language"{{ content.field_media_language|quickedit_attr }}>
           {{ content.field_media_language|field_value }}
-        </div>
-      </div>
-    {% endif %}
-    {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
-      <div class="video-upload__info">
-        <div class="video__info__wrap">
-          {% if content.field_video_upload_caption|field_value %}
-            <span class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
-          {% endif %}
-          {% if content.field_copyright|field_value %}
-            <span class="video-upload__copyright">
-            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-              {{ content.field_copyright|field_value }}
-          </span>
-          {% endif %}
         </div>
       </div>
     {% endif %}

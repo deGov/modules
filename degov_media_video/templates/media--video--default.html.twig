@@ -25,7 +25,7 @@ set media_classes = [
   </div>
   <div class="video__extra-info">
     {% if content.field_media_accessibility|field_value %}
-      <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+      <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
         {{ content.field_media_accessibility|field_value }}
       </div>
     {% else %}
