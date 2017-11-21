@@ -9,6 +9,7 @@ dependencies:
     - field.field.media.person.field_person_image
     - field.field.media.person.field_person_info
     - field.field.media.person.field_tags
+    - field.field.media.person.field_title
     - media_entity.bundle.person
   enforced:
     module:
@@ -143,6 +144,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 8

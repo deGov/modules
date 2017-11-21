@@ -1,0 +1,22 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_title
+    - media_entity.bundle.person
+  enforced:
+    module:
+      - degov_media_person
+third_party_settings: {  }
+id: media.person.field_title
+field_name: field_title
+entity_type: media
+bundle: person
+label: 'Öffentlicher Titel'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

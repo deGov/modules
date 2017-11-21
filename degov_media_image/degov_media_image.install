@@ -36,3 +36,17 @@ function degov_media_image_uninstall() {
  * and every minor release as well until 1.12 respectively.
  * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Link tags to search page.
+ */
+function degov_media_image_update_8014() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8014');
+}
+
+/**
+ * Rename field_title label.
+ */
+function degov_media_image_update_8015() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8015');
+}

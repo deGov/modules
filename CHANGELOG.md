@@ -13,38 +13,56 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.
+- Validation for event dates.
+- Public/internal title for all media bundles.
+- Added novalidate attribute to node and media forms.
+- Added entity reference fields to node type simplenews_issue.
+- Filter of view modes on paragraphs edit form.
 
+### Fixed
+- Reinstalls missing audio embedded view mode.
+- Removed linking dependencies through variables from media modules. 
+- Fixes broken slideshow of type 2.
+- Displays the position field of a media contact.
+- Use comma as decimal separator for file sizes.
+- Link image media tags to search page.
+- Hide blog author if not specified in a blog article.
+- Adapted minimum search keyword length to search index settings.
+
+### Changed
+- Changed RSS feeds view from rendered entity to fields for better control.
+- Remove untranslated nodes from sitemap.xml
+- Use default theme for sending HTML mails.
+- By default the media search now shows 12 items and a full pager.
 
 ## [1.11.0] - 06-11-2017
-### Fixed
-- All the events should be displayed by default from today.
-
 ### Changed
 - Removed deprecated degov_view_helper module from codebase.
 
-## [1.10.0] - 27-10-2017
 ### Fixed
-- Iframe paragraph title now uses the same layout as other paragraphs.
+- All the events should be displayed by default from today.
+
+## [1.10.0] - 27-10-2017
+### Added
+- Added composer dependency on views_reference module to degov_paragraph_view_reference.
 
 ### Changed
 - Move views helper functionality from degov_common to degov_paragraph_view_reference.
 - Field header paragraphs is not required in any content type anymore.
 
-### Added
-- Added composer dependency on views_reference module to degov_paragraph_view_reference.
+### Fixed
+- Iframe paragraph title now uses the same layout as other paragraphs.
 
 ## [1.9.0] - 23.10.17
 ### Added
 - New field title has been added to media.
+- Redirect module as a dependency to degov_pathauto.
 
 ### Changed
 - Multi valued entity reference fields that have entity browser widget now have ability to sort items
   with media_browser Entity Browser.
 - Scheduled updates field widget on nodes is now set to be a complex inline entity form.
 - Caption fields on media are migrated to the new title field.
-
-### Added
-- Redirect module as a dependency to degov_pathauto.
 
 ### Fixed
 - Default permissions have been added for the degov_sitemap_settings module.
