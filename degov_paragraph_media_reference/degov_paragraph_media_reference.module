@@ -25,6 +25,15 @@ function degov_paragraph_media_reference_field_widget_form_alter(&$element, \Dru
   if ($widget->getPluginId() == 'entity_reference_paragraphs' && !empty($element['subform']['field_media_reference_media'])) {
     $element['#attached']['library'][] = 'degov_paragraph_media_reference/media_reference';
   }
+  if (in_array($widget->getPluginId(), ['entity_browser_entity_reference'])) {
+    $formObject = $form_state->getFormObject();
+    if ($formObject instanceof \Drupal\paragraphs_edit\Form\ParagraphEditForm) {
+      $paragraph = $formObject->getEntity();
+      if ($paragraph->bundle() == 'media_reference') {
+        $element['#attached']['library'][] = 'degov_paragraph_media_reference/media_reference';
+      }
+    }
+  }
 }
 
 /**
