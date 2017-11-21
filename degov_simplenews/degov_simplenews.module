@@ -1,6 +1,5 @@
 <?php
 
-use Drupal\Core\Url;
 
 /**
  * Implements hook_form_alter().
@@ -14,7 +13,7 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $form['#submit'][] = '_degov_optout_submitform';
   }
   // Alter the Simplenews form block with an additional data protection checkbox.
-  if (strstr($form_id, 'simplenews_subscriptions_block')) {
+  if (strstr($form_id, 'simplenews_subscriptions_block') !== FALSE) {
     $privacy_policy_pages = \Drupal::config('degov_simplenews.settings')->get('privacy_policy');
     $newsletter_ids = $form_state->getFormObject()->getNewsletterIds();
     $is_subscribed = TRUE;
@@ -38,10 +37,10 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       // Show the required checkbox if the user is not yet subscribed.
       if (!$is_subscribed) {
         $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        $url = Url::fromRoute('entity.node.canonical', array('node' => $privacy_policy_pages[$language_id]));
+        $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $privacy_policy_pages[$language_id]], ['attributes' => ['target' => '_blank']]);
         $form['privacy_policy'] = [
           '#type' => 'checkbox',
-          '#title' => t('I have read and accepted the @privacy_policy.', ['@privacy_policy' => \Drupal::l(t('privacy policy'), $url)]),
+          '#title' => t('I have read and accepted the @privacy_policy.', ['@privacy_policy' => \Drupal\Core\Link::fromTextAndUrl(t('privacy policy'), $url)->toString()]),
           '#required' => TRUE,
         ];
       }
