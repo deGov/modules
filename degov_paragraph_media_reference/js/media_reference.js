@@ -15,7 +15,7 @@
       // Go over every data-entity-id value and filter the field view modes.
       $('.field--name-field-media-reference-media [data-entity-id]', context).each(function() {
         var media = $(this).attr('data-entity-id').split(":");
-        var view_mode_selector = $(this).closest('.paragraphs-subform').find('.field--type-entity-reference-display .form-select');
+        var view_mode_selector = $(this).closest('.paragraphs-subform, .paragraph-form').find('.field--type-entity-reference-display .form-select');
         ajaxFilterViewModes(media[0], media[1], view_mode_selector.attr('data-drupal-selector'));
       });
     }
