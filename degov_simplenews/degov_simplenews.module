@@ -17,6 +17,8 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $privacy_policy_pages = \Drupal::config('degov_simplenews.settings')->get('privacy_policy');
     $newsletter_ids = $form_state->getFormObject()->getNewsletterIds();
     $is_subscribed = TRUE;
+    // Add cache contexts by role.
+    $form['#cache']['contexts'][] = 'user.roles';
     // Require privacy policy settings and newsletters to be configured.
     if (!empty($privacy_policy_pages) && $newsletter_ids) {
       // Check if the user is authenticated.
