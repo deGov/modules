@@ -44,25 +44,15 @@ set media_classes = [
       {{ subtitle }}
       {% endfor %}
     </video>
-    <div class="video-upload__type-text">{{ 'Video'|t }}</div>
-    {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
-      <div class="video-upload__info">
-        <div class="video__info__wrap">
-        {% if content.field_video_upload_caption|field_value %}
-          <span class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
-        {% endif %}
-        {% if content.field_copyright|field_value %}
-          <span class="video-upload__copyright">
-            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-            {{ content.field_copyright|field_value }}
-          </span>
-        {% endif %}
-        </div>
-      </div>
-    {% endif %}
   </div>
   <div class="video__extra-info">
-    <div class="media__type-label">{{ 'Video'|t }}</div>
+    {% if content.field_media_accessibility|field_value %}
+      <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+        {{ content.field_media_accessibility|field_value }}
+      </div>
+    {% else %}
+      <div class="media__type-label">{{ 'Video'|t }}</div>
+    {% endif %}
     <div class="video-upload__downloads">
       {% if content.download_mp4 %}
         {{ content.download_mp4 }}
@@ -97,18 +87,26 @@ set media_classes = [
         </div>
       </div>
     {% endif %}
-    {% if content.field_media_accessibility or content.field_media_language %}
+    {% if content.field_media_language %}
       <div class="video__assets">
-        {% if content.field_media_accessibility %}
-          <div class="video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
-            {{ content.field_media_accessibility|field_value }}
-          </div>
-        {% endif %}
-        {% if content.field_media_language %}
-          <div class="video__assets-language"{{ content.field_media_language|quickedit_attr }}>
-            {{ content.field_media_language|field_value }}
-          </div>
-        {% endif %}
+        <div class="video__assets-language"{{ content.field_media_language|quickedit_attr }}>
+          {{ content.field_media_language|field_value }}
+        </div>
+      </div>
+    {% endif %}
+    {% if content.field_video_upload_caption|field_value or content.field_copyright|field_value %}
+      <div class="video-upload__info">
+        <div class="video__info__wrap">
+          {% if content.field_video_upload_caption|field_value %}
+            <span class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
+          {% endif %}
+          {% if content.field_copyright|field_value %}
+            <span class="video-upload__copyright">
+            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+              {{ content.field_copyright|field_value }}
+          </span>
+          {% endif %}
+        </div>
       </div>
     {% endif %}
   </div>
