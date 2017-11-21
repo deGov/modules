@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Send HTML mails using default theme.
+ */
+function degov_html_mail_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_html_mail', '8001');
+}
