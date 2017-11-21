@@ -1,0 +1,7 @@
+degov_simplenews.settings:
+  path: '/admin/config/degov/simplenews'
+  defaults:
+    _form: '\Drupal\degov_simplenews\Form\SettingsForm'
+    _title: 'deGov - simplenews Settings'
+  requirements:
+    _permission: 'administer degov'
