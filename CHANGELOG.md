@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove untranslated nodes from sitemap.xml
 - Use default theme for sending HTML mails.
 - By default the media search now shows 12 items and a full pager.
+- Removes auto trimming of the teaser title.
 
 ## [1.11.0] - 06-11-2017
 ### Changed
