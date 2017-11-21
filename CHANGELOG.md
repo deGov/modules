@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Changed RSS feeds view from rendered entity to fields for better control.
 - Remove untranslated nodes from sitemap.xml
 - Use default theme for sending HTML mails.
+- By default the media search now shows 12 items and a full pager.
 
 ## [1.11.0] - 06-11-2017
 ### Changed
