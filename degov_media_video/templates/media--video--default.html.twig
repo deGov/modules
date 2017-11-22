@@ -31,6 +31,9 @@ set media_classes = [
     {% else %}
       <div class="media__type-label">{{ 'Video'|t }}</div>
     {% endif %}
+    {% if content.field_title %}
+      <h2 class="video__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
+    {% endif %}
     {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
       <div class="video__info">
         <div class="video__info__wrap">

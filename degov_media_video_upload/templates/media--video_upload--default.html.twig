@@ -46,33 +46,38 @@ set media_classes = [
     </video>
   </div>
   <div class="video__extra-info">
-    {% if content.field_media_accessibility|field_value %}
-      <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
-        {{ content.field_media_accessibility|field_value }}
-      </div>
-    {% else %}
-      <div class="media__type-label">{{ 'Video'|t }}</div>
-    {% endif %}
-    {% if content.field_copyright|field_value %}
-      <span class="video-upload__copyright">
-            <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-        {{ content.field_copyright|field_value }}
-          </span>
-    {% endif %}
-    {% if content.field_video_upload_caption|field_value %}
-      <h2 class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</h2>
-    {% endif %}
-    <div class="video-upload__downloads">
-      {% if content.download_mp4 %}
-        {{ content.download_mp4 }}
+    <div class="video-upload__top">
+      {% if content.field_media_accessibility|field_value %}
+        <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+          {{ content.field_media_accessibility|field_value }}
+        </div>
+      {% else %}
+        <div class="media__type-label">{{ 'Video'|t }}</div>
       {% endif %}
-      {% if content.download_ogg %}
-        {{ content.download_ogg }}
-      {% endif %}
-      {% if content.download_webm %}
-        {{ content.download_webm }}
+      {% if content.field_copyright|field_value %}
+        <span class="video-upload__copyright">
+          <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+            {{ content.field_copyright|field_value }}
+        </span>
       {% endif %}
     </div>
+    <div class="video-upload__downloads">
+      {% if content.download_mp4 %}
+          {{ content.download_mp4 }}
+      {% endif %}
+      {% if content.download_ogg %}
+          {{ content.download_ogg }}
+      {% endif %}
+      {% if content.download_webm %}
+          {{ content.download_webm }}
+      {% endif %}
+    </div>
+    {% if content.field_title %}
+      <h2 class="video-upload__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
+    {% endif %}
+    {% if content.field_video_upload_caption|field_value %}
+      <span class="video-upload__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
+    {% endif %}
     {% if content.field_media_duration|field_value %}
       <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
     {% endif %}
