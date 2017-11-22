@@ -4,12 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.12.0] - In development
+## [1.12.2] - In development
+
+## [1.12.1] - 22-11-2017
+### Added
+- Filter of view modes on paragraphs edit form.
+- Added Data protection checkbox to newsletter.
+
 ### Fixed
-- Reinstalls missing audio embedded view mode.
 - Media video template.
 - Removed label and fixed info block for media video upload.
+- Hide blog author if not specified in a blog article.
+- Adapted minimum search keyword length to search index settings.
 
+### Changed
+- Use default theme for sending HTML mails.
+- By default the media search now shows 12 items and a full pager.
+- Removes auto trimming of the teaser title.
+- Updated editor role permissions.
+
+## [1.12.0] - 17-11-2017
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.
@@ -17,8 +31,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Public/internal title for all media bundles.
 - Added novalidate attribute to node and media forms.
 - Added entity reference fields to node type simplenews_issue.
-- Filter of view modes on paragraphs edit form.
-- Added Data protection checkbox to newsletter.
 
 ### Fixed
 - Reinstalls missing audio embedded view mode.
@@ -27,16 +39,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Displays the position field of a media contact.
 - Use comma as decimal separator for file sizes.
 - Link image media tags to search page.
-- Hide blog author if not specified in a blog article.
-- Adapted minimum search keyword length to search index settings.
 
 ### Changed
 - Changed RSS feeds view from rendered entity to fields for better control.
 - Remove untranslated nodes from sitemap.xml
-- Use default theme for sending HTML mails.
-- By default the media search now shows 12 items and a full pager.
-- Removes auto trimming of the teaser title.
-- Updated editor role permissions.
 
 ## [1.11.0] - 06-11-2017
 ### Changed
