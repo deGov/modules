@@ -35,7 +35,7 @@
       var $slideshow_prev_next = $('.slideshow-with-prev-next');
       var $slides_prev_next = $('.slides_prev_next', $slideshow_prev_next);
       $slides_prev_next.once().slick({
-        dots: true,
+        dots: false,
         slidesToShow: 1,
         autoplay: false
       });
