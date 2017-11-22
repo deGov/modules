@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.12.0] - In development
+### Fixed
+- Reinstalls missing audio embedded view mode.
+- Media video template.
+- Removed label and fixed info block for media video upload.
+
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.
