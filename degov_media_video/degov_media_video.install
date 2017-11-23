@@ -15,3 +15,11 @@ function degov_media_video_update_8012() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_video', '8012');
 }
+
+/**
+ * Add search route setting to tags.
+ */
+function degov_media_video_update_8013() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video', '8013');
+}
