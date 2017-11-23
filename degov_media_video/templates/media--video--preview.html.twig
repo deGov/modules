@@ -37,7 +37,7 @@ set media_classes = [
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-6">
     <a href="{{ video_url }}">
-    {% if content.field_image_date|field_value %}
+    {% if content.field_video_date|field_value %}
       <div class="video__date"{{ content.field_video_date|quickedit_attr }}>{{ content.field_video_date|field_value }}</div>
     {% else %}
       <div class="video__date">{{ created|date("d.m.Y") }}</div>

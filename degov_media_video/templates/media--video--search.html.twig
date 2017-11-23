@@ -21,7 +21,9 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   <div class="media--search__type-text">{{ 'Video'|t }}</div>
-  <div class="video__video">{{ content.field_video_preview|field_value }}</div>
+  <div class="video__video">
+    <a href="{{ video_url }}">{{ content.field_video_preview|field_value }}</a>
+  </div>
   {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
   <div class="media--search__info">
     <div class="media--search__date video__date">
