@@ -63,11 +63,11 @@
       function get_prev_slick_img() {
         var $slick_current = $('.slick-current');
         // For prev img
-        var prev_slick_img = $slick_current.prev('.slide').find('.slide__media img').attr('src');
+        var prev_slick_img = $slick_current.prev('.slick-slide').find('.slide__media img').attr('src');
         $('.prev-slick-img img').attr('src', prev_slick_img);
         $('.prev-slick-img').css('background-image', 'url(' + prev_slick_img + ')');
         // For next img
-        var prev_next_slick_img = $slick_current.next('.slide').find('.slide__media img').attr('src');
+        var prev_next_slick_img = $slick_current.next('.slick-slide').find('.slide__media img').attr('src');
         $('.next-slick-img img').attr('src', prev_next_slick_img);
         $('.next-slick-img').css('background-image', 'url(' + prev_next_slick_img + ')');
       }
@@ -75,11 +75,11 @@
       function get_next_slick_img() {
         var $slick_current = $('.slick-current');
         // For next img
-        var next_slick_img = $slick_current.next('.slide').find('.slide__media img').attr('src');
+        var next_slick_img = $slick_current.next('.slick-slide').find('.slide__media img').attr('src');
         $('.next-slick-img img').attr('src', next_slick_img);
         $('.next-slick-img').css('background-image', 'url(' + next_slick_img + ')');
         // For prev img
-        var next_prev_slick_img = $slick_current.prev('.slide').find('.slide__media img').attr('src');
+        var next_prev_slick_img = $slick_current.prev('.slick-slide').find('.slide__media img').attr('src');
         $('.prev-slick-img img').attr('src', next_prev_slick_img);
         $('.prev-slick-img').css('background-image', 'url(' + next_prev_slick_img + ')');
       }
