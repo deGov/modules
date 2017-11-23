@@ -15,3 +15,12 @@ function degov_media_video_update_8012() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_video', '8012');
 }
+
+/**
+ * Add a video preview image.
+ */
+function degov_media_video_update_8013() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater  */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_media_video', '8013');
+}

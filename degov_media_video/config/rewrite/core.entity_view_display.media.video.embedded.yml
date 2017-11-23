@@ -9,6 +9,7 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
+    - field.field.media.video.field_video_preview
     - field.field.media.audio.field_copyright
     - field.field.media.audio.field_description
     - image.style.thumbnail
@@ -53,6 +54,15 @@ content:
     label: hidden
     settings:
       route_name: view.search_media.page
+    third_party_settings: {  }
+  field_video_preview:
+    type: media_thumbnail
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
   thumbnail:
     type: image
