@@ -101,7 +101,7 @@
       <a href="{{ url }}" rel="bookmark">
         <div class="normal-page__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+            {{ content.field_teaser_title|field_value }}
           </h3>
         </div>
       </a>

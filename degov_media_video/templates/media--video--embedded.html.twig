@@ -21,7 +21,7 @@ set media_classes = [
 %}
 <article{{ attributes.addClass(media_classes) }}>
   <div class="video__video teaser-image">
-    {{ content.thumbnail }}
+    {{ content.field_video_preview|field_value }}
   </div>
   {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
   <div class="media--embedded__info">

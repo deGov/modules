@@ -2,8 +2,18 @@
 
 /**
  * Next module update version is 8003.
- * All update hooks from 1.1 to 1.11 were deleted.
- * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
- * and every minor release as well until 1.11 respectively.
- * The fresh install should have all the changes from 1.1 to 1.11.
+ * All update hooks from 1.1 to 1.12 were deleted.
+ * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
+ * and every minor release as well until 1.12 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.12.
  */
+
+/**
+ * Skip non-existent translations.
+ */
+function degov_sitemap_settings_update_8003() {
+  \Drupal::configFactory()->getEditable('simple_sitemap.settings')
+    ->set('skip_untranslated', true)
+    ->save();
+  \Drupal::service('simple_sitemap.generator')->generateSitemap();
+}

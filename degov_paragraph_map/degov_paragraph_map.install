@@ -15,8 +15,8 @@ function degov_paragraph_map_uninstall() {
 
 /**
  * Next module update version is 8002.
- * All update hooks from 1.1 to 1.11 were deleted.
- * There is no upgrade path from 1.1 to 1.11, you need first to update to 1.2
- * and every minor release as well until 1.11 respectively.
- * The fresh install should have all the changes from 1.1 to 1.11.
+ * All update hooks from 1.1 to 1.12 were deleted.
+ * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
+ * and every minor release as well until 1.12 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.12.
  */

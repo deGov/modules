@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Implements hook_form_alter().
  *
@@ -11,8 +12,41 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   if ($form_id == 'simplenews_confirm_removal') {
     $form['#submit'][] = '_degov_optout_submitform';
   }
-  if ($form_id == 'user_register_form' && !empty($form['account']['mail'])) {
-    $form['account']['mail']['#required'] = TRUE;
+  // Alter the Simplenews form block with an additional data protection checkbox.
+  if (strstr($form_id, 'simplenews_subscriptions_block') !== FALSE) {
+    $privacy_policy_pages = \Drupal::config('degov_simplenews.settings')->get('privacy_policy');
+    $newsletter_ids = $form_state->getFormObject()->getNewsletterIds();
+    $is_subscribed = TRUE;
+    // Add cache contexts by role.
+    $form['#cache']['contexts'][] = 'user.roles';
+    // Require privacy policy settings and newsletters to be configured.
+    if (!empty($privacy_policy_pages) && $newsletter_ids) {
+      // Check if the user is authenticated.
+      if (\Drupal::currentUser()->isAuthenticated()) {
+        $current_user_email = \Drupal::currentUser()->getEmail();
+        /** @var \Drupal\simplenews\Subscription\SubscriptionManager $subscriptionManager */
+        $subscriptionManager = \Drupal::service('simplenews.subscription_manager');
+        foreach ($newsletter_ids as $newsletter_id) {
+          // Check if the user is not subscribed to a newsletter.
+          if (!$subscriptionManager->isSubscribed($current_user_email, $newsletter_id)) {
+            $is_subscribed = FALSE;
+            break;
+          }
+        }
+      } else {
+        $is_subscribed = FALSE;
+      }
+      // Show the required checkbox if the user is not yet subscribed.
+      if (!$is_subscribed) {
+        $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $privacy_policy_pages[$language_id]], ['attributes' => ['target' => '_blank']]);
+        $form['privacy_policy'] = [
+          '#type' => 'checkbox',
+          '#title' => t('I have read and accepted the @privacy_policy.', ['@privacy_policy' => \Drupal\Core\Link::fromTextAndUrl(t('privacy policy'), $url)->toString()]),
+          '#required' => TRUE,
+        ];
+      }
+    }
   }
 }
 
@@ -26,4 +60,16 @@ function _degov_optout_submitform(array &$form, \Drupal\Core\Form\FormStateInter
   } else {
     $form_state->setRedirectUrl(\Drupal\Core\Url::fromUri("internal:/$path"));
   }
+}
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_simplenews_locale_translation_projects_alter(&$projects) {
+  $projects['degov_simplenews'] = [
+    'info' => [
+      'interface translation project' => 'degov_simplenews',
+      'interface translation server pattern' => drupal_get_path('module', 'degov_simplenews').'/translations/%language.po',
+    ],
+  ];
 }

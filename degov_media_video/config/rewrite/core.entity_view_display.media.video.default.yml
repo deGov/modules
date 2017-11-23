@@ -87,7 +87,7 @@ content:
     region: content
     label: hidden
     settings:
-      route_name: ''
+      route_name: view.search_media.page
     third_party_settings: {  }
   field_video_caption:
     weight: 3

@@ -42,7 +42,8 @@ content:
     weight: 3
     region: content
     label: hidden
-    settings: {  }
+    settings:
+      route_name: view.search_media.page
     third_party_settings: {  }
   field_video_upload_caption:
     type: string

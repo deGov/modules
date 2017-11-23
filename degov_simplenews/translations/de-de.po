@@ -1,0 +1,35 @@
+# $Id$
+#
+# LANGUAGE translation of degov_simplenews module.
+# Copyright 2017 <info@degov.de>
+# Generated from files:
+#  modules/degov/degov_simplenews/degov_simplenews.module: n/a
+#  modules/degov/degov_simplenews/src/Form/SettingsForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 2\n"
+"Last-Translator: deGov <info@degov.de>\n"
+"Language-Team: DE <info@degov.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: modules/degov/degov_simplenews/degov_simplenews.module:25
+msgid "I have read and accepted the @privacy_policy."
+msgstr "Ich habe die @privacy_policy gelesen und akzeptiert."
+
+#: modules/degov/degov_simplenews/degov_simplenews.module:25
+msgid "privacy policy"
+msgstr "Datenschutzhinweise"
+
+#: modules/degov/degov_simplenews/src/Form/SettingsForm.php:95
+msgid "Simplenews settings"
+msgstr ""
+
+#: modules/degov/degov_simplenews/src/Form/SettingsForm.php:113
+msgid "Privacy policy page (@langcode)"
+msgstr ""
+

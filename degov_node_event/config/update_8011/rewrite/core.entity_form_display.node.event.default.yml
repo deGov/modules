@@ -1,0 +1,30 @@
+third_party_settings:
+  field_group:
+    group_date_and_time:
+      children:
+        - field_event_date
+        - field_event_date_end
+        - field_event_display_time
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        label: 'Datum und Uhrzeit'
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Datum und Uhrzeit'
+      region: content
+content:
+  field_event_date:
+    weight: 3
+  field_event_date_end:
+    weight: 4
+  field_event_display_time:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content

@@ -96,7 +96,9 @@
   <div class="event__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
     <div class="event__teaser__day">{{ start_date_timestamp|format_date('custom', 'd') }}</div>
     <div class="event__teaser__location">{{ content.field_event_location.0.locality}}</div>
-    <div class="event__teaser__time">{{ start_date_timestamp|format_date('custom', 'G:i') }}</div>
+    {%  if node.field_event_display_time.value == true %}
+      <div class="event__teaser__time">{{ start_date_timestamp|format_date('custom', 'G:i') }}</div>
+    {% endif %}
   </div>
 
   <div class="event__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
@@ -115,7 +117,7 @@
       <a href="{{ url }}" rel="bookmark">
         <div class="event__teaser-title teaser-title">
         <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ node.field_teaser_title.value|length > 110 ? node.field_teaser_title.value|slice(0, 110) ~ '...' : content.field_teaser_title|field_value }}
+            {{ content.field_teaser_title|field_value }}
           </h3>
         </div>
       </a>

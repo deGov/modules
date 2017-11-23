@@ -1,0 +1,148 @@
+<?php
+
+use Drupal\media_entity\MediaInterface;
+use Drupal\Component\Utility\Xss;
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Utility\NestedArray;
+
+/**
+ * Implements hook_theme().
+ */
+function degov_social_media_settings_theme($existing, $type, $theme, $path) {
+  return [
+    'degov_social_media_settings_block' => [
+      'variables' => [
+        'social_media_sources' => NULL,
+      ]
+    ]
+  ];
+}
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_social_media_settings_locale_translation_projects_alter(&$projects) {
+  $projects['degov_social_media_settings'] = [
+    'info' => [
+      'interface translation project' => 'degov_social_media_settings',
+      'interface translation server pattern' => drupal_get_path('module', 'degov_social_media_settings').'/translations/%language.po',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function degov_social_media_settings_modules_installed($modules) {
+  // Add field_social_media_type to some_embed and video media bundles
+  // when they are installed after degov_social_media_settings module.
+  $bundles = [];
+
+  if (in_array('degov_media_social_media_embed', $modules)) {
+    $bundles[] = 'some_embed';
+  }
+
+  if (in_array('degov_media_video', $modules)) {
+    $bundles[] = 'video';
+  }
+
+  if (!empty($bundles)) {
+    /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+    $configFactory = \Drupal::service('config.factory');
+    $path = drupal_get_path('module', 'degov_social_media_settings');
+    $new = [];
+    $add = [];
+
+    foreach ($bundles as $bundle) {
+      $new[] = 'field.field.media.' . $bundle . '.field_social_media_source';
+      $add[] = 'core.entity_form_display.media.' . $bundle . '.default';
+      $add[] = 'core.entity_form_display.media.' . $bundle . '.media_browser';
+    }
+
+    // Add field instance.
+    foreach ($new as $file) {
+      $data = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'optional', $file . '.yml'])));
+      $configFactory->getEditable($file)->setData($data)->save();
+    }
+
+    // Rewrite form display to add field.
+    foreach ($add as $file) {
+      $config = $configFactory->getEditable($file);
+      $active = $config->getRawData();
+
+      if (!empty($active)) {
+        $insert = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'rewrite', $file . '.yml'])));
+        $merged = NestedArray::mergeDeep($active, $insert);
+        $config->setData($merged)->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph__HOOK().
+ */
+function degov_social_media_settings_preprocess_paragraph__media_reference(&$variables) {
+  /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+  $paragraph = $variables['paragraph'];
+  /** @var \Drupal\media_entity\MediaInterface $media */
+  $media = $paragraph->field_media_reference_media->entity;
+
+  // Add a class to the paragraph template for external media.
+  if ($media instanceof MediaInterface && in_array($media->bundle(), ['some_embed', 'video'])) {
+    $variables['attributes']['class'][] = 'social-media-source-' . $media->field_social_media_source->value;
+  }
+}
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function degov_social_media_settings_preprocess_media(&$variables) {
+  /** @var \Drupal\media_entity\MediaInterface $media */
+  $media = $variables['elements']['#media'];
+  $entity_id = $media->id();
+  $bundle = $media->bundle();
+
+  // Do not display external media by default. This requires support in the
+  // templates. They need to evaluate the $variables['social_media_disabled'].
+  // Better solutions are possible, for instance:
+  // - a twig filter or
+  // - a field formatter or
+  // - a preprocess function for the fields and a hook that informs this
+  //   module about fields that need to be disabled
+  if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video'])) {
+    switch ($bundle) {
+      case 'some_embed':
+        // Maybe make sure this runs after degov_media_social_media_embed_preprocess_media__some_embed
+        // and use $variables['code'] from there instead of generating it here?
+        $field_value = $media->field_some_embed_code->value;
+        if (function_exists('degov_media_social_media_embed_allowed_tags')) {
+          $allowed_tags = degov_media_social_media_embed_allowed_tags();
+          $markup = Xss::filter($field_value, $allowed_tags);
+        }
+        break;
+      case 'video':
+        $field_value = \Drupal::service('twig_field_value.twig.extension')->getFieldValue($variables['content']['field_media_video_embed_field']);
+        $markup = \Drupal::service('renderer')->render($field_value);
+        break;
+    }
+
+    if (!empty($markup)) {
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code'][$entity_id] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
+      $variables['attributes']['data-social-media-source'] = $media->field_social_media_source->value;
+      $variables['attributes']['data-social-media-entity'] = $entity_id;
+      $variables['social_media_disabled'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Returns an array of allowed social media sources.
+ *
+ * @return array
+ *   An array of allowed values.
+ */
+function degov_social_media_settings_sources() {
+  return \Drupal::config('degov_social_media_settings.default')->get('sources');
+}

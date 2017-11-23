@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Add entity reference fields.
+ */
+function degov_simplenews_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_simplenews', '8001');
+}

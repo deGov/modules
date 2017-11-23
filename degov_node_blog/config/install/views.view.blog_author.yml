@@ -223,6 +223,7 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'The Author of a blog entry (Media Person type reference)'
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:

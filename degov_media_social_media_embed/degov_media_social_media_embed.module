@@ -22,7 +22,7 @@ function degov_media_social_media_embed_preprocess(&$variables, $hook, &$info) {
  */
 function degov_media_social_media_embed_preprocess_media__some_embed(&$variables) {
   /* @var \Drupal\media_entity\Entity\Media $media */
-  $media = $variables['media'];
+  $media = $variables['elements']['#media'];
 
   if ($media instanceof MediaInterface && $media->hasField('field_some_embed_code') && !$media->get('field_some_embed_code')->isEmpty()) {
     $variables['code'] = [

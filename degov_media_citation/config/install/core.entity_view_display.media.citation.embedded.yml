@@ -10,6 +10,7 @@ dependencies:
     - field.field.media.citation.field_include_search
     - field.field.media.citation.field_media_in_library
     - field.field.media.citation.field_tags
+    - field.field.media.citation.field_title
     - image.style.thumbnail
     - media_entity.bundle.citation
   enforced:
@@ -55,6 +56,7 @@ hidden:
   field_include_search: true
   field_media_in_library: true
   field_tags: true
+  field_title: true
   langcode: true
   name: true
   thumbnail: true

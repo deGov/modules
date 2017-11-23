@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.instagram.embed_code
     - field.field.media.instagram.field_media_in_library
     - field.field.media.instagram.field_tags
+    - field.field.media.instagram.field_title
     - image.style.medium
     - media_entity.bundle.instagram
   module:
@@ -29,6 +30,7 @@ hidden:
   embed_code: true
   field_media_in_library: true
   field_tags: true
+  field_title: true
   langcode: true
   name: true
   uid: true

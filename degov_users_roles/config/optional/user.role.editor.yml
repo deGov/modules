@@ -55,7 +55,7 @@ permissions:
   - 'update any media'
   - 'use draft_draft transition'
   - 'use draft_needs_review transition'
-  - 'use published_published transition'
+  - 'use published_draft transition'
   - 'use text format rich_text'
   - 'use workbench access'
   - 'view all revisions'

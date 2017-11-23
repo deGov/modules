@@ -47,7 +47,13 @@ class DateRangePicker extends WidgetPluginBase {
           continue;
         }
         $startDate = ($value[0] != '*') ? $value[0] : '';
+        if (!strtotime($startDate)) {
+          $startDate = '';
+        }
         $endDate = ($value[1] != '*') ? $value[1] : '';
+        if (!strtotime($endDate)) {
+          $endDate = '';
+        }
       }
     }
 
