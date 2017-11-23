@@ -64,3 +64,4 @@ function degov_paragraph_slideshow_preprocess_paragraph(&$variables) {
     }
   }
 }
+
