@@ -25,7 +25,7 @@ set media_classes = [
     <a href="{{ video_url }}">
     <div class="media--preview__type-text">{{ 'Video'|t }}</div>
     <div class="video__video teaser-image">
-      {{ content.thumbnail }}
+      {{ content.field_video_preview|field_value }}
     </div>
     </a>
     <a href="{{ video_url }}">

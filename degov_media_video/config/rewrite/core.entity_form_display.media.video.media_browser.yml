@@ -9,6 +9,7 @@ dependencies:
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
+    - field.field.media.video.field_video_preview
     - field.field.media.video.field_media_duration
     - field.field.media.video.field_media_transcription
     - media_entity.bundle.video
@@ -37,6 +38,7 @@ third_party_settings:
     group_media:
       children:
         - field_media_video_embed_field
+        - field_video_preview
       parent_name: group_vertical
       weight: 9
       format_type: tab
@@ -155,6 +157,20 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_video_preview:
+    type: entity_browser_entity_reference
+    weight: 4
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      open: true
+    region: content
+    third_party_settings: {  }
   field_media_duration:
     weight: 5
     settings:
