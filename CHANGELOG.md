@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Link image media tags to search page.
 - Hide blog author if not specified in a blog article.
 - Adapted minimum search keyword length to search index settings.
+- Fixed link in video preview templates.
 
 ### Changed
 - Changed RSS feeds view from rendered entity to fields for better control.
