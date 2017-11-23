@@ -1,0 +1,4 @@
+content:
+  field_tags:
+    settings:
+      route_name: view.search_media.page
