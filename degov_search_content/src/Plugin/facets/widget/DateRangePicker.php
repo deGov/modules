@@ -31,7 +31,7 @@ class DateRangePicker extends WidgetPluginBase {
         return $this->buildResultItem($result);
       }
       else {
-        return $this->buildListItems($result);
+        return $this->buildListItems($this->facet, $result);
       }
     }, $facet->getResults());
 
