@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.12.0] - In development
+
+## [1.12.4] - In development
+### Added
+
+### Changed
+- Remove tags display from document display.
+
+### Fixed
+
+## [1.12.0] - 24-11-2017
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.
