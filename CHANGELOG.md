@@ -4,14 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-
-## [1.12.4] - In development
-### Added
-
-### Changed
-- Remove tags display from document display.
-
-### Fixed
+## [1.13.0] - IN DEVELOPMENT
+### Removed
+- The gallery subtitle field has been deprecated. In case your project
+  used this field, than you must override all media gallery templates found
+  in the degov_media_gallery module into your own theme and include the
+  subtitle back into these templates.
 
 ## [1.12.0] - 24-11-2017
 ### Added
