@@ -30,17 +30,11 @@ content:
     third_party_settings: {  }
     type: file_default
     region: content
-  field_tags:
-    type: taxonomy_term_search
-    weight: 1
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   field_include_search: true
   field_media_in_library: true
+  field_tags: true
   langcode: true
   name: true
   thumbnail: true

@@ -44,3 +44,14 @@ function degov_media_document_update_8006() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_document', '8006');
 }
+
+/**
+ * Hide tags field.
+ */
+function degov_media_document_update_8007() {
+  $view_mode = \Drupal\Core\Entity\Entity\EntityViewDisplay::load('media.document.default');
+  $view_mode->removeComponent('field_tags');
+  $view_mode->save();
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_document', '8007');
+}
