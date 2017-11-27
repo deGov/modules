@@ -11,7 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   in the degov_media_gallery module into your own theme and include the
   subtitle back into these templates.
 
-## [1.12.0] - 24-11-2017
+## [1.12.3] - 24-11-2017
+### Changed
+- Remove tags display from document display.
+
+## [1.12.0 - 1.12.2] - 24-11-2017
 ### Added
 - New degov_social_media_settings module for social media access control.
 - The field to control the display of the time in event node type.

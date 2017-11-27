@@ -2,8 +2,8 @@
 
 /**
  * Next module update version is 8004.
- * All update hooks from 1.1 to 1.12 were deleted.
- * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
- * and every minor release as well until 1.12 respectively.
- * The fresh install should have all the changes from 1.1 to 1.12.
+ * All update hooks from 1.1 to 1.13 were deleted.
+ * There is no upgrade path from 1.1 to 1.13, you need first to update to 1.2
+ * and every minor release as well until 1.13 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.13.
  */
