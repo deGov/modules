@@ -1,6 +1,0 @@
-display:
-  default:
-    display_options:
-      filters:
-        search_api_fulltext:
-          min_length: 3

@@ -1,5 +1,0 @@
-dependencies:
-  config:
-    - field.field.media.address.field_title
-hidden:
-  field_title: true
