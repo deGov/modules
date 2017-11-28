@@ -43,7 +43,7 @@ settings:
     sortingCode: sortingCode
     addressLine1: addressLine1
     addressLine2: addressLine2
-    organization: '0'
+    organization: organization
     givenName: '0'
     additionalName: '0'
     familyName: '0'

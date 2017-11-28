@@ -5,7 +5,6 @@ dependencies:
     - core.entity_form_mode.media.media_browser
     - entity_browser.browser.media_browser
     - field.field.media.gallery.field_gallery_images
-    - field.field.media.gallery.field_gallery_sub_title
     - field.field.media.gallery.field_description
     - field.field.media.gallery.field_gallery_title
     - field.field.media.gallery.field_include_search
@@ -54,7 +53,6 @@ third_party_settings:
     group_description:
       children:
         - field_gallery_title
-        - field_gallery_sub_title
         - field_description
       parent_name: group_vertical
       weight: 3
@@ -104,14 +102,6 @@ content:
       open: true
     region: content
     third_party_settings: {  }
-  field_gallery_sub_title:
-    weight: 11
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_description:
     weight: 12
     settings:
