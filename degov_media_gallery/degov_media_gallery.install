@@ -33,3 +33,11 @@ function degov_media_gallery_update_8008() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_gallery', '8008');
 }
+
+/**
+ * Rename field_tags hide label.
+ */
+function degov_media_gallery_update_8009() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_gallery', '8009');
+}

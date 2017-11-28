@@ -57,7 +57,7 @@ content:
     region: content
   field_tags:
     weight: 7
-    label: above
+    label: hidden
     settings:
       route_name: ''
     third_party_settings: {  }
