@@ -1,5 +1,0 @@
-dependencies:
-  config:
-    - field.field.media.some_embed.field_title
-hidden:
-  field_title: true

@@ -30,25 +30,9 @@ function degov_media_video_upload_uninstall() {
 }
 
 /**
- * Next module update version is 8013.
- * All update hooks from 1.1 to 1.12 were deleted.
- * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
- * and every minor release as well until 1.12 respectively.
- * The fresh install should have all the changes from 1.1 to 1.12.
+ * Next module update version is 8015.
+ * All update hooks from 1.1 to 1.13 were deleted.
+ * There is no upgrade path from 1.1 to 1.13, you need first to update to 1.2
+ * and every minor release as well until 1.13 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.13.
  */
-
-/**
- * Rename field_title label.
- */
-function degov_media_video_upload_update_8013() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_media_video_upload', '8013');
-}
-
-/**
- * Add search route setting to tags.
- */
-function degov_media_video_upload_update_8014() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_media_video_upload', '8014');
-}
