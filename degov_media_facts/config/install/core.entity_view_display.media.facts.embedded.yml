@@ -7,7 +7,6 @@ dependencies:
     - field.field.media.facts.field_facts_text
     - field.field.media.facts.field_media_in_library
     - field.field.media.facts.field_title
-    - field.field.media.facts.field_topic
     - media_entity.bundle.facts
   module:
     - text
@@ -41,14 +40,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_topic:
-    weight: 0
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
 hidden:
   created: true

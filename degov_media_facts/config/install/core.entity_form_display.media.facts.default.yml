@@ -6,7 +6,6 @@ dependencies:
     - field.field.media.facts.field_facts_text
     - field.field.media.facts.field_media_in_library
     - field.field.media.facts.field_title
-    - field.field.media.facts.field_topic
     - media_entity.bundle.facts
   module:
     - field_group
@@ -31,7 +30,6 @@ third_party_settings:
       region: content
     group_common:
       children:
-        - field_topic
         - langcode
         - field_media_in_library
       parent_name: group_vertical
@@ -95,15 +93,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_topic:
-    weight: 24
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   langcode:
     type: language_select
