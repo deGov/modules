@@ -12,12 +12,4 @@
  * @ingroup themeable
  */
 #}
-{%
-set media_classes = [
-  'facts',
-  'clearfix',
-]
-%}
-<article{{ attributes.addClass(media_classes) }}>
-  {{ content.contextual_links }}
-</article>
+{{ content }}
