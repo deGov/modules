@@ -1,14 +1,9 @@
 langcode: de
 status: true
 dependencies:
-  module:
-    - crop
   enforced:
     module:
       - degov_media_facts
-third_party_settings:
-  crop:
-    image_field: null
 id: facts
 label: Fakten
 description: 'Ein Media-Bundle für Zahlen, Daten, Fakten.'
