@@ -1,0 +1,124 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.media.facts.field_facts_fact
+    - field.field.media.facts.field_facts_text
+    - field.field.media.facts.field_media_in_library
+    - field.field.media.facts.field_title
+    - field.field.media.facts.field_topic
+    - media_entity.bundle.facts
+  module:
+    - field_group
+    - text
+  enforced:
+    module:
+      - degov_media_facts
+third_party_settings:
+  field_group:
+    group_vertical:
+      children:
+        - group_facts
+        - group_common
+      parent_name: ''
+      weight: 2
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: vertical
+      label: Vertikal
+      region: content
+    group_common:
+      children:
+        - field_topic
+        - langcode
+        - field_media_in_library
+      parent_name: group_vertical
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Common
+      region: content
+    group_facts:
+      children:
+        - field_facts_text
+        - field_facts_fact
+      parent_name: group_vertical
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Fakten
+      region: content
+id: media.facts.default
+targetEntityType: media
+bundle: facts
+mode: default
+content:
+  field_facts_fact:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_facts_text:
+    weight: 22
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_media_in_library:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 26
+    third_party_settings: {  }
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_topic:
+    weight: 24
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

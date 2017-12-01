@@ -1,0 +1,30 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_topic
+    - media_entity.bundle.facts
+    - taxonomy.vocabulary.topic
+  enforced:
+    module:
+      - degov_media_facts
+id: media.facts.field_topic
+field_name: field_topic
+entity_type: media
+bundle: facts
+label: Thema
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topic: topic
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

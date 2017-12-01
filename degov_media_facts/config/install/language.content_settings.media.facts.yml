@@ -1,0 +1,13 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - media_entity.bundle.facts
+  enforced:
+    module:
+      - degov_media_facts
+id: media.facts
+target_entity_type_id: media
+target_bundle: facts
+default_langcode: site_default
+language_alterable: false
