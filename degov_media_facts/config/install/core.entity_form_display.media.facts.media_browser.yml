@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_form_mode.media.media_browser
     - field.field.media.facts.field_facts_fact
+    - field.field.media.facts.field_facts_image
     - field.field.media.facts.field_facts_text
     - field.field.media.facts.field_media_in_library
     - field.field.media.facts.field_title
@@ -46,6 +47,7 @@ third_party_settings:
       region: content
     group_facts:
       children:
+        - field_facts_image
         - field_facts_text
         - field_facts_fact
       parent_name: group_vertical
@@ -72,6 +74,15 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_facts_image:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
   field_facts_text:
     weight: 22
     settings:

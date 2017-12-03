@@ -6,6 +6,7 @@ core: 8.x
 dependencies:
   - degov_common
   - degov_content_types_shared_fields
+  - entity_browser
   - field
   - field_group
   - language
