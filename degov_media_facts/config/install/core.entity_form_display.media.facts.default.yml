@@ -77,7 +77,7 @@ content:
     region: content
   field_facts_image:
     type: entity_browser_entity_reference
-    weight: 27
+    weight: 21
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
