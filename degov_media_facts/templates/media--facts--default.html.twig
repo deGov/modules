@@ -12,4 +12,27 @@
  * @ingroup themeable
  */
 #}
-{{ content }}
+{% if content.field_facts_image|field_value %}
+  {% set col_class = 'col-sm-6' %}
+{% else %}
+  {% set col_class = 'col-sm-12' %}
+{% endif %}
+
+{%
+  set classes = [
+  'media',
+  'media-facts',
+  'clearfix',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ content.contextual_links }}
+  <div class="facts__left {{ col_class }}">
+    <div class="facts__image"{{ content.field_facts_image|quickedit_attr }}>{{ content.field_facts_image|field_value }}</div>
+  </div>
+  <div class="facts__right {{ col_class }}">
+    <h2 class="facts__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
+    <div class="facts__text"{{ content.field_facts_text|quickedit_attr }}>{{ content.field_facts_text|field_value }}</div>
+    <div class="facts__fact"{{ content.field_facts_fact|quickedit_attr }}>{{ content.field_facts_fact|field_value }}</div>
+  </div>
+</article>
