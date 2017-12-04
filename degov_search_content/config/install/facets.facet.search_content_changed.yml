@@ -21,9 +21,9 @@ widget:
   type: degov_date_range_picker
   config:
     show_numbers: true
-    display_relative: false
+    display_relative: '0'
     granularity: '4'
-    date_display: ''
+    date_display: Y-m-d
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -44,6 +44,14 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
+  date_item:
+    processor_id: date_item
+    weights:
+      build: -10
+    settings:
+      date_display: actual_date
+      granularity: 4
+      date_format: Y-m-d
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
@@ -54,7 +62,7 @@ processor_configs:
     processor_id: url_processor_handler
     weights:
       pre_query: -10
-      build: -10
+      build: -9
     settings: {  }
 empty_behavior:
   behavior: none
