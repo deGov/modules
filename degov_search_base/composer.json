@@ -5,8 +5,8 @@
   "license": "GPL-2.0+",
   "homepage": "https://www.degov.org",
   "require": {
-    "drupal/facets": "^1.0@alpha",
+    "drupal/facets": "^1.0.0",
     "drupal/search_api": "^1.2",
-    "drupal/search_api_sorts": "^1.0@beta"
+    "drupal/search_api_sorts": "^1.0.0"
   }
 }
