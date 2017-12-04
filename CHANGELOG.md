@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   used this field, than you must override all media gallery templates found
   in the degov_media_gallery module into your own theme and include the
   subtitle back into these templates.
+  
+## Changed
+- Supported version of facets starts from 8.x-1.0-beta1.
 
 ## [1.12.3] - 24-11-2017
 ### Changed
