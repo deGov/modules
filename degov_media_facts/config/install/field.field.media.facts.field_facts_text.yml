@@ -9,17 +9,7 @@ dependencies:
   enforced:
     module:
       - degov_media_facts
-third_party_settings:
-  geocoder_field:
-    method: none
-    field: name
-    plugins: {  }
-    dumper: wkt
-    delta_handling: default
-    failure:
-      handling: preserve
-      status_message: true
-      log: true
+third_party_settings: {  }
 id: media.facts.field_facts_text
 field_name: field_facts_text
 entity_type: media
