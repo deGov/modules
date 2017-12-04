@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   in the degov_media_gallery module into your own theme and include the
   subtitle back into these templates.
 
+### Fixes
+- By default render the tags field with surrounding and inner item wrappers.
+
 ## [1.12.3] - 24-11-2017
 ### Changed
 - Remove tags display from document display.
