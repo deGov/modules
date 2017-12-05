@@ -15,3 +15,10 @@ function degov_search_content_install() {
  * and every minor release as well until 1.13 respectively.
  * The fresh install should have all the changes from 1.1 to 1.13.
  */
+
+/**
+ * Update date range facet.
+ */
+function degov_search_content_update_8009() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_content', 8009);
+}
