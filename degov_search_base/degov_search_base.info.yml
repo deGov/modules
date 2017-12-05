@@ -4,7 +4,7 @@ type: module
 core: 8.x
 package: deGov
 dependencies:
-  - facets
+  - facets:facets (>=8.x-1.0-beta1)
   - search_api
   - search_api_db
   - search_api_sorts
