@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Add entity reference fields.
+ * Next module update version is 8002.
+ * All update hooks from 1.1 to 1.13 were deleted.
+ * There is no upgrade path from 1.1 to 1.13, you need first to update to 1.2
+ * and every minor release as well until 1.13 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.13.
  */
-function degov_simplenews_update_8001() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_simplenews', '8001');
-}

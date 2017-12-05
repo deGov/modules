@@ -30,23 +30,17 @@ function degov_media_image_uninstall() {
 }
 
 /**
- * Next module update version is 8014.
- * All update hooks from 1.1 to 1.12 were deleted.
- * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
- * and every minor release as well until 1.12 respectively.
- * The fresh install should have all the changes from 1.1 to 1.12.
+ * Next module update version is 8016.
+ * All update hooks from 1.1 to 1.13 were deleted.
+ * There is no upgrade path from 1.1 to 1.13, you need first to update to 1.2
+ * and every minor release as well until 1.13 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.13.
  */
-
 /**
- * Link tags to search page.
+ * Rename field_tags hide label.
  */
-function degov_media_image_update_8014() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8014');
+function degov_media_image_update_8016() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_image', '8016');
 }
 
-/**
- * Rename field_title label.
- */
-function degov_media_image_update_8015() {
-  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_media_image', '8015');
-}

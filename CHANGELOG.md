@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.13.0] - 05-12-2017
+### Added
+- Media bundle facts (Module degov_media_facts)
+
+### Removed
+- The gallery subtitle field has been deprecated. In case your project
+  used this field, than you must override all media gallery templates found
+  in the degov_media_gallery module into your own theme and include the
+  subtitle back into these templates.
+  
+## Changed
+- Supported version of facets starts from 8.x-1.0-beta1.
+
+### Fixes
+- By default render the tags field with surrounding and inner item wrappers.
+
 ## [1.12.3] - 24-11-2017
 ### Changed
 - Remove tags display from document display.

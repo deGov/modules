@@ -9,18 +9,16 @@ function degov_search_media_install() {
 }
 
 /**
- * Next module update version is 8005.
- * All update hooks from 1.1 to 1.12 were deleted.
- * There is no upgrade path from 1.1 to 1.12, you need first to update to 1.2
- * and every minor release as well until 1.12 respectively.
- * The fresh install should have all the changes from 1.1 to 1.12.
+ * Next module update version is 8006.
+ * All update hooks from 1.1 to 1.13 were deleted.
+ * There is no upgrade path from 1.1 to 1.13, you need first to update to 1.2
+ * and every minor release as well until 1.13 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.13.
  */
 
 /**
- * Change the default media search pager to a full pager.
+ * Update date range facet.
  */
-function degov_search_media_update_8005() {
-  /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdateService */
-  $moduleUpdateService = \Drupal::service('degov_config.module_updater');
-  $moduleUpdateService->applyUpdates('degov_search_media', '8005');
+function degov_search_media_update_8006() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_search_media', 8006);
 }

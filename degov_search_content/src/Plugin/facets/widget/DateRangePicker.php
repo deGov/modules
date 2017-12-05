@@ -211,8 +211,8 @@ class DateRangePicker extends WidgetPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function getQueryType(array $query_types) {
-    return $query_types['degov_date_range'];
+  public function getQueryType() {
+    return 'date';
   }
 
 }

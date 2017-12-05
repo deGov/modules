@@ -44,6 +44,14 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
+  date_item:
+    processor_id: date_item
+    weights:
+      build: -10
+    settings:
+      date_display: actual_date
+      granularity: 4
+      date_format: ''
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
