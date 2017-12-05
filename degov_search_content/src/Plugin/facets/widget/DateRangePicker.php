@@ -31,7 +31,7 @@ class DateRangePicker extends WidgetPluginBase {
         return $this->buildResultItem($result);
       }
       else {
-        return $this->buildListItems($result);
+        return $this->buildListItems($this->facet, $result);
       }
     }, $facet->getResults());
 
@@ -211,8 +211,8 @@ class DateRangePicker extends WidgetPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function getQueryType(array $query_types) {
-    return $query_types['degov_date_range'];
+  public function getQueryType() {
+    return 'date';
   }
 
 }

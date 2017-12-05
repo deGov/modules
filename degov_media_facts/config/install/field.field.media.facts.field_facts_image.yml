@@ -1,0 +1,30 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_facts_image
+    - media_entity.bundle.facts
+    - media_entity.bundle.image
+  enforced:
+    module:
+      - degov_media_facts
+id: media.facts.field_facts_image
+field_name: field_facts_image
+entity_type: media
+bundle: facts
+label: Bild
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

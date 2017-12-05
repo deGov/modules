@@ -25,3 +25,12 @@ function degov_media_gallery_uninstall() {
  * and every minor release as well until 1.13 respectively.
  * The fresh install should have all the changes from 1.1 to 1.13.
  */
+
+/**
+ * Rename field_tags hide label.
+ */
+function degov_media_gallery_update_8009() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_gallery', '8009');
+}
+

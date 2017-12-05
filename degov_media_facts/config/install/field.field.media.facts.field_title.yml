@@ -1,0 +1,22 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_title
+    - media_entity.bundle.facts
+  enforced:
+    module:
+      - degov_media_facts
+third_party_settings: {  }
+id: media.facts.field_title
+field_name: field_title
+entity_type: media
+bundle: facts
+label: 'Öffentlicher Titel'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
