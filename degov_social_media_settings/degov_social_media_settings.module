@@ -110,7 +110,7 @@ function degov_social_media_settings_preprocess_media(&$variables) {
   // - a field formatter or
   // - a preprocess function for the fields and a hook that informs this
   //   module about fields that need to be disabled
-  if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video'])) {
+  if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video', 'tweet', 'instagram'])) {
     switch ($bundle) {
       case 'some_embed':
         // Maybe make sure this runs after degov_media_social_media_embed_preprocess_media__some_embed
@@ -120,17 +120,28 @@ function degov_social_media_settings_preprocess_media(&$variables) {
           $allowed_tags = degov_media_social_media_embed_allowed_tags();
           $markup = Xss::filter($field_value, $allowed_tags);
         }
+        $source = $media->field_social_media_source->value;
         break;
       case 'video':
         $field_value = \Drupal::service('twig_field_value.twig.extension')->getFieldValue($variables['content']['field_media_video_embed_field']);
         $markup = \Drupal::service('renderer')->render($field_value);
+        $source = $media->field_social_media_source->value;
+        break;
+      case 'tweet':
+      case 'instagram':
+        // Detach module libraries because they load js from twitter/instagram.
+        unset($variables['content']['embed_code']['#attached']);
+        $field_value = \Drupal::service('twig_field_value.twig.extension')
+          ->getFieldValue($variables['content']['embed_code']);
+        $markup = \Drupal::service('renderer')->render($field_value);
+        $source = $bundle === 'tweet' ? 'twitter' : 'instagram';
         break;
     }
 
     if (!empty($markup)) {
       $variables['#attached']['drupalSettings']['degov_social_media_settings']['code'][$entity_id] = $markup;
       $variables['attributes']['class'][] = 'js-social-media-wrapper';
-      $variables['attributes']['data-social-media-source'] = $media->field_social_media_source->value;
+      $variables['attributes']['data-social-media-source'] = $source;
       $variables['attributes']['data-social-media-entity'] = $entity_id;
       $variables['social_media_disabled'] = TRUE;
     }
