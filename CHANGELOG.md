@@ -5,7 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.14.0]
+### Added
 - Added support for media bundles tweet and instagram to degov_social_media_settings.
+
+## [1.13.1] - 11-12-2017
+### Added
+- Updated dependencies from deGov modules to keep lightning up to date.
 
 ## [1.13.0] - 05-12-2017
 ### Added
