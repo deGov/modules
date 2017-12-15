@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixes
 - By default render the tags field with surrounding and inner item wrappers.
+- Copied configuration from deprecated update_hook to install and rewrite
 
 ## [1.12.3] - 24-11-2017
 ### Changed
