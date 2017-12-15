@@ -1,0 +1,31 @@
+<?php
+
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_preprocess().
+ */
+function degov_media_facts_preprocess(&$variables, $hook, &$info) {
+  // Add template suggestions and libraries implemented in this module.
+  Common::addThemeSuggestions($variables, $hook, $info, [
+    'module_name' => 'degov_media_facts',
+    'entity_type' => 'media',
+    'entity_bundles' => ['facts'],
+    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded'],
+  ]);
+}
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_facts_install() {
+  $config = \Drupal::configFactory()
+    ->getEditable('field.field.paragraph.media_reference.field_media_reference_media');
+  $settings = $config->get('settings');
+
+  if ($settings !== NULL && !in_array('facts', $settings['handler_settings']['target_bundles'])) {
+    $settings['handler_settings']['target_bundles'][] = 'facts';
+    $config->set('settings', $settings);
+    $config->save(TRUE);
+  }
+}
