@@ -7,3 +7,11 @@
  * and every minor release as well until 1.14 respectively.
  * The fresh install should have all the changes from 1.1 to 1.14.
  */
+
+/**
+ * Fix fields config.
+ */
+function degov_media_video_update_8015() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video', '8015');
+}

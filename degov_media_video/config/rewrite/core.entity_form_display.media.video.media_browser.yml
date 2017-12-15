@@ -98,10 +98,10 @@ third_party_settings:
         required_fields: true
       label: Assets
       region: content
-id: media.video.default
+id: media.video.media_browser
 targetEntityType: media
 bundle: video
-mode: default
+mode: media_browser
 content:
   field_copyright:
     type: entity_reference_autocomplete
