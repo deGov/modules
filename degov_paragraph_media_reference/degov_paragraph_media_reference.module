@@ -45,7 +45,12 @@ function degov_paragraph_media_reference_field_widget_form_alter(&$element, \Dru
 function degov_paragraph_media_reference_modules_installed($modules) {
   if (in_array('degov_paragraph_media_reference', $modules)) {
     // Set target bundles.
-    _degov_media_reference_bundle_list();
+    /** @var \Drupal\Core\Config\ConfigInstallerInterface $config_installer */
+    $config_installer = \Drupal::service('config.installer');
+    if (!$config_installer->isSyncing()) {
+      // Set target bundles.
+      _degov_media_reference_bundle_list();
+    }
   }
 }
 
@@ -64,9 +69,11 @@ function _degov_media_reference_bundle_list() {
     $config = \Drupal::configFactory()
       ->getEditable('field.field.paragraph.media_reference.field_media_reference_media');
     $settings = $config->get('settings');
-    $settings['handler_settings']['target_bundles'] = $enabled_bundles;
-    $config->set('settings', $settings);
-    $config->save(TRUE);
+    if (!empty($settings)) {
+      $settings['handler_settings']['target_bundles'] = $enabled_bundles;
+      $config->set('settings', $settings);
+      $config->save(TRUE);
+    }
   } else {
     drupal_set_message(t('There are no media bundles available'), 'warning');
   }
