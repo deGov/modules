@@ -5,8 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.14.0] - IN DEVELOPMENT
+
+### Added
+- Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow
+- Added support for media bundles tweet and instagram to degov_social_media_settings.
+
+### Fixed
+- Fixed configurations of degov_media_video configurations
+
 ## Changed
 - Chnage cardinility of simplenews_issue field to 10 in degov_simplenews module.
+
 
 ## [1.13.1] - 11-12-2017
 ### Added

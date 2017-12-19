@@ -14,7 +14,7 @@ field_name: field_slideshow_type
 entity_type: paragraph
 bundle: slideshow
 label: Typ
-description: ''
+description: 'Bitte beachten Sie, dass nur "Typ 1" zur korrekten Darstellung bei verlinkten Inhalten führt.'
 required: true
 translatable: false
 default_value:

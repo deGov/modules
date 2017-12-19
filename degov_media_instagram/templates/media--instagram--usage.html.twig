@@ -14,7 +14,12 @@
 #}
 <article{{ attributes }}>
   {% if content %}
-    {{ content }}
+    {% if social_media_disabled %}
+      <div class="js-social-media-code">
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
   {% endif %}
   {% if content.usage %}
     <div class="instagram__usage">
