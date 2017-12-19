@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fixed configurations of degov_media_video configurations
 
+### Changed
+- Views reference when argument field is empty doesn't try to set the argument, 
+  so the default argument is calculated by the view itself.
+
 ## [1.13.1] - 11-12-2017
 ### Added
 - Updated dependencies from deGov modules to keep lightning up to date.
