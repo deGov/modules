@@ -7,3 +7,11 @@
  * and every minor release as well until 1.14 respectively.
  * The fresh install should have all the changes from 1.1 to 1.14.
  */
+
+ /**
+  * Change newsletter field cardinality.
+  */
+ function degov_simplenews_update_8002() {
+   \Drupal::service('degov_config.module_updater')
+     ->applyUpdates('degov_simplenews', '8002');
+ }
