@@ -84,6 +84,14 @@
     // Show the code if source is enabled.
     if (sources.hasOwnProperty(source) && sources[source] === true && code.hasOwnProperty(entity)) {
       target.html(code[entity]);
+
+      if (source === 'twitter') {
+        initTwitter(wrapper);
+      }
+
+      if (source === 'instagram') {
+        initInstagram();
+      }
     }
     else {
       if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
@@ -143,6 +151,34 @@
     $('.js-social-media-wrapper').each(function () {
       applySettings($(this));
     });
+  }
+
+  // Initialize twitter media from media bundle tweet.
+  function initTwitter(wrapper) {
+    function _initTwitter () {
+      twttr.widgets.load(wrapper);
+    }
+
+    if (typeof twttr === 'undefined') {
+      $.getScript('//platform.twitter.com/widgets.js', _initTwitter);
+    }
+    else {
+      _initTwitter();
+    }
+  }
+
+  // Initialize instagram media from media bundle instagram.
+  function initInstagram() {
+    function _initInstagram () {
+      instgrm.Embeds.process();
+    }
+
+    if (typeof instgrm === 'undefined') {
+      $.getScript('//platform.instagram.com/en_US/embeds.js', _initInstagram);
+    }
+    else {
+      _initInstagram();
+    }
   }
 
   // Checks if the cookie exists.
