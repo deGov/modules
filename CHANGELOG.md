@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.14.0] - IN DEVELOPMENT
 
+### Fixed
+- Fixed configurations of degov_media_video confriguations
+
 ## [1.13.1] - 11-12-2017
 ### Added
 - Updated dependencies from deGov modules to keep lightning up to date.
