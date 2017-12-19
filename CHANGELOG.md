@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.14.0] - IN DEVELOPMENT
 
+### Added
+- Added support for media bundles tweet and instagram to degov_social_media_settings.
+
 ### Fixed
-- Fixed configurations of degov_media_video confriguations
+- Fixed configurations of degov_media_video configurations
 
 ## [1.13.1] - 11-12-2017
 ### Added

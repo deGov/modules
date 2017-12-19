@@ -7,3 +7,11 @@
  * and every minor release as well until 1.14 respectively.
  * The fresh install should have all the changes from 1.1 to 1.14.
  */
+
+/**
+ * Add social media source Instagram.
+ */
+function degov_social_media_settings_update_8004() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_social_media_settings', '8004');
+}
