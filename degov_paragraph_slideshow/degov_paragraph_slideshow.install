@@ -12,3 +12,10 @@ function degov_paragraph_slideshow_uninstall() {
     'entity_bundles' => ['slide', 'slideshow'],
   ]);
 }
+
+/**
+ * Add description to field_slideshow_type
+ */
+function degov_paragraph_slideshow_update_8001() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_slideshow', '8001');
+}
