@@ -263,7 +263,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     $element['argument']['#weight'] = $arguments_weight;
     $element['argument']['#states'] = $argument_states;
     $element['argument']['#suffix'] = '</details>';
-    $view_modes = \Drupal::service('entity_display.repository')
+    $view_modes = ['' => t('As defined in the view')] + \Drupal::service('entity_display.repository')
       ->getViewModeOptions($entity_type);
     if (!in_array($extra_data['view_mode'], array_keys($view_modes))) {
       $extra_data['view_mode'] = 'default';
