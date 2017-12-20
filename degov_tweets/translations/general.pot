@@ -1,0 +1,89 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php: n/a
+#  modules/degov/degov_tweets/templates/degov-tweets.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2017-12-19 16:00+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:25
+msgid "<a href=\"@url\">Create a twitter app on the twitter developer site</a>"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:29
+msgid "Twitter username"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:34
+msgid "Limit"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:39
+msgid "Update every"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:40
+msgid "Set the number in seconds. E.g. 3600 = 1 hour"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:45
+msgid "Access token"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:50
+msgid "Token secret"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:55
+msgid "Consumer key"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:60
+msgid "Consumer secret"
+msgstr ""
+
+#: modules/degov/degov_tweets/src/Plugin/Block/TwitterBlock.php:9
+msgid "Twitter block"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:9
+msgid "Follow"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:16
+msgid "<em class=\"placeholder\">@tweet.time_ago ago</em>"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:30
+msgid "Reply"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:31
+msgid "Retweet"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:32
+msgid "Favorite"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:38
+msgid "Pause"
+msgstr ""
+
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:39
+msgid "Play"
+msgstr ""
+
