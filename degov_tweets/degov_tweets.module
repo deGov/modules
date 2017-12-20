@@ -73,3 +73,14 @@ function degov_tweets_parse_tweet($text) {
   return $text;
 }
 
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_tweets_locale_translation_projects_alter(&$projects) {
+  $projects['degov_tweets'] = [
+    'info' => [
+      'interface translation project' => 'degov_tweets',
+      'interface translation server pattern' => drupal_get_path('module', 'degov_tweets').'/translations/%language.po',
+    ],
+  ];
+}
