@@ -6,7 +6,7 @@ dependencies:
     - media_entity.bundle.video
   module:
     - text
-  endforced:
+  enforced:
     module:
       - degov_media_video
 id: media.video.field_media_transcription

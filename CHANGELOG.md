@@ -4,9 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.14.0]
+## [1.14.0] - IN DEVELOPMENT
+
 ### Added
+- Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow
 - Added support for media bundles tweet and instagram to degov_social_media_settings.
+
+### Fixed
+- Fixed configurations of degov_media_video configurations
+
+## Changed
+- Chnage cardinility of simplenews_issue field to 10 in degov_simplenews module.
+- Views reference when argument field is empty doesn't try to set the argument, 
+  so the default argument is calculated by the view itself.
 
 ## [1.13.1] - 11-12-2017
 ### Added
@@ -27,6 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixes
 - By default render the tags field with surrounding and inner item wrappers.
+- Copied configuration from deprecated update_hook to install and rewrite
 
 ## [1.12.3] - 24-11-2017
 ### Changed

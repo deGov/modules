@@ -55,37 +55,41 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
           $view_arguments_config[] = $argument_config;
         }
       }
-      // load the arguments from the field storage.
-      $arguments = [$argument];
-      if (preg_match('/\//', $argument)) {
-        $arguments = explode('/', $argument);
-      }
-      /** @var \Drupal\node\NodeInterface $node */
-      $node = \Drupal::routeMatch()->getParameter('node');
-      $token_service = \Drupal::token();
-      if (is_array($arguments)) {
-        foreach ($arguments as $index => $argument) {
-          // Check if there are any tokens that need to be replaced.
-          if (!empty($token_service->scan($argument))) {
-            $arguments[$index] = $token_service->replace($argument, ['node' => $node]);
-          }
-          // If the argument is not set in the field set the exception value.
-          if ($argument == '' && !empty($view_arguments_config[$index])) {
-            if (!empty($view_arguments_config[$index]['exception']['value'])) {
-              $arguments[$index] = $view_arguments_config[$index]['exception']['value'];
-            } else {
-              $arguments[$index] = 0;
+      if (!empty($argument)) {
+        // load the arguments from the field storage.
+        $arguments = [$argument];
+        if (preg_match('/\//', $argument)) {
+          $arguments = explode('/', $argument);
+        }
+        /** @var \Drupal\node\NodeInterface $node */
+        $node = \Drupal::routeMatch()->getParameter('node');
+        $token_service = \Drupal::token();
+        if (is_array($arguments)) {
+          foreach ($arguments as $index => $argument) {
+            // Check if there are any tokens that need to be replaced.
+            if (!empty($token_service->scan($argument))) {
+              $arguments[$index] = $token_service->replace($argument, ['node' => $node]);
             }
-            // If there is a default value for the node, set it - we have the node object.
-            if ($view_arguments_config[$index]['default_argument_type'] == 'node' && $node instanceof NodeInterface) {
-              $arguments[$index] = $node->id();
+            // If the argument is not set in the field set the exception value.
+            if ($argument == '' && !empty($view_arguments_config[$index])) {
+              if (!empty($view_arguments_config[$index]['exception']['value'])) {
+                $arguments[$index] = $view_arguments_config[$index]['exception']['value'];
+              }
+              else {
+                $arguments[$index] = 0;
+              }
+              // If there is a default value for the node, set it - we have the node object.
+              if ($view_arguments_config[$index]['default_argument_type'] == 'node' && $node instanceof NodeInterface) {
+                $arguments[$index] = $node->id();
+              }
             }
           }
         }
+        $view->setArguments($arguments);
       }
       // Set the view display and arguments.
       $view->setDisplay($display_id);
-      $view->setArguments($arguments);
+
       // Set number of available elements.
       if (!empty($extra_data['page_limit']) && is_numeric($extra_data['page_limit'])) {
         $limit = (int) $extra_data['page_limit'];
