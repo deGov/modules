@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Simplenews newsletter plain text view modes.
 
 ## [1.14.0] - 20-12-2017 
-
 ### Added
 - Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow
 - Added support for media bundles tweet and instagram to degov_social_media_settings.
