@@ -1,13 +1,9 @@
-dependencies:
-  config:
-    - field.field.node.simplenews_issue.field_simplenews_issue_more
-    - field.field.node.simplenews_issue.field_simplenews_issue_week
 content:
   field_simplenews_issue_more:
     weight: 1
     label: above
     settings:
-      view_mode: latest
+      view_mode: email_plainalt
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -16,7 +12,7 @@ content:
     weight: 0
     label: above
     settings:
-      view_mode: teaser
+      view_mode: email_plain
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view

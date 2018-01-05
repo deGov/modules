@@ -1,0 +1,16 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+  enforced:
+    module:
+      - degov_simplenews
+third_party_settings:
+  lightning_core:
+    description: ''
+id: node.email_plainalt
+label: 'Email: Plain text alternative'
+targetEntityType: node
+cache: true
