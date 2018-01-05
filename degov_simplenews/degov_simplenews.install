@@ -15,3 +15,10 @@ function degov_simplenews_update_8002() {
  \Drupal::service('degov_config.module_updater')
    ->applyUpdates('degov_simplenews', '8002');
 }
+
+/**
+ * Fix simplenews plain mail.
+ */
+function degov_simplenews_update_8003() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_simplenews', '8003');
+}
