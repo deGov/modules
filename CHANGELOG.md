@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.14.0] - IN DEVELOPMENT
+## [1.14.1] - 05-01-2018
+### Fixed
+- Simplenews newsletter plain text view modes.
 
+## [1.14.0] - 20-12-2017 
 ### Added
 - Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow
 - Added support for media bundles tweet and instagram to degov_social_media_settings.
