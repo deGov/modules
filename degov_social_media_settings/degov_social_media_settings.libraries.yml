@@ -2,7 +2,7 @@ process:
   js:
     js/process.js: {}
   css:
-    theme::
+    theme:
       css/style.css: {}
   dependencies:
     - core/jquery
