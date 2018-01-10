@@ -131,7 +131,7 @@
         </div>
       {% endif %}
       <!-- Teaser text -->
-      {% if content.field_teaser_text %}
+      {% if content.field_teaser_text.0 %}
         <a href="{{ url }}" rel="bookmark">
           <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
             {% autoescape false %}

@@ -114,7 +114,7 @@
       </a>
     {% endif %}
 
-    {% if content.field_teaser_text %}
+    {% if content.field_teaser_text.0 %}
       {% set text = content.field_teaser_text|render|striptags %}
       <div class="event__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
         <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
