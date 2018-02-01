@@ -44,6 +44,8 @@
       {% endif %}
       {% set title = content.field_title|field_value %}
       <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
+    </a>
+    <a href="{{ image_url }}">
       {% if content.field_description|field_value %}
         {% set text = content.field_description|render|striptags %}
         <div class="image_description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>
