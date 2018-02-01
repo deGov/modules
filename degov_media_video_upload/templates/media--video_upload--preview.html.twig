@@ -40,7 +40,7 @@ set media_classes = [
       {% if content.field_video_date|field_value %}
         <div class="video__date"{{ content.field_video_date|quickedit_attr }}>{{ content.field_video_date|field_value }}</div>
       {% else %}
-          <div class="video__date">{{ created|date("d.m.Y") }}</div>
+        <div class="video__date">{{ created|date("d.m.Y") }}</div>
       {% endif %}
     <h2 class=""{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
     </a>
