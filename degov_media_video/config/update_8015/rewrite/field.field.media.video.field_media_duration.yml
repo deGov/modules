@@ -1,4 +1,0 @@
-dependencies:
-  enforced:
-    module:
-      - degov_media_video

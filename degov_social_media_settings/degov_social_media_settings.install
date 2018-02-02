@@ -1,17 +1,9 @@
 <?php
 
 /**
- * Next module update version is 8004.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Next module update version is 8005.
+ * All update hooks from 1.1 to 1.15 were deleted.
+ * There is no upgrade path from 1.1 to 1.15, you need first to update to 1.2
+ * and every minor release as well until 1.15 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.15.
  */
-
-/**
- * Add social media source Instagram.
- */
-function degov_social_media_settings_update_8004() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_social_media_settings', '8004');
-}

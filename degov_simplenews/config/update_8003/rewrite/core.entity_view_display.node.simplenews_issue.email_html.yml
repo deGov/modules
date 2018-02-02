@@ -1,7 +1,0 @@
-content:
-  field_simplenews_issue_more:
-    settings:
-      view_mode: email_textalt
-  field_simplenews_issue_week:
-    settings:
-      view_mode: email_html
