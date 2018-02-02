@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.15.0] - IN DEVELOPMENT
+### Fixed
+- Month-Year translation in header calendar widget.
+
 ## [1.14.2] - 05-01-2018
 ### Fixed
 - Removed duplicated colon in libraries.yml
