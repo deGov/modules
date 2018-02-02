@@ -1,5 +1,5 @@
 name: 'deGov - Taxonomie Copyright'
-description: 'Enthält Copyright Informationen für Media Bundles'
+description: 'Contains Copyright Information for Media Bundles'
 package: deGov
 type: module
 core: 8.x

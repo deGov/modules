@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Block Referenz'
-description: 'Dieser Paragraph stellt Block Referenz bereit.'
+description: 'This paragraph provides block reference.'
 package: deGov
 type: module
 core: 8.x

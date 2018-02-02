@@ -1,5 +1,5 @@
 name: 'deGov - Media Audio'
-description: 'Stellt ein Media-Bundle für Audio-Uploads bereit.'
+description: 'Provides a media bundle for audio uploads.'
 package: deGov
 type: module
 core: 8.x

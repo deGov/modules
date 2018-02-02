@@ -1,5 +1,5 @@
 name: 'deGov - Metatags'
-description: 'Standardeinstellungen für das Metatag Modul.'
+description: 'Default Metatag Module Settings.'
 type: module
 package: deGov
 core: 8.x

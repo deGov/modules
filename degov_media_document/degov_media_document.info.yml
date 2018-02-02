@@ -1,5 +1,5 @@
-name: 'deGov - Media Dokument'
-description: 'Ein Media Bundle für Dokumente'
+name: 'deGov - Media document'
+description: 'A Media Bundle for Documents'
 package: deGov
 type: module
 core: 8.x

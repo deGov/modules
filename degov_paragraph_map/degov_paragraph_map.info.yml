@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Map'
-description: 'Mit diesem Paragraphen lassen sich Adressen in einer Kartenansicht darstellen.'
+description: 'With this paragraph, addresses can be displayed in a map view.'
 package: deGov
 type: module
 core: 8.x

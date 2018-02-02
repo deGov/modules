@@ -1,5 +1,5 @@
 name: 'deGov - HTML Mail'
-description: 'Algemeine Konfiguration für alle HTML Mails.'
+description: 'General configuration for all HTML mails.'
 package: deGov
 type: module
 core: 8.x

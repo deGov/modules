@@ -1,11 +1,11 @@
 #deGov - Media Image
-##Erweiterung des existierenden Image Bundles um Copyright, Caption und weitere Felder.
+##Extension of the existing image bundle with copyright, caption and other fields.
 
 Distribution | Type | Core
 --- | --- | ---
-deGov | Modul |  Kompatibilität: 8.x
+deGov | module |  compatibility: 8.x
 
-#####Abhängigkeiten:
+#####dependencies:
   - config_rewrite
   - datetime
   - degov_content_types_shared_fields
@@ -23,11 +23,11 @@ deGov | Modul |  Kompatibilität: 8.x
   - workbench_moderation
   - dropzonejs_eb_widget
 
-##Installation
-Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
+##installation
+This module should be loaded via composer. This will resolve all dependencies correctly.
 
-Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
+Follow the usual installation procedure for Drupal modules.
 
-Weitere Hilfe erhalten Sie hier:
+Further help can be found here:
 
 https://www.drupal.org/documentation/install/modules-themes/modules-8

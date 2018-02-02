@@ -1,11 +1,11 @@
-#deGov - Veranstaltung
-##Erstellen von Veranstaltungen / Events, die in einzeln, in einem Kalender und in Aggregationen angezeigt werden können.
+#deGov - event
+##Create events / events that can be viewed individually, in a calendar, and in aggregations.
 
 Distribution | Type | Core
 --- | --- | ---
-deGov | Modul |  Kompatibilität: 8.x
+deGov | module |  compatibility: 8.x
 
-#####Abhängigkeiten:
+#####dependencies:
   - address
   - calendar
   - date_popup
@@ -29,11 +29,11 @@ deGov | Modul |  Kompatibilität: 8.x
   - views
   - workbench_moderation
 
-##Installation
-Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
+##installation
+This module should be loaded via composer. This will resolve all dependencies correctly.
 
-Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
+Follow the usual installation procedure for Drupal modules.
 
-Weitere Hilfe erhalten Sie hier:
+Further help can be found here:
 
 https://www.drupal.org/documentation/install/modules-themes/modules-8

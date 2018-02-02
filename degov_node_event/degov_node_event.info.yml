@@ -1,5 +1,5 @@
-name: 'deGov - Veranstaltung'
-description: 'Erstellen von Veranstaltungen / Events, die in einzeln, in einem Kalender und in Aggregationen angezeigt werden können.'
+name: 'deGov - event'
+description: 'Create events / events that can be viewed individually, in a calendar, and in aggregations.'
 type: module
 package: deGov
 core: 8.x
