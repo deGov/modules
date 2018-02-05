@@ -1,5 +1,5 @@
-name: 'deGov - Datumsformate'
-description: 'Enthält deutsche Datumsformate'
+name: 'deGov - date formats'
+description: 'Contains German date formats'
 package: deGov
 type: module
 core: 8.x

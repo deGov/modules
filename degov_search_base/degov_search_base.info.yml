@@ -1,5 +1,5 @@
 name: 'deGov - Search Base'
-description: 'Basismodul für alle Module, die eine Suche implementieren.'
+description: 'Basic module for all modules that implement a search.'
 type: module
 core: 8.x
 package: deGov

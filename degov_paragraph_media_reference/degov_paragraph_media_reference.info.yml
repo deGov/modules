@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Media Reference'
-description: 'Mit diesem Paragraphen können Medienelemente eingebettet werden.'
+description: 'With this paragraph media elements can be embedded.'
 type: module
 core: 8.x
 package: deGov

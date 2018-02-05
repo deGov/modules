@@ -1,5 +1,5 @@
-name: 'deGov - Media Person'
-description: 'Dieses Modul stellt das Media Bundle Person bereit.'
+name: 'deGov - Media person'
+description: 'This module provides the Media Bundle Person.'
 package: deGov
 type: module
 core: 8.x

@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Iframe'
-description: 'Stellt einen Paragraphen zum Einbinden von Iframes bereit.'
+description: 'Provides a paragraph for incorporating iframes.'
 package: deGov
 type: module
 core: 8.x

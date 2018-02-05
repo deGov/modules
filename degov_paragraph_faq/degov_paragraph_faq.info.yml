@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph FAQ/Akkordion'
-description: 'Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.'
+name: 'deGov - Paragraph FAQ/accordion'
+description: 'With this flexible paragraph, you should be able to set FAQ lists anywhere in the content.'
 type: module
 package: deGov
 core: 8.x
