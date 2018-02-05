@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Text'
-description: 'Ein allgemeiner Paragraph für formatierte Texte beliebiger Länge.'
+name: 'deGov - Paragraph text'
+description: 'A general paragraph for formatted texts of any length.'
 type: module
 package: deGov
 core: 8.x

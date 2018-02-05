@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Inhaltsreferenz'
-description: 'Mit diesem Paragraphen können an beliebigen Stellen Teaser-Listen erstellt werden.'
+name: 'deGov - Paragraph Content Reference'
+description: 'With this paragraph teaser lists can be created anywhere.'
 type: module
 package: deGov
 core: 8.x
