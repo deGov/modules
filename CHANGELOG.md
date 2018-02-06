@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.15.0] - IN DEVELOPMENT
 ### Fixed
+- Split the link in media preview into two parts, so the title 
+  and description are hightlighted separately.
 - Month-Year translation in header calendar widget.
 
 ## [1.14.2] - 05-01-2018
