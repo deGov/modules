@@ -1,5 +1,5 @@
 name: 'deGov - Common'
-description: "Dieses Modul enthält alle gemeinsamen Funktionalität für alle Module."
+description: "This module contains all common functionality for all modules."
 package: deGov
 type: module
 core: 8.x

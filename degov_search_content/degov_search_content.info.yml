@@ -1,5 +1,5 @@
-name: 'deGov - Inhaltssuche'
-description: 'Allgemeine Konfiguration für die Suche.'
+name: 'deGov - content search'
+description: 'General configuration for the search.'
 type: module
 core: 8.x
 package: deGov

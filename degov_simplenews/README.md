@@ -1,19 +1,19 @@
 #deGov - Simplenews
-##Enthält Basiskonfiguration für das Simplenews Modul.
+##Contains basic configuration for the Simplenews module.
 
 Distribution | Type | Core
 --- | --- | ---
-deGov | Modul |  Kompatibilität: 8.x
+deGov | module |  compatibility: 8.x
 
-#####Abhängigkeiten:
+#####dependencies:
   - degov_html_mail
   - simplenews
 
-##Installation
-Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
+##installation
+This module should be loaded via composer. This will resolve all dependencies correctly.
 
-Folgen Sie der üblichen Installationsprozedur für Drupal-Module.
+Follow the usual installation procedure for Drupal modules.
 
-Weitere Hilfe erhalten Sie hier:
+Further help can be found here:
 
 https://www.drupal.org/documentation/install/modules-themes/modules-8

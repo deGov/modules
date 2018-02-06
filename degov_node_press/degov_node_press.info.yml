@@ -1,5 +1,5 @@
-name: 'deGov - Pressemitteilung'
-description: 'Erstellen von Pressemitteilungen.'
+name: 'deGov - press release'
+description: 'Created from press release.'
 type: module
 package: deGov
 core: 8.x

@@ -1,5 +1,5 @@
 name: 'deGov - Media Tweet'
-description: 'Dieses Modul erweitert das Media Bundle Tweet.'
+description: 'This module extends the Media Bundle Tweet.'
 package: deGov
 type: module
 core: 8.x

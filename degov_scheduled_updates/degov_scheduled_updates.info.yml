@@ -1,5 +1,5 @@
 name: 'deGov - Scheduled Updates'
-description: "Dieses Modul enthält Scheduled Updates Optionen."
+description: "This module contains Scheduled Updates options."
 package: deGov
 type: module
 core: 8.x

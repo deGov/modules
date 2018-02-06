@@ -1,5 +1,5 @@
 name: 'deGov - Simplenews'
-description: 'Enthält Basiskonfiguration für das Simplenews Modul.'
+description: 'Contains basic configuration for the Simplenews module.'
 package: deGov
 type: module
 core: 8.x

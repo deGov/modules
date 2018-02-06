@@ -1,5 +1,5 @@
-name: 'deGov - Media Adresse'
-description: 'Ein Media-Bundle für Adressen.'
+name: 'deGov - Media address'
+description: 'A Media Bundle for Addresses.'
 type: module
 package: deGov
 core: 8.x

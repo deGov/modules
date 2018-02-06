@@ -39,8 +39,8 @@ function degov_media_audio_uninstall() {
 
 /**
  * Next module update version is 8011.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * All update hooks from 1.1 to 1.15 were deleted.
+ * There is no upgrade path from 1.1 to 1.15, you need first to update to 1.2
+ * and every minor release as well until 1.15 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.15.
  */

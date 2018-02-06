@@ -1,5 +1,5 @@
-name: 'deGov - Inhaltsseite'
-description: 'Provides Inhaltsseite content type and related configuration. Dieser Seitentyp ist für allgemeine Seiten gedacht.'
+name: 'deGov - contents page'
+description: 'Provides contents page content type and related configuration. This page type is for general pages.'
 package: deGov
 type: module
 core: 8.x

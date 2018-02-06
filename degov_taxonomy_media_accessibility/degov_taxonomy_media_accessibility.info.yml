@@ -1,6 +1,6 @@
-name: 'deGov - Taxonomie Medien Barrierefreiheit'
+name: 'deGov - Taxonomy Media Accessibility '
 package: deGov
-description: 'Enthält die verschiedenen Medien Barrierefreiheit'
+description: 'Contains the different media accessibility'
 type: module
 core: 8.x
 dependencies:

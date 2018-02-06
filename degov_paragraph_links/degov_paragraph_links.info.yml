@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Link-Liste'
-description: 'Mit diesem Paragraphen lassen sich Link-Listen erstellen.'
+name: 'deGov - Paragraph Link List'
+description: 'This paragraph can be used to create link lists.'
 package: deGov
 type: module
 core: 8.x

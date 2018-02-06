@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Slideshow'
-description: 'Slideshowparagraph, der hauptsächlich im Headerbereich zum Einstatz kommt.'
+description: 'Slideshowparagraph, which mainly comes in the header area.'
 type: module
 package: deGov
 core: 8.x

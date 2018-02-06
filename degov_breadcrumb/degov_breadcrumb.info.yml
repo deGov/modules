@@ -1,5 +1,5 @@
 name: 'deGov - Breadcrumb'
-description: 'Enthält Standardeinstellungen zum Breadcrumb.'
+description: 'Contains default settings for Breadcrumb.'
 package: deGov
 type: module
 core: 8.x

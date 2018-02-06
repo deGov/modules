@@ -1,5 +1,5 @@
 name: 'deGov - Paragraph Downloads'
-description: 'Dieser Paragraph stellt Download-Listen bereit.'
+description: 'This section provides download lists.'
 package: deGov
 type: module
 core: 8.x
