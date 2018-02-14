@@ -1,5 +1,5 @@
 name: 'deGov - Media Social Media Embed'
-description: 'Stellt ein Media Bundle für das Einbetten von Social Media Inhalten (Feeds und dgl.) zur Verfügung.'
+description: 'Provides a media bundle for embedding social media content (feeds and the like).'
 package: deGov
 type: module
 core: 8.x

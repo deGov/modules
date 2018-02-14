@@ -1,5 +1,5 @@
 name: 'deGov - Pathauto'
-description: 'Einstellungen für Standardpfade'
+description: 'Default Path Settings'
 package: deGov
 type: module
 core: 8.x

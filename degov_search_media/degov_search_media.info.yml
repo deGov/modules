@@ -1,5 +1,5 @@
-name: 'deGov - Mediensuche'
-description: 'Allgemeine Konfiguration für die Mediensuche.'
+name: 'deGov - Media Search '
+description: 'General configuration for media search.'
 type: module
 core: 8.x
 package: deGov

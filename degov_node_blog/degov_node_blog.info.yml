@@ -1,5 +1,5 @@
-name: 'deGov - Inhalt Blog'
-description: 'Dieses Modul stellt einen Inhaltstyp für Blogeinträge bereit.'
+name: 'deGov - content blog'
+description: 'This module provides a content type for blog entries.'
 package: deGov
 type: module
 core: 8.x

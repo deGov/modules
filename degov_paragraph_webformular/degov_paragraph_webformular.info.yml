@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Formular'
-description: 'Mit diesem Paragraphen können an beliebigen Stellen webforms eingeblendet werden. '
+name: 'deGov - Paragraph form '
+description: 'With this paragraph webforms can be displayed anywhere. '
 type: module
 package: deGov
 core: 8.x

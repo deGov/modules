@@ -1,5 +1,5 @@
 name: 'deGov - Media Image'
-description: 'Erweiterung des existierenden Image Bundles um Copyright, Caption und weitere Felder.'
+description: 'Extension of the existing image bundle with copyright, caption and other fields.'
 type: module
 package: deGov
 core: 8.x

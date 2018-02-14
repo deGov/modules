@@ -1,5 +1,5 @@
 name: 'deGov - FAQ'
-description: 'Dieses Modul stellt einen Inhaltstyp für die FAQ-Datenbank bereit.'
+description: 'This module provides a content type for the FAQ database.'
 package: deGov
 type: module
 core: 8.x

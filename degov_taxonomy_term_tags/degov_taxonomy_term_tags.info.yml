@@ -1,5 +1,5 @@
-name: 'deGov - Taxonomy Schlagworte'
-description: 'Enthält Schlagworte für Content Types.'
+name: 'deGov - Taxonomy keywords'
+description: 'Contains keywords for content types.'
 package: deGov
 type: module
 core: 8.x
