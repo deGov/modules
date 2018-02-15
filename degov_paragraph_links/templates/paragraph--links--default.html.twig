@@ -65,12 +65,14 @@ set classes = [
     </div>
   {% endif %}
   <div class="paragraph__content"{{ content.field_links_links|quickedit_attr }}>
+    <ul>
     {% for key, item in content.field_links_links if key|first != '#' %}
       {% if item['#options']['external'] is empty %}
-        {{ item }}
+        <li>{{ item }}</li>
       {% else %}
-        <a class="link--external" href="{{ item['#url'].uri }}" target="_blank">{{ item['#title'] }}</a>
+        <li><a class="link--external" href="{{ item['#url'].uri }}" target="_blank">{{ item['#title'] }}</a></li>
       {% endif %}
     {% endfor %}
+    </ul>
   </div>
 </div>
