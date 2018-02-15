@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   and description are hightlighted separately.
 - Month-Year translation in header calendar widget.
 - Translated german phrases into english 
+- Remove quote in EU cookie module
 
 ## [1.14.2] - 05-01-2018
 ### Fixed
