@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.15.0] - IN DEVELOPMENT
 ### Fixed
+- Removed default image template from the degov_media_image module.
 - Split the link in media preview into two parts, so the title 
   and description are hightlighted separately.
 - Month-Year translation in header calendar widget.
