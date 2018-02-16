@@ -69,6 +69,8 @@ set classes = [
     </div>
   {% endif %}
   <div class="paragraph__content">
-    {{ content.field_downloads_files|field_value }}
+    <ul>
+      {{ content.field_downloads_files|field_value }}
+    </ul>
   </div>
 </div>

@@ -24,6 +24,12 @@ class CalendarPressWidgetHeader extends CalendarHeader {
     }
     /** @var \Drupal\calendar\DateArgumentWrapper $argument */
     $argument = CalendarHelper::getDateArgumentHandler($this->view);
+    $dateArgFormat = $argument->getArgFormat();
+    $date = $argument->getDateArg()->argument;
+    if (!empty($dateArgFormat) && !empty($date)) {
+      $timestamp = date_create_from_format($dateArgFormat, $date)->getTimestamp();
+      return \Drupal::service('date.formatter')->format($timestamp, 'custom', 'M Y');
+    }
     return $argument->format('M Y');
   }
 }

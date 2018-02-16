@@ -4,9 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.15.0] - 16-02-2018 
+### Fixed
+- Split the link in media preview into two parts, so the title.
+  and description are highlighted separately.
+- Month-Year translation in header calendar widget.
+- Translated of German phrases into English.
+- Remove quote in EU cookie module.
+- Add list tag to paragraph download list and link list.
+- Change the weight of date-range library so it could be overriden from the theme.
+
 ## [1.14.2] - 05-01-2018
 ### Fixed
-- Removed duplicated colon in libraries.yml
+- Removed duplicated colon in libraries.yml.
 
 ## [1.14.1] - 05-01-2018
 ### Fixed
@@ -14,11 +24,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.14.0] - 20-12-2017 
 ### Added
-- Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow
+- Added description for field field_slideshow_type in paragraph degov_paragraph_slideshow.
 - Added support for media bundles tweet and instagram to degov_social_media_settings.
 
 ### Fixed
-- Fixed configurations of degov_media_video configurations
+- Fixed configurations of degov_media_video configurations.
 
 ## Changed
 - Chnage cardinility of simplenews_issue field to 10 in degov_simplenews module.
@@ -31,7 +41,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.13.0] - 05-12-2017
 ### Added
-- Media bundle facts (Module degov_media_facts)
+- Media bundle facts (Module degov_media_facts).
 
 ### Removed
 - The gallery subtitle field has been deprecated. In case your project
@@ -44,7 +54,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixes
 - By default render the tags field with surrounding and inner item wrappers.
-- Copied configuration from deprecated update_hook to install and rewrite
+- Copied configuration from deprecated update_hook to install and rewrite.
 
 ## [1.12.3] - 24-11-2017
 ### Changed
@@ -64,7 +74,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Changed RSS feeds view from rendered entity to fields for better control.
-- Remove untranslated nodes from sitemap.xml
+- Remove untranslated nodes from sitemap.xml.
 - Use default theme for sending HTML mails.
 - By default the media search now shows 12 items and a full pager.
 - Removes auto trimming of the teaser title.
