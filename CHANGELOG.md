@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Translated german phrases into english.
 - Remove quote in EU cookie module.
 - Add list tag to paragraph download list and link list.
+- Change the weight of date-range library so it could be overriden from the theme.
 
 ## [1.14.2] - 05-01-2018
 ### Fixed
