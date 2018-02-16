@@ -1,4 +1,8 @@
 facet.date_range:
   version: 1.0
   js:
-    js/date_range.js: {}
+    js/date_range.js: { weight: -1000 }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
