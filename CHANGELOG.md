@@ -4,12 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [1.15.0] - IN DEVELOPMENT
+## [1.15.0] - 16-02-2018 
 ### Fixed
-- Split the link in media preview into two parts, so the title 
-  and description are hightlighted separately.
+- Split the link in media preview into two parts, so the title.
+  and description are highlighted separately.
 - Month-Year translation in header calendar widget.
-- Translated german phrases into english.
+- Translated of German phrases into English.
 - Remove quote in EU cookie module.
 - Add list tag to paragraph download list and link list.
 - Change the weight of date-range library so it could be overriden from the theme.
