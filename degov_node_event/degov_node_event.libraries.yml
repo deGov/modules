@@ -1,7 +1,7 @@
 degov_events:
   version: 1.0
   js:
-    js/events.js: {}
+    js/events.js: { weight: -1000 }
   css:
     theme:
       css/events.css: {}
