@@ -6,6 +6,7 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_preprocess().
@@ -31,17 +32,24 @@ function degov_media_gallery_preprocess_media(&$variables) {
     $display = \Drupal::entityTypeManager()
       ->getStorage('entity_view_display')
       ->load('media.gallery.default');
+    $image_style = ImageStyle::load('lightroom');
+    /** @var \Drupal\Core\Image\ImageFactory $image_factory */
+    $image_factory = \Drupal::service('image.factory');
     $component = $display->getComponent('field_gallery_images');
     $component['settings']['view_mode'] = 'teaser_squared_1_1';
     $variables['content']['preview'] = $media->get('field_gallery_images')->view($component);
     $variables['content']['totalImages'] = $media->get('field_gallery_images')->count();
     /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $item */
     foreach ($media->get('field_gallery_images') as $item) {
-      $uri = $item->entity->image->get(0)->entity->uri->value;
+      $original_uri = $item->entity->image->get(0)->entity->uri->value;
+      $image_style_uri = $image_style->buildUrl($original_uri);
+      /** @var Drupal\Core\Image\Image $image_style_image */
+      $image_style_image = $image_factory->get($image_style_uri);
       $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
-        'uri' => file_create_url($uri),
-        'width' => $item->entity->image->get(0)->width,
-        'height' => $item->entity->image->get(0)->height
+        'download' => file_create_url($original_uri),
+        'uri' => $image_style_uri,
+        'width' => $image_style_image->getWidth(),
+        'height' => $image_style_image->getHeight(),
       ];
     }
 
