@@ -5,7 +5,7 @@
   "license": "GPL-2.0+",
   "homepage": "https://www.degov.org",
   "require": {
-    "drupal/dropzonejs": "2.0.0-alpha1",
+    "drupal/dropzonejs": "^2.0.0",
     "enyo/dropzone": "4.2.0",
     "phansys/getid3": "^2.1@dev"
   },
