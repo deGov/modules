@@ -4,8 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_gallery
-name: lightroom
-label: Lightroom
+name: lightroom_1920
+label: Lightroom 1920
 effects:
   83c013cd-42f7-46e5-aaac-f44786c3669c:
     uuid: 83c013cd-42f7-46e5-aaac-f44786c3669c

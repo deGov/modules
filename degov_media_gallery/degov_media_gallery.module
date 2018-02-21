@@ -32,7 +32,7 @@ function degov_media_gallery_preprocess_media(&$variables) {
     $display = \Drupal::entityTypeManager()
       ->getStorage('entity_view_display')
       ->load('media.gallery.default');
-    $image_style = ImageStyle::load('lightroom');
+    $image_style = ImageStyle::load('lightroom_1920');
     /** @var \Drupal\Core\Image\ImageFactory $image_factory */
     $image_factory = \Drupal::service('image.factory');
     $component = $display->getComponent('field_gallery_images');
