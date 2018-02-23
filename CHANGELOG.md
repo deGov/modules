@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.15.1] - 23-02-2018 
+### Fixed
+- Display all published press articles in the press calendar widget.
+- Add linkable press articles from the press calendar widget.
+- Display the correct press date in the press teaser display.
+
+### Changes 
+- Allow override of javascript behaviours in the theme.
+- Calendar widget paging for events will only work as a pager not as a filter.
+- Use lightroom image style for full screen image gallery.
+
 ## [1.15.0] - 16-02-2018 
 ### Fixed
 - Split the link in media preview into two parts, so the title.

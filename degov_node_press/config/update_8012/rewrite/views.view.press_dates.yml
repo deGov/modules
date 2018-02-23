@@ -1,0 +1,16 @@
+display:
+  default:
+    display_options:
+      filters:
+        field_press_date_value:
+          operator: '>'
+      sorts:
+        field_press_date_value:
+          granularity: second
+  press_page_list:
+    display_options:
+      defaults:
+        use_ajax: false
+        filters: true
+        filter_groups: true
+      use_ajax: true
