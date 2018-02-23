@@ -20,3 +20,10 @@ function degov_node_press_uninstall() {
  * and every minor release as well until 1.15 respectively.
  * The fresh install should have all the changes from 1.1 to 1.15.
  */
+
+/**
+ * Fixes press calendar widget so it will show published press articles.
+ */
+function degov_node_press_update_8012() {
+  \Drupal::service('degov_config.module_updater')->applyUpdates('degov_node_press', '8012');
+}

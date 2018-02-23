@@ -1,0 +1,17 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_media_gallery
+name: lightroom_1920
+label: Lightroom 1920
+effects:
+  83c013cd-42f7-46e5-aaac-f44786c3669c:
+    uuid: 83c013cd-42f7-46e5-aaac-f44786c3669c
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: 1920
+      upscale: false
