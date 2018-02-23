@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [1.15.1] - IN DEVELOPMENT
+### Fixed
+- Display all published press articles in the press calendar widget.
+- Add linkable press articles from the press calendar widget.
+- Display the correct press date in the press teaser display.
+
 ### Changes 
 - Allow override of javascript behaviours in the theme.
 - Calendar widget paging for events will only work as a pager not as a filter.
