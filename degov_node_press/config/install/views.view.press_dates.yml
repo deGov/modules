@@ -1,4 +1,3 @@
-uuid: e5b0a21a-1ae0-4597-bf65-64d7c6e78594
 langcode: de
 status: true
 dependencies:
@@ -15,8 +14,6 @@ dependencies:
     - degov_node_press
     - node
     - user
-_core:
-  default_config_hash: KKaEj5BmvoPHbJvdd9ARDb_w-gsenrWXpzAZwb12ouk
 id: press_dates
 label: Pressetermine
 module: views
@@ -229,7 +226,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>='
+          operator: '>'
           value:
             min: ''
             max: ''
@@ -324,7 +321,7 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: minute
+          granularity: second
           plugin_id: datetime
       title: Pressetermine
       header: {  }
@@ -713,6 +710,10 @@ display:
           plugin_id: view
       defaults:
         header: false
+        use_ajax: false
+        filters: true
+        filter_groups: true
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:

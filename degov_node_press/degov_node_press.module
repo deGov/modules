@@ -23,4 +23,14 @@ function degov_node_press_views_pre_render(ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'press_latest_content')) {
     $view->element['#attached']['library'][] = 'degov_node_press/slider';
   }
+  // Load the press library for additional functionality in the calendar widget.
+  if ($view->storage->id() == 'press_dates' && $view->current_display == 'press_calendar_widget') {
+    $view->element['#attached']['library'][] = 'degov_node_press/degov_press';
+    // Add the path to the press listings page in the drupalSettings.
+    $display_handler = $view->displayHandlers->get($view->display_handler->options['link_display'])->getRoutedDisplay();
+    if (!empty($display_handler)) {
+      $path = $display_handler->getPath();
+      $view->element['#attached']['drupalSettings']['degov_node_press']['path'] = $path;
+    }
+  }
 }

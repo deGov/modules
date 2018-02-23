@@ -8,7 +8,7 @@
   'use strict';
 
   /**
-   * Hide/shows a FAQ paragraph text by clicking on the title.
+   * Fills the date filters on calendar widget click and submits the form.
    */
   Drupal.behaviors.degov_events = {
     attach: function (context, settings) {
