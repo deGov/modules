@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.15.1] - IN DEVELOPMENT
 ### Changes 
-- Allow override of javascript behaviours in the theme. 
+- Allow override of javascript behaviours in the theme.
+- Calendar widget paging for events will only work as a pager not as a filter.
 
 ## [1.15.0] - 16-02-2018 
 ### Fixed

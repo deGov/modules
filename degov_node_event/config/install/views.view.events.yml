@@ -640,6 +640,10 @@ display:
           plugin_id: view
       defaults:
         header: false
+        use_ajax: false
+        arguments: false
+      use_ajax: true
+      arguments: {  }
     cache_metadata:
       max-age: -1
       contexts:

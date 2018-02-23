@@ -1,0 +1,8 @@
+display:
+  events_page_list:
+    display_options:
+      defaults:
+        use_ajax: false
+        arguments: false
+      use_ajax: true
+      arguments: {  }
