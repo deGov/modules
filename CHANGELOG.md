@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changes 
 - Allow override of javascript behaviours in the theme.
 - Calendar widget paging for events will only work as a pager not as a filter.
+- Use lightroom image style for full screen image gallery.
 
 ## [1.15.0] - 16-02-2018 
 ### Fixed
